@@ -1,4 +1,4 @@
-# AssitMe
+# AssistMe
 AssistMe-Globant
 
 Teams
