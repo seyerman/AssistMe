@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public abstract class SearchDocument : IComparable<SearchDocument>
+    public class SearchDocument : IComparable<SearchDocument>
     {
-        public double Score { get; private set; }
+        public double Score { get; set; }
 
-        public ISearchable value;
+        public ISearchable Value { get; private set; }
+
+        public SearchDocument(ISearchable value)
+        {
+            Score = 0;
+            this.Value = value;
+        }
 
         public Dictionary<string, int> GetTermFrequencies()
         {
