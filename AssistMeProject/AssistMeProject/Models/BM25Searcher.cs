@@ -57,8 +57,8 @@ namespace AssistMeProject.Models
             foreach (string q in queryTerms)
             {
                 double idf = Idf(q);
-
-                int tf = d.GetTermFrequencies()[q];
+		var frequencies = d.GetTermFrequencies();
+                int tf = frequencies.ContainsKey(q) ? frequencies[q] : 0;
                 int D = d.GetWordsCount();
                 double avg = GetAverageLength();
                 double prop = avg == 0 ? 0 : D / avg;
