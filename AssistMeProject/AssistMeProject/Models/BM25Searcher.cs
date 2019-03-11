@@ -14,7 +14,7 @@ namespace AssistMeProject.Models
         public List<SearchDocument> Documents { get; set; }
 
         private Dictionary<string, double> _idfList;
-	
+
         public BM25Searcher()
         {
             Documents = new List<SearchDocument>();
@@ -54,10 +54,11 @@ namespace AssistMeProject.Models
         private double Score(SearchDocument d, IEnumerable<string> queryTerms)
         {
             double score = 0;
-            foreach (string q in queryTerms)
+            foreach (string qTerm in queryTerms)
             {
+                string q = qTerm.ToUpper();
                 double idf = Idf(q);
-		var frequencies = d.GetTermFrequencies();
+                var frequencies = d.GetTermFrequencies();
                 int tf = frequencies.ContainsKey(q) ? frequencies[q] : 0;
                 int D = d.GetWordsCount();
                 double avg = GetAverageLength();
@@ -92,7 +93,7 @@ namespace AssistMeProject.Models
                 int nq = DocumentsThatContain(q);
                 double val = (N - nq + 0.5) / (nq + 0.5);
                 val = Math.Log(val);
-		if (val < 0) val = 0;
+                if (val < 0) val = 0;
                 return _idfList[q] = val;
             }
         }
