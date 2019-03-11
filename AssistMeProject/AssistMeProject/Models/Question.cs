@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class Pregunta : Elemento
+    public class Question : Element
     {
         //private  adj; 
 
         public Boolean IsArchived { get; set; }
 
-        private List<Respuesta> ListRespuesta { get; set; }
+        private List<Answer> ListRespuesta { get; set; }
 
     }
 }
