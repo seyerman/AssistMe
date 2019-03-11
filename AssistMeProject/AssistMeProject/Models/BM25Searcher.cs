@@ -92,6 +92,7 @@ namespace AssistMeProject.Models
                 int nq = DocumentsThatContain(q);
                 double val = (N - nq + 0.5) / (nq + 0.5);
                 val = Math.Log(val);
+		if (val < 0) val = 0;
                 return _idfList[q] = val;
             }
         }
