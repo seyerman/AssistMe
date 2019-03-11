@@ -14,6 +14,11 @@ namespace AssistMeProject.Models
         public List<SearchDocument> Documents { get; set; }
 
         private Dictionary<string, double> _idfList;
+	
+        public BM25Searcher()
+        {
+            Documents = new List<SearchDocument>();
+        }
 
         public void AddDocument(ISearchable doc)
         {
