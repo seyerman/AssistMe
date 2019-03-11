@@ -9,22 +9,22 @@ using AssistMeProject.Models;
 
 namespace AssistMeProject.Controllers
 {
-    public class PreguntasController : Controller
+    public class QuestionsController : Controller
     {
         private readonly AssistMeProjectContext _context;
 
-        public PreguntasController(AssistMeProjectContext context)
+        public QuestionsController(AssistMeProjectContext context)
         {
             _context = context;
         }
 
-        // GET: Preguntas
+        // GET: Questions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pregunta.ToListAsync());
+            return View(await _context.Question.ToListAsync());
         }
 
-        // GET: Preguntas/Details/5
+        // GET: Questions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var pregunta = await _context.Pregunta
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (pregunta == null)
+            var question = await _context.Question
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (question == null)
             {
                 return NotFound();
             }
 
-            return View(pregunta);
+            return View(question);
         }
 
-        // GET: Preguntas/Create
+        // GET: Questions/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Preguntas/Create
+        // POST: Questions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IsArchived,id,Title,Description,Date")] Pregunta pregunta)
+        public async Task<IActionResult> Create([Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pregunta);
+                _context.Add(question);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pregunta);
+            return View(question);
         }
 
-        // GET: Preguntas/Edit/5
+        // GET: Questions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var pregunta = await _context.Pregunta.FindAsync(id);
-            if (pregunta == null)
+            var question = await _context.Question.FindAsync(id);
+            if (question == null)
             {
                 return NotFound();
             }
-            return View(pregunta);
+            return View(question);
         }
 
-        // POST: Preguntas/Edit/5
+        // POST: Questions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IsArchived,id,Title,Description,Date")] Pregunta pregunta)
+        public async Task<IActionResult> Edit(int id, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
-            if (id != pregunta.id)
+            if (id != question.Id)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace AssistMeProject.Controllers
             {
                 try
                 {
-                    _context.Update(pregunta);
+                    _context.Update(question);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PreguntaExists(pregunta.id))
+                    if (!QuestionExists(question.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace AssistMeProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pregunta);
+            return View(question);
         }
 
-        // GET: Preguntas/Delete/5
+        // GET: Questions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var pregunta = await _context.Pregunta
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (pregunta == null)
+            var question = await _context.Question
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (question == null)
             {
                 return NotFound();
             }
 
-            return View(pregunta);
+            return View(question);
         }
 
-        // POST: Preguntas/Delete/5
+        // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pregunta = await _context.Pregunta.FindAsync(id);
-            _context.Pregunta.Remove(pregunta);
+            var question = await _context.Question.FindAsync(id);
+            _context.Question.Remove(question);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PreguntaExists(int id)
+        private bool QuestionExists(int id)
         {
-            return _context.Pregunta.Any(e => e.id == id);
+            return _context.Question.Any(e => e.Id == id);
         }
     }
 }

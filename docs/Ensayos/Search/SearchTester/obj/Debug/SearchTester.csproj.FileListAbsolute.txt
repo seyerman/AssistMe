@@ -5,3 +5,10 @@ C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.c
 C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.exe
 C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.pdb
+C:\Users\User\Documents\GitHub\AssistMe-1\docs\Ensayos\Search\SearchTester\bin\Debug\SearchTester.exe.config
+C:\Users\User\Documents\GitHub\AssistMe-1\docs\Ensayos\Search\SearchTester\bin\Debug\SearchTester.exe
+C:\Users\User\Documents\GitHub\AssistMe-1\docs\Ensayos\Search\SearchTester\bin\Debug\SearchTester.pdb
+C:\Users\User\Documents\GitHub\AssistMe-1\docs\Ensayos\Search\SearchTester\obj\Debug\SearchTester.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\AssistMe-1\docs\Ensayos\Search\SearchTester\obj\Debug\SearchTester.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\AssistMe-1\docs\Ensayos\Search\SearchTester\obj\Debug\SearchTester.exe
+C:\Users\User\Documents\GitHub\AssistMe-1\docs\Ensayos\Search\SearchTester\obj\Debug\SearchTester.pdb

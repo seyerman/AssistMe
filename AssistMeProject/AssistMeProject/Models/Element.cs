@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class Elemento : IComparable
+    public class Element : IComparable
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string IdUser { get; set; }
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 

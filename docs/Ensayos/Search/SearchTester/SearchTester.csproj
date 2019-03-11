@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClass.cs" />
     <Compile Include="BM25Searcher.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="ISearchable.cs" />
