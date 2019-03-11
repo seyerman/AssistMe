@@ -23,6 +23,8 @@ namespace AssistMeProject.Models
         }
 
         public int ID { get; set; }
+        public String USERNAME { get; set; }
+        public String PASSWORD { get; set; }
         public String EMAIL { get; set; }
         public String PHOTO { get; set; }
         public int QUESTIONS_ANSWERED { get; set; }
@@ -34,7 +36,12 @@ namespace AssistMeProject.Models
         public String COUNTRY { get; set; }
         public String CITY { get; set; }
 
-
+        public String[] getStringData()
+        {
+            String[] data = { ID.ToString(), USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED.ToString(),POSITIVE_VOTES_RECEIVED.ToString(),
+                QUESTIONS_ASKED.ToString(),INTERESTING_VOTES_RECEIVED.ToString(),DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY};
+            return data;
+        }
 
     }
 }
