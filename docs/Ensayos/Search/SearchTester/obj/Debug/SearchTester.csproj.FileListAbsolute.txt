@@ -1,0 +1,7 @@
+C:\Users\Usuario\source\repos\SearchTester\SearchTester\bin\Debug\SearchTester.exe.config
+C:\Users\Usuario\source\repos\SearchTester\SearchTester\bin\Debug\SearchTester.exe
+C:\Users\Usuario\source\repos\SearchTester\SearchTester\bin\Debug\SearchTester.pdb
+C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.exe
+C:\Users\Usuario\source\repos\SearchTester\SearchTester\obj\Debug\SearchTester.pdb
