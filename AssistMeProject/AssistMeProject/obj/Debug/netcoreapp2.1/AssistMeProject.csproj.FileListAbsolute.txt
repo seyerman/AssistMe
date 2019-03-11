@@ -40,3 +40,8 @@ C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\o
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Answers\Details.g.cshtml.cs
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Answers\Edit.g.cshtml.cs
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Answers\Index.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Comments\Create.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Comments\Delete.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Comments\Details.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Comments\Edit.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Comments\Index.g.cshtml.cs
