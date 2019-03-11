@@ -35,4 +35,11 @@ C:\Users\palma\Desktop\Uni\Semestre 4\Proyecto Integrador\Proyecto Final\AssistM
 C:\Users\palma\Desktop\Uni\Semestre 4\Proyecto Integrador\Proyecto Final\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Preguntas\Details.g.cshtml.cs
 C:\Users\palma\Desktop\Uni\Semestre 4\Proyecto Integrador\Proyecto Final\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Preguntas\Edit.g.cshtml.cs
 C:\Users\palma\Desktop\Uni\Semestre 4\Proyecto Integrador\Proyecto Final\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Preguntas\Index.g.cshtml.cs
-
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.csprojAssemblyReference.cache
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.csproj.CoreCompileInputs.cache
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.RazorAssemblyInfo.cache
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.RazorAssemblyInfo.cs
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.AssemblyInfoInputs.cache
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.AssemblyInfo.cs
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.dll
+D:\projects\visualStudio\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.pdb
