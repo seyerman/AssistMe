@@ -14,5 +14,9 @@ namespace AssistMeProject.Models
         }
 
         public DbSet<AssistMeProject.Models.Question> Question { get; set; }
+        public DbSet<AssistMeProject.Models.Answer> Answer { get; set; }
+        public DbSet<AssistMeProject.Models.Comment> Comment { get; set; }
+
+
     }
 }
