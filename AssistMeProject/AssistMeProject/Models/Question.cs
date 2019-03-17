@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,11 +8,16 @@ namespace AssistMeProject.Models
 {
     public class Question : Element
     {
-        //private  adj; 
+        [Required(ErrorMessage ="Agregue un Titulo a su pregunta"), MaxLength(50),Display(Name ="Titulo")]
+        public string Title { get; set; }
 
-        public Boolean IsArchived { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
 
-        private List<Answer> ListRespuesta { get; set; }
+        public Question()
+        {
+            Answers = new HashSet<Answer>();
+        }
+
 
     }
 }
