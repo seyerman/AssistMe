@@ -8,12 +8,33 @@ namespace AssistMeProject.Models
 {
     public class Element : IComparable
     {
+
+
         public int Id { get; set; }
-        public string Title { get; set; }
+
+        [Required(ErrorMessage ="Agregue un texto como descripción"),Display(Name ="Descripción")]
         public string Description { get; set; }
-        public string IdUser { get; set; }
-        [DataType(DataType.Date)]
+
+        [DataType(DataType.DateTime),Display(Name ="Fecha")]
         public DateTime Date { get; set; }
+
+        //[DataType(DataType.Time),Display(Name ="Hora")]
+        //public DateTime Hour { get; set; }
+
+        public Element()
+        {
+            DateTime creationInstant = DateTime.Now;
+            this.Date = creationInstant;
+           
+        }
+
+
+        // Sin Implementar
+        //public int UserId { get; set; }
+        //public virtual User User { get; set; }
+
+
+
 
         public int CompareTo(object obj)
         {

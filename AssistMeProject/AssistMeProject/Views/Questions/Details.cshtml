@@ -11,12 +11,6 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.IsArchived)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IsArchived)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
         <dd>
@@ -29,12 +23,6 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.IdUser)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IdUser)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Date)
         </dt>
         <dd>
@@ -42,7 +30,34 @@
         </dd>
     </dl>
 </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m=>m.Answers)
+            </th>
+           
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Answers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td> 
+            </tr>
+        }
+    </tbody>
+</table>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id">Agregar Respuesta</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+

@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190315154226_dos")]
+    partial class dos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,10 +29,13 @@ namespace AssistMeProject.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
+                    b.Property<string>("Description");
+
+                    b.Property<string>("IdUser");
 
                     b.Property<int>("QuestionID");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
@@ -49,8 +54,11 @@ namespace AssistMeProject.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
+                    b.Property<string>("Description");
+
+                    b.Property<string>("IdUser");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
@@ -67,12 +75,13 @@ namespace AssistMeProject.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
+                    b.Property<string>("Description");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("IdUser");
+
+                    b.Property<bool>("IsArchived");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
@@ -82,7 +91,7 @@ namespace AssistMeProject.Migrations
             modelBuilder.Entity("AssistMeProject.Models.Answer", b =>
                 {
                     b.HasOne("AssistMeProject.Models.Question", "Question")
-                        .WithMany("Answers")
+                        .WithMany()
                         .HasForeignKey("QuestionID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
