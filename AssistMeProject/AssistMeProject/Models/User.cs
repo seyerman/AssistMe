@@ -7,22 +7,35 @@ namespace AssistMeProject.Models
 {
     public class User
     {
-        public User(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
+
+        public const int LEVEL_ROOT = 1;
+        public const int LEVEL_ADMIN = 2;
+        public const int LEVEL_NORMAL = 3;
+
+        public User(int iD, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
         {
             ID = iD;
-            EMAIL = eMAIL;
-            PHOTO = pHOTO;
+            LEVEL = lEVEL;
+            USERNAME = uSERNAME ?? throw new ArgumentNullException(nameof(uSERNAME));
+            PASSWORD = pASSWORD ?? throw new ArgumentNullException(nameof(pASSWORD));
+            EMAIL = eMAIL ?? throw new ArgumentNullException(nameof(eMAIL));
+            PHOTO = pHOTO ?? throw new ArgumentNullException(nameof(pHOTO));
             QUESTIONS_ANSWERED = qUESTIONS_ANSWERED;
             POSITIVE_VOTES_RECEIVED = pOSITIVE_VOTES_RECEIVED;
             QUESTIONS_ASKED = qUESTIONS_ASKED;
             INTERESTING_VOTES_RECEIVED = iNTERESTING_VOTES_RECEIVED;
-            DESCRIPTION = dESCRIPTION;
-            INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE;
-            COUNTRY = cOUNTRY;
-            CITY = cITY;
+            DESCRIPTION = dESCRIPTION ?? throw new ArgumentNullException(nameof(dESCRIPTION));
+            INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE ?? throw new ArgumentNullException(nameof(iNTERESTS_OR_KNOWLEDGE));
+            COUNTRY = cOUNTRY ?? throw new ArgumentNullException(nameof(cOUNTRY));
+            CITY = cITY ?? throw new ArgumentNullException(nameof(cITY));
+        }
+
+        public User()
+        {
         }
 
         public int ID { get; set; }
+        public int LEVEL { get; set; }
         public String USERNAME { get; set; }
         public String PASSWORD { get; set; }
         public String EMAIL { get; set; }

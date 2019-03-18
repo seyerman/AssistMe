@@ -1,43 +1,106 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@ViewData["Title"] - AssistMeProject</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+      <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+      
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+      <!--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />-->
+        <!--<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />-->
     </environment>
+
+
+    <!--modificados todos los links para que sean relativos ~/ruta-->
+    <!-- Main Style -->
+    <link rel="stylesheet" href="~/style.css">
+
+    <!-- Skins -->
+    <link rel="stylesheet" href="~/css/skins/skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="~/images/favicon.png">
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">AssistMeProject</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Questions" asp-action="Index">Questions</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+    <div id="wrap" class="grid_1200">
+        <div id="header-top">
+            <section class="container clearfix">
+                <nav class="header-top-nav">
+                    <ul>
+                        <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                    </ul>
+                </nav>
+                <div class="header-search">
+                    <form>
+                        <input type="text" value="Search here ..." onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';">
+                        <button type="submit" class="search-submit"></button>
+                    </form>
+                </div>
+            </section><!-- End container -->
+        </div><!-- End header-top -->
 
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <header id="header">
+            <section class="container clearfix">
+                <div class="logo"><a asp-controller="Home" asp-action="Index"><img alt="" src="~/images/logo.png"></a></div> <!--agregado icono de la app y link a home page desde el mismo-->
+                <nav class="navigation">
+                    <ul>
+                        <li class="current_page_item">
+                            <a asp-controller="Home" asp-action="Index">Home</a> <!--Agregado link a home -->
+                        </li>
+                        <li class="ask_question"><a asp-controller="Questions" asp-action="Create">Ask Question</a></li> <!--Agregado link a crear question-->
+                        <li>
+                            <a asp-controller="Questions" asp-action="Index">Questions</a><!--Agregado link a lista de Questions-->
+                            <ul>
+                                <li><a asp-controller="Home" asp-action="Index">Questions Category</a></li><!--Faltan funciones-->
+                                <li><a href="single_question.html">Question Single</a></li>
+                                <li><a href="single_question_poll.html">Poll Question Single</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="user_profile.html">User</a><!--Faltan estas funcionalidades-->
+                            <ul>
+                                <li><a href="user_profile.html">User Profile</a></li>
+                                <li><a href="user_questions.html">User Questions</a></li>
+                                <li><a href="user_answers.html">User Answers</a></li>
+                                <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
+                                <li><a href="user_points.html">User Points</a></li>
+                                <li><a href="edit_profile.html">Edit Profile</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="right_sidebar.html">Pages</a> <!--Faltan estos links-->
+                            <ul>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="contact_us.html">Contact Us</a></li>
+                                <li><a href="ask_question.html">Ask Question</a></li>
+                                <li><a href="right_sidebar.html">Right Sidebar</a></li>
+                                <li><a href="left_sidebar.html">Left Sidebar</a></li>
+                                <li><a href="full_width.html">Full Width</a></li>
+                                <li><a href="404.html">404</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </section><!-- End container -->
+        </header><!-- End header -->
+    </div> <!--End wrap-->
+
 
     <partial name="_CookieConsentPartial" />
 
@@ -48,6 +111,29 @@
             <p>&copy; 2019 - AssistMeProject</p>
         </footer>
     </div>
+
+    <!-- js -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.min.js"></script>
+    <script src="~/js/html5.js"></script>
+    <script src="~/js/twitter/jquery.tweet.js"></script>
+    <script src="~/js/jflickrfeed.min.js"></script>
+    <script src="~/js/jquery.inview.min.js"></script>
+    <script src="~/js/jquery.tipsy.js"></script>
+    <script src="~/js/tabs.js"></script>
+    <script src="~/js/jquery.flexslider.js"></script>
+    <script src="~/js/jquery.prettyPhoto.js"></script>
+    <script src="~/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="~/js/jquery.scrollTo.js"></script>
+    <script src="~/js/jquery.nav.js"></script>
+    <script src="~/js/tags.js"></script>
+    <script src="~/js/jquery.bxslider.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <!-- End js -->
+
+
+
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
