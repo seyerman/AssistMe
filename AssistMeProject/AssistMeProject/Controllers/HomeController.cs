@@ -12,7 +12,7 @@ namespace AssistMeProject.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index","Questions");
         }
 
         public IActionResult About()
