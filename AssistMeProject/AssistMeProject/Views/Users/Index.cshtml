@@ -71,8 +71,13 @@
                                     <label><input type="checkbox" checked="checked"> Recuerdame</label>
                                 </div>
                                 <div class="text-right">
-                                    <a class="button small orange-button">Crear cuenta</a>
+                                    <a class="button color small signup">Create an account</a>
                                 </div>
+
+
+
+
+
                             </form>
                         </div>
                     </div><!-- End page-content -->
@@ -89,3 +94,81 @@
 
 </div><!-- End wrap -->
 <div class="go-up"><i class="icon-chevron-up"></i></div>
+<div class="panel-pop" id="signup">
+    <h2>Register Now<i class="icon-remove"></i></h2>
+    <div class="form-style form-style-3">
+        <form>
+            <div class="form-inputs clearfix">
+                <p>
+                    <label class="required">Username<span>*</span></label>
+                    <input type="text">
+                </p>
+                <p>
+                    <label class="required">E-Mail<span>*</span></label>
+                    <input type="email">
+                </p>
+                <p>
+                    <label class="required">Password<span>*</span></label>
+                    <input type="password" value="">
+                </p>
+                <p>
+                    <label class="required">Confirm Password<span>*</span></label>
+                    <input type="password" value="">
+                </p>
+            </div>
+            <p class="form-submit">
+                <input type="submit" value="Signup" class="button color small submit">
+            </p>
+        </form>
+    </div>
+</div><!-- End signup -->
+<style>
+    .wrap-pop {
+        display: none;
+    }
+
+</style>
+<script>
+    /* Signup */
+    window.addEventListener("load", function (event) {
+        jQuery(".signup,.login-links-r a").click(function () {
+            jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
+            jQuery("#signup").show().animate({ "top": "50%" }, 500);
+            jQuery("body").prepend("<div class='wrap-pop'></div>");
+            wrap_pop();
+            return false;
+        });
+
+        /* Lost password */
+
+        jQuery(".login-password a").click(function () {
+            jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
+            jQuery("#lost-password").show().animate({ "top": "50%" }, 500);
+            jQuery("body").prepend("<div class='wrap-pop'></div>");
+            wrap_pop();
+            return false;
+        });
+
+        /* Panel pop */
+
+        jQuery(".panel-pop").each(function () {
+            var panel_pop = jQuery(this);
+            var panel_height = panel_pop.height();
+            panel_pop.css("margin-top", "-" + panel_height / 2 + "px");
+        });
+
+        jQuery(".panel-pop h2 i").click(function () {
+            jQuery(this).parent().parent().animate({ "top": "-100%" }, 500);
+            jQuery(".wrap-pop").remove();
+        });
+
+        function wrap_pop() {
+            jQuery(".wrap-pop").click(function () {
+                jQuery(".panel-pop").animate({ "top": "-100%" }, 500).hide(function () {
+                    jQuery(this).animate({ "top": "-100%" }, 500);
+                });
+                jQuery(this).remove();
+            });
+        }
+    });
+</script>
