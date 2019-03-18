@@ -1,44 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Pagina de Inicio";
+    ViewData["Title"] = "Iniciar sesión";
 }
 
 <div id="wrap" class="grid_1200">
-
-    <div class="panel-pop" id="lost-password">
-        <h2>Lost Password<i class="icon-remove"></i></h2>
-        <div class="form-style form-style-3">
-            <p>Lost your password? Please enter your username and email address. You will receive a link to create a new password via email.</p>
-            <form>
-                <div class="form-inputs clearfix">
-                    <p>
-                        <label class="required">Username<span>*</span></label>
-                        <input type="text">
-                    </p>
-                    <p>
-                        <label class="required">E-Mail<span>*</span></label>
-                        <input type="email">
-                    </p>
-                </div>
-                <p class="form-submit">
-                    <input type="submit" value="Reset" class="button color small submit">
-                </p>
-            </form>
-            <div class="clearfix"></div>
-        </div>
-    </div><!-- End lost-password -->
-
 
     <div class="breadcrumbs">
         <section class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Login</h1>
+                    <h1>@ViewData["Title"]</h1>
                 </div>
                 <div class="col-md-12">
                     <div class="crumbs">
-                        <a href="#">Inicio</a>
+                        <a href="#">Home</a>
                         <span class="crumbs-span">/</span>
-                        <span class="current">Entrar</span>
+                        <span class="current">Index</span>
                     </div>
                 </div>
             </div><!-- End row -->
@@ -50,7 +26,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="page-content">
-                        <h2>Iniciar sesión</h2>
+                        <h2>@ViewData["Title"]</h2>
                         <div class="form-style form-style-3">
                             <form>
                                 <div class="form-inputs clearfix">
@@ -94,6 +70,7 @@
 
 </div><!-- End wrap -->
 <div class="go-up"><i class="icon-chevron-up"></i></div>
+<<<<<<< HEAD
 <div class="panel-pop" id="signup">
     <h2>Register Now<i class="icon-remove"></i></h2>
     <div class="form-style form-style-3">
@@ -172,3 +149,5 @@
         }
     });
 </script>
+=======
+>>>>>>> dd2fecdf8d085f2f478d2f4754399b5ec0f3d768

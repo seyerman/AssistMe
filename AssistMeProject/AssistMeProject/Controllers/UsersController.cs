@@ -13,6 +13,13 @@ namespace AssistMeProject.Controllers
             return View();
         }
 
+<<<<<<< HEAD
 
+=======
+        public IActionResult Profile()
+        {
+            return View();
+        }
+>>>>>>> dd2fecdf8d085f2f478d2f4754399b5ec0f3d768
     }
 }
