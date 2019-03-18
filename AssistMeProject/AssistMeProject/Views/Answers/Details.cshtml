@@ -30,7 +30,32 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-controller="Comments" asp-action="Create" asp-route-AnswerId="@Model.Id">Agregar Comentario</a> |
-    <a asp-action="Index">Back to List</a>
+
+
+
+<div id="commentlist">
+    
+
+
 </div>
+<div>
+    <a asp-controller="Comments" asp-action="Create" asp-route-AnswerId="@Model.Id">Agregar Comentario</a>
+    <!--|
+    <a asp-action="Index">Back to List</a> -->
+</div>
+
+@section scripts{ 
+
+    <script>
+        $(function () {
+            $.ajax({
+                url: "@Url.Content("~/Comments/CommentList?AnswerId="+Model.Id)"
+            }).done(function (data) {
+                $('#commentlist').html(data);
+            }).fail(function () {
+                alert("error");
+            });
+        }
+        );
+    </script>
+}

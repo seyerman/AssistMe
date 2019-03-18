@@ -25,6 +25,13 @@ namespace AssistMeProject.Controllers
             return View(await assistMeProjectContext.ToListAsync());
         }
 
+        public async Task<IActionResult> CommentList(int? AnswerId)
+        {
+            var assistMeProjectContext = _context.Comment.Where(c => c.AnswerId == AnswerId).Include(s=>s.Answer);
+            return PartialView(await assistMeProjectContext.ToListAsync());
+        }
+
+
         // GET: Comments/Details/5
         public async Task<IActionResult> Details(int? id)
         {
