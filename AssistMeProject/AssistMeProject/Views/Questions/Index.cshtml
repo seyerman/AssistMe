@@ -21,7 +21,7 @@
                             {
                                 <article class="question question-type-normal">
                                     <h2>
-                                        <a asp-action="Details"> @Html.DisplayFor(modelItem => item.Title)</a>
+                                        <a asp-action="Details" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
                                     </h2>
                                     <a class="question-report" href="#">Report</a>
                                     <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
@@ -37,7 +37,7 @@
                                         </div>
                                         <span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span>
                                         <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
-                                        <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
+                                        <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>5 Answer</a></span>
                                         <span class="question-view"><i class="icon-user"></i>70 views</span>
                                         <div class="clearfix"></div>
                                     </div>
