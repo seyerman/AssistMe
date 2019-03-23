@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class Element : IComparable
+    public class Element : IComparable, ISearchable
     {
 
 
@@ -38,7 +39,14 @@ namespace AssistMeProject.Models
 
         public int CompareTo(object obj)
         {
+            return 0;
             throw new NotImplementedException();
+        }
+
+        public virtual string GetDocumentText()
+        {
+            StringBuilder sb = new StringBuilder();
+            return "";
         }
     }
 }

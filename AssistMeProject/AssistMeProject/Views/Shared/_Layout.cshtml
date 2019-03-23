@@ -47,7 +47,7 @@
                 <div class="header-search">
                     <form>
                         <input type="text" value="Search here ..." onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';">
-                        <button type="submit" class="search-submit"></button>
+                        <button type="button" class="search-submit" onclick="location.href='@Url.Action("Search", "Questions", new { query = "maincra" })'"></button>
                     </form>
                 </div>
             </section><!-- End container -->

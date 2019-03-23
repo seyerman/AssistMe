@@ -1,0 +1,129 @@
+﻿@model IEnumerable<AssistMeProject.Models.Question>
+
+@{
+    ViewData["Title"] = "Questions";
+}
+
+<div class="col-md-9">
+
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="tabs-warp question-tab">
+                    <ul class="tabs">
+                        <li class="tab"><a href="#" class="current">Recent Questions</a></li>
+                        <li class="tab"><a href="#">No answers</a></li>
+                    </ul>
+                    <div class="tab-inner-warp">
+                        <div class="tab-inner">
+                            @{ 
+                                int counter = 0;
+                                foreach (var item in Model)
+                                {
+                                <article class="question question-type-normal">
+                                    <h2>
+                                        <a asp-action="Details" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
+                                    </h2>
+                                    <a class="question-report" href="#">Report</a>
+                                    <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+                                    <div class="question-author">
+                                        <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+                                    </div>
+                                    <div class="question-inner">
+                                        <div class="clearfix"></div>
+                                        <p class="question-desc">@Html.DisplayFor(modelItem => item.Description)</p>
+                                        <div class="question-details">
+                                            <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
+                                            <span class="question-favorite"><i class="icon-star"></i>5</span>
+                                        </div>
+                                        <span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span>
+                                        <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
+                                        <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>5 Answer</a></span>
+                                        <span class="question-view"><i class="icon-user"></i>70 views</span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </article>
+                                    counter++;
+                                }
+                              }
+                            <a href="#" class="load-questions"><i class="icon-refresh"></i>Load More Questions</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- End page-content -->
+            <aside class="col-md-3 sidebar">
+                <div class="widget widget_stats">
+                    <h3 class="widget_title">Stats</h3>
+                    <div class="ul_list ul_list-icon-ok">
+                        <ul>
+                            <li><i class="icon-question-sign"></i>Questions ( <span>@counter </span> )</li>
+                            <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget widget_login">
+                    <h3 class="widget_title">Login</h3>
+                    <div class="form-style form-style-2">
+                        <form>
+                            <div class="form-inputs clearfix">
+                                <p class="login-text">
+                                    <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
+                                    <i class="icon-user"></i>
+                                </p>
+                                <p class="login-password">
+                                    <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
+                                    <i class="icon-lock"></i>
+                                    <a href="#">Forget</a>
+                                </p>
+                            </div>
+                            <p class="form-submit login-submit">
+                                <input type="submit" value="Log in" class="button color small login-submit submit">
+                            </p>
+                            <div class="rememberme">
+                                <label><input type="checkbox" checked="checked"> Remember Me</label>
+                            </div>
+                        </form>
+                        <ul class="login-links login-links-r">
+                            <li><a href="#">Register</a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="widget widget_highest_points">
+                    <h3 class="widget_title">Highest points</h3>
+                    <ul>
+                        <li>
+                            <div class="author-img">
+                                <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
+                            </div>
+                            <h6><a href="#">user 1</a></h6>
+                            <span class="comment">12 Points</span>
+                        </li>
+                        <li>
+                            <div class="author-img">
+                                <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
+                            </div>
+                            <h6><a href="#">user 2</a></h6>
+                            <span class="comment">11 Points</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget_tag_cloud">
+                    <h3 class="widget_title">Tags</h3>
+                    <a href="#">Tag 1</a>
+                    <a href="#">Tag 2</a>
+                </div>
+
+            </aside><!-- End sidebar -->
+
+
+        </div><!-- End row -->
+    </section><!-- End container -->
+
+</div><!-- End main -->

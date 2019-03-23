@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
@@ -18,6 +19,14 @@ namespace AssistMeProject.Models
             Answers = new HashSet<Answer>();
         }
 
+        public override string GetDocumentText()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Title);
+            sb.Append(" ");
+            sb.Append(Description);
+            return sb.ToString();
+        }
 
     }
 }
