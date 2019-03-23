@@ -46,6 +46,7 @@
                 </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
+
                         <input type="text" value="Search here ..." onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';" name="query">
                         <button type="submit" class="search-submit"></button>
                     </form>
