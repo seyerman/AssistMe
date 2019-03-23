@@ -17,14 +17,19 @@ namespace AssistMeProject.Controllers
         public QuestionsController(AssistMeProjectContext context)
         {
             _context = context;
-            _searcher = new BM25Searcher();
-            LoadSearcher();
+            initSearcher();
             
         }
 
-        private async void LoadSearcher()
+        private void initSearcher()
         {
-            var questions = await _context.Question.ToListAsync();
+            _searcher = new BM25Searcher();
+            LoadSearcher();
+        }
+
+        private void LoadSearcher()
+        {
+            var questions = _context.Question.ToList();
             foreach(var question in questions)
             {
                 _searcher.AddDocument(question);
@@ -35,11 +40,14 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Question.ToListAsync());
         }
 
+        [HttpPost]
         public async Task<IActionResult> Search(string query)
         {
+            initSearcher();
             List<Question> questions = new List<Question>();
             List<ISearchable> searchables = _searcher.Search(query);
             foreach (ISearchable s in searchables)

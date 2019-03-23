@@ -188,7 +188,7 @@ using AssistMeProject.Models;
             WriteLiteral("    </tbody>\r\n</table>\r\n\r\n<div>\r\n    ");
             EndContext();
             BeginContext(1346, 102, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce8402f5c6f342729e8ac13660a307cb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a032f2fe7834118ae3c6fa91cef848b", async() => {
                 BeginContext(1427, 17, true);
                 WriteLiteral("Agregar Respuesta");
                 EndContext();
@@ -225,7 +225,7 @@ using AssistMeProject.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(1456, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "686d8e11877a47b8840fdd7fc380cdd2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d33a75dde0844d0fadcd8e7e86e8ba9c", async() => {
                 BeginContext(1478, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();
@@ -359,7 +359,7 @@ using AssistMeProject.Models;
                 ");
             EndContext();
             BeginContext(5562, 1533, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11e934ac296e4011a3cf7aa9a46fca5c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de6e5c5d78404e0c837813fde047c98d", async() => {
                 BeginContext(5630, 1458, true);
                 WriteLiteral(@"
                     <div id=""respond-inputs"" class=""clearfix"">
@@ -438,7 +438,7 @@ using AssistMeProject.Models;
             WriteLiteral("lass=\"widget_title\">Login</h3>\r\n                <div class=\"form-style form-style-2\">\r\n                    ");
             EndContext();
             BeginContext(8226, 1240, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce19e2de6713493dbea2fd585259efc2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa630f1aa7cb4819b3715fa44ec13c01", async() => {
                 BeginContext(8232, 1227, true);
                 WriteLiteral(@"
                         <div class=""form-inputs clearfix"">

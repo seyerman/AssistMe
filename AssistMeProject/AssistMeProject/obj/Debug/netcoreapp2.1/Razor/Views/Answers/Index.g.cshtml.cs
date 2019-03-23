@@ -64,7 +64,7 @@ using AssistMeProject.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(123, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4003d989b0044d6fbbb9de16185ee791", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a0121fc5271744f2ae6fe13c1e956329", async() => {
                 BeginContext(146, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -164,7 +164,7 @@ using AssistMeProject.Models;
             WriteLiteral("\">Edit</a> |-->\r\n                ");
             EndContext();
             BeginContext(1044, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71f2aafc207343f3941c3e03096d39e7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "815580f22a4946d59a99084008807a4e", async() => {
                 BeginContext(1092, 7, true);
                 WriteLiteral("Details");
                 EndContext();
