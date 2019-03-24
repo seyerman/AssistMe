@@ -88,7 +88,7 @@ using AssistMeProject.Models;
             WriteLiteral("                                <article class=\"question question-type-normal\">\r\n                                    <h2>\r\n                                        ");
             EndContext();
             BeginContext(878, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c1080befc4948f0bad75374e0f3a1a5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "621eec67ced145a0bb84b51abb5bbc2b", async() => {
                 BeginContext(926, 1, true);
                 WriteLiteral(" ");
                 EndContext();
@@ -165,7 +165,7 @@ using AssistMeProject.Models;
             WriteLiteral("</span>\r\n                                        <span class=\"question-comment\">");
             EndContext();
             BeginContext(2488, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9bd47cb27cf4ffeb371ba689a7a1222", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47ce04e0a8214f10983b7e3a4cb2c30a", async() => {
                 BeginContext(2536, 36, true);
                 WriteLiteral("<i class=\"icon-comment\"></i>5 Answer");
                 EndContext();
@@ -234,7 +234,7 @@ using AssistMeProject.Models;
                         ");
             EndContext();
             BeginContext(3848, 1312, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "260013d30922488cbbaf011e67023b36", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0aba09f45fbb4f2bb7c0daca87d49b28", async() => {
                 BeginContext(3854, 1299, true);
                 WriteLiteral(@"
                             <div class=""form-inputs clearfix"">
