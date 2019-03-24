@@ -4,33 +4,29 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+
+
+<ul class="children">
+    <li class="comment">
+        <div class="comment-body clearfix">
+            <div class="avatar"><img alt="" src="http://placehold.it/60x60/FFF/444"></div>
+            <div class="comment-text">
+                <div class="author clearfix">
+                    <div class="comment-author"><a href="#">Anom</a></div>
+                    <div class="comment-meta">
+                        <div class="date"><i class="icon-time"></i>@Html.DisplayFor(m => m.Date)</div>
+                    </div>
+                </div>
+                <div class="text">
+                    <p>@Html.DisplayFor(m => m.Description)</p>
+                    <p>Comment in: @Html.DisplayFor(m=>m.Answer.Description)</p>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div>
-    <h4>Comment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Answer)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Answer.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> <!--|
+    <a asp-action="Index">Back to List</a>-->
 </div>
