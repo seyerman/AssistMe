@@ -39,7 +39,9 @@ namespace AssistMeProject.Models
 
         public int CompareTo(object obj)
         {
-            return 0;
+
+            Element other = (Element)obj; 
+            return -Date.CompareTo(other.Date);
             throw new NotImplementedException();
         }
 

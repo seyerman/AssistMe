@@ -112,7 +112,7 @@ using AssistMeProject.Models;
             WriteLiteral("</p>\r\n\r\n            </div>\r\n            <div class=\"question-answered question-answered-done\"><i class=\"icon-ok\"></i>Best Answer</div>\r\n        </div>\r\n    </div>\r\n    <div>\r\n        ");
             EndContext();
             BeginContext(1349, 102, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8987c40201c8410aa438aa17c295ef9b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19af28422f9c4ae79c0bc4cc3e751e9a", async() => {
                 BeginContext(1429, 18, true);
                 WriteLiteral("Agregar Comentario");
                 EndContext();

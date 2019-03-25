@@ -40,8 +40,9 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> Index()
         {
-
-            return View(await _context.Question.ToListAsync());
+            List<Question> questions = await _context.Question.ToListAsync();
+            questions.Sort();
+            return View(questions);
         }
 
         [HttpPost]
@@ -98,7 +99,6 @@ namespace AssistMeProject.Controllers
             {
                 _context.Add(question);
                 await _context.SaveChangesAsync();
-                _searcher.AddDocument(question);
                 return RedirectToAction(nameof(Index));
             }
             return View(question);
