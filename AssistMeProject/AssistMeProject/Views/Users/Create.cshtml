@@ -1,0 +1,90 @@
+﻿@model AssistMeProject.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LEVEL" class="control-label"></label>
+                <input asp-for="LEVEL" class="form-control" min="1" max="3" />
+                <span asp-validation-for="LEVEL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="USERNAME" class="control-label"></label>
+                <input asp-for="USERNAME" class="form-control" />
+                <span asp-validation-for="USERNAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PASSWORD" class="control-label"></label>
+                <input asp-for="PASSWORD" class="form-control" />
+                <span asp-validation-for="PASSWORD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EMAIL" class="control-label"></label>
+                <input asp-for="EMAIL" class="form-control" />
+                <span asp-validation-for="EMAIL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PHOTO" class="control-label"></label>
+                <input asp-for="PHOTO" class="form-control" />
+                <span asp-validation-for="PHOTO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QUESTIONS_ANSWERED" class="control-label"></label>
+                <input asp-for="QUESTIONS_ANSWERED" class="form-control" />
+                <span asp-validation-for="QUESTIONS_ANSWERED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="POSITIVE_VOTES_RECEIVED" class="control-label"></label>
+                <input asp-for="POSITIVE_VOTES_RECEIVED" class="form-control" />
+                <span asp-validation-for="POSITIVE_VOTES_RECEIVED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QUESTIONS_ASKED" class="control-label"></label>
+                <input asp-for="QUESTIONS_ASKED" class="form-control" />
+                <span asp-validation-for="QUESTIONS_ASKED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="INTERESTING_VOTES_RECEIVED" class="control-label"></label>
+                <input asp-for="INTERESTING_VOTES_RECEIVED" class="form-control" />
+                <span asp-validation-for="INTERESTING_VOTES_RECEIVED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DESCRIPTION" class="control-label"></label>
+                <input asp-for="DESCRIPTION" class="form-control" />
+                <span asp-validation-for="DESCRIPTION" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="INTERESTS_OR_KNOWLEDGE" class="control-label"></label>
+                <input asp-for="INTERESTS_OR_KNOWLEDGE" class="form-control" />
+                <span asp-validation-for="INTERESTS_OR_KNOWLEDGE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COUNTRY" class="control-label"></label>
+                <input asp-for="COUNTRY" class="form-control" />
+                <span asp-validation-for="COUNTRY" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CITY" class="control-label"></label>
+                <input asp-for="CITY" class="form-control" />
+                <span asp-validation-for="CITY" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

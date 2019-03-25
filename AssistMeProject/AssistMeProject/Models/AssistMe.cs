@@ -7,55 +7,58 @@ namespace AssistMeProject.Models
 {
     public class AssistMe
     {
-
+        
+        private readonly AssistMeProjectContext _context;
         public const string NORMAL_LOGIN = "N";
         public const string GOOGLE_LOGIN = "G";
-        private Dictionary<string, User> listUsers;
 
-        public AssistMe()
+
+        public AssistMe(AssistMeProjectContext _context)
         {
-
-            listUsers = new Dictionary<string, User>();
-
+            this._context = _context;
         }
 
         /*
          * Create a number (pass by parameter) of user for test
          */
-        private void createTestUsers(int number)
+        public void CreateTestUsers(int number)
         {
             for (int i = 1; i <= number; i++)
             {
                 string username = "Test" + i;
                 string email = i % 2 == 0 ? username + ".gaming@globant.com" : username + ".consulting@globant.com";
-                User user = new User(i, User.LEVEL_NORMAL, username, username, email, "../data/photos/" + username, i % 6, i % 10, i % 30, i % 20, "I like to help people", "Play guitar, play piano, food lover", "Colombia", "Medellin");
-                listUsers.Add(username, user);
+                User user = new User(i, "",User.LEVEL_NORMAL, username, username, email, "../data/photos/" + username, i % 6, i % 10, i % 30, i % 20, "I like to help people", "Play guitar, play piano, food lover", "Colombia", "Medellin");
+                _context.User.Add(user);
             }
+            _context.SaveChanges();
         }
 
         /*
          * Returns the information found by a username received (if exist) and if it's password it's correct. If it doesn´t exist or
          * password it´s not correct, returns null
          */
-        private string[] findUser(string username, string password, string method)
+        public User FindUser(string username, string password, string method)
         {
-            string[] userFound = null;
             User found = null;
+
+            if (method.Equals("N"))
+                method = NORMAL_LOGIN;
+            else if (method.Equals("G"))
+                method = GOOGLE_LOGIN;
+            else
+                return null;
+
             if (method.Equals(GOOGLE_LOGIN))
             {
-                if (listUsers[username] != null)
-                    found = listUsers[username];
+                found = _context.User.FirstOrDefault(a => a.GOOGLE_KEY.Equals(username));
             }
-            else if (listUsers.Equals(NORMAL_LOGIN))
+            else if (method.Equals(NORMAL_LOGIN))
             {
-                if (listUsers[username] != null && listUsers[username].PASSWORD.Equals(password))
-                    found = listUsers[username];
+                found = _context.User.FirstOrDefault(a => a.USERNAME.Equals(username));
+                if (found != null && !found.PASSWORD.Equals(password))
+                    found = null;
             }
-            if (found != null)
-            {
-                userFound = found.getStringData();
-            }
-            return userFound;
+            return found;
         }
 
     }

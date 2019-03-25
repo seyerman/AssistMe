@@ -1,0 +1,99 @@
+﻿@model AssistMeProject.Models.User
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LEVEL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LEVEL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.USERNAME)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.USERNAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PASSWORD)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PHOTO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PHOTO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QUESTIONS_ANSWERED)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QUESTIONS_ANSWERED)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.POSITIVE_VOTES_RECEIVED)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.POSITIVE_VOTES_RECEIVED)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QUESTIONS_ASKED)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QUESTIONS_ASKED)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.INTERESTING_VOTES_RECEIVED)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.INTERESTING_VOTES_RECEIVED)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.INTERESTS_OR_KNOWLEDGE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.INTERESTS_OR_KNOWLEDGE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.COUNTRY)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.COUNTRY)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CITY)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CITY)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

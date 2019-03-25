@@ -79,6 +79,45 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Question");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.User", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CITY");
+
+                    b.Property<string>("COUNTRY");
+
+                    b.Property<string>("DESCRIPTION");
+
+                    b.Property<string>("EMAIL");
+
+                    b.Property<string>("GOOGLE_KEY");
+
+                    b.Property<int>("INTERESTING_VOTES_RECEIVED");
+
+                    b.Property<string>("INTERESTS_OR_KNOWLEDGE");
+
+                    b.Property<int>("LEVEL");
+
+                    b.Property<string>("PASSWORD");
+
+                    b.Property<string>("PHOTO");
+
+                    b.Property<int>("POSITIVE_VOTES_RECEIVED");
+
+                    b.Property<int>("QUESTIONS_ANSWERED");
+
+                    b.Property<int>("QUESTIONS_ASKED");
+
+                    b.Property<string>("USERNAME");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.Answer", b =>
                 {
                     b.HasOne("AssistMeProject.Models.Question", "Question")

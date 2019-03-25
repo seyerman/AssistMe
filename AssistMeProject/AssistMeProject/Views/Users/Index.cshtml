@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<AssistMeProject.Models.User>
+
+@{
     ViewData["Title"] = "Iniciar sesión";
 }
 
@@ -28,16 +30,19 @@
                     <div class="page-content">
                         <h2>@ViewData["Title"]</h2>
                         <div class="form-style form-style-3">
-                            <form>
+                            <form method="get" asp-action="Login">
                                 <div class="form-inputs clearfix">
                                     <p class="login-text">
-                                        <input type="text" value="" placeholder="Nombre de usuario">
+                                        <input type="text" name="username" value="" autocomplete="off" placeholder="Nombre de usuario">
                                         <i class="icon-user"></i>
                                     </p>
                                     <p class="login-password">
-                                        <input type="password" value="" placeholder="Contraseña">
+                                        <input type="password" name="password" value="" autocomplete="off" placeholder="Contraseña">
                                         <i class="icon-lock"></i>
                                         <a href="#">La olvidé</a>
+                                    </p>
+                                    <p class="hidden">
+                                        <input type="text" name="method" value="N" /> <!--value=> how does the person enter, nor google or normal. N=normal G = google -->
                                     </p>
                                 </div>
                                 <p class="form-submit login-submit">
@@ -56,7 +61,7 @@
                 <div class="col-md-6 text-center">
                     <div class="page-content">
                         <h2 class="text-center">Todo en un solo lugar, inicia con tu cuenta de: </h2>
-                        <a class="button small color signup"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" width="150" /></a>
+                        <a class="button small color singinByGoogle login-submit submit"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" width="150" /></a>
                     </div><!-- End page-content -->
                 </div><!-- End col-md-6 -->
             </div><!-- End row -->
@@ -97,7 +102,6 @@
     .wrap-pop {
         display: none;
     }
-
 </style>
 <script>
     /* Signup */
@@ -143,3 +147,106 @@
         }
     });
 </script>
+
+<!--<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LEVEL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USERNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PASSWORD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHOTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QUESTIONS_ANSWERED)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.POSITIVE_VOTES_RECEIVED)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QUESTIONS_ASKED)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INTERESTING_VOTES_RECEIVED)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRIPTION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INTERESTS_OR_KNOWLEDGE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COUNTRY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CITY)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LEVEL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USERNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PASSWORD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHOTO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QUESTIONS_ANSWERED)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.POSITIVE_VOTES_RECEIVED)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QUESTIONS_ASKED)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INTERESTING_VOTES_RECEIVED)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DESCRIPTION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INTERESTS_OR_KNOWLEDGE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COUNTRY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CITY)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>-->
