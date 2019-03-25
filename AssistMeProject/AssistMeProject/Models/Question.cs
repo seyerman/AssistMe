@@ -10,6 +10,7 @@ namespace AssistMeProject.Models
     public class Question : Element
     {
         [Required(ErrorMessage ="Agregue un Titulo a su pregunta"), MaxLength(50),Display(Name ="Titulo")]
+        [Required(ErrorMessage ="Agregue un Titulo a su pregunta"), MaxLength(150),Display(Name ="Titulo")]
         public string Title { get; set; }
 
         public virtual ICollection<Answer> Answers { get; set; }
