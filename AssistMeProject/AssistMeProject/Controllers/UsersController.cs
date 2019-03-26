@@ -27,7 +27,7 @@ namespace AssistMeProject.Controllers
         {
             var i = ((ClaimsIdentity)Thread.CurrentPrincipal);
             var c = i.Claims.Where(x => x.Type == CustomClaims.ID).FirstOrDefault();
-            ViewData["LOCATION"] = i.Claims.FirstOrDefault(a => a.Type==CustomClaims.LOCATION);
+            ViewData["LOCATION"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.LOCATION);
             ViewData["LEVEL"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.LEVEL);
             ViewData["PASSWORD"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.PASSWORD);
             ViewData["USERNAME"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.USERNAME);
@@ -39,7 +39,7 @@ namespace AssistMeProject.Controllers
             ViewData["DESCRIPTION"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.DESCRIPTION);
             ViewData["INTERESTS_OR_KNOWLEDGE"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.INTERESTS_OR_KNOWLEDGE);
             ViewData["INTERESTING_VOTES_RECEIVED"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.INTERESTING_VOTES_RECEIVED);
-            ViewData["EMAIL"] = i.Claims.FirstOrDefault(a => a.Type==CustomClaims.EMAIL);
+            ViewData["EMAIL"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.EMAIL);
         }
 
         public void ChargeUserData(User user)
@@ -59,45 +59,11 @@ namespace AssistMeProject.Controllers
             ViewData["EMAIL"] = user.EMAIL;
         }
 
-        //A method that charge (at cookies for a time) all needed information of an user if it's password it's correct, otherwise returns null
-        public IActionResult Login(string username, string password, string method)
-        {
-            User found = model.FindUser(username,password,method);
-            if (found == null)
-                return null;
-            ViewData["ALLOWED"] = "TRUE";
-            ClaimsIdentity list = new ClaimsIdentity();
-            list.AddClaim(new Claim(CustomClaims.LOCATION, found.COUNTRY+","+found.CITY));
-            list.AddClaim(new Claim(CustomClaims.LEVEL, found.LEVEL.ToString()));
-            list.AddClaim(new Claim(CustomClaims.PASSWORD, found.PASSWORD));
-            list.AddClaim(new Claim(CustomClaims.USERNAME, found.USERNAME));
-            list.AddClaim(new Claim(CustomClaims.QUESTIONS_ASKED, found.QUESTIONS_ASKED.ToString()));
-            list.AddClaim(new Claim(CustomClaims.QUESTIONS_ANSWERED, found.QUESTIONS_ANSWERED.ToString()));
-            list.AddClaim(new Claim(CustomClaims.POSITIVE_VOTES_RECEIVED, found.POSITIVE_VOTES_RECEIVED.ToString()));
-            list.AddClaim(new Claim(CustomClaims.PHOTO, found.PHOTO));
-            list.AddClaim(new Claim(CustomClaims.ID, found.ID.ToString()));
-            list.AddClaim(new Claim(CustomClaims.EMAIL, found.EMAIL));
-            list.AddClaim(new Claim(CustomClaims.DESCRIPTION, found.DESCRIPTION));
-            list.AddClaim(new Claim(CustomClaims.INTERESTS_OR_KNOWLEDGE, found.INTERESTS_OR_KNOWLEDGE));
-            list.AddClaim(new Claim(CustomClaims.INTERESTING_VOTES_RECEIVED, found.INTERESTING_VOTES_RECEIVED.ToString()));
-            //HttpContext.User.AddIdentity(identity);
-            ClaimsIdentity identity = new ClaimsIdentity(list);
-            //AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false}, identity);
-            ChargeUserData(found);
-            //Consulting claims
-            //var i = ((ClaimsIdentity)Thread.CurrentPrincipal);
-            //var c = i.Claims.Where(x => x.Type == CustomClaims.ID).FirstOrDefault();
-            //Throwing Excpetion
-            //throw new System.Security.Authentication.InvalidCredentialException();
-            return View();
-        }
-
-
-
         // GET: Users
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string message)
         {
-            return View(await _context.User.ToListAsync());
+            ViewBag.MESSAGE = message;
+            return View();
         }
 
         // GET: Users/Details/5
@@ -225,11 +191,25 @@ namespace AssistMeProject.Controllers
             return _context.User.Any(e => e.ID == id);
         }
 
-        public IActionResult Profile(string username, string password)
+        [HttpGet]
+        public IActionResult Profile(string viewingToUser)
         {
-            if (username != null && !username.Equals(""))
-                ChargeUserData(model.FindUser(username, password, "N"));
-            return View();
+            if (string.IsNullOrEmpty(viewingToUser))
+                return Index("Inicie sesión");
+            return View(model.GetUser(viewingToUser));
+        }
+
+        [HttpPost]
+        public IActionResult Profile(string username, string password, string method)
+        {
+            User found = model.FindUser(username,password,method);
+            if (found == null)
+            {
+                return RedirectToAction("Index","Users",new { message = "Error, intente de nuevo"});
+            } else
+            {
+                return View(found);
+            }
         }
 
     }

@@ -12,7 +12,6 @@ namespace AssistMeProject.Models
         public const string NORMAL_LOGIN = "N";
         public const string GOOGLE_LOGIN = "G";
 
-
         public AssistMe(AssistMeProjectContext _context)
         {
             this._context = _context;
@@ -58,6 +57,14 @@ namespace AssistMeProject.Models
                 if (found != null && !found.PASSWORD.Equals(password))
                     found = null;
             }
+
+            return found;
+        }
+
+        public User GetUser(string username)
+        {
+            User found = (User)_context.User.FirstOrDefault(a => a.USERNAME.Equals(username)).Clone();
+            found.PASSWORD = "";
             return found;
         }
 

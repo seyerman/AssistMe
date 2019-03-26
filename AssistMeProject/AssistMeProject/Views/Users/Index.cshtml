@@ -1,6 +1,4 @@
-﻿@model IEnumerable<AssistMeProject.Models.User>
-
-@{
+﻿@{
     ViewData["Title"] = "Iniciar sesión";
 }
 
@@ -29,8 +27,14 @@
                 <div class="col-md-6">
                     <div class="page-content">
                         <h2>@ViewData["Title"]</h2>
+                    @{ 
+                        if (ViewBag.MESSAGE!=null)
+                        {
+                            <h3 style="color:red;">@ViewBag.MESSAGE.ToString()</h3>
+                        }
+                    }
                         <div class="form-style form-style-3">
-                            <form method="get" asp-action="Login">
+                            <form method="post" asp-action="Profile">
                                 <div class="form-inputs clearfix">
                                     <p class="login-text">
                                         <input type="text" name="username" value="" autocomplete="off" placeholder="Nombre de usuario">
@@ -147,106 +151,3 @@
         }
     });
 </script>
-
-<!--<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.LEVEL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.USERNAME)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PASSWORD)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EMAIL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PHOTO)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.QUESTIONS_ANSWERED)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.POSITIVE_VOTES_RECEIVED)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.QUESTIONS_ASKED)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.INTERESTING_VOTES_RECEIVED)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DESCRIPTION)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.INTERESTS_OR_KNOWLEDGE)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.COUNTRY)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CITY)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LEVEL)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.USERNAME)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PASSWORD)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EMAIL)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PHOTO)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QUESTIONS_ANSWERED)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.POSITIVE_VOTES_RECEIVED)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QUESTIONS_ASKED)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.INTERESTING_VOTES_RECEIVED)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DESCRIPTION)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.INTERESTS_OR_KNOWLEDGE)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.COUNTRY)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CITY)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>-->

@@ -1,7 +1,12 @@
-﻿@model IEnumerable<AssistMeProject.Models.User>;
+﻿@model AssistMeProject.Models.User;
 @{
     ViewData["Title"] = "Perfil de Usuario";
     ViewData["ViewingUser"] = "asd";
+
+    if (Model == null)
+    {
+        <meta http-equiv="Refresh" content="0 ; url=/Users?message=Inicie Sesión">
+    }
 }
 <div class="breadcrumbs">
     <section class="container">
@@ -31,8 +36,9 @@
                             <h2>
                                 Acerca del Usuario
                                 @{
-                                    if (ViewData["USERNAME"]!=null) { 
-                                        <span>: </span> @ViewData["USERNAME"];
+                                    if (Model != null)
+                                    {
+                                        <span>: </span> @Model.USERNAME;
                                     }
                                 }
                             </h2>
@@ -40,24 +46,49 @@
                             <div class="ul_list ul_list-icon-ok about-user">
                                 <ul>
                                     @{
-                                        if (ViewData["USERNAME"] !=null && ViewData["ViewingUser"].ToString().Equals(ViewData["USERNAME"].ToString()))
+                                        if (Model != null && ViewData["ViewingUser"].ToString().Equals(Model.USERNAME.ToString()))
                                         {
-                                            <li><i class="icon-tag"></i><span><b>ID:</b> @ViewData["ID"]</span></li>
-                                            <li><i class="social_icon-email"></i><span><b>Correo:</b> @ViewData["EMAIL"]</span></li>
+                                            <li><i class="icon-tag"></i><span><b>ID:</b> @Model.ID</span></li>
+                                            <li><i class="social_icon-email"></i><span><b>Correo:</b> @Model.EMAIL</span></li>
                                         }
+                                        ViewData["CITY"] = "";
+                                        ViewData["COUNTRY"] = "";
+                                        if (Model != null)
+                                        {
+                                            ViewData["CITY"] = Model.CITY;
+                                            ViewData["COUNTRY"] = Model.COUNTRY;
+                                        }
+                                        <li><i class="icon-map-marker"></i><span><b>Ubicación:</b>@ViewData["COUNTRY"] , @ViewData["CITY"]</span></li>
                                     }
-                                    <li><i class="icon-map-marker"></i><span><b>Ubicación:</b> @ViewData["LOCATION"]</span></li>
                                 </ul>
                             </div>
                             <br /><br /><br />
-                            <b>Descripción : </b><span>@ViewData["DESCRIPTION"]</span><br /><br />
-                            <b>Intereses o Conocimientos : </b><span>@ViewData["INTERESTS"]</span>
+                            @{
+                                ViewData["DESC"] = "";
+                                ViewData["INTS"] = "";
+                                if (Model!=null)
+                                {
+                                    ViewData["DESC"] = Model.DESCRIPTION;
+                                    ViewData["INTS"] = Model.INTERESTS_OR_KNOWLEDGE;
+                                }
+                                <b>Descripción : </b><span>@ViewData["DESC"]</span><br /><br />
+                                <b>Intereses o Conocimientos : </b><span>@ViewData["INTS"]</span>
+                            }
                             <div class="user-profile-widget">
                                 <h2></h2>
                                 <div class="ul_list ul_list-icon-ok">
                                     <ul>
-                                        <li><i class="icon-question-sign"></i><a href="user_questions.html">Preguntas<span> ( <span>30</span> ) </span></a></li>
-                                        <li><i class="icon-comment"></i><a href="user_answers.html">Respuestas<span> ( <span>10</span> ) </span></a></li>
+                                        @{ 
+                                            ViewData["QUEST_ASK"] = "";
+                                            ViewData["QUEST_ANS"] = "";
+                                            if (Model != null)
+                                            {
+                                                ViewData["QUEST_ASK"] = Model.QUESTIONS_ASKED;
+                                                ViewData["QUEST_ANS"] = Model.QUESTIONS_ANSWERED;
+                                            }
+                                            <li><i class="icon-question-sign"></i><a href="user_questions.html">Preguntas<span> ( <span>@ViewData["QUEST_ASK"]</span> ) </span></a></li>
+                                            <li><i class="icon-comment"></i><a href="user_answers.html">Respuestas<span> ( <span>@ViewData["QUEST_ANS"]</span> ) </span></a></li>
+                                        }
                                     </ul>
                                 </div>
                             </div><!-- End user-profile-widget -->
@@ -75,7 +106,7 @@
                         <li><i class="icon-comment"></i>Respuestas ( <span>50</span> )</li>
                     </ul>
                 </div>
-            </div>                     
+            </div>
             <div class="widget widget_tag_cloud">
                 <h3 class="widget_title">Etiquetas</h3>
                 <a href="#">proyectos</a>
