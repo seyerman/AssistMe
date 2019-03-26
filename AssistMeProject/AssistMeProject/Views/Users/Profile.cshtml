@@ -36,9 +36,14 @@
                             <h2>
                                 Acerca del Usuario
                                 @{
+<<<<<<< HEAD
                                     if (Model != null)
                                     {
                                         <span>: </span> @Model.USERNAME;
+=======
+                                    if (ViewData["USERNAME"] != null) {
+                                        <span>: </span> @ViewData["USERNAME"];
+>>>>>>> 9b9de2229331a4430da5aed7cbe78688921df433
                                     }
                                 }
                             </h2>
@@ -46,10 +51,16 @@
                             <div class="ul_list ul_list-icon-ok about-user">
                                 <ul>
                                     @{
+<<<<<<< HEAD
                                         if (Model != null && ViewData["ViewingUser"].ToString().Equals(Model.USERNAME.ToString()))
                                         {
                                             <li><i class="icon-tag"></i><span><b>ID:</b> @Model.ID</span></li>
                                             <li><i class="social_icon-email"></i><span><b>Correo:</b> @Model.EMAIL</span></li>
+=======
+                                        if (ViewData["USERNAME"] != null && ViewData["ViewingUser"].ToString().Equals(ViewData["USERNAME"].ToString())) {
+                                            <li><i class="icon-tag"></i><span><b>ID:</b> @ViewData["ID"]</span></li>
+                                            <li><i class="social_icon-email"></i><span><b>Correo:</b> @ViewData["EMAIL"]</span></li>
+>>>>>>> 9b9de2229331a4430da5aed7cbe78688921df433
                                         }
                                         ViewData["CITY"] = "";
                                         ViewData["COUNTRY"] = "";
@@ -98,6 +109,7 @@
             </div><!-- End row -->
         </div><!-- End main -->
         <aside class="col-md-3 sidebar">
+<<<<<<< HEAD
             <div class="widget widget_stats">
                 <h3 class="widget_title">Estadísticas</h3>
                 <div class="ul_list ul_list-icon-ok">
@@ -118,8 +130,10 @@
                 <a href="#">2code</a>
                 <a href="#">vbegy</a>
             </div>
+=======
+>>>>>>> 9b9de2229331a4430da5aed7cbe78688921df433
             <div class="widget">
-                <h3 class="widget_title">Preguntas recientes</h3>
+                <h3 class="widget_title">Últimas preguntas realizadas</h3>
                 <ul class="related-posts">
                     <li class="related-item">
                         <h3><a href="#">Esta es mi primera pregunta</a></h3>
