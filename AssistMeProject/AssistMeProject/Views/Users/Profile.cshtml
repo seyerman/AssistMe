@@ -31,7 +31,7 @@
                             <h2>
                                 Acerca del Usuario
                                 @{
-                                    if (ViewData["USERNAME"]!=null) { 
+                                    if (ViewData["USERNAME"] != null) {
                                         <span>: </span> @ViewData["USERNAME"];
                                     }
                                 }
@@ -40,8 +40,7 @@
                             <div class="ul_list ul_list-icon-ok about-user">
                                 <ul>
                                     @{
-                                        if (ViewData["USERNAME"] !=null && ViewData["ViewingUser"].ToString().Equals(ViewData["USERNAME"].ToString()))
-                                        {
+                                        if (ViewData["USERNAME"] != null && ViewData["ViewingUser"].ToString().Equals(ViewData["USERNAME"].ToString())) {
                                             <li><i class="icon-tag"></i><span><b>ID:</b> @ViewData["ID"]</span></li>
                                             <li><i class="social_icon-email"></i><span><b>Correo:</b> @ViewData["EMAIL"]</span></li>
                                         }
@@ -67,28 +66,8 @@
             </div><!-- End row -->
         </div><!-- End main -->
         <aside class="col-md-3 sidebar">
-            <div class="widget widget_stats">
-                <h3 class="widget_title">Estadísticas</h3>
-                <div class="ul_list ul_list-icon-ok">
-                    <ul>
-                        <li><i class="icon-question-sign"></i>Preguntas ( <span>20</span> )</li>
-                        <li><i class="icon-comment"></i>Respuestas ( <span>50</span> )</li>
-                    </ul>
-                </div>
-            </div>                     
-            <div class="widget widget_tag_cloud">
-                <h3 class="widget_title">Etiquetas</h3>
-                <a href="#">proyectos</a>
-                <a href="#">Portafolio</a>
-                <a href="#">Wordpress</a>
-                <a href="#">Html</a>
-                <a href="#">Css</a>
-                <a href="#">jQuery</a>
-                <a href="#">2code</a>
-                <a href="#">vbegy</a>
-            </div>
             <div class="widget">
-                <h3 class="widget_title">Preguntas recientes</h3>
+                <h3 class="widget_title">Últimas preguntas realizadas</h3>
                 <ul class="related-posts">
                     <li class="related-item">
                         <h3><a href="#">Esta es mi primera pregunta</a></h3>
