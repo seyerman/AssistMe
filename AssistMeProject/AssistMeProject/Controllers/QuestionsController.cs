@@ -12,16 +12,51 @@ namespace AssistMeProject.Controllers
     public class QuestionsController : Controller
     {
         private readonly AssistMeProjectContext _context;
+        private BM25Searcher _searcher;
 
         public QuestionsController(AssistMeProjectContext context)
         {
             _context = context;
+            initSearcher();
+            
+        }
+
+        private void initSearcher()
+        {
+            _searcher = new BM25Searcher();
+            LoadSearcher();
+        }
+
+        private void LoadSearcher()
+        {
+            var questions = _context.Question.ToList();
+            foreach(var question in questions)
+            {
+                _searcher.AddDocument(question);
+            }
+            
         }
 
         // GET: Questions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Question.ToListAsync());
+            List<Question> questions = await _context.Question.ToListAsync();
+            questions.Sort();
+            return View(questions);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string query)
+        {
+            initSearcher();
+            List<Question> questions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(query);
+            foreach (ISearchable s in searchables)
+            {
+                questions.Add((Question)s);
+            }
+            return View(questions);
+            //return View(await _context.Question.ToListAsync());
         }
 
         // GET: Questions/Details/5
@@ -44,6 +79,11 @@ namespace AssistMeProject.Controllers
 
         // GET: Questions/Create
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult AdvancedSearch()
         {
             return View();
         }
