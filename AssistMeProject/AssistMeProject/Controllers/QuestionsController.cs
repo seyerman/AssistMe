@@ -21,7 +21,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Question.ToListAsync());
+            return View(await _context.Question.Include(q => q.Answers).ToListAsync());
         }
 
         // GET: Questions/Details/5
@@ -32,7 +32,7 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question
+            var question = await _context.Question.Include(q => q.Answers)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
