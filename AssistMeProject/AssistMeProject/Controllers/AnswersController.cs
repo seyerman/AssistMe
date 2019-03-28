@@ -71,7 +71,8 @@ namespace AssistMeProject.Controllers
                 answer.Date = DateTime.Now;
                 _context.Add(answer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details","Questions",new { id = QuestionID });
             }
             
             return View(answer);
