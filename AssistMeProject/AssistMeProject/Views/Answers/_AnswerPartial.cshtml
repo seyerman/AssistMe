@@ -33,7 +33,7 @@
             <ol class="commentlist clearfix">
                 @foreach (var item in Model.Comments)
                 {
-                    <Partial name="_CommentPartial" model="item" view-data="ViewData" />
+                    <Partial name="../Comments/_CommentPartial" model="item" view-data="ViewData" />
                 }
             </ol>
 
