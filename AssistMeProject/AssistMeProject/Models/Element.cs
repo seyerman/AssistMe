@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class Element : IComparable
+    public class Element : IComparable, ISearchable
     {
 
 
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Agregue un texto como descripción"),Display(Name ="Descripción")]
+        [Required(ErrorMessage ="Agregue un texto como descripción"),Display(Name ="Descripción"), MaxLength(30000)]
         public string Description { get; set; }
 
         [DataType(DataType.DateTime),Display(Name ="Fecha")]
@@ -38,7 +39,16 @@ namespace AssistMeProject.Models
 
         public int CompareTo(object obj)
         {
+
+            Element other = (Element)obj; 
+            return -Date.CompareTo(other.Date);
             throw new NotImplementedException();
+        }
+
+        public virtual string GetDocumentText()
+        {
+            StringBuilder sb = new StringBuilder();
+            return "";
         }
     }
 }

@@ -46,7 +46,7 @@ namespace AssistMeProject.Models
             List<ISearchable> docs = new List<ISearchable>();
             foreach (SearchDocument d in Documents)
             {
-                docs.Add(d.Value);
+                if(d.Score > 0) docs.Add(d.Value);
             }
             return docs;
         }

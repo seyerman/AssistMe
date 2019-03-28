@@ -1,0 +1,57 @@
+﻿@model AssistMeProject.Models.Question
+
+@{
+    ViewData["Title"] = "Advanced Search";
+}
+
+<div class="row">
+    <div class="col-md-9">
+
+        <div class="page-content ask-question">
+            <div class="boxedtitle page-title"><h2>Advanced Search</h2></div>
+
+            <p>Para realizar una búsqueda avanzada especifique los parámetros de búsqueda ya sea por añadiendo etiquetas, studios o Glober creador.</p>
+
+            <div class="form-style form-style-3" id="question-submit">
+                <form asp-action="Advanced Search">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div id="form-textarea">
+                        <p>
+                            <label asp-for="Description" class="required">Details<span>*</span></label>
+                            <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+                            <span class="form-description">Type the description thoroughly and in detail .</span>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </p>
+                    </div>
+                    <p>
+                        <label>Tags</label>
+                        <input type="text" class="input" name="question_tags" id="question_tags" data-seperator=",">
+                        <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
+                    </p>
+                    <p>
+                        <label class="required">Category<span>*</span></label>
+                        <span class="styled-select">
+                            <select>
+                                <option value="">Select a Category</option>
+                                <option value="1">Category 1</option>
+                                <option value="2">Category 2</option>
+                            </select>
+                        </span>
+                        <span class="form-description">Please choose the appropriate section so easily search for your question .</span>
+                    </p>
+
+
+
+                    <p class="form-submit">
+                        <input type="submit" id="publish-question" value="Search" class="button color small submit">
+                    </p>
+                </form>
+            </div>
+        </div><!-- End page-content -->
+    </div><!-- End main -->
+</div><!-- End row -->
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
