@@ -27,7 +27,7 @@ namespace AssistMeProject.Controllers
 
         public async Task<IActionResult> AnswerList(int? QuestionID)
         {
-            var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(q => q.Question);
+            var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(q => q.Question).Include(q => q.Comments);
             return PartialView(await asssitMeProjectContext.ToListAsync());
 
         }
@@ -42,6 +42,7 @@ namespace AssistMeProject.Controllers
 
             var answer = await _context.Answer
                 .Include(a => a.Question)
+                .Include(a => a.Comments)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {
@@ -70,7 +71,8 @@ namespace AssistMeProject.Controllers
                 answer.Date = DateTime.Now;
                 _context.Add(answer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details","Questions",new { id = QuestionID });
             }
             
             return View(answer);
