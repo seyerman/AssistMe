@@ -19,7 +19,7 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.Answer> Answer { get; set; }
         public DbSet<AssistMeProject.Models.Comment> Comment { get; set; }
         public DbSet<AssistMeProject.Models.User> User { get; set; }
-
+        public DbSet<AssistMeProject.Models.Studio> Studio { get; set; }
 
     }
 }
