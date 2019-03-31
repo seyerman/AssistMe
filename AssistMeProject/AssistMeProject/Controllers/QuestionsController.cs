@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
@@ -12,15 +13,23 @@ namespace AssistMeProject.Controllers
     public class QuestionsController : Controller
     {
         private readonly AssistMeProjectContext _context;
+        public AssistMe model;
 
         public QuestionsController(AssistMeProjectContext context)
         {
             _context = context;
+            model = new AssistMe(context);
         }
 
         // GET: Questions
         public async Task<IActionResult> Index()
         {
+            //Example of how to get the actual user that logged into the application
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
+            //End of the example
             return View(await _context.Question.ToListAsync());
         }
 

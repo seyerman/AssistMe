@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
 using System.Security.Claims;
 using System.Threading;
+using System.Web;
 
 namespace AssistMeProject.Controllers
 {
@@ -20,43 +22,6 @@ namespace AssistMeProject.Controllers
         {
             _context = context;
             model = new AssistMe(context);
-        }
-
-        //A method that allows charge uder data information for a single use
-        public void ChargeUserData()
-        {
-            var i = ((ClaimsIdentity)Thread.CurrentPrincipal);
-            var c = i.Claims.Where(x => x.Type == CustomClaims.ID).FirstOrDefault();
-            ViewData["LOCATION"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.LOCATION);
-            ViewData["LEVEL"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.LEVEL);
-            ViewData["PASSWORD"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.PASSWORD);
-            ViewData["USERNAME"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.USERNAME);
-            ViewData["QUESTIONS_ASKED"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.QUESTIONS_ASKED);
-            ViewData["QUESTIONS_ANSWERED"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.QUESTIONS_ANSWERED);
-            ViewData["POSITIVE_VOTES_RECEIVED"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.POSITIVE_VOTES_RECEIVED);
-            ViewData["PHOTO"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.PHOTO);
-            ViewData["ID"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.ID);
-            ViewData["DESCRIPTION"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.DESCRIPTION);
-            ViewData["INTERESTS_OR_KNOWLEDGE"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.INTERESTS_OR_KNOWLEDGE);
-            ViewData["INTERESTING_VOTES_RECEIVED"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.INTERESTING_VOTES_RECEIVED);
-            ViewData["EMAIL"] = i.Claims.FirstOrDefault(a => a.Type == CustomClaims.EMAIL);
-        }
-
-        public void ChargeUserData(User user)
-        {
-            ViewData["LOCATION"] = user.COUNTRY + "," + user.CITY;
-            ViewData["LEVEL"] = user.LEVEL;
-            ViewData["PASSWORD"] = user.PASSWORD;
-            ViewData["USERNAME"] = user.USERNAME;
-            ViewData["QUESTIONS_ASKED"] = user.QUESTIONS_ASKED;
-            ViewData["QUESTIONS_ANSWERED"] = user.QUESTIONS_ANSWERED;
-            ViewData["POSITIVE_VOTES_RECEIVED"] = user.POSITIVE_VOTES_RECEIVED;
-            ViewData["PHOTO"] = user.PHOTO;
-            ViewData["ID"] = user.ID;
-            ViewData["DESCRIPTION"] = user.DESCRIPTION;
-            ViewData["INTERESTS_OR_KNOWLEDGE"] = user.INTERESTS_OR_KNOWLEDGE;
-            ViewData["INTERESTING_VOTES_RECEIVED"] = user.INTERESTING_VOTES_RECEIVED;
-            ViewData["EMAIL"] = user.EMAIL;
         }
 
         // GET: Users
@@ -194,6 +159,8 @@ namespace AssistMeProject.Controllers
         [HttpGet]
         public IActionResult Profile(string viewingToUser)
         {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                return View(model.GetUser(HttpContext.Session.GetString("USERNAME")));
             if (string.IsNullOrEmpty(viewingToUser))
                 return Index("Inicie sesión");
             return View(model.GetUser(viewingToUser));
@@ -208,8 +175,17 @@ namespace AssistMeProject.Controllers
                 return RedirectToAction("Index","Users",new { message = "Error, intente de nuevo"});
             } else
             {
+                //Only username it's saved for have a better security but this might be slower because have to search user every time
+                HttpContext.Session.SetString("USERNAME",found.USERNAME);
+                HttpContext.Items["User"] = found;
                 return View(found);
             }
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("USERNAME");
+            return RedirectToAction("Index","Users");
         }
 
     }
