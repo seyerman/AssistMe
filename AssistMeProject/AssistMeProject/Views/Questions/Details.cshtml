@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    ViewData["IsQuestionMin"] = false;
 }
 
 <h2>Details</h2>
@@ -65,32 +66,37 @@
 <section class="container main-content">
     <div class="row">
         <div class="col-md-9">
-            <article class="question single-question question-type-normal">
-                <h2>
-                    @Html.DisplayFor(model => model.Title)
-                </h2>
-                <a class="question-report" href="#">Report</a>
-                <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
-                <div class="question-inner">
-                    <div class="clearfix"></div>
-                    <div class="question-desc">
-                        @Html.DisplayFor(model => model.Description)
-                    </div>
-                    <div class="question-details">
-                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span><!--Aqui poner icono si la pregunta fue respondidad o no-->
-                        <span class="question-favorite"><i class="icon-star"></i>5</span><!--num de votos interesantes-->
-                    </div>
-                    <!--No se va usar wordpress--> <!--<span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span>-->
-                    <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(model => model.Date)</span>
-                    <span class="question-comment"><a href="#"><i class="icon-comment"></i>@Html.DisplayFor(model => model.Answers.Count)</a></span> <!--num de respuestas-->
-                    <span class="question-view"><i class="icon-user"></i>70 views</span>
-                    <span class="single-question-vote-result">+22</span>
-                    <ul class="single-question-vote">
-                        <li><a href="#" class="single-question-vote-up" title="Like"><i class="icon-thumbs-up"></i></a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-            </article>
+            <!--
+    <article class="question single-question question-type-normal">
+        <h2>
+            @Html.DisplayFor(model => model.Title)
+        </h2>
+        <a class="question-report" href="#">Report</a>
+        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+        <div class="question-inner">
+            <div class="clearfix"></div>
+            <div class="question-desc">
+                @Html.DisplayFor(model => model.Description)
+            </div>
+            <div class="question-details">
+                <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span><!--Aqui poner icono si la pregunta fue respondidad o no ->
+            <span class="question-favorite"><i class="icon-star"></i>5</span>
+            <!--num de votos interesantes ->
+    </div>
+                <!--No se va usar wordpress-->
+            <!--<span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span> ->
+                <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(model => model.Date)</span>
+                <span class="question-comment"><a href="#"><i class="icon-comment"></i>@Html.DisplayFor(model => model.Answers.Count)</a></span> <!--num de respuestas ->
+                <span class="question-view"><i class="icon-user"></i>70 views</span>
+                <span class="single-question-vote-result">+22</span>
+                <ul class="single-question-vote">
+                    <li><a href="#" class="single-question-vote-up" title="Like"><i class="icon-thumbs-up"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </article>
+    -->
+            <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
 
             <div class="share-tags page-content">
                 <div class="question-tags">

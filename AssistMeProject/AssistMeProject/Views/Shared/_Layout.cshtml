@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="~/images/favicon.png">
 </head>
 <body>
-    @*<div class="loader"><div class="loader_html"></div></div>*@
+    <div class="loader"><div class="loader_html"></div></div>
     <div id="wrap" class="grid_1200">
         <div id="header-top">
             <section class="container clearfix">
@@ -44,8 +44,9 @@
                     </ul>
                 </nav -->
                 <div class="header-search">
-                    <form>
-                        <input type="text" value="Search here ..." onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';">
+                    <form action='@Url.Action("Search", "Questions")' method="post">
+
+                        <input type="text" value="Search here ..." onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';" name="query">
                         <button type="submit" class="search-submit"></button>
                     </form>
                 </div>
@@ -61,6 +62,7 @@
                             <a asp-controller="Home" asp-action="Index">Home</a> <!--Agregado link a home -->
                         </li>
                         <li class="ask_question"><a asp-controller="Questions" asp-action="Create">Ask Question</a></li> <!--Agregado link a crear question-->
+                        <li class="asearch_question"><a asp-controller="Questions" asp-action="AdvancedSearch">Advanced Search</a></li>
                         <li>
                             <a asp-controller="Questions" asp-action="Index">Questions</a><!--Agregado link a lista de Questions-->
                             <ul>
@@ -154,7 +156,7 @@
 
 
 
-    <environment include="Development">
+    @*<environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
@@ -173,7 +175,7 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+    </environment>*@
 
     @RenderSection("Scripts", required: false)
 </body>

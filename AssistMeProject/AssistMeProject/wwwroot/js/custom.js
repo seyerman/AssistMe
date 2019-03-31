@@ -441,8 +441,8 @@ jQuery(document).ready(function($) {
 	
 	});
 	
-	/* Tabs */
-
+    /* Tabs */
+    _inittabs(jQuery);
 	jQuery("ul.tabs").tabs(".tab-inner-warp",{effect:"slide",fadeInSpeed:100});
 	
 	jQuery("ul.tabs li").each(function(){
@@ -665,8 +665,8 @@ jQuery(document).ready(function($) {
 		});
 	}
 	
-	/* Tipsy */
-	
+    /* Tipsy */
+    _tipsy(jQuery)
 	jQuery(".tooltip-n").tipsy({fade:true,gravity:"s"});
 	jQuery(".tooltip-s").tipsy({fade:true,gravity:"n"});
 	jQuery(".tooltip-nw").tipsy({fade:true,gravity:"nw"});
@@ -694,8 +694,8 @@ jQuery(document).ready(function($) {
 	    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
 	
-	jQuery("#question-title").val(getParameterByName("question_title"));
-	
+    jQuery("#question-title").val(getParameterByName("question_title"));
+    _tags();
 	jQuery('#question_tags').tag();
 	
 	var question_poll = jQuery("#question_poll:checked").length;
@@ -858,7 +858,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	/* Widget Menu jQuery */
-	
+    _onePageNav(jQuery, window, document)
 	jQuery(".widget_menu_jquery").onePageNav({
 		currentClass : "current_page_item",
 		changeHash : false,
@@ -883,7 +883,7 @@ jQuery(document).ready(function($) {
 		default_width: 940,
 		default_height: 529
 	};
-		
+    _prettyPhoto();	
 	jQuery("a[href$=jpg], a[href$=JPG], a[href$=jpeg], a[href$=JPEG], a[href$=png], a[href$=gif], a[href$=bmp]:has(img)").prettyPhoto(lightboxArgs);
 			
 	jQuery("a[class^='prettyPhoto'], a[rel^='prettyPhoto']").prettyPhoto(lightboxArgs);

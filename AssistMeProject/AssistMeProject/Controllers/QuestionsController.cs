@@ -24,6 +24,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> Index()
         {
+<<<<<<< HEAD
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
@@ -31,6 +32,9 @@ namespace AssistMeProject.Controllers
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
             return View(await _context.Question.ToListAsync());
+=======
+            return View(await _context.Question.Include(q => q.Answers).ToListAsync());
+>>>>>>> upstream/master
         }
 
         // GET: Questions/Details/5
@@ -41,7 +45,7 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question
+            var question = await _context.Question.Include(q => q.Answers)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {

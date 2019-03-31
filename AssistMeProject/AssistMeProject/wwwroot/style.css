@@ -889,12 +889,12 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	color: #2f3239;
 }
 .question-vote {
-	float: left;
-	margin: 0 10px 0 0;
-	position: relative;
-	overflow: hidden;
-	height: 100%;
-	width: 14px;
+    float: left;
+    margin: 0 10px 0 0;
+    position: relative;
+    overflow: hidden;
+    /*height: 100%;
+	width: 14px;*/
 }
 .question-user-vote {
 	float: left;
@@ -1005,7 +1005,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	display: block;
 }
 .question-view {
-	margin-right: 0;
+    /*margin-right: 0;*/
 }
 .question-date i,.question-view i,.question-comment i,.question-category i,.question-tags i,.post-tags i,.question-reply i,.question-answered i,.question-favorite i,.share-inside i {
 	margin-right: 5px;

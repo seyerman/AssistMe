@@ -12,6 +12,7 @@ namespace AssistMeProject.Models
         public AssistMeProjectContext (DbContextOptions<AssistMeProjectContext> options)
             : base(options)
         {
+
         }
 
         public DbSet<AssistMeProject.Models.Question> Question { get; set; }
