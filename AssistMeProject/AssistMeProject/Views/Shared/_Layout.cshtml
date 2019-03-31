@@ -37,12 +37,12 @@
         <div id="header-top">
             <section class="container clearfix">
                 <!--nav class="header-top-nav">
-                    <ul>
-                        <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                    </ul>
-                </nav -->
+                <ul>
+                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                </ul>
+            </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -103,11 +103,30 @@
                 </nav>
             </section><!-- End container -->
         </header><!-- End header -->
+
+            <aside class="col-md-3 sidebar">
+               @await Component.InvokeAsync("Stats")
+
+                <div class="widget widget_tag_cloud">
+                    <h3 class="widget_title">Tags</h3>
+                    <a href="#">projects</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Wordpress</a>
+                    <a href="#">Html</a>
+                    <a href="#">Css</a>
+                    <a href="#">jQuery</a>
+                    <a href="#">2code</a>
+                    <a href="#">vbegy</a>
+                </div> <!--End tags-->
+               
+            </aside><!--End Sidebar-->
+
     </div> <!--End wrap-->
 
     <partial name="_CookieConsentPartial" />
 
     <div class="container main-content">
+
         @RenderBody()
         <hr />
 

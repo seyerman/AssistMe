@@ -85,4 +85,9 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Rankings\" />
+    <Folder Include="Views\Shared\Components\Stats\" />
+  </ItemGroup>
+
 </Project>
