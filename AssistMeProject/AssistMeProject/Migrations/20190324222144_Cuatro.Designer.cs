@@ -4,18 +4,20 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190324222144_Cuatro")]
+    partial class Cuatro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -28,8 +30,7 @@ namespace AssistMeProject.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(30000);
+                        .IsRequired();
 
                     b.Property<int>("QuestionID");
 
@@ -51,8 +52,7 @@ namespace AssistMeProject.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(30000);
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -70,33 +70,15 @@ namespace AssistMeProject.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(30000);
+                        .IsRequired();
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(150);
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
                     b.ToTable("Question");
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Unit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Studio");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.User", b =>
@@ -104,8 +86,6 @@ namespace AssistMeProject.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("ADMIN");
 
                     b.Property<string>("CITY");
 
