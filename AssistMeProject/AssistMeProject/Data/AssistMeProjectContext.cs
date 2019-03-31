@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using AssistMeProject.Models;
 
 namespace AssistMeProject.Models
 {
@@ -17,6 +18,7 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.Question> Question { get; set; }
         public DbSet<AssistMeProject.Models.Answer> Answer { get; set; }
         public DbSet<AssistMeProject.Models.Comment> Comment { get; set; }
+        public DbSet<AssistMeProject.Models.User> User { get; set; }
 
 
     }

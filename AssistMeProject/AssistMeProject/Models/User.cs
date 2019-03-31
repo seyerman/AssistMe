@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class User
+    public class User : ICloneable
     {
 
         public const int LEVEL_ROOT = 1;
         public const int LEVEL_ADMIN = 2;
         public const int LEVEL_NORMAL = 3;
 
-        public User(int iD, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
+        public User(int iD, string gOOGLE_KEY, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
         {
             ID = iD;
+            GOOGLE_KEY = gOOGLE_KEY ?? throw new ArgumentNullException(nameof(gOOGLE_KEY));
             LEVEL = lEVEL;
             USERNAME = uSERNAME ?? throw new ArgumentNullException(nameof(uSERNAME));
             PASSWORD = pASSWORD ?? throw new ArgumentNullException(nameof(pASSWORD));
@@ -35,6 +37,7 @@ namespace AssistMeProject.Models
         }
 
         public int ID { get; set; }
+        public string GOOGLE_KEY { get; set; }
         public int LEVEL { get; set; }
         public String USERNAME { get; set; }
         public String PASSWORD { get; set; }
@@ -51,10 +54,14 @@ namespace AssistMeProject.Models
 
         public String[] getStringData()
         {
-            String[] data = { ID.ToString(), USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED.ToString(),POSITIVE_VOTES_RECEIVED.ToString(),
+            String[] data = { ID.ToString(), GOOGLE_KEY, USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED.ToString(),POSITIVE_VOTES_RECEIVED.ToString(),
                 QUESTIONS_ASKED.ToString(),INTERESTING_VOTES_RECEIVED.ToString(),DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY};
             return data;
         }
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

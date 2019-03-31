@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190324222144_Cuatro")]
+    partial class Cuatro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,8 +30,7 @@ namespace AssistMeProject.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(30000);
+                        .IsRequired();
 
                     b.Property<int>("QuestionID");
 
@@ -51,8 +52,7 @@ namespace AssistMeProject.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(30000);
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -70,12 +70,11 @@ namespace AssistMeProject.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(30000);
+                        .IsRequired();
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(150);
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
