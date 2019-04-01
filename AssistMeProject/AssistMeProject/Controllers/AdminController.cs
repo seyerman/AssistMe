@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AssistMeProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,6 +29,16 @@ namespace AssistMeProject.Controllers
         // GET: /<controller>/
         public IActionResult CreateStudio()
         {
+            //creamos una lista tipo SelectListItem
+            List<SelectListItem> list = new List<SelectListItem>();
+            list.Add(new SelectListItem() { Text = "Indique la unidad a la que pertenece el Studio", Value = "NULL" });
+
+            list.Add(new SelectListItem() { Text = "Strategy", Value = "Strategy" });
+            list.Add(new SelectListItem() { Text = "Specialty", Value = "Specialty" });
+            list.Add(new SelectListItem() { Text = "Foundation", Value = "Foundation" });
+
+            //Agregamos la lista a nuestro SelectList
+           ViewData["Unit"] = new SelectList(list, "Value", "Text");
             return View();
         }
 
