@@ -14,6 +14,7 @@ namespace AssistMeProject.Controllers
     {
         private readonly AssistMeProjectContext _context;
         public AssistMe model;
+        private BM25Searcher _searcher;
 
         public QuestionsController(AssistMeProjectContext context)
         {
@@ -30,7 +31,9 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            return View(await _context.Question.Include(q => q.Answers).ToListAsync());
+            var questions = (await _context.Question.Include(q => q.Answers).ToListAsync());
+            questions.Sort();
+            return View(questions);
         }
 
         // GET: Questions/Details/5
@@ -51,8 +54,43 @@ namespace AssistMeProject.Controllers
             return View(question);
         }
 
+        private void initSearcher()
+        {
+            _searcher = new BM25Searcher();
+            LoadSearcher();
+        }
+
+        private void LoadSearcher()
+        {
+            var questions = _context.Question.ToList();
+            foreach (var question in questions)
+            {
+                _searcher.AddDocument(question);
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string query)
+        {
+            initSearcher();
+            List<Question> questions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(query);
+            foreach (ISearchable s in searchables)
+            {
+                questions.Add((Question)s);
+            }
+            return View(questions);
+            //return View(await _context.Question.ToListAsync());
+        }
+
         // GET: Questions/Create
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult AdvancedSearch()
         {
             return View();
         }
