@@ -1,20 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Iniciar sesión";
+    ViewData["Title"] = "Pagina de Inicio";
 }
 
 <div id="wrap" class="grid_1200">
+
+    <div class="panel-pop" id="lost-password">
+        <h2>Lost Password<i class="icon-remove"></i></h2>
+        <div class="form-style form-style-3">
+            <p>Lost your password? Please enter your username and email address. You will receive a link to create a new password via email.</p>
+            <form>
+                <div class="form-inputs clearfix">
+                    <p>
+                        <label class="required">Username<span>*</span></label>
+                        <input type="text">
+                    </p>
+                    <p>
+                        <label class="required">E-Mail<span>*</span></label>
+                        <input type="email">
+                    </p>
+                </div>
+                <p class="form-submit">
+                    <input type="submit" value="Reset" class="button color small submit">
+                </p>
+            </form>
+            <div class="clearfix"></div>
+        </div>
+    </div><!-- End lost-password -->
+
 
     <div class="breadcrumbs">
         <section class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>@ViewData["Title"]</h1>
+                    <h1>Login</h1>
                 </div>
                 <div class="col-md-12">
                     <div class="crumbs">
-                        <a href="#">Home</a>
+                        <a href="#">Inicio</a>
                         <span class="crumbs-span">/</span>
-                        <span class="current">Index</span>
+                        <span class="current">Entrar</span>
                     </div>
                 </div>
             </div><!-- End row -->
@@ -26,27 +50,18 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="page-content">
-                        <h2>@ViewData["Title"]</h2>
-                    @{ 
-                        if (ViewBag.MESSAGE!=null)
-                        {
-                            <h3 style="color:red;">@ViewBag.MESSAGE.ToString()</h3>
-                        }
-                    }
+                        <h2>Iniciar sesión</h2>
                         <div class="form-style form-style-3">
-                            <form method="post" asp-action="Profile">
+                            <form>
                                 <div class="form-inputs clearfix">
                                     <p class="login-text">
-                                        <input type="text" name="username" value="" autocomplete="off" placeholder="Nombre de usuario">
+                                        <input type="text" value="" placeholder="Nombre de usuario">
                                         <i class="icon-user"></i>
                                     </p>
                                     <p class="login-password">
-                                        <input type="password" name="password" value="" autocomplete="off" placeholder="Contraseña">
+                                        <input type="password" value="" placeholder="Contraseña">
                                         <i class="icon-lock"></i>
                                         <a href="#">La olvidé</a>
-                                    </p>
-                                    <p class="hidden">
-                                        <input type="text" name="method" value="N" /> <!--value=> how does the person enter, nor google or normal. N=normal G = google -->
                                     </p>
                                 </div>
                                 <p class="form-submit login-submit">
@@ -56,7 +71,7 @@
                                     <label><input type="checkbox" checked="checked"> Recuerdame</label>
                                 </div>
                                 <div class="text-right">
-                                    <a class="button small orange-button signup">Crear cuenta</a>
+                                    <a class="button small orange-button">Crear cuenta</a>
                                 </div>
                             </form>
                         </div>
@@ -65,7 +80,7 @@
                 <div class="col-md-6 text-center">
                     <div class="page-content">
                         <h2 class="text-center">Todo en un solo lugar, inicia con tu cuenta de: </h2>
-                        <a class="button small color singinByGoogle login-submit submit"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" width="150" /></a>
+                        <a class="button small color signup"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" width="150" /></a>
                     </div><!-- End page-content -->
                 </div><!-- End col-md-6 -->
             </div><!-- End row -->
@@ -74,80 +89,3 @@
 
 </div><!-- End wrap -->
 <div class="go-up"><i class="icon-chevron-up"></i></div>
-<div class="panel-pop" id="signup">
-    <h2>Register Now<i class="icon-remove"></i></h2>
-    <div class="form-style form-style-3">
-        <form>
-            <div class="form-inputs clearfix">
-                <p>
-                    <label class="required">Usuario<span>*</span></label>
-                    <input type="text">
-                </p>
-                <p>
-                    <label class="required">E-Mail<span>*</span></label>
-                    <input type="email">
-                </p>
-                <p>
-                    <label class="required">Contraseña<span>*</span></label>
-                    <input type="password" value="">
-                </p>
-                <p>
-                    <label class="required">Vuelve a escribir tu contraseña<span>*</span></label>
-                    <input type="password" value="">
-                </p>
-            </div>
-            <p class="form-submit">
-                <input type="submit" value="Signup" class="button color small submit">
-            </p>
-        </form>
-    </div>
-</div><!-- End signup -->
-<style>
-    .wrap-pop {
-        display: none;
-    }
-</style>
-<script>
-    /* Signup */
-    window.addEventListener("load", function (event) {
-        jQuery(".signup,.login-links-r a").click(function () {
-            jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
-            jQuery("#signup").show().animate({ "top": "50%" }, 500);
-            jQuery("body").prepend("<div class='wrap-pop'></div>");
-            wrap_pop();
-            return false;
-        });
-
-        /* Lost password */
-
-        jQuery(".login-password a").click(function () {
-            jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
-            jQuery("#lost-password").show().animate({ "top": "50%" }, 500);
-            jQuery("body").prepend("<div class='wrap-pop'></div>");
-            wrap_pop();
-            return false;
-        });
-
-        /* Panel pop */
-
-        jQuery(".panel-pop").each(function () {
-            var panel_pop = jQuery(this);
-            var panel_height = panel_pop.height();
-            panel_pop.css("margin-top", "-" + panel_height / 2 + "px");
-        });
-
-        jQuery(".panel-pop h2 i").click(function () {
-            jQuery(this).parent().parent().animate({ "top": "-100%" }, 500);
-            jQuery(".wrap-pop").remove();
-        });
-
-        function wrap_pop() {
-            jQuery(".wrap-pop").click(function () {
-                jQuery(".panel-pop").animate({ "top": "-100%" }, 500).hide(function () {
-                    jQuery(this).animate({ "top": "-100%" }, 500);
-                });
-                jQuery(this).remove();
-            });
-        }
-    });
-</script>

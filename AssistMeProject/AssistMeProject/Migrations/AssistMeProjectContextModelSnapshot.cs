@@ -15,7 +15,7 @@ namespace AssistMeProject.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -80,64 +80,6 @@ namespace AssistMeProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Question");
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Unit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Studio");
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.User", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("ADMIN");
-
-                    b.Property<string>("CITY");
-
-                    b.Property<string>("COUNTRY");
-
-                    b.Property<string>("DESCRIPTION");
-
-                    b.Property<string>("EMAIL");
-
-                    b.Property<string>("GOOGLE_KEY");
-
-                    b.Property<int>("INTERESTING_VOTES_RECEIVED");
-
-                    b.Property<string>("INTERESTS_OR_KNOWLEDGE");
-
-                    b.Property<int>("LEVEL");
-
-                    b.Property<string>("PASSWORD");
-
-                    b.Property<string>("PHOTO");
-
-                    b.Property<int>("POSITIVE_VOTES_RECEIVED");
-
-                    b.Property<int>("QUESTIONS_ANSWERED");
-
-                    b.Property<int>("QUESTIONS_ASKED");
-
-                    b.Property<string>("USERNAME");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Answer", b =>

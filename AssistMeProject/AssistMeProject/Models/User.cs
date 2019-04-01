@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class User : ICloneable
+    public class User
     {
 
         public const int LEVEL_ROOT = 1;
         public const int LEVEL_ADMIN = 2;
         public const int LEVEL_NORMAL = 3;
-        private bool administrador;
 
-        public User(int iD, string gOOGLE_KEY, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
+        public User(int iD, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
         {
             ID = iD;
-            GOOGLE_KEY = gOOGLE_KEY ?? throw new ArgumentNullException(nameof(gOOGLE_KEY));
             LEVEL = lEVEL;
             USERNAME = uSERNAME ?? throw new ArgumentNullException(nameof(uSERNAME));
             PASSWORD = pASSWORD ?? throw new ArgumentNullException(nameof(pASSWORD));
@@ -31,36 +28,13 @@ namespace AssistMeProject.Models
             INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE ?? throw new ArgumentNullException(nameof(iNTERESTS_OR_KNOWLEDGE));
             COUNTRY = cOUNTRY ?? throw new ArgumentNullException(nameof(cOUNTRY));
             CITY = cITY ?? throw new ArgumentNullException(nameof(cITY));
-            this.ADMIN = false;
         }
 
         public User()
         {
         }
 
-        public User(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
-        {
-            ID = iD;
-            EMAIL = eMAIL;
-            PHOTO = pHOTO;
-            QUESTIONS_ANSWERED = qUESTIONS_ANSWERED;
-            POSITIVE_VOTES_RECEIVED = pOSITIVE_VOTES_RECEIVED;
-            QUESTIONS_ASKED = qUESTIONS_ASKED;
-            INTERESTING_VOTES_RECEIVED = iNTERESTING_VOTES_RECEIVED;
-            DESCRIPTION = dESCRIPTION;
-            INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE;
-            COUNTRY = cOUNTRY;
-            CITY = cITY;
-            this.ADMIN = false;
-        }
-
-        public User(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY, bool administrador) : this(iD, eMAIL, pHOTO, qUESTIONS_ANSWERED, pOSITIVE_VOTES_RECEIVED, qUESTIONS_ASKED, iNTERESTING_VOTES_RECEIVED, dESCRIPTION, iNTERESTS_OR_KNOWLEDGE, cOUNTRY, cITY)
-        {
-            this.administrador = administrador;
-        }
-
         public int ID { get; set; }
-        public string GOOGLE_KEY { get; set; }
         public int LEVEL { get; set; }
         public String USERNAME { get; set; }
         public String PASSWORD { get; set; }
@@ -74,19 +48,13 @@ namespace AssistMeProject.Models
         public String INTERESTS_OR_KNOWLEDGE { get; set; }
         public String COUNTRY { get; set; }
         public String CITY { get; set; }
-        public bool ADMIN { get; set; }
-
 
         public String[] getStringData()
         {
-            String[] data = { ID.ToString(), GOOGLE_KEY, USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED.ToString(),POSITIVE_VOTES_RECEIVED.ToString(),
+            String[] data = { ID.ToString(), USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED.ToString(),POSITIVE_VOTES_RECEIVED.ToString(),
                 QUESTIONS_ASKED.ToString(),INTERESTING_VOTES_RECEIVED.ToString(),DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY};
             return data;
         }
 
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
     }
 }
