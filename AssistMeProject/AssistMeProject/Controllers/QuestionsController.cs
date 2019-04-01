@@ -30,7 +30,9 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            return View(await _context.Question.Include(q => q.Answers).ToListAsync());
+            var questions = (await _context.Question.Include(q => q.Answers).ToListAsync());
+            questions.Sort();
+            return View(questions);
         }
 
         // GET: Questions/Details/5
