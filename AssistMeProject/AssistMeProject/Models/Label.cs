@@ -10,7 +10,7 @@ namespace AssistMeProject.Models
 
         private int IdLabel { get; set; }
 
-        private string Tag { get; set; }
+        public string Tag { get; set; }
 
         private string Icon { get; set; }
 
