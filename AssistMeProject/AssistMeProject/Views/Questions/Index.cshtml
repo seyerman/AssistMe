@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<AssistMeProject.Models.Question>
 
 @{
-    ViewData["Title"] = "Questions";
+    string title = "Questions";
+    //Example of how to get data of user
+    if (ViewBag.User != null)
+    {
+        title = ViewBag.User.USERNAME;
+    }
+    //End of example
+    ViewData["Title"] = title;
 }
 
 <div class="col-md-9">

@@ -2,7 +2,7 @@
 
 namespace AssistMeProject.Migrations
 {
-    public partial class cuatro : Migration
+    public partial class Sau : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
