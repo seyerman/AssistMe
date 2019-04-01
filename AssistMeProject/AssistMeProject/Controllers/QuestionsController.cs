@@ -14,6 +14,7 @@ namespace AssistMeProject.Controllers
     {
         private readonly AssistMeProjectContext _context;
         public AssistMe model;
+        private BM25Searcher _searcher;
 
         public QuestionsController(AssistMeProjectContext context)
         {
@@ -53,8 +54,43 @@ namespace AssistMeProject.Controllers
             return View(question);
         }
 
+        private void initSearcher()
+        {
+            _searcher = new BM25Searcher();
+            LoadSearcher();
+        }
+
+        private void LoadSearcher()
+        {
+            var questions = _context.Question.ToList();
+            foreach (var question in questions)
+            {
+                _searcher.AddDocument(question);
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string query)
+        {
+            initSearcher();
+            List<Question> questions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(query);
+            foreach (ISearchable s in searchables)
+            {
+                questions.Add((Question)s);
+            }
+            return View(questions);
+            //return View(await _context.Question.ToListAsync());
+        }
+
         // GET: Questions/Create
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult AdvancedSearch()
         {
             return View();
         }
