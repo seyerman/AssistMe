@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
-    ViewData["IsQuestionMin"] = false;
+    ViewData["IsQuestionMin"] = true;
 }
 
 
@@ -10,10 +10,7 @@
 
 
 
-<div>
-    <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id">Agregar Respuesta</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
@@ -21,6 +18,11 @@
         <div class="col-md-9">
       
             <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
+
+            <div class="page-content clearfix">
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
+            </div>
 
             <div class="share-tags page-content">
                 <div class="question-tags">

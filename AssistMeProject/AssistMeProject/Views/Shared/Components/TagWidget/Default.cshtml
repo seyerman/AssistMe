@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+    @{
+        ViewData["Title"] = "Tags";
+    }
+
+<div class="widget widget_tag_cloud">
+    <h3 class="widget_title">Tags</h3>
+    @foreach (string t in Model)
+    {
+        <a href="#">@t</a>
+    }
+</div> <!--End tags-->
