@@ -29,6 +29,8 @@
         <span class="question-view"><i class="icon-user"></i>70 views</span>
         <span class="question-comment"><a asp-action="Details" asp-route-id="@Model.Id"><i class="icon-comment"></i>@Html.DisplayFor(model => model.Answers.Count) Answer</a></span>
         <span class="question-vote"><a href="#"><i class="@Html.DisplayName(true?"icon-thumbs-up":"icon-thumbs-up")"></i> +22</a></span>
+		<span class="icon-spinner"> <a asp-action="UpdateDate" asp-route-id="@Model.Id"> <i class="icon.spinner"></i> Ask Again</a></span>
+	
         <div class="clearfix"></div>
     </div>
 </article>
