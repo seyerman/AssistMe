@@ -8,20 +8,19 @@
         <meta http-equiv="Refresh" content="0 ; url=/Users?message=Inicie Sesión">
     }
 }
+<style type="text/css">
+    .breadcrumbs {
+        display: none;
+    }
+    .user-profile {
+        padding-top: 1%;
+    }
+</style>
 <div class="breadcrumbs">
     <section class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1>@ViewData["Title"]</h1>
-            </div>
-            <div class="col-md-12">
-                <div class="crumbs">
-                    <a href="#">Home</a>
-                    <span class="crumbs-span">/</span>
-                    <a href="#">Users</a>
-                    <span class="crumbs-span">/</span>
-                    <span class="current">Profile</span>
-                </div>
             </div>
         </div><!-- End row -->
     </section><!-- End container -->
@@ -97,42 +96,5 @@
                 </div><!-- End user-profile -->
             </div><!-- End row -->
         </div><!-- End main -->
-        <aside class="col-md-3 sidebar">
-            <div class="widget widget_stats">
-                <h3 class="widget_title">Estadísticas</h3>
-                <div class="ul_list ul_list-icon-ok">
-                    <ul>
-                        <li><i class="icon-question-sign"></i>Preguntas ( <span>20</span> )</li>
-                        <li><i class="icon-comment"></i>Respuestas ( <span>50</span> )</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="widget widget_tag_cloud">
-                <h3 class="widget_title">Etiquetas</h3>
-                <a href="#">proyectos</a>
-                <a href="#">Portafolio</a>
-                <a href="#">Wordpress</a>
-                <a href="#">Html</a>
-                <a href="#">Css</a>
-                <a href="#">jQuery</a>
-                <a href="#">2code</a>
-                <a href="#">vbegy</a>
-            </div>
-            <div class="widget">
-                <h3 class="widget_title">Últimas preguntas realizadas</h3>
-                <ul class="related-posts">
-                    <li class="related-item">
-                        <h3><a href="#">Esta es mi primera pregunta</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <div class="clear"></div><span>Mar 24, 2019</span>
-                    </li>
-                    <li class="related-item">
-                        <h3><a href="#">Esta es mi segunda pregunta de la encuesta</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <div class="clear"></div><span>Mar 24, 2019</span>
-                    </li>
-                </ul>
-            </div>
-        </aside><!-- End sidebar -->
     </div><!-- End row -->
 </section><!-- End container -->

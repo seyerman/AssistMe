@@ -2,11 +2,10 @@
 <html>
 <head>
 
-
     <meta charset="utf-8" />
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>@ViewData["Title"] - AssistMeProject</title>
+    <title>@ViewData["Title"] - AssistMe</title>
 
     <environment include="Development">
       <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -30,19 +29,13 @@
     <link rel="stylesheet" href="~/css/responsive.css">
     <!-- Favicons -->
     <link rel="shortcut icon" href="~/images/favicon.png">
+
 </head>
 <body>
     <div class="loader"><div class="loader_html"></div></div>
     <div id="wrap" class="grid_1200">
         <div id="header-top">
             <section class="container clearfix">
-                <!--nav class="header-top-nav">
-                <ul>
-                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                </ul>
-            </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -80,7 +73,7 @@
                                 <li><a href="user_answers.html">User Answers</a></li>
                                 <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
                                 <li><a href="user_points.html">User Points</a></li>
-                                <li><a href="edit_profile.html">Edit Profile</a></li>
+                                <li><a href="/Users/Edit">Editar Perfil</a></li>
                                 <li><a href="/Users/Logout">Cerrar Sesión</a></li>
                             </ul>
                         </li>
