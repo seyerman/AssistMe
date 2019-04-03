@@ -31,7 +31,8 @@ namespace AssistMeProject.Models
         public String Unit { get; set; }
         [Display(Name = "Description")]
         public String Description { get; set; }
-
+        [Display(Name = "Icono")]
+        public String Icono { get; set; }
        
     }
 }
