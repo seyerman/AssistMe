@@ -76,6 +76,8 @@ namespace AssistMeProject.Models
         public String CITY { get; set; }
         public bool ADMIN { get; set; }
 
+        public List<PositiveVote> PositiveVotes { get; set; }
+        public List<InterestingVote> InterestingVotes { get; set; }
 
         public String[] getStringData()
         {
