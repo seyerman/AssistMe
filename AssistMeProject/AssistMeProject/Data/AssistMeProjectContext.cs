@@ -12,14 +12,19 @@ namespace AssistMeProject.Models
         public AssistMeProjectContext (DbContextOptions<AssistMeProjectContext> options)
             : base(options)
         {
+    
+    }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
         }
-
-        public DbSet<AssistMeProject.Models.Question> Question { get; set; }
-        public DbSet<AssistMeProject.Models.Answer> Answer { get; set; }
-        public DbSet<AssistMeProject.Models.Comment> Comment { get; set; }
-        public DbSet<AssistMeProject.Models.User> User { get; set; }
-        public DbSet<AssistMeProject.Models.Studio> Studio { get; set; }
-        public DbSet<AssistMeProject.Models.Label>Label { get; set; }
+        public DbSet<Question> Question { get; set; }
+        public DbSet<Answer> Answer { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Studio> Studio { get; set; }
+        public DbSet<Label>Label { get; set; }
     }
 }
