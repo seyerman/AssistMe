@@ -16,7 +16,7 @@
 <section class="container main-content">
     <div class="row">
         <div class="col-md-9">
-      
+
             <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
 
             <div class="page-content clearfix">
@@ -48,10 +48,21 @@
             <div id="related-posts">
                 <h2>Related questions</h2>
                 <ul class="related-posts">
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This Is My Second Poll Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my third Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fourth Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fifth Question</a></h3></li>
+                    @{
+                        if (ViewBag.Related.Count == 0)
+                        {
+                            <li class="related-item"><h3>There are no related questions</h3></li>
+                        }
+                        else
+                        {
+                            foreach (var q in ViewBag.Related)
+                            {
+                                <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
+                            }
+                        }
+
+                    }
+
                 </ul>
             </div><!-- End related-posts -->
 
@@ -98,7 +109,7 @@
                 </p>
             </div><!-- End post-next-prev -->
         </div><!-- End main -->
-        
+
     </div><!-- End row -->
 </section><!-- End container -->
 
@@ -119,6 +130,6 @@
 
 
 
-   
-    
+
+
 }

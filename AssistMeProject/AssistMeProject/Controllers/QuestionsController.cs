@@ -12,6 +12,9 @@ namespace AssistMeProject.Controllers
 {
     public class QuestionsController : Controller
     {
+
+        private const int MAX_RELATED_QUESTIONS = 5;
+
         private readonly AssistMeProjectContext _context;
         public AssistMe model;
         private BM25Searcher _searcher;
@@ -51,6 +54,21 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
+            initSearcher();
+
+            var relatedQuestions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(question.Title);
+
+            foreach (ISearchable s in searchables)
+            {
+                Question q = (Question)s;
+                if (q.Id != question.Id)
+                    relatedQuestions.Add(q);
+                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+            }
+
+
+            ViewBag.Related = relatedQuestions;
             return View(question);
         }
 
