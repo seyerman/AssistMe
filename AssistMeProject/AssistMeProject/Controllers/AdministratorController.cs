@@ -102,7 +102,7 @@ namespace AssistMeProject.Controllers
             {
                 _context.Add(question);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AddAdmin));
             }
             return View(question);
         }
@@ -153,7 +153,7 @@ namespace AssistMeProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AddAdmin));
             }
             return View(question);
         }
@@ -184,7 +184,7 @@ namespace AssistMeProject.Controllers
             var question = await _context.Question.FindAsync(id);
             _context.Question.Remove(question);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AddAdmin));
         }
 
         private bool QuestionExists(int id)
