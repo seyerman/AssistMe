@@ -10,7 +10,14 @@ namespace AssistMeProject.Models
 
         public int ID { get; set; }
         public User User { get; set; }
+        public int UserID { get; set; }
+        public int AnswerID { get; set; }
         public Answer Answer { get; set; }
+
+        public PositiveVote()
+        {
+
+        }
 
     }
 }
