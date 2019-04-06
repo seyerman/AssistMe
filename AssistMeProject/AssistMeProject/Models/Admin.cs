@@ -19,7 +19,7 @@ namespace AssistMeProject.Models
         public String addAdmin(int id)
         {
             String mensaje = "";
-            List<User> buscado = listUser.Where(x => x.ID == id && x.LEVEL == User.LEVEL_NORMAL).ToList();
+            List<User> buscado = listUser.Where(x => x.ID == id && x.LEVEL != User.LEVEL_ADMIN).ToList();
             if (buscado.First().Equals(null))
             {
                 mensaje = "El usuario ya es un administrador";

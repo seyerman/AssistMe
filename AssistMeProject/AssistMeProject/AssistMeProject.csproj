@@ -89,7 +89,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Shared\Components\TagWidget\" />
     <Folder Include="Views\Shared\Components\Stats\" />
   </ItemGroup>
 

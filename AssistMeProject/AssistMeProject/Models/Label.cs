@@ -7,13 +7,10 @@ namespace AssistMeProject.Models
 {
     public class Label
     {
-
         public int Id { get; set; }
 
         public string Tag { get; set; }
 
-        private string Icon { get; set; }
-
-        private int NumberOfTimes { get; set; }
+        public int NumberOfTimes { get; set; }
     }
 }

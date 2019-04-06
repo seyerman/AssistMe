@@ -2,10 +2,11 @@
 <html>
 <head>
 
+
     <meta charset="utf-8" />
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>@ViewData["Title"] - AssistMe</title>
+    <title>@ViewData["Title"] - AssistMeProject</title>
 
     <environment include="Development">
       <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -29,13 +30,19 @@
     <link rel="stylesheet" href="~/css/responsive.css">
     <!-- Favicons -->
     <link rel="shortcut icon" href="~/images/favicon.png">
-
 </head>
 <body>
     <div class="loader"><div class="loader_html"></div></div>
     <div id="wrap" class="grid_1200">
         <div id="header-top">
             <section class="container clearfix">
+                <!--nav class="header-top-nav">
+                <ul>
+                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                </ul>
+            </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -67,14 +74,16 @@
                         <li>
                             <a href="user_profile.html">User</a><!--Faltan estas funcionalidades-->
                             <ul>
-                                <li><a href="/Users/">Iniciar sesión</a></li>
-                                <li><a href="/Users/Profile">Perfil de Usuario</a></li>
+                                <li><a href="/Users/">Log-in</a></li>
+                                <li><a href="/Users/Profile">User Profile</a></li>
+                                <!--
                                 <li><a href="user_questions.html">User Questions</a></li>
                                 <li><a href="user_answers.html">User Answers</a></li>
                                 <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
                                 <li><a href="user_points.html">User Points</a></li>
-                                <li><a href="/Users/Edit">Editar Perfil</a></li>
-                                <li><a href="/Users/Logout">Cerrar Sesión</a></li>
+                                -->
+                                <li><a href="/Users/Edit">Edit Profile</a></li>
+                                <li><a href="/Users/Logout">Log-out</a></li>
                             </ul>
                         </li>
                         <li>
@@ -107,40 +116,8 @@
 
         <aside class="col-md-3 sidebar">
             @await Component.InvokeAsync("Stats")
-
-            <div class="widget widget_tag_cloud">
-                <h3 class="widget_title">Tags</h3>
-                <a href="#">projects</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Wordpress</a>
-                <a href="#">Html</a>
-                <a href="#">Css</a>
-                <a href="#">jQuery</a>
-                <a href="#">2code</a>
-                <a href="#">vbegy</a>
-            </div> <!--End tags-->
-
-            <div class="widget widget_highest_points">
-                <h3 class="widget_title">Highest points</h3>
-                <ul>
-                    <li>
-                        <div class="author-img">
-                            <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
-                        </div>
-                        <h6><a href="#">user 1</a></h6>
-                        <span class="comment">12 Points</span>
-                    </li>
-                    <li>
-                        <div class="author-img">
-                            <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
-                        </div>
-                        <h6><a href="#">user 2</a></h6>
-                        <span class="comment">11 Points</span>
-                    </li>
-                </ul>
-            </div><!--End Highgest Point-->
-
-
+            @await Component.InvokeAsync("TagWidget")
+            @await Component.InvokeAsync("TopUsers")
         </aside><!--End Sidebar-->
 
     </div> <!--End wrap-->
