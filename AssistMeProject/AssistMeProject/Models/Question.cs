@@ -13,10 +13,12 @@ namespace AssistMeProject.Models
         public string Title { get; set; }
    //     public List<Label> labels { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
+        public virtual ICollection<InterestingVote> InterestingVotes { get; set; }
 
         public Question()
         {
             Answers = new HashSet<Answer>();
+            InterestingVotes = new HashSet<InterestingVote>();
         }
 
         public override string GetDocumentText()
@@ -26,6 +28,11 @@ namespace AssistMeProject.Models
             sb.Append(" ");
             sb.Append(Description);
             return sb.ToString();
+        }
+
+        public bool UserVote(int userId) {
+
+            return InterestingVotes.Any(x => x.UserID == userId); 
         }
 
     }

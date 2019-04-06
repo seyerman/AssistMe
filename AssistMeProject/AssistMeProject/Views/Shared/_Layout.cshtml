@@ -32,17 +32,19 @@
     <link rel="shortcut icon" href="~/images/favicon.png">
 </head>
 <body>
+
+   
     <div class="loader"><div class="loader_html"></div></div>
     <div id="wrap" class="grid_1200">
         <div id="header-top">
             <section class="container clearfix">
                 <!--nav class="header-top-nav">
-                <ul>
-                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                </ul>
-            </nav -->
+                    <ul>
+                        <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                    </ul>
+                </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -167,31 +169,27 @@
     <script src="~/js/tags.js"></script>
     <script src="~/js/jquery.bxslider.min.js"></script>
     <script src="~/js/custom.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- End js -->
-
-
-
-
     @*<environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>*@
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>*@
 
     @RenderSection("Scripts", required: false)
 </body>

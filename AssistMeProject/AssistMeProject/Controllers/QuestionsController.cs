@@ -31,7 +31,7 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            var questions = (await _context.Question.Include(q => q.Answers).ToListAsync());
+            var questions = (await _context.Question.Include(q => q.Answers).Include(q => q.InterestingVotes).ToListAsync());
             questions.Sort();
             return View(questions);
         }
@@ -44,7 +44,7 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question.Include(q => q.Answers)
+            var question = await _context.Question.Include(q => q.Answers).Include(q => q.InterestingVotes)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {

@@ -9,22 +9,23 @@ using AssistMeProject.Models;
 
 namespace AssistMeProject.Controllers
 {
-    public class InterestingVotesController : Controller
+    public class InterestingVController : Controller
     {
         private readonly AssistMeProjectContext _context;
 
-        public InterestingVotesController(AssistMeProjectContext context)
+        public InterestingVController(AssistMeProjectContext context)
         {
             _context = context;
         }
 
-        // GET: InterestingVotes
+        // GET: InterestingV
         public async Task<IActionResult> Index()
         {
-            return View(await _context.InterestingVote.ToListAsync());
+            var assistMeProjectContext = _context.InterestingVote.Include(i => i.Question).Include(i => i.User);
+            return View(await assistMeProjectContext.ToListAsync());
         }
 
-        // GET: InterestingVotes/Details/5
+        // GET: InterestingV/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,6 +34,8 @@ namespace AssistMeProject.Controllers
             }
 
             var interestingVote = await _context.InterestingVote
+                .Include(i => i.Question)
+                .Include(i => i.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (interestingVote == null)
             {
@@ -41,30 +44,33 @@ namespace AssistMeProject.Controllers
 
             return View(interestingVote);
         }
+        
 
-        // GET: InterestingVotes/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: InterestingVotes/Create
+        // POST: InterestingV/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID")] InterestingVote interestingVote)
+        
+        public async Task<int> Create([Bind("ID,UserID,QuestionID")] InterestingVote interestingVote)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(interestingVote);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var lista = _context.InterestingVote.Where(x => x.UserID == interestingVote.UserID &&x.QuestionID==interestingVote.QuestionID).ToList();
+                if (lista.Count()>0)
+                {
+                    _context.InterestingVote.Remove(lista.First());
+                    await _context.SaveChangesAsync();
+                    return -1;
+                }
+                else {
+                     _context.Add(interestingVote);
+                    await _context.SaveChangesAsync();
+                    return 1;
+                }
             }
-            return View(interestingVote);
+            return 0;
         }
 
-        // GET: InterestingVotes/Edit/5
+        // GET: InterestingV/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,15 +83,17 @@ namespace AssistMeProject.Controllers
             {
                 return NotFound();
             }
+            ViewData["QuestionID"] = new SelectList(_context.Question, "Id", "Description", interestingVote.QuestionID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "ID", interestingVote.UserID);
             return View(interestingVote);
         }
 
-        // POST: InterestingVotes/Edit/5
+        // POST: InterestingV/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID")] InterestingVote interestingVote)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,UserID,QuestionID")] InterestingVote interestingVote)
         {
             if (id != interestingVote.ID)
             {
@@ -112,10 +120,12 @@ namespace AssistMeProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["QuestionID"] = new SelectList(_context.Question, "Id", "Description", interestingVote.QuestionID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "ID", interestingVote.UserID);
             return View(interestingVote);
         }
 
-        // GET: InterestingVotes/Delete/5
+        // GET: InterestingV/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,6 +134,8 @@ namespace AssistMeProject.Controllers
             }
 
             var interestingVote = await _context.InterestingVote
+                .Include(i => i.Question)
+                .Include(i => i.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (interestingVote == null)
             {
@@ -133,7 +145,7 @@ namespace AssistMeProject.Controllers
             return View(interestingVote);
         }
 
-        // POST: InterestingVotes/Delete/5
+        // POST: InterestingV/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
