@@ -7,7 +7,7 @@ namespace AssistMeProject.Models
 {
     public class Label
     {
-        public int Id { get; set; }
+        public int ID{ get; set; }
 
         public string Tag { get; set; }
 
