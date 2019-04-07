@@ -13,7 +13,7 @@ namespace AssistMeProject.Models
         public string Title { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
         [MaxLength(5)]
-        public ICollection<Label> Tags { get; set; } 
+        public virtual ICollection<Label> Tags { get; set; } 
 
         public Question()
         {

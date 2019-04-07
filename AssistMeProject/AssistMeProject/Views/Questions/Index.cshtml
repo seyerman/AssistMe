@@ -46,7 +46,7 @@
 													{
 														<span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
 													}
-													else if (n >= item.Date.AddMinutes(1))
+													else if (n >= item.Date.AddDays(1))
 													{
 														<span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@item.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
 													}
