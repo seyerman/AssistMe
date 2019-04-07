@@ -19,8 +19,9 @@ namespace AssistMeProject.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-        
-            return View();
+            IEnumerable<string> tags = _context.Label.OrderByDescending(l => l.NumberOfTimes).Take(5).Select(x =>x.Tag);
+           
+            return View(tags);
         }
 
 

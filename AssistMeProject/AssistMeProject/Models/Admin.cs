@@ -11,7 +11,7 @@ namespace AssistMeProject.Models
         private List<Question> listElements;
 
 
-        public Admin(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY, bool administrador) : base(iD, eMAIL, pHOTO, qUESTIONS_ANSWERED, pOSITIVE_VOTES_RECEIVED, qUESTIONS_ASKED, iNTERESTING_VOTES_RECEIVED, dESCRIPTION, iNTERESTS_OR_KNOWLEDGE, cOUNTRY, cITY, administrador)
+        public Admin(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY, bool administrador) : base(iD, eMAIL, pHOTO, qUESTIONS_ANSWERED, pOSITIVE_VOTES_RECEIVED, qUESTIONS_ASKED, iNTERESTING_VOTES_RECEIVED, dESCRIPTION, iNTERESTS_OR_KNOWLEDGE, cOUNTRY, cITY)
         {
 
         }
@@ -19,14 +19,16 @@ namespace AssistMeProject.Models
         public String addAdmin(int id)
         {
             String mensaje = "";
-            List<User> buscado = listUser.Where(x => x.ID == id && x.LEVEL.Equals("3")).ToList();
+
+            List<User> buscado = listUser.Where(x => x.ID == id && x.LEVEL != User.LEVEL_ADMIN).ToList();
+
             if (buscado.First().Equals(null))
             {
                 mensaje = "El usuario ya es un administrador";
             }
             else
             {
-                buscado.First().ADMIN = true;
+                buscado.First().LEVEL = User.LEVEL_ADMIN;
                 mensaje = "Se agrego correctamente el administrador";
             }
             return mensaje;

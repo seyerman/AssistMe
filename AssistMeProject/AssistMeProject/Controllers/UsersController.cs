@@ -71,19 +71,21 @@ namespace AssistMeProject.Controllers
             return View(user);
         }
 
-        // GET: Users/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Users/Edit
+        public IActionResult Edit()
         {
-            if (id == null)
+            if (HttpContext.Session.GetString("USERNAME") == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "Users", new { message = "Please, login below" });
             }
 
-            var user = await _context.User.FindAsync(id);
+            User user = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
             if (user == null)
             {
                 return NotFound();
             }
+
             return View(user);
         }
 
@@ -162,7 +164,7 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
                 return View(model.GetUser(HttpContext.Session.GetString("USERNAME")));
             if (string.IsNullOrEmpty(viewingToUser))
-                return Index("Inicie sesión");
+                return RedirectToAction("Index", "Users", new { message = "Please, login below" });
             return View(model.GetUser(viewingToUser));
         }
 
@@ -172,12 +174,11 @@ namespace AssistMeProject.Controllers
             User found = model.FindUser(username,password,method);
             if (found == null)
             {
-                return RedirectToAction("Index","Users",new { message = "Error, intente de nuevo"});
+                return RedirectToAction("Index","Users",new { message = "Error, try again"});
             } else
             {
                 //Only username it's saved for have a better security but this might be slower because have to search user every time
                 HttpContext.Session.SetString("USERNAME",found.USERNAME);
-                HttpContext.Items["User"] = found;
                 return View(found);
             }
         }

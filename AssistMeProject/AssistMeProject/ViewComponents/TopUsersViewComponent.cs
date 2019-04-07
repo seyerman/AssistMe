@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.ViewComponents
 {
-    public class StatsViewComponent : ViewComponent
+    public class TopUsersViewComponent : ViewComponent
     {
+
         private readonly AssistMeProjectContext _context;
 
-        public StatsViewComponent(AssistMeProjectContext context)
+        public TopUsersViewComponent(AssistMeProjectContext context)
         {
             _context = context;
         }
 
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            ViewData["Questions"] =_context.Question.Count();
-            ViewData["Answers"] = _context.Answer.Count();
-            ViewData["Users"] = _context.User.Count();
-            return View();
+            var topUsers = _context.User.Take(10).Select(u => u.USERNAME).ToList();//cambiar por la logica para seleccionar topusers
+            return View(topUsers);
         }
 
     }

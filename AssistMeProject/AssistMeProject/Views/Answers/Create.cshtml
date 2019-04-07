@@ -4,32 +4,40 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
-
 <h4>Answer</h4>
-<hr />
+
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+    <div class="col-md-9">
+
+        <div class="page-content ask-question">
+            <div class="boxedtitle page-title"><h2>Reply Question</h2></div>
+
+            <div class="form-style form-style-3" id="question-submit">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-inputs clearfix">
+
+                        <p>
+                            <label asp-for="Description" class="required">Details<span>*</span></label>
+                            <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </p>
+                    </div>
+
+                    <input type="hidden" asp-for="QuestionID" />
+                    <div class="form-group">
+                        <input type="submit" value="Reply" class="button color small submit" />
+                    </div>
+                </form>
             </div>
-            <input type="hidden" asp-for="QuestionID" />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-controller="Answer" asp-action="Index" >Back to list</a>
-</div>
+                <div>
+                    <a asp-controller="Answer" asp-action="Index">Back to list</a>
+                </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+                @section Scripts {
+                    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }

@@ -1,25 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Iniciar sesión";
+    ViewData["Title"] = "Login";
 }
-
+<style type="text/css">
+    .sidebar, widget_highest_points {
+        display: none;
+    }
+    .login {
+        padding-top: 11%;
+        padding-bottom: 11.6%;
+    }
+</style>
 <div id="wrap" class="grid_1200">
-
-    <div class="breadcrumbs">
-        <section class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>@ViewData["Title"]</h1>
-                </div>
-                <div class="col-md-12">
-                    <div class="crumbs">
-                        <a href="#">Home</a>
-                        <span class="crumbs-span">/</span>
-                        <span class="current">Index</span>
-                    </div>
-                </div>
-            </div><!-- End row -->
-        </section><!-- End container -->
-    </div><!-- End breadcrumbs -->
 
     <section class="container main-content">
         <div class="login">
@@ -37,26 +28,26 @@
                             <form method="post" asp-action="Profile">
                                 <div class="form-inputs clearfix">
                                     <p class="login-text">
-                                        <input type="text" name="username" value="" autocomplete="off" placeholder="Nombre de usuario">
+                                        <input type="text" name="username" value="" autocomplete="off" placeholder="Username">
                                         <i class="icon-user"></i>
                                     </p>
                                     <p class="login-password">
-                                        <input type="password" name="password" value="" autocomplete="off" placeholder="Contraseña">
+                                        <input type="password" name="password" value="" autocomplete="off" placeholder="Password">
                                         <i class="icon-lock"></i>
-                                        <a href="#">La olvidé</a>
+                                        <a href="#">I forgot</a>
                                     </p>
                                     <p class="hidden">
                                         <input type="text" name="method" value="N" /> <!--value=> how does the person enter, nor google or normal. N=normal G = google -->
                                     </p>
                                 </div>
                                 <p class="form-submit login-submit">
-                                    <input type="submit" value="Entrar" class="button color small login-submit submit">
+                                    <input type="submit" value="GO!" class="button color small login-submit submit">
                                 </p>
                                 <div class="rememberme">
-                                    <label><input type="checkbox" checked="checked"> Recuerdame</label>
+                                    <label><input type="checkbox" checked="checked"> Remember me</label>
                                 </div>
                                 <div class="text-right">
-                                    <a class="button small orange-button signup">Crear cuenta</a>
+                                    <a class="button small orange-button signup">Create account</a>
                                 </div>
                             </form>
                         </div>
@@ -64,7 +55,7 @@
                 </div><!-- End col-md-6 -->
                 <div class="col-md-6 text-center">
                     <div class="page-content">
-                        <h2 class="text-center">Todo en un solo lugar, inicia con tu cuenta de: </h2>
+                        <h2 class="text-center">All in one place, sign-in with: </h2>
                         <a class="button small color singinByGoogle login-submit submit"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" width="150" /></a>
                     </div><!-- End page-content -->
                 </div><!-- End col-md-6 -->
@@ -80,7 +71,7 @@
         <form>
             <div class="form-inputs clearfix">
                 <p>
-                    <label class="required">Usuario<span>*</span></label>
+                    <label class="required">Username<span>*</span></label>
                     <input type="text">
                 </p>
                 <p>
@@ -88,11 +79,11 @@
                     <input type="email">
                 </p>
                 <p>
-                    <label class="required">Contraseña<span>*</span></label>
+                    <label class="required">Password<span>*</span></label>
                     <input type="password" value="">
                 </p>
                 <p>
-                    <label class="required">Vuelve a escribir tu contraseña<span>*</span></label>
+                    <label class="required">Write the password again<span>*</span></label>
                     <input type="password" value="">
                 </p>
             </div>
