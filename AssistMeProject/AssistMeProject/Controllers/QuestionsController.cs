@@ -221,6 +221,7 @@ namespace AssistMeProject.Controllers
 				return NotFound();
 			}
 			question.Date = DateTime.Now;
+            question.AskAgain = true;
 			if (ModelState.IsValid)
 			{
 				try

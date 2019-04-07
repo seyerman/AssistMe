@@ -37,7 +37,7 @@ namespace AssistMeProject.Models
 
 
 
-        public int CompareTo(object obj)
+        public virtual int CompareTo(object obj)
         {
 
             Element other = (Element)obj; 
