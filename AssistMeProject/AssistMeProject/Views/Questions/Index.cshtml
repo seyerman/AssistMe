@@ -40,10 +40,23 @@
                                         <div class="question-inner">
                                             <div class="clearfix"></div>
                                             <p class="question-desc">@Html.DisplayFor(modelItem => item.Description)</p>
-                                            <div class="question-details">
-                                                <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
-                                                <span class="question-favorite"><i class="icon-star"></i>5</span>
-                                            </div>
+											<div class="question-details">
+												@{ var n = DateTime.Now;
+													if (item.Answers.Count > 0)
+													{
+														<span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+													}
+													else if (n >= item.Date.AddMinutes(1))
+													{
+														<span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@item.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
+													}
+													else
+													{
+														<span class="question-answered"><i class="icon-ok"></i>in progress</span>
+													}
+												}
+												<span class="question-favorite"><i class="icon-star"></i>5</span>
+											</div>
                                             <span class="question-category"><a href="#"><i class="icon-folder-close"></i>@Html.DisplayFor(modelItem => item.Tags)</a></span>
                                             <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
                                             <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>5 Answer</a></span>
