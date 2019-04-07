@@ -20,12 +20,13 @@ namespace AssistMeProject.Models
             base.OnModelCreating(builder);
 
         }
+        public DbSet<Label> Label { get; set; }
         public DbSet<Question> Question { get; set; }
         public DbSet<Answer> Answer { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Studio> Studio { get; set; }
-        public DbSet<Label>Label { get; set; }
+     
         public static object Configuration { get; internal set; }
     }
 }
