@@ -11,7 +11,6 @@
     ViewData["Title"] = title;
 }
 
-
 <section class="container main-content">
     <div class="row">
         <!--Espacios-->
@@ -21,7 +20,8 @@
         <div class="col-md-9">
             <div id="commentlist" class="page-content">
                 <div class="boxedtitle page-title"><h2>Usuarios</h2></div>
-                <ol class="commentlist clearfix">
+      
+          <ol class="commentlist clearfix">
                     @foreach (var item in Model)
                     {
                         <li class="user">
@@ -34,7 +34,7 @@
                                         <div class="text">
                                             <p> @Html.DisplayFor(modelItem => item.EMAIL)</p>
                                         </div>
-                                        <a class="comment-reply" href="#"><i class="icon-reply"></i>Asignar rol de Administrador</a>
+                                        <a asp-action="AsignRole" asp-route-id="@item.ID" class="comment-reply" ><i class="icon-reply"></i>Asignar rol de Administrador</a>
                                     </div>
                                 </div>
                             </div>
@@ -49,68 +49,12 @@
 
             <div class="post-next-prev clearfix">
                 <p class="prev-post">
-                    <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Prev question</a>
+                    <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Prev</a>
                 </p>
                 <p class="next-post">
-                    <a href="#">Next question&nbsp;<i class="icon-double-angle-right"></i></a>
+                    <a href="#">Next&nbsp;<i class="icon-double-angle-right"></i></a>
                 </p>
             </div><!-- End post-next-prev -->
         </div><!-- End main -->
-        <aside class="col-md-3 sidebar">
-            <div class="widget widget_stats">
-                <h3 class="widget_title">Stats</h3>
-                <div class="ul_list ul_list-icon-ok">
-                    <ul>
-                        <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
-                        <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="widget widget_social">
-                <h3 class="widget_title">Find Us</h3>
-                <ul>
-                    <li class="rss-subscribers">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="icon-rss"></i>
-                                <span>Subscribe</span><br>
-                                <small>To RSS Feed</small>
-                            </strong>
-                        </a>
-                    </li>
-                    <li class="facebook-fans">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="social_icon-facebook"></i>
-                                <span>5,000</span><br>
-                                <small>People like it</small>
-                            </strong>
-                        </a>
-                    </li>
-                    <li class="twitter-followers">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="social_icon-twitter"></i>
-                                <span>3,000</span><br>
-                                <small>Followers</small>
-                            </strong>
-                        </a>
-                    </li>
-                    <li class="youtube-subs">
-                        <a href="#" target="_blank">
-                            <strong>
-                                <i class="icon-play"></i>
-                                <span>1,000</span><br>
-                                <small>Subscribers</small>
-                            </strong>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-
-
-        </aside><!-- End sidebar -->
-    </div><!-- End row -->
+        </div><!-- End row -->
 </section>

@@ -10,9 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Admin\AddAdminList.cshtml" />
-    <None Include="Views\Admin\CreateStudio.cshtml" />
-    <None Include="Views\Admin\Index.cshtml" />
+    <None Include="Views\Administrator\CreateStudio.cshtml" />
+    <None Include="Views\Administrator\Index.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />

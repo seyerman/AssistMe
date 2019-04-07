@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace AssistMeProject.Controllers
 {
@@ -14,7 +16,7 @@ namespace AssistMeProject.Controllers
     {
         private readonly AssistMeProjectContext _context;
         public AssistMe model;
-        private BM25Searcher _searcher;
+
 
         public AdministratorController(AssistMeProjectContext context)
         {
@@ -22,174 +24,98 @@ namespace AssistMeProject.Controllers
             model = new AssistMe(context);
         }
 
-        // GET: Questions
-        public async Task<IActionResult> AddAdmin()
+        public IActionResult Index()
         {
-            //Example of how to get the actual user that logged into the application
-            User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
-            ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
-            //End of the example
+
+            //  User u = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            // if (u.LEVEL == 3)
+            // {
+            //return NotAdmin(u);
+            //}
+            //  else{
+            return View();
+            //  }
+        }
+
+        public IActionResult NotAdmin(User user)
+        {
+            return View(user);
+        }
+
+        public async Task<IActionResult> IndexAsync()
+        {
             var users = (await _context.User.ToListAsync());
-          
+
             return View(users);
         }
 
+        //POST: Admin/CreateStudio
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateStudio([Bind("Id, Name, Unit, Description")] Studio studio)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(studio);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(_context);
+        }
+
+
         // GET: Questions/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> AsignRole(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var question = await _context.Question.Include(q => q.Answers)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (question == null)
+            var user = await _context.User.FirstOrDefaultAsync(m => m.ID == id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(question);
+            user.LEVEL = 2;
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+            return View(user);
         }
 
-        private void initSearcher()
+        // GET: /<controller>/
+        public IActionResult CreateStudio()
         {
-            _searcher = new BM25Searcher();
-            LoadSearcher();
-        }
+            //creamos una lista tipo SelectListItem
+            List<SelectListItem> list = new List<SelectListItem>();
+            list.Add(new SelectListItem() { Text = "Indique la unidad a la que pertenece el Studio", Value = "NULL" });
 
-        private void LoadSearcher()
-        {
-            var questions = _context.Question.ToList();
-            foreach (var question in questions)
-            {
-                _searcher.AddDocument(question);
-            }
+            list.Add(new SelectListItem() { Text = "Strategy", Value = "Strategy" });
+            list.Add(new SelectListItem() { Text = "Specialty", Value = "Specialty" });
+            list.Add(new SelectListItem() { Text = "Foundation", Value = "Foundation" });
 
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Search(string query)
-        {
-            initSearcher();
-            List<Question> questions = new List<Question>();
-            List<ISearchable> searchables = _searcher.Search(query);
-            foreach (ISearchable s in searchables)
-            {
-                questions.Add((Question)s);
-            }
-            return View(questions);
-            //return View(await _context.Question.ToListAsync());
-        }
-
-        // GET: Questions/Create
-        public IActionResult Create()
-        {
+            //Agregamos la lista a nuestro SelectList
+            ViewData["Unit"] = new SelectList(list, "Value", "Text");
             return View();
         }
 
+        // GET: Questions
+        public async Task<IActionResult> AddAdmin()
+        {
+           
+            var users = (await _context.User.Where(u => u.LEVEL == 3).ToListAsync());
+            //users.Sort();
+            return View(users);
+        }
+
+
+
+
      
-        // POST: Questions/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(question);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(AddAdmin));
-            }
-            return View(question);
-        }
 
-        // GET: Questions/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var question = await _context.Question.FindAsync(id);
-            if (question == null)
-            {
-                return NotFound();
-            }
-            return View(question);
-        }
-
-        // POST: Questions/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
-        {
-            if (id != question.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(question);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!QuestionExists(question.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(AddAdmin));
-            }
-            return View(question);
-        }
-
-        // GET: Questions/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var question = await _context.Question
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (question == null)
-            {
-                return NotFound();
-            }
-
-            return View(question);
-        }
-
-        // POST: Questions/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var question = await _context.Question.FindAsync(id);
-            _context.Question.Remove(question);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(AddAdmin));
-        }
-
-        private bool QuestionExists(int id)
-        {
-            return _context.Question.Any(e => e.Id == id);
-        }
+ 
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class User : ICloneable
+    public class User : ICloneable 
     {
 
         public const int LEVEL_ROOT = 1;
@@ -91,5 +91,7 @@ namespace AssistMeProject.Models
         {
             return this.MemberwiseClone();
         }
+
+       
     }
 }

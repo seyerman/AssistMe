@@ -26,5 +26,6 @@ namespace AssistMeProject.Models
         public DbSet<User> User { get; set; }
         public DbSet<Studio> Studio { get; set; }
         public DbSet<Label>Label { get; set; }
+        public static object Configuration { get; internal set; }
     }
 }
