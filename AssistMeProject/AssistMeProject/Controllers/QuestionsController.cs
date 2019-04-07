@@ -213,5 +213,34 @@ namespace AssistMeProject.Controllers
         {
             return _context.Question.Any(e => e.Id == id);
         }
+		public async Task<IActionResult> UpdateDate(int? id)
+		{
+			var question = await _context.Question.FindAsync(id);
+			if (question == null)
+			{
+				return NotFound();
+			}
+			question.Date = DateTime.Now;
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					_context.Update(question);
+					await _context.SaveChangesAsync();
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+					if (!QuestionExists(question.Id))
+					{
+						return NotFound();
+					}
+					else
+					{
+						throw;
+					}
+				}
+			}
+			return RedirectToAction(nameof(Details), new { id = question.Id });
+		}
     }
 }

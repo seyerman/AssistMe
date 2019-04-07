@@ -26,31 +26,46 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Question.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-               <!-- <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |-->
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <!--<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>-->
-            </td>
-        </tr>
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Question.Title)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Description)
+			</td>
+
+			<td>
+				@Html.DisplayFor(modelItem => item.Date)
+			</td>
+			<td>
+				<!-- <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |-->
+				<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+				<!--<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>-->
+			</td>
+		</tr>
 }
     </tbody>
 </table>
 
 <div class="page-content">
-    <ol class="commentlist clearfix">
-        @foreach(var item in Model)
-        {
-            @await Html.PartialAsync("Details",item)
-        }
-    </ol>
+	<ol class="commentlist clearfix">
+		@foreach (var item in Model)
+		{
+			@await Html.PartialAsync("Details", item)
+			@{ var n = DateTime.Now;
+				if (Model.Answers.Count > 0)
+				{
+					<span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+				}
+				else if (n >= Model.Date.AddMinutes(1))
+				{
+					<span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@Model.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
+				}
+				else
+				{
+					<span class="question-answered"><i class="icon-ok"></i>in progress</span>
+				}
+			}
+		}
+	</ol>
 </div>
