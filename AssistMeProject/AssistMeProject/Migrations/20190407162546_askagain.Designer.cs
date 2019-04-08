@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190407162546_askagain")]
+    partial class askagain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,9 +71,13 @@ namespace AssistMeProject.Migrations
 
                     b.Property<int>("NumberOfTimes");
 
+                    b.Property<int?>("QuestionId");
+
                     b.Property<string>("Tag");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
 
                     b.ToTable("Label");
                 });
@@ -99,19 +105,6 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Question");
                 });
 
-            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
-                {
-                    b.Property<int>("QuestionId");
-
-                    b.Property<int>("LabelId");
-
-                    b.HasKey("QuestionId", "LabelId");
-
-                    b.HasIndex("LabelId");
-
-                    b.ToTable("QuestionLabels");
-                });
-
             modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
                 {
                     b.Property<int>("Id")
@@ -134,6 +127,8 @@ namespace AssistMeProject.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("ADMIN");
 
                     b.Property<string>("CITY");
 
@@ -184,17 +179,11 @@ namespace AssistMeProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
+            modelBuilder.Entity("AssistMeProject.Models.Label", b =>
                 {
-                    b.HasOne("AssistMeProject.Models.Label", "Label")
-                        .WithMany("QuestionLabels")
-                        .HasForeignKey("LabelId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("AssistMeProject.Models.Question", "Question")
-                        .WithMany("QuestionLabels")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany("Tags")
+                        .HasForeignKey("QuestionId");
                 });
 #pragma warning restore 612, 618
         }
