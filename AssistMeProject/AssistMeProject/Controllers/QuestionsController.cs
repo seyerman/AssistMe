@@ -98,7 +98,7 @@ namespace AssistMeProject.Controllers
             {
                 questions.Add((Question)s);
             }
-            return View(questions);
+            return View("Index", questions);
             //return View(await _context.Question.ToListAsync());
         }
 
@@ -118,11 +118,28 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        public async Task<IActionResult> Create(string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(question);
+                string[] tagsStr = question_tags.Split(",");
+                foreach (string t in tagsStr)
+                {
+                    var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
+                    if (tag == null)
+                    {
+                        tag = new Label();
+                        tag.Tag = t;
+                        _context.Add(tag);
+                    }
+                    var questionLabel = new QuestionLabel
+                    {
+                        LabelId = tag.Id,
+                        QuestionId = question.Id
+                    };
+                    _context.Add(questionLabel);
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

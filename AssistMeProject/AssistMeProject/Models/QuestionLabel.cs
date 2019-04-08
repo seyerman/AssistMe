@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class Question_Tag
+    public class QuestionLabel
     {
         public int QuestionId { get; set; }
-        public int TagId { get; set; }
+        public int LabelId { get; set; }
+        public Question Question { get; set; }
+        public Label Label { get; set; }
+
     }
 }

@@ -12,15 +12,14 @@ namespace AssistMeProject.Models
         [Required(ErrorMessage = "Agregue un Titulo a su pregunta"), MaxLength(150), Display(Name = "Titulo")]
         public string Title { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
-        [MaxLength(5)]
-        public virtual ICollection<Label> Tags { get; set; }
+
+        public virtual List<QuestionLabel> QuestionLabels { get; set; }
 
         public bool AskAgain { get; set; }
 
         public Question()
         {
             Answers = new HashSet<Answer>();
-            Tags = new HashSet<Label>();
             AskAgain = false;
         }
 

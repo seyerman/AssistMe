@@ -9,7 +9,7 @@ namespace AssistMeProject.Models
     {
         public int Id { get; set; }
         public string Tag { get; set; }
-        public virtual Question Question { get; set; }
+        public virtual List<QuestionLabel> QuestionLabels { get; set; }
         public int NumberOfTimes { get; set; }
     }
 }
