@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190408015158_QuestionsLabel")]
+    partial class QuestionsLabel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,8 +120,6 @@ namespace AssistMeProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -136,6 +136,8 @@ namespace AssistMeProject.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("ADMIN");
 
                     b.Property<string>("CITY");
 
