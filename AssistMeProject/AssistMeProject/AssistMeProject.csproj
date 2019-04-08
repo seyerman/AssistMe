@@ -10,9 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Admin\AddAdminList.cshtml" />
-    <None Include="Views\Admin\CreateStudio.cshtml" />
-    <None Include="Views\Admin\Index.cshtml" />
+    <None Include="Views\Administrator\CreateStudio.cshtml" />
+    <None Include="Views\Administrator\Index.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
@@ -26,6 +25,25 @@
     <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="wwwroot\images\StudiosImages\Agile Delivery.svg" />
+    <None Include="wwwroot\images\StudiosImages\Artificial Intelligence.svg" />
+    <None Include="wwwroot\images\StudiosImages\Big Data.svg" />
+    <None Include="wwwroot\images\StudiosImages\Cloud Opps.svg" />
+    <None Include="wwwroot\images\StudiosImages\Consulting.svg" />
+    <None Include="wwwroot\images\StudiosImages\Continous Evolution.svg" />
+    <None Include="wwwroot\images\StudiosImages\CyberSecurity.svg" />
+    <None Include="wwwroot\images\StudiosImages\Digital Content.svg" />
+    <None Include="wwwroot\images\StudiosImages\FOO.svg" />
+    <None Include="wwwroot\images\StudiosImages\Gaming.svg" />
+    <None Include="wwwroot\images\StudiosImages\IOT.svg" />
+    <None Include="wwwroot\images\StudiosImages\Media OTT.svg" />
+    <None Include="wwwroot\images\StudiosImages\Mobile.svg" />
+    <None Include="wwwroot\images\StudiosImages\Proccess Automation.svg" />
+    <None Include="wwwroot\images\StudiosImages\Product Acceleration.svg" />
+    <None Include="wwwroot\images\StudiosImages\Quality Engineering.svg" />
+    <None Include="wwwroot\images\StudiosImages\Scalable Platafomts.svg" />
+    <None Include="wwwroot\images\StudiosImages\UI Engineering.svg" />
+    <None Include="wwwroot\images\StudiosImages\UX Desing.svg" />
   </ItemGroup>
 
   <ItemGroup>

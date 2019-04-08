@@ -9,7 +9,7 @@ namespace AssistMeProject.Models
 {
     public class AssistMeProjectContext : DbContext
     {
-        public AssistMeProjectContext (DbContextOptions<AssistMeProjectContext> options)
+        public AssistMeProjectContext(DbContextOptions<AssistMeProjectContext> options)
             : base(options)
         {
 
@@ -26,7 +26,7 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.Comment> Comment { get; set; }
         public DbSet<AssistMeProject.Models.User> User { get; set; }
         public DbSet<AssistMeProject.Models.Studio> Studio { get; set; }
-        public DbSet<AssistMeProject.Models.Label>Label { get; set; }
+        public DbSet<AssistMeProject.Models.Label> Label { get; set; }
         public DbSet<AssistMeProject.Models.QuestionLabel> QuestionLabels { get; set; }
     }
 }
