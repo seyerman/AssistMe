@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190406025706_myNewMigration")]
+    partial class myNewMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,8 +84,6 @@ namespace AssistMeProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("AskAgain");
-
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
@@ -97,19 +97,6 @@ namespace AssistMeProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Question");
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
-                {
-                    b.Property<int>("QuestionId");
-
-                    b.Property<int>("LabelId");
-
-                    b.HasKey("QuestionId", "LabelId");
-
-                    b.HasIndex("LabelId");
-
-                    b.ToTable("QuestionLabels");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
@@ -181,19 +168,6 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Answer", "Answer")
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
-                {
-                    b.HasOne("AssistMeProject.Models.Label", "Label")
-                        .WithMany("QuestionLabels")
-                        .HasForeignKey("LabelId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AssistMeProject.Models.Question", "Question")
-                        .WithMany("QuestionLabels")
-                        .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
