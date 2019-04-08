@@ -71,7 +71,8 @@ namespace AssistMeProject.Controllers
                 comment.Date = DateTime.Now;
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var QuestionID = _context.Answer.Find(AnswerId).QuestionID;
+                return RedirectToAction("Details", "Questions", new { id = QuestionID });
             }
            // ViewData["AnswerId"] = new SelectList(_context.Answer, "Id", "Description", comment.AnswerId);
             return View(comment);
