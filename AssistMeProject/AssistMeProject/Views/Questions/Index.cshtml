@@ -34,7 +34,7 @@
                                         </h2>
                                         <a class="question-report" href="#">Report</a>
                                         <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
-                                        
+
                                         <div class="question-author">
                                             <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
                                         </div>
@@ -66,10 +66,26 @@
                                                 }
                                                 <span class="question-favorite"><i class="icon-star"></i>5</span>
                                             </div>
+
                                             <span class="question-category"><a href="#"><i class="icon-folder-close"></i></a></span>
                                             <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
                                             <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>@item.Answers.Count</a></span>
-                                            
+                                            <p>
+                                                <div class="question-tags">
+                                                    <i class="icon-tags"></i>
+                                                    @{
+                                                        foreach (QuestionLabel ql in item.QuestionLabels)
+                                                        {
+                                                            string text = ql.Label.Tag;
+                                                            if (item.QuestionLabels.Last() != ql)
+                                                            {
+                                                                text += ", ";
+                                                            }
+                                                            <a href="#">@text</a>
+                                                        }
+                                                    }
+                                                </div>
+                                            </p>
                                             <div class="clearfix"></div>
                                         </div>
                                     </article>

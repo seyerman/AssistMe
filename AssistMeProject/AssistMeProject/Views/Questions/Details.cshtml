@@ -30,7 +30,12 @@
                     @{
                         foreach (QuestionLabel ql in Model.QuestionLabels)
                         {
-                            <a href="#">@ql.Label</a>
+                            string text = ql.Label.Tag;
+                            if (Model.QuestionLabels.Last() != ql)
+                            {
+                                text += ", ";
+                            }
+                            <a href="#">@text</a>
                         }
                     }
                 </div>
