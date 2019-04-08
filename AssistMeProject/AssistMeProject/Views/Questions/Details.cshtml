@@ -27,9 +27,13 @@
             <div class="share-tags page-content">
                 <div class="question-tags">
                     <i class="icon-tags"></i>
-                    <a href="#">wordpress</a>, <a href="#">question</a>, <a href="#">developer</a>
+                    @{
+                        foreach (QuestionLabel ql in Model.QuestionLabels)
+                        {
+                            <a href="#">@ql.Label</a>
+                        }
+                    }
                 </div>
-
                 <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
                 <div class="clearfix"></div>
 

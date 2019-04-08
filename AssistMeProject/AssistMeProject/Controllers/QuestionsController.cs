@@ -47,7 +47,10 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question.Include(q => q.Answers)
+            var question = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
@@ -133,6 +136,7 @@ namespace AssistMeProject.Controllers
                         tag.Tag = t;
                         _context.Add(tag);
                     }
+                    tag.NumberOfTimes++;
                     var questionLabel = new QuestionLabel
                     {
                         LabelId = tag.Id,
