@@ -68,28 +68,53 @@
 <div class="panel-pop" id="signup">
     <h2>Register Now<i class="icon-remove"></i></h2>
     <div class="form-style form-style-3">
-        <form>
-            <div class="form-inputs clearfix">
-                <p>
-                    <label class="required">Username<span>*</span></label>
-                    <input type="text">
-                </p>
-                <p>
-                    <label class="required">E-Mail<span>*</span></label>
-                    <input type="email">
-                </p>
-                <p>
-                    <label class="required">Password<span>*</span></label>
-                    <input type="password" value="">
-                </p>
-                <p>
-                    <label class="required">Write the password again<span>*</span></label>
-                    <input type="password" value="">
-                </p>
+        <form asp-action="Create">
+            <div class="form-group">
+                <input name="LEVEL" class="form-control" value="2" min="1" max="3" type="hidden" />
             </div>
-            <p class="form-submit">
-                <input type="submit" value="Signup" class="button color small submit">
-            </p>
+            <div class="form-group">
+                <label name="USERNAME" class="control-label">Username: </label>
+                <input name="USERNAME" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label name="PASSWORD" class="control-label">Password: </label>
+                <input name="PASSWORD" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label name="EMAIL" class="control-label">Email: </label>
+                <input name="EMAIL" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input name="PHOTO" class="form-control" type="hidden" value="http://placehold.it/60x60/FFF/444" />
+            </div>
+            <div class="form-group">
+                <input name="QUESTIONS_ANSWERED" class="form-control" type="hidden" value="0"/>
+            </div>
+            <div class="form-group">
+                <input name="POSITIVE_VOTES_RECEIVED" class="form-control" type="hidden" value="0"/>
+            </div>
+            <div class="form-group">
+                <input name="QUESTIONS_ASKED" class="form-control" type="hidden" value="0"/>
+            </div>
+            <div class="form-group">
+                <input name="INTERESTING_VOTES_RECEIVED" class="form-control" type="hidden" value="0"/>
+            </div>
+            <div class="form-group">
+                <input name="DESCRIPTION" class="form-control" type="hidden" value=""/>
+            </div>
+            <div class="form-group">
+                <input namer="INTERESTS_OR_KNOWLEDGE" class="form-control" type="hidden" value=""/>
+            </div>
+            <div class="form-group">
+                <input name="COUNTRY" class="form-control" type="hidden" value=""/>
+            </div>
+            <div class="form-group">
+                <input name="CITY" class="form-control" type="hidden" value=""/>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default orange-button" />
+            </div>
         </form>
     </div>
 </div><!-- End signup -->
