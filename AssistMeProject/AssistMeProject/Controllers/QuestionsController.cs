@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
+using System.Net.Mail;
 
 namespace AssistMeProject.Controllers
 {
@@ -149,6 +150,22 @@ namespace AssistMeProject.Controllers
                     _context.Add(questionLabel);
                 }
                 await _context.SaveChangesAsync();
+
+              
+
+                try
+                {
+                    Email manager = new Email();
+                    MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n"+question.Description);
+                    manager.EnviarCorreo(email);
+                
+                }
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
                 return RedirectToAction(nameof(Index));
             }
             return View(question);
