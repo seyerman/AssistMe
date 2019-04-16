@@ -52,7 +52,6 @@ C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\b
 C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\bin\Debug\netcoreapp2.1\AssistMeProject.pdb
 C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\bin\Debug\netcoreapp2.1\AssistMeProject.Views.dll
 C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\bin\Debug\netcoreapp2.1\AssistMeProject.Views.pdb
-C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.csprojAssemblyReference.cache
 C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.csproj.CoreCompileInputs.cache
 C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.RazorAssemblyInfo.cache
 C:\Users\emman\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\AssistMeProject.RazorAssemblyInfo.cs
