@@ -1,0 +1,14 @@
+﻿@model IEnumerable<AssistMeProject.Models.Comment>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div id="commentlist" class="page-content">
+    <ol class="commentlist clearfix">
+        @foreach (var item in Model)
+        {
+            @await Html.PartialAsync("Details", item)
+        }
+    </ol>
+
+</div>

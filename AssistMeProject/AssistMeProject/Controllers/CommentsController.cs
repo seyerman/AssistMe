@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
@@ -21,8 +22,16 @@ namespace AssistMeProject.Controllers
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Comment.ToListAsync());
+            var assistMeProjectContext = _context.Comment.Include(c => c.Answer);
+            return View(await assistMeProjectContext.ToListAsync());
         }
+
+        public async Task<IActionResult> CommentList(int? AnswerId)
+        {
+            var assistMeProjectContext = _context.Comment.Where(c => c.AnswerId == AnswerId).Include(s=>s.Answer);
+            return PartialView(await assistMeProjectContext.ToListAsync());
+        }
+
 
         // GET: Comments/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -33,6 +42,7 @@ namespace AssistMeProject.Controllers
             }
 
             var comment = await _context.Comment
+                .Include(c => c.Answer)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
@@ -43,8 +53,9 @@ namespace AssistMeProject.Controllers
         }
 
         // GET: Comments/Create
-        public IActionResult Create()
+        public IActionResult Create(int? AnswerId)
         {
+            ViewData["AnswerId"] = new SelectList(_context.Answer, "Id", "Description");
             return View();
         }
 
@@ -53,14 +64,17 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Description,Date,Hour")] Comment comment)
+        public async Task<IActionResult> Create(int AnswerId,[Bind("AnswerId,Id,Description,Date")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                comment.Date = DateTime.Now;
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var QuestionID = _context.Answer.Find(AnswerId).QuestionID;
+                return RedirectToAction("Details", "Questions", new { id = QuestionID });
             }
+           // ViewData["AnswerId"] = new SelectList(_context.Answer, "Id", "Description", comment.AnswerId);
             return View(comment);
         }
 
@@ -77,6 +91,7 @@ namespace AssistMeProject.Controllers
             {
                 return NotFound();
             }
+            ViewData["AnswerId"] = new SelectList(_context.Answer, "Id", "Description", comment.AnswerId);
             return View(comment);
         }
 
@@ -85,7 +100,7 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Description,Date,Hour")] Comment comment)
+        public async Task<IActionResult> Edit(int id, [Bind("AnswerId,Id,Description,Date")] Comment comment)
         {
             if (id != comment.Id)
             {
@@ -112,6 +127,7 @@ namespace AssistMeProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AnswerId"] = new SelectList(_context.Answer, "Id", "Description", comment.AnswerId);
             return View(comment);
         }
 
@@ -124,6 +140,7 @@ namespace AssistMeProject.Controllers
             }
 
             var comment = await _context.Comment
+                .Include(c => c.Answer)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {

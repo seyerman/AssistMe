@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
@@ -12,16 +13,27 @@ namespace AssistMeProject.Controllers
     public class QuestionsController : Controller
     {
         private readonly AssistMeProjectContext _context;
+        public AssistMe model;
+        private BM25Searcher _searcher;
 
         public QuestionsController(AssistMeProjectContext context)
         {
             _context = context;
+            model = new AssistMe(context);
         }
 
         // GET: Questions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Question.ToListAsync());
+            //Example of how to get the actual user that logged into the application
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
+            //End of the example
+            var questions = (await _context.Question.Include(q => q.Answers).ToListAsync());
+            questions.Sort();
+            return View(questions);
         }
 
         // GET: Questions/Details/5
@@ -32,7 +44,7 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question
+            var question = await _context.Question.Include(q => q.Answers)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
@@ -42,8 +54,43 @@ namespace AssistMeProject.Controllers
             return View(question);
         }
 
+        private void initSearcher()
+        {
+            _searcher = new BM25Searcher();
+            LoadSearcher();
+        }
+
+        private void LoadSearcher()
+        {
+            var questions = _context.Question.ToList();
+            foreach (var question in questions)
+            {
+                _searcher.AddDocument(question);
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string query)
+        {
+            initSearcher();
+            List<Question> questions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(query);
+            foreach (ISearchable s in searchables)
+            {
+                questions.Add((Question)s);
+            }
+            return View(questions);
+            //return View(await _context.Question.ToListAsync());
+        }
+
         // GET: Questions/Create
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult AdvancedSearch()
         {
             return View();
         }
@@ -53,7 +100,7 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Id,Description,Date,Hour")] Question question)
+        public async Task<IActionResult> Create([Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +132,7 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Title,Id,Description,Date,Hour")] Question question)
+        public async Task<IActionResult> Edit(int id, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             if (id != question.Id)
             {

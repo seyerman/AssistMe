@@ -2,41 +2,123 @@
 
 @{
     ViewData["Title"] = "Details";
+    ViewData["IsQuestionMin"] = true;
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Question</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Hour)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Hour)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+
+
+
+
+<!-- omitido breadcrumbs del template agregar luego...-->
+<section class="container main-content">
+    <div class="row">
+        <div class="col-md-9">
+      
+            <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
+
+            <div class="page-content clearfix">
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
+            </div>
+
+            <div class="share-tags page-content">
+                <div class="question-tags">
+                    <i class="icon-tags"></i>
+                    <a href="#">wordpress</a>, <a href="#">question</a>, <a href="#">developer</a>
+                </div>
+
+                <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
+                <div class="clearfix"></div>
+
+            </div><!-- End share-tags -->
+
+            <div class="about-author clearfix">
+                <div class="author-image">
+                    <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+                </div>
+                <div class="author-bio">
+                    <h4>About the Author</h4>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
+                </div>
+            </div><!-- End about-author -->
+
+            <div id="related-posts">
+                <h2>Related questions</h2>
+                <ul class="related-posts">
+                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This Is My Second Poll Question</a></h3></li>
+                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my third Question</a></h3></li>
+                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fourth Question</a></h3></li>
+                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fifth Question</a></h3></li>
+                </ul>
+            </div><!-- End related-posts -->
+
+            <div id="answerlist">
+
+
+            </div>
+
+            <div id="respond" class="comment-respond page-content clearfix">
+                <div class="boxedtitle page-title"><h2>Leave a reply</h2></div>
+                <form action="" method="post" id="commentform" class="comment-form">
+                    <div id="respond-inputs" class="clearfix">
+                        <p>
+                            <label class="required" for="comment_name">Name<span>*</span></label>
+                            <input name="author" type="text" value="" id="comment_name" aria-required="true">
+                        </p>
+                        <p>
+                            <label class="required" for="comment_email">E-Mail<span>*</span></label>
+                            <input name="email" type="text" value="" id="comment_email" aria-required="true">
+                        </p>
+                        <p class="last">
+                            <label class="required" for="comment_url">Website<span>*</span></label>
+                            <input name="url" type="text" value="" id="comment_url">
+                        </p>
+                    </div>
+                    <div id="respond-textarea">
+                        <p>
+                            <label class="required" for="comment">Comment<span>*</span></label>
+                            <textarea id="comment" name="comment" aria-required="true" cols="58" rows="8"></textarea>
+                        </p>
+                    </div>
+                    <p class="form-submit">
+                        <input name="submit" type="submit" id="submit" value="Post your answer" class="button small color">
+                    </p>
+                </form>
+            </div>
+
+            <div class="post-next-prev clearfix">
+                <p class="prev-post">
+                    <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Prev question</a>
+                </p>
+                <p class="next-post">
+                    <a href="#">Next question&nbsp;<i class="icon-double-angle-right"></i></a>
+                </p>
+            </div><!-- End post-next-prev -->
+        </div><!-- End main -->
+        
+    </div><!-- End row -->
+</section><!-- End container -->
+
+@section scripts{
+
+    <script>
+        $(function () {
+            $.ajax({
+                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
+            }).done(function (data) {
+                $('#answerlist').html(data);
+            }).fail(function () {
+                alert("error");
+            });
+        }
+        );
+    </script>
+
+
+
+   
+    
+}

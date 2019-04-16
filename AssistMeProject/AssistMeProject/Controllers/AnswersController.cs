@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
@@ -25,6 +26,13 @@ namespace AssistMeProject.Controllers
             return View(await assistMeProjectContext.ToListAsync());
         }
 
+        public async Task<IActionResult> AnswerList(int? QuestionID)
+        {
+            var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(q => q.Question).Include(q => q.Comments);
+            return PartialView(await asssitMeProjectContext.ToListAsync());
+
+        }
+
         // GET: Answers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -35,6 +43,7 @@ namespace AssistMeProject.Controllers
 
             var answer = await _context.Answer
                 .Include(a => a.Question)
+                .Include(a => a.Comments)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {
@@ -45,7 +54,7 @@ namespace AssistMeProject.Controllers
         }
 
         // GET: Answers/Create
-        public IActionResult Create()
+        public IActionResult Create(int? QuestionID)
         {
             ViewData["QuestionID"] = new SelectList(_context.Question, "Id", "Description");
             return View();
@@ -56,15 +65,17 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("QuestionID,Id,Description,Date,Hour")] Answer answer)
+        public async Task<IActionResult> Create(int QuestionID,[Bind("QuestionID,Id,Description,Date")] Answer answer)
         {
             if (ModelState.IsValid)
             {
+                answer.Date = DateTime.Now;
                 _context.Add(answer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details","Questions",new { id = QuestionID });
             }
-            ViewData["QuestionID"] = new SelectList(_context.Question, "Id", "Description", answer.QuestionID);
+            
             return View(answer);
         }
 
@@ -90,7 +101,7 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("QuestionID,Id,Description,Date,Hour")] Answer answer)
+        public async Task<IActionResult> Edit(int id, [Bind("QuestionID,Id,Description,Date")] Answer answer)
         {
             if (id != answer.Id)
             {

@@ -12,6 +12,12 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Answer.Description)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd>
@@ -22,12 +28,6 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Hour)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Hour)
         </dd>
     </dl>
     

@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hour)
             </th>
             <th></th>
         </tr>
@@ -28,20 +28,30 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Answer.Description)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Hour)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+               <!-- <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |-->
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <!--<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>-->
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<div id="commentlist" class="page-content">
+    <ol class="commentlist clearfix">
+        @foreach(var item in Model)
+        {
+            @await Html.PartialAsync("Details",item)
+        }
+    </ol>
+
+</div>

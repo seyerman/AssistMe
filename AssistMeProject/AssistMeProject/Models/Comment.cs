@@ -7,5 +7,10 @@ namespace AssistMeProject.Models
 {
     public class Comment : Element
     {
+
+        public int AnswerId { get; set; }
+        public virtual Answer Answer { get; set; }
+
+
     }
 }

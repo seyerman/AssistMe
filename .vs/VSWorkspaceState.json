@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AssistMeProject"
+    "\\AssistMeProject",
+    "\\AssistMeProject\\Controllers",
+    "\\AssistMeProject\\Models",
+    "\\AssistMeProject\\Views",
+    "\\AssistMeProject\\Views\\Home"
   ],
-  "SelectedNode": "\\AssistMeProject\\Startup.cs",
+  "SelectedNode": "\\AssistMeProject\\AssistMeProject.csproj",
   "PreviewInSolutionExplorer": false
 }
