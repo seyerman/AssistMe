@@ -3,7 +3,86 @@
 @{
     ViewData["Title"] = "Edit Profile";
 }
+<style type="text/css">
+    .main-content {
+        padding-top: 1%;
+    }
+</style>
+<div id="wrap" class="grid_1200">
 
-<h2>Edit @Model.USERNAME</h2>
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="page-content">
+                    <div class="boxedtitle page-title"><h2>Edit Profile: @Model.USERNAME</h2></div>
 
+                    <div class="form-style form-style-4 edit-profile">
+                        <form asp-action="Edit">
+                            <div class="form-inputs clearfix">
+                                <input type="hidden" asp-for="ID" />
+                                <div class="form-group">
+                                    <input asp-for="GOOGLE_KEY" type="hidden" />
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="LEVEL" type="hidden" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="USERNAME" class="required">Username</label>
+                                    <input asp-for="USERNAME" class="form-group" />
+                                    <span asp-validation-for="USERNAME" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PASSWORD" class="control-label">Digit your <u>actual password</u> to save changes</label>
+                                    <input asp-for="PASSWORD" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="EMAIL" class="control-label">E-Mail</label>
+                                    <input asp-for="EMAIL" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PHOTO" class="control-label">Photo URL</label>
+                                    <input asp-for="PHOTO" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="QUESTIONS_ANSWERED" type="hidden" />
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="POSITIVE_VOTES_RECEIVED" type="hidden" />
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="QUESTIONS_ASKED" type="hidden" />
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="INTERESTING_VOTES_RECEIVED" type="hidden" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DESCRIPTION" class="control-label">Description</label>
+                                    <input asp-for="DESCRIPTION" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="INTERESTS_OR_KNOWLEDGE" class="control-label">Interest or knowledge</label>
+                                    <input asp-for="INTERESTS_OR_KNOWLEDGE" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="COUNTRY" class="control-label">Country</label>
+                                    <input asp-for="COUNTRY" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CITY" class="control-label">City</label>
+                                    <input asp-for="CITY" class="form-control" />
+                                </div>
+                                <div class="form-group form-submit">
+                                    <input type="submit" value="Update" class="btn btn-default button color small login-submit submit" />
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- End page-content -->
+            </div><!-- End main -->
+            
+        </div><!-- End row -->
+    </section><!-- End container -->
+
+</div><!-- End wrap -->
 

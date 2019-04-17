@@ -1,10 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Login";
+    if (!string.IsNullOrEmpty(ViewBag.ACTIVE_USER)) //There's active user
+    {
+        <meta http-equiv="Refresh" content="0 ; url=/Users/Profile">
+    }
 }
 <style type="text/css">
     .sidebar, widget_highest_points {
         display: none;
     }
+
     .login {
         padding-top: 11%;
         padding-bottom: 11.6%;
@@ -18,12 +23,12 @@
                 <div class="col-md-6">
                     <div class="page-content">
                         <h2>@ViewData["Title"]</h2>
-                    @{ 
-                        if (ViewBag.MESSAGE!=null)
-                        {
-                            <h3 style="color:red;">@ViewBag.MESSAGE.ToString()</h3>
+                        @{
+                            if (ViewBag.MESSAGE != null)
+                            {
+                                <h3 style="color:red;">@ViewBag.MESSAGE.ToString()</h3>
+                            }
                         }
-                    }
                         <div class="form-style form-style-3">
                             <form method="post" asp-action="Profile">
                                 <div class="form-inputs clearfix">
@@ -74,42 +79,42 @@
             </div>
             <div class="form-group">
                 <label name="USERNAME" class="control-label">Username: </label>
-                <input name="USERNAME" class="form-control" />
+                <input name="USERNAME" class="form-control" type="text" />
             </div>
             <div class="form-group">
                 <label name="PASSWORD" class="control-label">Password: </label>
-                <input name="PASSWORD" class="form-control" />
+                <input name="PASSWORD" class="form-control" type="password" />
             </div>
             <div class="form-group">
                 <label name="EMAIL" class="control-label">Email: </label>
-                <input name="EMAIL" class="form-control" />
+                <input name="EMAIL" class="form-control" type="text" />
             </div>
             <div class="form-group">
                 <input name="PHOTO" class="form-control" type="hidden" value="http://placehold.it/60x60/FFF/444" />
             </div>
             <div class="form-group">
-                <input name="QUESTIONS_ANSWERED" class="form-control" type="hidden" value="0"/>
+                <input name="QUESTIONS_ANSWERED" class="form-control" type="hidden" value="0" />
             </div>
             <div class="form-group">
-                <input name="POSITIVE_VOTES_RECEIVED" class="form-control" type="hidden" value="0"/>
+                <input name="POSITIVE_VOTES_RECEIVED" class="form-control" type="hidden" value="0" />
             </div>
             <div class="form-group">
-                <input name="QUESTIONS_ASKED" class="form-control" type="hidden" value="0"/>
+                <input name="QUESTIONS_ASKED" class="form-control" type="hidden" value="0" />
             </div>
             <div class="form-group">
-                <input name="INTERESTING_VOTES_RECEIVED" class="form-control" type="hidden" value="0"/>
+                <input name="INTERESTING_VOTES_RECEIVED" class="form-control" type="hidden" value="0" />
             </div>
             <div class="form-group">
-                <input name="DESCRIPTION" class="form-control" type="hidden" value=""/>
+                <input name="DESCRIPTION" class="form-control" type="hidden" value="" />
             </div>
             <div class="form-group">
-                <input namer="INTERESTS_OR_KNOWLEDGE" class="form-control" type="hidden" value=""/>
+                <input namer="INTERESTS_OR_KNOWLEDGE" class="form-control" type="hidden" value="" />
             </div>
             <div class="form-group">
-                <input name="COUNTRY" class="form-control" type="hidden" value=""/>
+                <input name="COUNTRY" class="form-control" type="hidden" value="" />
             </div>
             <div class="form-group">
-                <input name="CITY" class="form-control" type="hidden" value=""/>
+                <input name="CITY" class="form-control" type="hidden" value="" />
             </div>
 
             <div class="form-group">

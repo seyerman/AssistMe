@@ -16,6 +16,7 @@ namespace AssistMeProject.Controllers
     public class UsersController : Controller
     {
         private readonly AssistMeProjectContext _context;
+        public const String ACTIVE_USERNAME = "USERNAME";
         public AssistMe model;
 
         public UsersController(AssistMeProjectContext context)
@@ -27,6 +28,7 @@ namespace AssistMeProject.Controllers
         // GET: Users
         public IActionResult Index(string message)
         {
+            setActiveUser();
             ViewBag.MESSAGE = message;
             return View();
         }
@@ -34,6 +36,7 @@ namespace AssistMeProject.Controllers
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            setActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -56,6 +59,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
         {
+            setActiveUser();
             if (ModelState.IsValid)
             {
                 _context.Add(user);
@@ -65,15 +69,18 @@ namespace AssistMeProject.Controllers
             return View(user);
         }
 
-        // GET: Users/Edit
+        // GET: Users/Edit/5
         public IActionResult Edit()
         {
-            if (HttpContext.Session.GetString("USERNAME") == null)
+            setActiveUser();
+            string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
+
+            if (currentlyActiveUsername == null)
             {
                 return RedirectToAction("Index", "Users", new { message = "Please, login below" });
             }
 
-            User user = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            User user = model.GetUser(currentlyActiveUsername);
 
             if (user == null)
             {
@@ -83,18 +90,14 @@ namespace AssistMeProject.Controllers
             return View(user);
         }
 
-        // POST: Users/Edit/5
+        // POST: Users/Edit
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
+        public async Task<IActionResult> Edit([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
         {
-            if (id != user.ID)
-            {
-                return NotFound();
-            }
-
+            setActiveUser();
             if (ModelState.IsValid)
             {
                 try
@@ -113,7 +116,8 @@ namespace AssistMeProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction("Index", "Users", new { message = user.PASSWORD });
+                return RedirectToAction(nameof(Profile));
             }
             return View(user);
         }
@@ -121,6 +125,7 @@ namespace AssistMeProject.Controllers
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            setActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -141,22 +146,34 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            setActiveUser();
             var user = await _context.User.FindAsync(id);
             _context.User.Remove(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
+        private void setActiveUser()
+        {
+            //To pass the username active
+            ViewBag.ACTIVE_USER = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            //End To pass the username active
+        }
+
         private bool UserExists(int id)
         {
+            setActiveUser();
             return _context.User.Any(e => e.ID == id);
         }
 
         [HttpGet]
         public IActionResult Profile(string viewingToUser)
         {
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                return View(model.GetUser(HttpContext.Session.GetString("USERNAME")));
+            setActiveUser();
+            string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
+
+            if (!string.IsNullOrEmpty(currentlyActiveUsername))
+                return View(model.GetUser(currentlyActiveUsername));
             if (string.IsNullOrEmpty(viewingToUser))
                 return RedirectToAction("Index", "Users", new { message = "Please, login below" });
             return View(model.GetUser(viewingToUser));
@@ -165,6 +182,7 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public IActionResult Profile(string username, string password, string method)
         {
+            setActiveUser();
             User found = model.FindUser(username,password,method);
             if (found == null)
             {
@@ -172,14 +190,14 @@ namespace AssistMeProject.Controllers
             } else
             {
                 //Only username it's saved for have a better security but this might be slower because have to search user every time
-                HttpContext.Session.SetString("USERNAME",found.USERNAME);
+                HttpContext.Session.SetString(ACTIVE_USERNAME, found.USERNAME);
                 return View(found);
             }
         }
 
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("USERNAME");
+            HttpContext.Session.Remove(ACTIVE_USERNAME);
             return RedirectToAction("Index","Users");
         }
 
