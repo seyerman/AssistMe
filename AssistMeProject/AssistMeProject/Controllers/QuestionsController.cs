@@ -88,7 +88,11 @@ namespace AssistMeProject.Controllers
 
         private void LoadSearcher()
         {
-            var questions = _context.Question.ToList();
+            var questions = _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .ToList();
             foreach (var question in questions)
             {
                 _searcher.AddDocument(question);

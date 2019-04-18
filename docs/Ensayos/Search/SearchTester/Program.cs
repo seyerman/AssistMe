@@ -42,7 +42,7 @@ namespace SearchTester
             {
                 string title = Path.GetFileNameWithoutExtension(file.ToString());
                 string contents = File.ReadAllText(file);
-                AddDocument(title + "\n" + contents);
+                AddDocument(title, contents);
             }
         }
 
@@ -94,7 +94,7 @@ namespace SearchTester
                 sb.Append(line + "\n");
                 line = Console.ReadLine();
             }
-            AddDocument(sb.ToString());
+            AddDocument("", sb.ToString());
         }
 
         public int DisplayMenu()
@@ -110,9 +110,10 @@ namespace SearchTester
             return Convert.ToInt32(result);
         }
 
-        public void AddDocument(string text)
+        public void AddDocument(string title, string text)
         {
             Document doc = new Document(text);
+            doc.Title = title;
             Docs.Add(doc);
             _searcher.AddDocument(doc);
         }

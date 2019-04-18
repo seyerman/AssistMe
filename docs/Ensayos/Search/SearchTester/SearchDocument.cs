@@ -10,23 +10,33 @@ namespace AssistMeProject.Models
     {
         public double Score { get; set; }
 
+        private Dictionary<string, int> _termFrequencies;
+        private int _wordsCount;
+
         public ISearchable Value { get; private set; }
 
         public SearchDocument(ISearchable value)
         {
             Score = 0;
             this.Value = value;
+            _termFrequencies = CalculateTermFrequencies();
         }
 
         public Dictionary<string, int> GetTermFrequencies()
         {
+            return _termFrequencies;
+        }
+
+        private Dictionary<string, int> CalculateTermFrequencies()
+        {
             var text = Value.GetDocumentText();
             var words = BM25Searcher.Tokenize(text);
+            int count = 0;
             Dictionary<string, int> frequencies = new Dictionary<string, int>();
             foreach (String word in words)
             {
                 string w = word.ToUpper();
-                if(frequencies.ContainsKey(w))
+                if (frequencies.ContainsKey(w))
                 {
                     frequencies[w]++;
                 }
@@ -34,20 +44,15 @@ namespace AssistMeProject.Models
                 {
                     frequencies[w] = 1;
                 }
+                count++;
             }
+            _wordsCount = count;
             return frequencies;
         }
 
         public int GetWordsCount()
         {
-            int count = 0;
-            var text = Value.GetDocumentText();
-            var words = BM25Searcher.Tokenize(text);
-            foreach (String word in words)
-            {
-                count++;
-            }
-            return count;
+            return _wordsCount;
         }
 
         public int CompareTo(SearchDocument other)
