@@ -1,0 +1,76 @@
+"Waymo LLC" is a self-driving technology development company. It is a subsidiary of Alphabet Inc. Waymo originated as a project of Google before it became a stand-alone subsidiary in December 2016.
+
+In April 2017, Waymo started a limited trial of a self-driving taxi service in Phoenix, Arizona. On December 5, 2018, the service launched a commercial self-driving car service called "Waymo One"; users in the Phoenix metropolitan area use an app to request a pick-up.
+
+==History==
+
+Google's development of self-driving technology began in January 17, 2009, at the company's secretive X lab run by co-founder Sergey Brin. The project was originally led by Sebastian Thrun, the former director of the Stanford Artificial Intelligence Laboratory and co-inventor of Google Street View. Thrun's team at Stanford created the robotic vehicle Stanley, which won the 2005 DARPA Grand Challenge and its  prize from the United States Department of Defense. His team consisted of 15 Google engineers, including Chris Urmson, Dmitri Dolgov, Mike Montemerlo, and Anthony Levandowski, who had worked on the DARPA Grand and Urban Challenges.
+A Waymo self-driving car
+
+Starting in 2010, lawmakers in various states expressed concerns over how to regulate the emerging technology. Nevada passed a law in June 2011 concerning the operation of autonomous cars in Nevada, which went into effect on March 1, 2012. A Toyota Prius modified with Google's experimental driverless technology was licensed by the Nevada Department of Motor Vehicles (DMV) in May 2012. This was the first license issue in the United States for a self-driven car. and unveiled a fully functioning prototype in December of that year that they planned to test on San Francisco Bay Area roads beginning in 2015. Called the Firefly, the car was intended to serve as a platform for experimentation and learning, not mass production.
+
+In 2015, Google provided "the world's first fully driverless ride on public roads" to a legally blind friend of principal engineer Nathaniel Fairfield. The ride was taken by Steve Mahan, former CEO of the Santa Clara Valley Blind Center, in Austin, Texas. It was the first driverless ride that was on a public road and was not accompanied by a test driver or police escort. The car had no steering wheel or floor pedals.
+
+In December 2016, the unit was renamed Waymo, and made into its own separate division in Alphabet. Waymo moved to further test its cars on public roads after becoming its own subsidiary.
+
+In 2017, Waymo sued Uber for allegedly stealing trade secrets. Waymo and Uber settled in February 2018, with Uber granting Waymo $245 million worth of Uber stock.
+
+Waymo began testing autonomous minivans without a safety driver on public roads in Chandler, Arizona, in October 2017. The company announced in January 2018 that it would begin its ride-hailing services in the Phoenix, Arizona, area later in the year.
+
+==Technology==
+A self-driving car with the previous Google branding
+
+In 2017, Waymo unveiled new sensors and chips that are less expensive to manufacture, cameras that improve visibility, and wipers to clear the lidar system. Waymo manufactures a suite of self-driving hardware developed in-house. These sensors and hardware—enhanced vision system, improved radar, and laser-based lidar—reduce Waymo's dependence on suppliers. In the beginning of the self-driving car program, the company spent $75,000 for each lidar system from Velodyne.
+
+Waymo officials said the cars the company uses are built for full autonomy with sensors that give 360 degree views and lasers that detect objects up to 300 meters away.
+
+Waymo engineers have also created a program called Carcraft, a virtual world where Waymo can simulate driving conditions. The simulator is named after the video game "World of Warcraft".
+
+Waymo has created partnerships with Fiat Chrysler Automobiles, Avis, and Jaguar Land Rover.
+
+The Waymo project team has equipped various types of cars with the self-driving equipment, including the Toyota Prius, Audi TT, Fiat Chrysler Pacifica and Lexus RX450h. Google also developed their own custom vehicle, about 100 of which were assembled by Roush Enterprises with equipment from Bosch, ZF Lenksysteme, LG, and Continental.
+
+In May 2016, Google and Fiat Chrysler Automobiles announced an order of 100 Chrysler Pacifica hybrid minivans to test the self-driving technology. Waymo ordered an additional 500 Pacifica hybrids in 2017 and in late May 2018, Alphabet announced plans to add up to 62,000 Pacifica Hybrid minivans to the fleet. In March 2018, Jaguar Land Rover announced that Waymo had ordered up to 20,000 of its planned electric I-Pace cars, at an estimated cost more than $1 billion. Jaguar is to deliver the first I-Pace prototype later in the year, and the cars are to become part of Waymo's ride-hailing service in 2020.
+
+Waymo partners with Intel to use Intel technologies, such as processors, inside Waymo vehicles. Its deals with Avis and AutoNation are for vehicle maintenance.
+
+==Road testing==
+, Waymo had tested its system in six states and 25 cities across the U.S over a span of more than 9 years. Google's vehicles have traversed San Francisco's Lombard Street, famed for its steep hairpin turns, and through city traffic. The vehicles have driven over the Golden Gate Bridge and around Lake Tahoe. The system drives at the speed limit it has stored on its maps and maintains its distance from other vehicles using its system of sensors. It has since expanded its areas of testing. Four U.S. states had passed laws permitting autonomous cars as of December 2013: Nevada, Florida, California, and Michigan. A law proposed in Texas would establish criteria for allowing "autonomous motor vehicles".
+
+In April 2014, the team announced that their vehicles had logged nearly 700,000 autonomous miles (1.1 million km). In June 2015, the team announced that their vehicles had driven over , stating that this was "the equivalent of 75 years of typical U.S. adult driving", and that in the process they had encountered 200,000 stop signs, 600,000 traffic lights, and 180 million other vehicles. Google also announced its prototype vehicles were being road tested in Mountain View, California. During testing, the prototypes' speed did not exceed  and had safety drivers aboard the entire time. As a consequence, one of the vehicles was stopped by police for impeding traffic flow.
+
+In 2015, Google expanded its road-testing to Texas, where regulations did not prohibit cars without pedals and a steering wheel. Bills were introduced by interested parties to similarly change the legislation in California.
+
+Google took its first driverless ride on public roads in October 2015, when Mahan took a 10-minute solo ride around Austin in a Google "pod car" with no steering wheel or pedals. In 2016, the company expanded its road testing to the dry Phoenix, Arizona, area and Kirkland, Washington, which has a wet climate. In May 2016, the company opened a 53,000 square foot self-driving technology development center in Novi, Michigan. , Google had test driven their fleet of vehicles, in autonomous mode, a total of . In August 2016 alone, their cars traveled a "total of 170,000 miles; of those, 126,000 miles were driven autonomously (i.e., the car was fully in control)". Beginning of 2017, Waymo reported to California DMV a total of 636,868 miles covered by the fleet in autonomous mode, and the associated 124 disengagements, for the period from December 1, 2015 through November 30, 2016.
+
+In November 2017, Waymo altered its Arizona testing by removing safety drivers in the driver position from their autonomous Chrysler Pacificas. In 2017, Waymo began weather testing in Michigan.
+
+In March 2018, Waymo announced its plans to build additional real-world self-driving experiments with the company's self-driving trucks delivering for sister company Google's data centers located in Atlanta, Georgia.
+
+, Waymo was waiting on permits to test the cars in California, hoping to test in Los Altos, Mountain View, Palo Alto, and Sunnyvale. On 30 October 2018, the California Department of Motor Vehicles issued a permit for Waymo to operate fully driverless cars (i.e., cars without a human safety drivers). Waymo was the first company to receive such a permit, which allows day and night testing on public roads and highways, in California. In a blog post, Waymo announced that its fully driverless cars would be restricted to Mountain View, Sunnyvale, Los Altos, and Palo Alto — all communities close to parent company Alphabet's headquarters.
+
+===Crashes===
+In June 2015, Google confirmed that there had been 12 collisions as of that time, eight of which involved being rear-ended by another driver at a stop sign or traffic light, two in which the vehicle was side-swiped by another driver, one of which involved another driver rolling through a stop sign, and one where a Google employee was manually driving the car. , Google's 23 self-driving cars have been involved in 14 minor collisions on public roads, but Google maintains that, in all cases other than the February 2016 incident, the vehicle itself was not at fault because the cars were either being manually driven or the driver of another vehicle was at fault. On February 14, 2016 while creeping forward to a stoplight, a Google self-driving car attempted to avoid sandbags blocking its path. During the maneuver it struck the side of a bus. Google addressed the crash, saying "In this case, we clearly bear some responsibility, because if our car hadn't moved there wouldn't have been a collision". Some incomplete video footage of the crash is available. Google characterized the crash as a misunderstanding and a learning experience. The company also stated "This type of misunderstanding happens between human drivers on the road every day".
+
+Google initially maintained monthly reports that include any traffic incidents that their self-driving cars have been involved in. Waymo now publishes its own safety reports.
+
+Waymo and other companies are required by the California DMV to report the number of incidents during testing where the human driver took control for safety reasons. Some of these incidents were not reported by Google when simulations indicate the car would have coped on its own. There is some controversy concerning this distinction between driver-initiated disengagements that Google reports and those that it does not report.
+
+===Limitations===
+Waymo operates in some of its testing markets, such as Chandler, Arizona, at level 4 autonomy with no one sitting behind the steering wheel, sharing roadways with other drivers and pedestrians. Waymo has worked to improve how its technology responds in construction zones.
+
+==Commercialization==
+In 2012, Brin stated that Google Self-Driving cars would be available for the general public in 2017, and in 2014 this schedule was updated by project director Chris Urmson to indicate a possible release from 2017 to 2020.
+
+In August 2013, news reports surfaced about Robo-Taxi, a proposed driverless vehicle taxicab service from Google. These reports re-appeared again in early 2014, following the granting of a patent to Google for an advertising fee funded transportation service which included autonomous vehicles as a method of transport. Google consultant Larry Burns says self-driving, taxi-like vehicles "should be viewed as a new form of public transportation".
+
+In April 2017, Waymo launched an early rider program in Phoenix, Arizona, which signed up 400 users to try out a test edition of Waymo's transportation service. Over the next year, 400 riders used the Waymo service, providing feedback. In May 2018, Waymo announced that it plans to allow everyone in Phoenix to request a driverless ride before the end of year.
+
+Waymo highlighted four specific business uses for its autonomous tech in 2017: Ridesharing, users can hail cars equipped with Waymo technology via transportation network company apps; trucking and logistics; urban last-mile solutions for public transportation; and passenger cars.
+
+In 2018, Waymo launched a pilot program with Google to use autonomous trucks to move freight to its sister company's Atlanta-area data centers. Using the same sensors and software as Waymo's other autonomous fleet, Class 8 tractor trailers began testing Waymo's self-driving technology in California and Arizona in 2017.
+
+== "Waymo LLC v. Uber Technologies, Inc. et al." ==
+In February 2017, Waymo sued Uber and its subsidiary self-driving trucking company, Otto, for allegedly stealing Waymo's trade secrets and infringing upon its patents. The company claimed that three ex-Google employees including Anthony Levandowski who was one of the Google driverless car project members stole trade secrets, which included thousands of driverless car technology files from Google, and joined Uber. The infringement is related to Waymo's proprietary lidar technology, which could measure the distances between objects using laser and create their three dimensional representations. Google accused Uber of colluding with Levandowski to obtain information about it and other technologies in its driverless car project. The former Google engineer downloaded 9 gigabytes of data that included over a hundred trade secrets; eight of those were at stake during the trial.
+
+The trial began on February 5, 2018, and was dismissed on February 9, as a settlement was announced with Uber giving Waymo with 0.34 percent of Uber's stock, the equivalent of $245 million in Uber equity and agreeing to ensure Uber does not infringe Waymo's intellectual property. Part of the agreement included a guarantee that "Waymo confidential information is not being incorporated in Uber Advanced Technologies Group hardware and software." In released statements after the settlement, Uber maintained that it received no trade secrets. In May, according to the statement from Matt Kallman, an Uber spokenman, Uber had fired Levandowski, which resulted in a loss of roughly $250 million of his own equity in Uber and this value almost exactly equalled to the stock value Uber paid to Waymo LLC.

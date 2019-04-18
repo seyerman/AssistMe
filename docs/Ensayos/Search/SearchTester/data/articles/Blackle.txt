@@ -1,0 +1,24 @@
+"Blackle" is a website powered by Google Custom Search and created by Tony heap of Heap Media, which aims to save energy by displaying a black background and using grayish-white font color for search results. Blackle claims having saved over 7 MWh of electrical energy as of February 2019, a claim under public dispute. For comparison, the average American household consumes 11 MWh of electrical energy per year. 
+
+== Concept ==
+The concept behind Blackle is that computer monitors can be made to use less energy by displaying much darker colors. Blackle is based on a study which tested a variety of CRT and LCD monitors. There is dispute over whether there really are any energy saving effects, especially for users of LCD screens, where there is a constant backlight.
+
+This concept was first brought to the attention of Heap Media by a blog post, which estimated that Google could save 750 megawatt hours a year by utilizing it for CRT screens. The homepage of Blackle provides a count of the number of watt hours claimed to have been saved by enabling this concept.
+
+== See also ==
+* Light-on-dark color scheme
+
+== References ==
+
+<br />
+
+== External links ==
+* 
+Category:Australian websites
+Category:Energy conservation
+Category:Environmental websites
+Category:Web services
+Category:Web service providers
+Category:Google
+Category:Computers and the environment
+Category:Internet properties established in 2007

@@ -1,0 +1,51 @@
+"Google PageSpeed" is a family of tools by Google Inc, designed to help a website’s performance optimizations. It was introduced at Developer Conference in 2010. There are four main components of PageSpeed family tools: PageSpeed Module, also known as mod_pagespeed, PageSpeed Insights, PageSpeed Service, and PageSpeed Chrome DevTools extension. All of these components are built to identify faults in a website’s compliance with Google’s Web Performance Best Practices, as well as automate the adjustment process.
+
+==PageSpeed Module==
+Mod_pagespeed is an open-source Apache HTTP Server or Nginx webservers module, which automatically applies chosen filters to pages and associated assets, such as stylesheets, JavaScript, and HTML files, as well as to images and website cache requirements. The largest advantage of this module is that it does not require modifications to existing content or workflow, meaning that all internal optimizations and changes to files are made on the server side, presenting modified files directly to the user.  Each of 40+ filters corresponds to one of Google’s web performance best practices rules.
+
+Since PageSpeed module is an open-source library, it is frequently updated by numerous developers from all over the world and can be deployed by any individual sites, hosting providers, or CDNs.
+
+Installation is relatively easy and can be done in two ways: from packages or build from source on the following supported platforms:
+*CentOS/Fedora, both 32-bit and 64-bit
+*Debian/Ubuntu, both 32-bit and 64-bit
+
+==Ports==
+Other servers that offer a PageSpeed optimization module based on Google's PageSpeed SDK:
+*Apache Traffic Server - ats_pagespeed 
+*Microsoft Internet Information Services - IISpeed ?
+
+==Filters==
+Pagespeed module filters are settings, based on which a webpage optimization rule is applied. They can be divided into five main categories:
+*Stylesheets optimizations;
+*Javascript files optimizations;
+*Images optimizations;
+*HTML optimizations;
+*Tracking activity filters.
+
+===Stylesheets optimizations===
+These filters change CSS files to optimized versions through making them smaller, combining several into one or extending cache lifetime:
+===Javascript files optimizations===
+These filters are applied to Javascript files, re-referring them to optimized files:
+===Images optimizations===
+Image optimization filters are built to reduce the size of loading graphics:
+===HTML optimizations===
+This group of filters simply rewrites the contents of HTML files to reduce their size and assure latest best web practices compliance.
+===Tracking activity filters===
+Short list of filters below aim at optimizations of Google Analytics tracking communications with a website
+====Other available filters====
+*Rewrite Domains
+*Run Experiment Module
+*Pre-Resolved DNS
+*Extend PDFs Cache
+
+==Speed Impact==
+The PageSpeed Module showed the most significant impact on decreasing webpage loading times, payload size, and number of requests when compared to other options in the industry. According to several researchers, mod_pagespeed can reduce loading times by up to 80%, amount of bytes on a wire can be decreased by 30% and the number of total requests can drop by over 20%. Since many search engines, including Google, employ a ranking algorithm which is affected by a page’s loading speed, these optimizations can impact a website’s placement in search results. As of February 2015, Google has begun testing “Slow” labels on mobile devices for websites that exceed a certain amount of loading time, prompting developers to examine ways to increase a page’s load speed.
+
+==PageSpeed Insights==
+PageSpeed Insights is an online tool which helps in identifying performance best practices on any given website, provides suggestions on a webpage’s optimizations, and suggests overall ideas of how to make a website faster. This tool can be accessed directly in any browser. Per URL request, it grades webpage performance on a scale from 1 to 100 and provides a report on suggested optimizations, divided into categories of high, medium, and low priorities.
+
+==PageSpeed Chrome Extension==
+"Pagespeed extension" is an extension of Chrome Browser and is a part of Google Chrome Developer Tools. Visitors who use PageSpeed regularly can view all given metrics by PageSpeed Insights directly in a browser and download webpage resources, optimized according to web performance best practices. It has now been deprecated and Google recommends the online version be used instead.
+
+==PageSpeed Service==
+PageSpeed service was a commercial product, provided by Google Inc. The service was offered free of charge, since it was still officially in beta version. Service included all Pagespeed Module optimizations and use of Google servers’ infrastructure.  Google announced the deprecation of PageSpeed service on 5 May 2015 and turned it off on 3 August 2015.

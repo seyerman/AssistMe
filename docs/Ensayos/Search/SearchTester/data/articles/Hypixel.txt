@@ -1,0 +1,21 @@
+"Hypixel" is a "Minecraft" mini-game server, founded on April 14, 2013, by Simon Collins-Laflamme and Philippe Touchette, from Hypixel Inc.. , the server has had a total of 14 million unique logins. It runs on the "Java Edition" of "Minecraft".
+
+== History ==
+Hypixel was founded on April 14, 2013, by Simon Collins-Laflamme and Philippe Touchette. The two originally created "Minecraft" adventure maps and uploaded them to their YouTube channel before creating the Hypixel server to showcase their creations. They then created small minigames for players to play on while waiting to join the main adventure maps, which soon after gained popularity.
+
+On December 21, 2016, Hypixel reached 10 million unique players in total, and reached 14 million on December 13, 2018.
+
+Around April 2018, Hypixel started to use Cloudflare Spectrum as a DDoS protection after being the victim of attacks hosted by Mirai against the server.
+
+=== "Hytale" ===
+On December 9, 2018, a stand-alone game named "Hytale" was announced to be in development by Hypixel Studios, a newly-founded company by the creators of Hypixel, with support from Riot Games and other developers including Dennis Fong, Rob Pardo and Peter Levine.
+
+== Accolades ==
+== References ==
+== External links ==
+* [https://hypixel.net Official website]
+* [https://Hytale.com Hytale website]
+
+Category:Minecraft
+Category:Minigames
+Category:Servers (computing)

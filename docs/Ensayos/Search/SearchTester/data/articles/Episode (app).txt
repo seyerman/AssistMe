@@ -1,0 +1,11 @@
+"Episode" is an interactive story app developed by American game developer Pocket Gems.
+
+The app is a storytelling network and platform that features interactive stories built for mobile devices such as smart phones and tablets. Users enter one of 84,000 stories and make choices as the storyline progresses. With over 125 million installs, there have been over 4.4 billion episodes viewed on Episode so far, adding up to over 76,000 years of combined viewing time. The product also has a UGC creation platform that enables users to create their own stories, 12 million of which have registered.  
+
+Episode features four three types of stories:
+
+* User generated
+* In-house originals
+* IP licensed (studio and celebrity)
+
+Some IP stories include “Demi Lovato: Path to Fame”, “Pretty Little Liars”, “Clueless”, “Pitch Perfect: In Deep Treble”, “Cameron Dallas: It Started With a Lie”, and “Falling For the Dolan Twins”.

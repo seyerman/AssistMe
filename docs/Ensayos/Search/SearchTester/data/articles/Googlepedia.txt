@@ -1,0 +1,28 @@
+"Googlepedia" is a free software extension for the Web browsers Mozilla Firefox and Google Chrome that displays relevant articles from  Wikipedia or other wikis, on Google Search engine results pages.
+
+== Features ==
+* Turns internal Wikipedia links into Google search links
+* Uses Google's I'm Feeling Lucky feature to find relevant articles
+* Links images directly to their full-sized versions
+* Removes Google AdWords
+* Can be expanded to take the full width of the page
+* Invokes the local language version of Wikipedia based on the Google language
+* Remembers your searches and uses them to optimize your results
+
+== Problems ==
+While it includes many features, the plugin has certain issues:
+*Searching: The Wiki article presented is the same page as would be returned by using Google's "I'm feeling lucky" limited within the Wikipedia website. Searches will typically show certain specific articles instead of the more useful disambiguation pages, sometimes even showing trivial articles in place of more substantial ones. (It may be possible to weight search results toward disambiguation pages by adding the term "disambiguation" to each search).
+* Linking: Redlinks (Wikipedia links for which no article yet exists) link to the "edit" page, instead of the default "Google search term". By default, anonymous article creation is not allowed.
+* If a user is set to log in by default into Wikipedia and the user has an alternative theme set in Wikipedia, the display of the Wikipedia section of the search does not render correctly.
+* When searching for something which (usually unintentionally) results in a large Wikipedia page, the entire web browser may occasionally lock up while downloading the article.
+* Speed: loading the Wikipedia page can slow down the loading of search page.
+
+==Notes==
+==External links==
+* [https://web.archive.org/web/20111230024209/http://labs.snapshotmedia.co.uk/blog/2011/04/googlepedia/ Official Website] (archived)
+* [https://addons.mozilla.org/en-US/firefox/addon/googlepedia/ Mozilla Add-ons]
+
+Category:Discontinued Firefox add-ons
+Category:Google Chrome extensions
+Category:Wikipedia
+Category:Google

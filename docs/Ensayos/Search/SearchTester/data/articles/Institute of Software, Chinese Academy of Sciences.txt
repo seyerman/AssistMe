@@ -1,0 +1,12 @@
+"Institute of Software, Chinese Academy of Sciences" ("IOS", or "ISCAS", simplified Chinese: ??????????; pinyin: Zhongguó Kexuéyuàn Ruanjiàn Yánjiusuo) is one of institutes that Chinese Academy of Sciences (CAS) established. It was established on March 1, 1985. It's  on the 4th Zhongguancun South Fourth Street, Haidian District, Beijing, China. There are branches in Wuxi, Chongqing, Harbin, Guangzhou, Qingdao and Guiyang. Its research areas are computer science theory and application, fundamental software technology and system structure, the Internet information processing theory, methods and technology, as well as the integrated information system technology. There are five departments in it, such as the General Division, Basic Research Division, Hi-Tech Research Division, Applied Research Division and Development Division. There are also state key laboratories and national engineering research centers. They are State Key Laboratory of Computer Science, National Engineering Research Center of Fundamental Software, Science and Technology on Integrated Information System Laboratory. Software academic journals hosted by ISCAS are "Journal of Software", "Journal of Chinese Information Processing" and "Computer Systems Applications".
+
+==See also==
+*China Software Industry Association
+*Software industry in China
+
+==External links==
+http://english.is.cas.cn/
+Category:Research institutes of the Chinese Academy of Sciences
+Category:Software
+Category:1985 establishments in China
+Category:Education in Beijing

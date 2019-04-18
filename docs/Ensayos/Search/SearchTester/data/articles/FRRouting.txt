@@ -1,0 +1,18 @@
+"Free Range Routing" or "FRRouting" or "FRR" is a network routing software suite providing implementations of Open Shortest Path First (OSPF), Routing Information Protocol (RIP), Border Gateway Protocol (BGP), IS-IS, Label Distribution Protocol (LDP), Protocol Independent Multicast (PIM), Babel, and Bidirectional Forwarding Detection (BFD) as well as alpha implementations of Next Hop Resolution Protocol (NHRP) and Enhanced Interior Gateway Protocol (EIGRP). It runs on Unix-like platforms, particularly Linux, Solaris, OpenBSD, FreeBSD and NetBSD.
+
+FRRouting is distributed under the terms of the GNU General Public License (GPL). It was created as a fork from Quagga. 
+
+== History ==
+FRRouting broke away from the still maintained free routing software Quagga. Several Quagga contributors, including Cumulus Networks, 6Wind, and BigSwitch Networks, citing frustration about the pace of development, decided to fork the software and form their own community.
+
+== See Also ==
+
+* OpenOSPFD
+* OpenBGPD
+
+== References ==
+
+Category:Software
+Category:Computer networking
+Category:Free routing software
+Category:Free software

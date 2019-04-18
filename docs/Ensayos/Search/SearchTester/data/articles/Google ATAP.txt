@@ -1,0 +1,62 @@
+Google's "Advanced Technology and Projects" group ("ATAP") is a skunkworks team and in-house technology incubator, created by former DARPA director Regina Dugan.  ATAP is similar to X, but works on projects, granting project leaders time--previously only two years--in which to move a project from concept to proven product.  According to Dugan, the ideal ATAP project combines technology and science, requires a certain amount of novel research, and creates a marketable product.  Historically, the ATAP team was born at Motorola and kept when Google sold Motorola to Lenovo; for this reason, ATAP ideas have tended to involve mobile hardware technology.
+
+The team embodies principles that former Google VP Dugan used at DARPA,.  One of these principles is to create small teams of high performers.  Another is to make use of resources outside the organizational box; ATAP has worked with hundreds of partners in more than twenty countries, including schools, corporations, startups, governments, and nonprofits.  Standing contracts are in place with a number of top-flight schools, such as Stanford, MIT, and Caltech, to facilitate rapid research arrangements when needed.
+
+== Projects ==
+Although ATAP has occasionally publicized the number of projects in progress, the individual projects are kept secret until they are nearing maturity and it's time to start developing public interest.  At that point, they've historically been announced at the annual Google I/O developer conference.  Some of the announced projects to date are described below.
+
+=== Project Tango ===
+
+The Project Tango team was led by computer scientist Johnny Lee, a core contributor to Microsoft's Kinect.  Project Tango is a computer-vision technology that allows mobile devices to detect their position relative to the world around them, without requiring GPS or other external signals.  This enables the use of mobile phones and tablets for indoor navigation, 3D mapping, measurement of physical spaces, recognition of known environments, augmented reality, and windows into virtual 3D worlds.
+
+In the first quarter of 2015, the team left ATAP and became a Google team in its own right, making Project Tango the first product to emerge from the intensive two-year incubator process.
+
+=== Spotlight Stories ===
+The Spotlight Stories team is developing cinema-quality immersive 360-degree video technology for Android and iOS.  As users watch the video on a mobile device, they can move the device around to view different parts of the action as it unfolds, as if controlling the camera – for instance, following a leaf as it blows along the ground, or tracking a dancer as she moves across a stage.  360-degree sound technology matches the audio experience to the video.
+
+Several short animated or live-action demos have been produced to demonstrate the technology, including Windy Day, an animation distributed over-the-air to Moto X phones at the time of its original Android app release.  Another demo was the short video Duet, featuring thousands of hand drawings by former Disney animator Glen Keane, which made the top-10 list for the 2014 Academy Award for Best Animated Short.  The Spotlight Stories team includes Oscar-winning Pixar veterans Jan Pinkava and Karen Dufilho-Rosen as well as Justin Lin, a director of the TV series "Community" and four movies in the "Fast and Furious" franchise.
+
+=== Project Ara ===
+
+Project Ara is a platform for creating customizable, modular smartphones.  With Project Ara, consumers populate an electronic frame, called an endoskeleton or "endo", with rectangular hardware modules for power, processing, memory, screen, wireless, and other functionality.  Consumers assemble basic modules to create a working device, then add or remove additional modules as desired – in some cases, even while the device is operating.  Optional modules include cameras, speakers, large data storage, and medical sensors.  Since users can update individual modules when better technology becomes available, Project Ara provides a hedge against cyclical obsolescence.
+
+It also reduces the purchase price of a low-end cell phone, by creating the option of buying only the most basic features.  This may support the spread of technology in economically-disadvantaged areas.  The official Project Ara website specifies a targeted manufacturing cost for an entry-level device in the $50-$100 range, and states that the project has "the goal of delivering the mobile internet to the next 5 billion people".  Google had targeted the first Project Ara public release for Puerto Rico in 2015, but announced that the test has been delayed until 2016.
+
+A Project Ara Module Development Kit (MDK) will enable manufacturers to create Project Ara-compatible modules.  An early pre-release version of the MDK is available on the Project Ara website.  ATAP sponsored Project Ara Developer's Conferences in 2014 and 2015 to begin stimulating interest in the emerging hardware ecosystem and solicit input from potential designers and manufacturers.
+
+Ara is an exception in that the usual ATAP two-year timeframe was extended to give more time for the project's completion.  However, at the time of the extension team leader Paul Eremenko was replaced by Rafa Camargo, named by CNET in 2015 as one of the Top 20 Latinos in Tech.
+
+=== Project Soli ===
+
+[https://atap.google.com/soli/ Project Soli] is a new gesture-recognition technology based on radar, unlike established approaches based on visual or infrared light such as stereo cameras, structured light, or time-of-flight sensors.  This novel approach, which uses small, high-speed sensors and data-analysis techniques such as Doppler, can detect fine motions with sub-millimeter accuracy.  Thus, for instance, Project Soli technology enables a user to issue commands to a computer by rubbing a thumb and forefinger together in pre-defined patterns.  Applications might include sensors embedded in clothing, switches that don't require physical contact, and accessibility technology.
+
+The project is headed by Ivan Poupyrev, a former scientist for Disney Imagineering who was named one of Fast Company's "100 Most Creative People in Business 2013".  Project Soli was announced at Google I/O 2015 and generated considerable media interest.  According to the official site, in 2015 the team was preparing to make an alpha Project Soli development kit available to a limited number of developers, with plans for signing people up for a larger beta release later that year.
+
+=== Project Jacquard ===
+Another novel user-input technology, from the same team responsible for Project Soli, is Project Jacquard, a platform for embedding sensors and feedback devices in fabrics and clothing in ways that seem natural and comfortable.  The platform encompasses techniques for creating fashion fabrics with conductive fibers woven into them, plus small, flexible computing components and feedback devices (such as haptics or LEDs), along with software APIs that applications can use to exchange data with the garment.  In one basic use-case, users can provide input to a mobile phone by touching or stroking the garment in a designated location, and can receive alerts through vibrations, sounds, or lights in the garment. With an embedded Project Soli sensor built into the garment, the application can also recognize finger gestures or other signals.
+
+The name "Jacquard" is borrowed from the Jacquard loom, invented in 1801, which could be controlled with punched cards and inspired the use of punched cards in computing more than a century later.  Like the loom, ATAP's Project Jacquard is a platform, not a consumer product; it enables the creation of products for uses such as communication, personal assistance, navigation, health and fitness, fashion, and work. To date, demos and marketing materials emphasize style and quality, as opposed to a purely sports-based or utilitarian positioning.  Project Jacquard was announced at Google I/O 2015, and at the same time Google announced a related partnership with clothing manufacturer Levi Strauss & Co.
+
+According to the ATAP website, designers can use Jacquard "as they would any fabric, adding new layers of functionality to their designs, without having to learn about electronics." The site goes on to say "We are also developing custom connectors, electronic components, communication protocols, and an ecosystem of simple applications and cloud services." A developer's kit or product release date have not been announced.
+
+=== Other Projects ===
+* Project Abacus, a password replacement project using biometric data
+* Project Vault, a project to develop secure computers on Micro SD cards
+
+== Controversy ==
+On [https://patentpandas.org/stories/company-patented-my-idea March 24, 2014], MIT Researcher Jie Qi was invited and met with Google ATAP to discuss her research and work with electronic (LED) books.  During the meeting with Regina Dugan and other ATAP employees she was offered a job.  Qi, declined the offer to continue her PhD and research at MIT.  
+
+Two years later Jie Qi discovered that those she met with at ATAP tried to patent her work without her consent or knowledge.
+
+== See also ==
+* Skunkworks project
+
+== References ==
+== External links ==
+* [https://atap.google.com/ ATAP's official site]
+* [https://atap.google.com/ara/ Project Ara official site]
+* [https://atap.google.com/jacquard/ Project Jacquard official site]
+* [https://atap.google.com/soli/ Project Soli official site]
+* [https://get.google.com/tango/ Project Tango official site]
+ATAP
+Category:Research organizations in the United States

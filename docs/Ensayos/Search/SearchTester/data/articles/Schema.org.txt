@@ -1,0 +1,65 @@
+"Schema.org" is a collaborative community activity with a mission to "create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond." Webmasters use this shared vocabulary to structure metadata on their websites and to help search engines understand the published content, a technique known as search engine optimization.
+
+== History ==
+
+"Schema.org" is an initiative launched on June 2, 2011 by Bing, Google, Yahoo!, and Yandex (operators of the world's largest search engines at that time) to create and support a common set of schemas for structured data markup on web pages. In November 2011, Yandex (whose search engine is the largest in Russia) joined the initiative. They propose using the schema.org vocabulary along with the Microdata, RDFa, or JSON-LD formats to mark up website content with metadata about itself. Such markup can be recognized by search engine spiders and other parsers, thus granting access to the meaning of the sites (see Semantic Web). The initiative also describes an extension mechanism for adding additional properties. Public discussion of the initiative largely takes place on the W3C public vocabularies mailing list.
+
+In 2012, the GoodRelations ontology was integrated into Schema.org.
+
+Much of the vocabulary on Schema.org was inspired by earlier formats, such as microformats, FOAF, and OpenCyc. Microformats, with its most dominant representative hCard, continue (as of 2015) to be published widely on the web, where the deployment of Schema.org has strongly increased between 2012 and 2014. In 2015, Google began supporting the JSON-LD format, and as of September, 2017 recommended using JSON-LD for structured data whenever possible. 
+
+Despite the clear advantages of using Schema.org, adoption continues to be relatively poor.  A survey in 2016 of 300 US-based marketing agencies and B2C advertisers across
+industries showing only 17% uptake. 
+
+Such validators as the Google Structured Data Testing Tool, Yandex Microformat validator, and Bing Markup Validator can be used to test the validity of the data marked up with the schemas and Microdata, 
+
+Some schema markups such as Organization and Person are used to influence Google's Knowledge Graph results.
+
+== Examples ==
+
+=== Microdata ===
+The following is an example of how to mark up information about a movie and its director using the Schema.org schemas and microdata. In order to mark up the data, the attribute <code>itemtype</code> along with the URL of the schema is used. The attribute <code>itemscope</code> defines the scope of the itemtype. The kind of the current item can be defined by using the attribute <code>itemprop</code>.
+
+<source lang="html5">
+<div itemscope itemtype="http://schema.org/Movie">
+  <h1 itemprop="name">Avatar</h1>
+  <div itemprop="director" itemscope itemtype="http://schema.org/Person">
+  Director: <span itemprop="name">James Cameron</span> 
+(born <time itemprop="birthDate" datetime="1954-08-16">August 16, 1954</time>)
+  </div>
+  <span itemprop="genre">Science fiction</span>
+  <a href="../movies/avatar-theatrical-trailer.html" itemprop="trailer">Trailer</a>
+</div>
+</source>
+
+=== RDFa 1.1 Lite ===
+<source lang="html5">
+<div vocab="http://schema.org/" typeof="Movie">
+  <h1 property="name">Avatar</h1>
+  <div property="director" typeof="Person">
+  Director: <span property="name">James Cameron</span>
+(born <time property="birthDate" datetime="1954-08-16">August 16, 1954</time>)
+  </div>
+  <span property="genre">Science fiction</span>
+  <a href="../movies/avatar-theatrical-trailer.html" property="trailer">Trailer</a>
+</div>
+</source>
+
+=== JSON-LD ===
+<source lang="jsonld">
+<script type="application/ld+json">
+{ 
+  "@context": "http://schema.org/",
+  "@type": "Movie",
+  "name": "Avatar",
+  "director": 
+    { 
+       "@type": "Person",
+       "name": "James Cameron",
+       "birthDate": "1954-08-16"
+    },
+  "genre": "Science fiction",
+  "trailer": "../movies/avatar-theatrical-trailer.html" 
+}
+</script>
+</source>

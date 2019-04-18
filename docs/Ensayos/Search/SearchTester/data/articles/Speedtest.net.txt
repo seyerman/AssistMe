@@ -1,0 +1,28 @@
+"Speedtest.net" is a web service that provides free analysis of Internet access performance metrics, such as connection data rate and latency. It was founded by Ookla in 2006, and is based in Seattle, Washington.
+
+The service measures the bandwidth ("speed") and latency of a visitor's Internet connection against one of 4,759 geographically dispersed servers (as of August 2016) located around the world. Each test measures the data rate for the download direction, i.e. from the server to the user computer, and the upload data rate, i.e. from the user's computer to the server. The tests are performed within the user's web browser or within apps.  , over 21 billion speed tests have been completed.
+
+Tests were previously performed using the HTTP protocol at Layer 7 of the OSI model. To further improve accuracy, Speedtest.net now performs tests via direct TCP sockets and uses a custom protocol for communication between servers and clients.
+
+The site also offers detailed statistics based on test results. This data has been used by numerous publications in the analysis of Internet access data rates around the world.
+
+==History==
+The owner and operator of Speedtest.net, Ookla, was established in 2006 by a small team of internet and technology veterans. Ookla was acquired by Ziff Davis in 2014.
+
+==Technology==
+The technology of Speedtest.net is similar to that of Ookla NetGauge, which is provided to a wide variety of companies and organizations on a licensed basis. Speedtest.net Mini was a free, stripped-down Flash version of the speed test technology used on Speedtest.net that users could run on their own web server, however it was replaced in 2016 with Speedtest Custom, an HTML5-based tool. Together, over 20 million speed tests are generated each month using Ookla's software.
+
+==Speedtest.net data==
+
+===Speedtest market reports===
+In 2016, Speedtest began releasing market reports for different countries and cities, providing raw statistics regarding download and upload speeds for the past year for ISPs and mobile carriers. It also includes analysis of the current ISP and mobile markets of the respective country and breakdowns by region and city. ISPs and mobile carriers are ranked by their geographic performance.
+===Speed Wave===
+The site offers a service by which groups of friends may compare results against each other and as a group average. Badges are also awarded for achievements such as "Highest Download Speed" and "Lowest Latency".
+Badges are awarded when either "Highest Download" or Lowest Ping" will be.
+
+===My Results===
+The Ookla Speed Test also has a tool called “My Results” which lets you graphically compare your upload and download speeds as well as the different servers you have tested. Users who have been through many internet service providers, or that have more than one, may find value in this tool and could use it to choose the most efficient.
+
+===Acquisitions===
+== See also ==
+* List of countries by Internet connection speeds

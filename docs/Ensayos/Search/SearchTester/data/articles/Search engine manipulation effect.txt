@@ -1,0 +1,22 @@
+The "search engine manipulation effect" (SEME) is the change in consumer preferences from manipulations of search results by search engine providers. SEME is one of the largest behavioral effects ever discovered. This includes voting preferences. A 2015 study indicated that such manipulations could shift the voting preferences of undecided voters by 20 percent or more and up to 80 percent in some demographics.
+
+The study estimated that this could change the outcome of upwards of 25 percent of national elections worldwide.
+
+On the other hand, Google denies secretly re-ranking search results to manipulate user sentiment, or tweaking ranking specially for elections or political candidates.
+== Scenarios ==
+
+At least three scenarios offer the potential to shape/decide elections. The management of a search engine could pick a candidate and adjust search rankings accordingly. Alternatively, a rogue employee who has sufficient authority and/or hacking skills could surreptitiously adjust the rankings. Finally, since rankings influence preferences even in the absence of overt manipulation, the ability of a candidate to raise his or her ranking via traditional search engine optimization would influence voter preferences. Simple notoriety could substantially increase support for a candidate.
+
+Later research suggested that search rankings impact virtually all issues on which people are initially undecided around the world. Search results that favour one point of view tip the opinions of those who are undecided on an issue. In another experiment, biased search results shifted people’s opinions about the value of fracking by 33.9 per cent.
+
+The case began in 2009 when Foundem, a British online shopping service, filed the first antitrust complaint against Google in Brussels. In 2007, Google had introduced a feature called Universal Search. A search for a particular city address, a stock quote, or a product price returned an answer from one of its own services, such as Google Maps or Google Finance. This saved work by the user. Later tools such as OneBox supplied answers to specific queries in a box at the top of search results. Google integrated profile pages, contact information and customer reviews from Google Plus. That information appeared above links to other websites that offered more comprehensive data, such as Yelp or TripAdvisor.
+
+== References ==
+== External links ==
+
+* 
+* 
+
+Category:Internet search engines
+Category:Google
+Category:Elections

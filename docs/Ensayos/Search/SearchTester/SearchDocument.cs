@@ -21,8 +21,7 @@ namespace AssistMeProject.Models
         public Dictionary<string, int> GetTermFrequencies()
         {
             var text = Value.GetDocumentText();
-            var punctuation = text.Where(Char.IsPunctuation).Distinct().ToArray();
-            var words = text.Split().Select(x => x.Trim(punctuation));
+            var words = BM25Searcher.Tokenize(text);
             Dictionary<string, int> frequencies = new Dictionary<string, int>();
             foreach (String word in words)
             {
@@ -43,8 +42,7 @@ namespace AssistMeProject.Models
         {
             int count = 0;
             var text = Value.GetDocumentText();
-            var punctuation = text.Where(Char.IsPunctuation).Distinct().ToArray();
-            var words = text.Split().Select(x => x.Trim(punctuation));
+            var words = BM25Searcher.Tokenize(text);
             foreach (String word in words)
             {
                 count++;

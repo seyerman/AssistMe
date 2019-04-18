@@ -1,9 +1,8 @@
 ﻿using AssistMeProject.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SearchTester
 {
@@ -17,6 +16,7 @@ namespace SearchTester
         {
             Docs = new List<Document>();
             _searcher = new BM25Searcher();
+            ReadArticles();
             int userInput = 0;
             do
             {
@@ -36,10 +36,20 @@ namespace SearchTester
             } while (userInput != 4);
         }
 
+        private void ReadArticles()
+        {
+            foreach (string file in Directory.EnumerateFiles("../../data/articles"))
+            {
+                string title = Path.GetFileNameWithoutExtension(file.ToString());
+                string contents = File.ReadAllText(file);
+                AddDocument(title + "\n" + contents);
+            }
+        }
+
         private void SeeDocuments()
         {
             int counter = 1;
-            foreach(Document doc in Docs)
+            foreach (Document doc in Docs)
             {
                 Console.WriteLine("Document #" + counter);
                 Console.WriteLine(doc);
@@ -55,33 +65,39 @@ namespace SearchTester
 
         private void Query()
         {
+
             Console.Write("Search: ");
             string line = Console.ReadLine();
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
             _searcher.Search(line);
+            watch.Stop();
             int counter = 1;
-            foreach(SearchDocument doc in _searcher.Documents)
+            foreach (SearchDocument doc in _searcher.Documents)
             {
+                if (doc.Score == 0 || counter == 15) break;
                 Console.WriteLine("Document #" + counter);
                 Console.WriteLine(doc);
                 Console.WriteLine();
                 counter++;
             }
+            Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
         }
 
-        private  void AddDocument()
+        private void AddDocument()
         {
             Console.WriteLine("Write \"0 0\" to stop writing");
             string line = Console.ReadLine();
             StringBuilder sb = new StringBuilder();
-            while(line != "0 0")
+            while (line != "0 0")
             {
-                sb.Append(line+"\n");
+                sb.Append(line + "\n");
                 line = Console.ReadLine();
             }
             AddDocument(sb.ToString());
         }
 
-         public int DisplayMenu()
+        public int DisplayMenu()
         {
             Console.WriteLine();
             Console.WriteLine("Search Tester");
@@ -100,5 +116,7 @@ namespace SearchTester
             Docs.Add(doc);
             _searcher.AddDocument(doc);
         }
+
+
     }
 }

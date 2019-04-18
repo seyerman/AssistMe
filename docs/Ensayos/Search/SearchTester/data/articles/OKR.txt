@@ -1,0 +1,21 @@
+"Objectives and key results" ("OKR") is a framework for defining and tracking objectives and their outcomes.
+
+The development of OKRs is generally attributed to Andy Grove the "Father of OKRs", who introduced the approach to Intel during his tenure there and documented this in his 1983 book "High Output Management".  Grove's simple but effective concept is explained by John Doerr: "The key result has to be measurable. But at the end you can look, and without any arguments: Did I do that or did I not do it? Yes? No? Simple. No judgments in it." The goal of OKR is to define how to achieve objectives through concrete, specific and measurable actions. 
+
+In 1975, John Doerr, at the time a sales person working for Intel, attended a course within Intel taught by Andy Grove where he was introduced to the theory of OKRs. In 1999 Doerr, who by then was working for Kleiner Perkins Caufield & Byers - a venture capital firm, introduced the idea of OKRs to a start-up Kleiner Perkins Caufield & Byers had invested in called Google. The idea took hold and OKRs quickly became central to Google's culture as a "management methodology that helps to ensure that the company focuses efforts on the same important issues throughout the organization." including LinkedIn, Twitter, and Uber. 
+
+OKRs may be shared across the organization with the intention of providing teams with visibility of goals with the intention to align and focus effort on this causing too much of a waterfall approach, which OKRs in many ways tries to be the opposite of. 
+
+OKRs overlap with other performance management frameworks - in terms of complexity sitting somewhere between KPI and the balanced scorecard. 
+
+== See also ==
+* Management by objectives
+* Objectives, goals, strategies and measures (OGSM)
+* Key performance indicator (KPI)
+* Balanced scorecard
+* SMART criteria
+
+== References ==
+Category:Business terms
+Category:Google
+Category:Intel
