@@ -22,18 +22,22 @@ function interaction(interactionType = "v", userID, elementID, btnID) {
     var iconNoSelectedClass = "icon-star-empty";
     var btn = $("#" + btnID);
     var icon = btn.find("i");
-    var contador = btn.find("span"); 
+     contador = btn.find("span");
+    
     $.ajax({ url: url })
         .done(function (data) {
         
         switch (data) {
             case -1:
-                contador.html(Number.parseInt(contador.html()) - 1);
+                //console.log(contador[0].innerHTML);
+                contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) - 1);
                 icon.addClass(iconNoSelectedClass);
                 icon.removeClass(iconSelectedClass);
             break;
             case 1:
-                contador.html(Number.parseInt(contador.html()) + 1);
+                // console.log(contador[0].innerHTML);
+                contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) + 1);
+                // console.log((Number.parseInt(contador[0].innerHTML) + 1));
                 icon.addClass(iconSelectedClass);
                 icon.removeClass(iconNoSelectedClass);
                 break;
