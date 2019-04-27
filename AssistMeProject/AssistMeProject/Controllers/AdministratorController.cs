@@ -27,14 +27,21 @@ namespace AssistMeProject.Controllers
         public IActionResult Index()
         {
 
-            //  User u = model.GetUser(HttpContext.Session.GetString("USERNAME"));
-            // if (u.LEVEL == 3)
-            // {
-            //return NotAdmin(u);
-            //}
-            //  else{
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
             return View();
-            //  }
         }
 
         public IActionResult NotAdmin(User user)
@@ -56,6 +63,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStudio([Bind("Id, Name, Unit, Description")] Studio studio)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(studio);
@@ -89,6 +97,21 @@ namespace AssistMeProject.Controllers
         // GET: /<controller>/
         public IActionResult CreateStudio()
         {
+
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
             //creamos una lista tipo SelectListItem
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem() { Text = "Indique la unidad a la que pertenece el Studio", Value = "NULL" });
@@ -105,7 +128,21 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> AddAdmin()
         {
-           
+
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
             var users = (await _context.User.Where(u => u.LEVEL == 3).ToListAsync());
             //users.Sort();
             return View(users);
