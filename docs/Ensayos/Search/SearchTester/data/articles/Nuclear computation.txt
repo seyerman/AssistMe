@@ -1,0 +1,46 @@
+"Nuclear computation" is a type of computation which allows threads to either spawn new threads or converge many threads to one. The aim of nuclear computation is to take advantage of threading abilities of modern multi-core processors where the trend is to increase their hardware ability to compute more threads then their earlier generation processors.
+
+Nuclear computation focuses on real time processing for things like multimedia such as processing audio where a real time deadline (the sample rate in Hz) exists. For that reason it should not block and computational processes which alter shared memory must be atomic (excuted in one clock cycle without locking).
+
+Nuclear computation allows a computational thread to use thread fission to turn one thread into many or thread fusion to turn many threads into one.
+
+== Analogy to nuclear reactions ==
+
+As the name "nuclear computation" implies, there is an analogy between nuclear reactions and nuclear computation.
+
+=== The nuclear fission analogy ===
+
+In nuclear physics, atoms decay or react where the atom's nucleus splits, producing several atoms. In nuclear computation, a computational thread splits into several processing threads.
+
+=== The nuclear fusion analogy ===
+
+In nuclear physics, atoms may react together to fuse where several atomic nuclii may fuse into one nucleus. In nuclear computation, several computational threads fuse into one processing thread.
+
+=== Component analogy ===
+=== Speed ===
+
+Nuclear explosions are fase and lockless. Which suggests some requirements :
+* lockless
+* parallel
+* ordered
+* light weight
+* low latency
+
+== Description ==
+
+=== Thread fission ===
+
+Conceptually fission computation can cause a chain reaction, where one thread can signal many threads to start processing and they too may signal other threads to start processing. It is possible to starve the computer, where the computer runs out of resources and halts - either do to a lack of memory, power or disk resources.
+
+=== Thread fusion ===
+
+Fusion computation is a type of threshold triggered computation, where several threads signal the single waiting thread, which begins execution once the required number of thread signals exceed the threshold of the waiting thread.
+
+== Implementation examples ==
+== History ==
+A previous analogy between nuclear reactions and computation were termed loop fission and fusion which were forms of compiler preprocessing. Loop fission (loop distribution) allowed one computational loop to be broken into separate loops by a compiler at compile time. Loop fusion (loop jamming) allowed many computational loops to be combined into one by the compiler at compiler time. These processes were not directly under the control of the programmer and were decided and controlled by the compiler.
+In contrast to loop fission and fusion, nuclear computation fission and fusion are directly under the control of the programmer or the program at run time.
+
+== See also ==
+
+*Concurrency pattern

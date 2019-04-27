@@ -1,0 +1,28 @@
+The PageRank algorithm has several applications in  biochemistry. ("PageRank" is an algorithm used in Google Search for ranking websites in their results, but it has been adopted for other purposes also. According to Google, PageRank works by "counting the number and quality of links to a page to determine a rough estimate of how important the website is," the underlying assumption being that more important websites are likely to receive more links from other websites.)
+
+== Application in analyzing protein networks ==
+
+The relative importance-measuring property of the PageRank link analysis algorithm could be used to identify new possible drug targets in proteins. A "PageRank-based algorithm could identify important protein targets" in the pathogen organism better than a method considering only the number of incoming edges (in-degree) of a node in the metabolic network. The reason for this is that some already known, important protein targets do not have a high degree (are not hubs) and also, perturbing some hubs could result in unwanted physiological effects.
+
+== Description ==
+
+The clinical use of most antibiotics result in a mutation of the pathogen organism leading to their resistance against the drug. Therefore, development of new drugs is always needed. A potential first step in developing new drugs against currently threatening diseases (e.g. tubercolosis) is to find new drug targets in the causative agent of the disease, i.e. the pathogen microorganism, let it be either a bacterium, or a protozoan parasite. After finding the target protein in the bacterium (or protozoan parasite), one could design small molecular drug compounds that bind to the protein and inhibit it.
+
+Public availability of biological network data makes the process of searching for new drug targets easier than it was before. By using the available metabolic networks, it is possible to find important nodes with link analysis algorithms, like PageRank. In a recently published paper, biochemical reactions are treated as nodes of the metabolic network. In this directed network, reaction A has a directed edge towards reaction B if the product of the former enters the latter reaction as a substrate or co-factor.
+
+To select important nodes that could serve as drug targets, we might think of selecting high in-degree nodes (hubs; nodes with many incoming edges). It was shown however[2], that targeting hub proteins with many vital functions may unintentionally harm the living cell as well. A PageRank-based scoring method could detect important nodes that are not hubs and therefore might be better drug targets.
+
+The PageRank of a node A is the stationary limit probability distribution that the random walker is at node A. To find non-hub important nodes instead, we should consider scoring the nodes by their "relativized personalized PageRank"; i.e. their personalized PageRank scores over the number of edges pointing towards them (over their in-degree):
+The relativized personalized PageRank (rPPR(v)) for a node v is given by:
+
+<div style="text-align: center;">
+<math>
+rPPR(v)=\frac{PPageRank(v)}{d_v}
+</math>
+</div>
+
+where PpageRank(v) is the personalized PageRank score of node v, and d_(v) is its in-degree. It was shown, that by using this method, numerous already validated drug targets can be found (e.g. in the Mycobacterium tubercolosis), therefore, new, currently unknown targets might be detected as well.
+
+== References ==
+Category:Biochemistry
+Category:Google

@@ -1,0 +1,31 @@
+"GeoEye-1" is a high-resolution Earth observation satellite owned by DigitalGlobe, launched in September 2008. The satellite was acquired in the 2013 purchase of GeoEye.
+
+== History ==
+On 1 December 2004, General Dynamics C4 Systems announced it had been awarded a contract worth approximately  to build the "OrbView-5" satellite. Its sensor is designed by the ITT Exelis.
+
+The satellite, now known as "GeoEye-1", was originally scheduled for launch in April 2008 but lost its 30-day launch slot to a U.S. government mission which had itself been delayed. It was rescheduled for launch 22 August 2008 from Vandenberg Air Force Base aboard a Delta II launch vehicle. The launch was postponed to 4 September 2008, due to unavailability of the Big Crow telemetry-relay aircraft.  It was delayed again to 6 September because Hurricane Hanna interfered with its launch crews.
+
+The launch took place successfully on 6 September 2008 at 18:50:57&nbsp;UTC. The "GeoEye-1" satellite separated successfully from its Delta II launch vehicle at 19:49&nbsp;UTC, 58 minutes and 56 seconds after launch. "GeoEye-1" can image up to 60&nbsp;degrees off nadir. It is operated out of Dulles, Virginia.
+
+At the time of its launch, "GeoEye-1" was the world's highest resolution commercial Earth-imaging satellite. "GeoEye-1" was manufactured in Gilbert, Arizona, by General Dynamics and the first image was returned on 7 October of Kutztown University in Pennsylvania.
+
+Google, which had its logo on the side of the rocket, has exclusive online mapping use of its data. While "GeoEye-1" is capable of imagery with details the size of , that resolution was only available to the U.S. government. Google has access to details of . Prior maximum commercial imagery was .
+
+The National Geospatial-Intelligence Agency and Google paid a combined  for the satellite and upgrades to GeoEye's four ground stations.
+
+=== 2009 anomaly ===
+In December 2009 GeoEye announced it had suspended imagery collections by "GeoEye-1" for a few days, citing an irregularity in the downlink antenna. "The irregularity appears to limit the range of movement of "GeoEye-1" downlink antenna, which may in turn affect "GeoEye-1" ability to image and downlink simultaneously," GeoEye said at a press conference. However, the satellite continued with normal operations shortly thereafter, though with diminished simultaneous imaging-and-downlink capability for non-U.S. clients.
+
+== See also ==
+
+* 2008 in spaceflight
+
+== References ==
+== External links ==
+* [https://www.digitalglobe.com/about/our-constellation#geoeye-1 "GeoEye-1"] at Digitalglobe.com
+Category:Commercial imaging satellites of the United States
+Category:Google
+Category:Spacecraft launched in 2008
+Category:Spacecraft launched by Delta II rockets
+
+fi:GeoEye#GeoEye 1

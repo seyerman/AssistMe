@@ -1,0 +1,30 @@
+The "Google logo" appears in numerous settings to identify the search engine company. Google has relied on several logos since its renaming (see History of Google), with the first logo created by Sergey Brin using GIMP. A revised logo debuted on September 1, 2015. The previous logo, with slight modifications between 1999 and 2013, was designed by Ruth Kedar, the wordmark was based on the Catull, an old style serif typeface designed by  for the Berthold Type Foundry in 1982.
+
+The company also includes various modifications or humorous features, such as cartoon modifications of their logo for use on holidays, birthdays of famous people, and major events, such as the Olympics. These special logos, some designed by Dennis Hwang, have become known as Google Doodles.
+
+== History ==
+In 1998, Larry Page created a computerized version of the Google letters using the free graphics program GIMP. The typeface was changed and an exclamation mark was added mimicking the Yahoo! logo.
+
+"There were a lot of different color iterations", says Ruth Kedar, the graphic designer who developed the now-famous logo. "We ended up with the primary colors, but instead of having the pattern go in order, we put a secondary color on the L, which brought back the idea that Google doesn't follow the rules."
+
+In 2010, the Google logo received its first major overhaul since May 31, 1999. The new logo was first previewed on November 8, 2009, and was officially launched on May 6, 2010. It utilises an identical typeface to the previous logo, but the "o" is distinctly more orange-colored in place of the previously more yellowish "o", as well as a much more subtle shadow rendered in a different shading style. On October 25, 2013, Google introduced a new "flat" (two-dimensional) logo with a slightly altered color palette. On May 24, 2014, the Google logo was updated, the second 'g' moved right one pixel and the 'l' moved down and right one pixel. The old 2010 Google logo remained in use on some pages, such as the Google Doodles page, for a period of time.
+
+On September 1, 2015, Google introduced a controversial "new logo and identity family" designed to work across multiple devices. The notable difference in the logo is the change in the typeface. The colors remained the same, however, Google switched to a modern, geometric sans-serif typeface called Product Sans, created in-house at Google (and also used for the Alphabet logo).
+==  Google Doodles ==
+
+The first Google Doodle was in honor of the Burning Man Festival of 1998. The doodle was designed by Larry Page and Sergey Brin to notify users of their absence in case the servers crashed. Subsequent Google Doodles were designed by an outside contractor, until Larry and Sergey asked then-intern Dennis Hwang to design a logo for Bastille Day in 2000.  Hwang has been designing the Google Doodles ever since.
+
+==Colorless logo==
+A colorless version of the logo is particularly used on a local homepage in recognition of a major tragedy, often for several days. The design was apparently first used on the Google Poland homepage following the air disaster that killed, among others, Polish President Lech Kaczynski in April 2010. A few days later, the logo was used in China and Hong Kong to pay respects to the victims of the Qinghai earthquake.
+
+On September 8, 2010, the doodle once again changed to a greyed-out Google logo that lit up with the standard Google colors as the first 6 letters of a search query were entered. It goes by the name of the Keystroke Logo.
+
+This logo was again used on December 5, 2018 following the death of George H.W. Bush.
+==Favicon==
+
+The Google "G" favicon used since September 1, 2015
+Google's favicon from May 31, 1999 to May 29, 2008, was a blue, uppercase "G" on white background. It was accompanied by a border with a red, blue, and a green side.
+
+On May 30, 2008, a new favicon was launched. It showed the lowercase "g" from Google's 1999 logo, colored in blue against a white background, and originally was intended to be a part of a larger set of icons developed for better scalability on mobile devices.
+
+A new favicon was launched on January 9, 2009. It included a left-aligned white "g" with background areas colored in red, green, blue and yellow, with the top, bottom, and left edges of the "g" cropped. It was based on a design by André Resende, a computer science undergraduate student at the University of Campinas in Brazil. He submitted it for a contest launched by Google in June 2008 to receive favicon submissions. The official Google blog stated: "His placement of a white 'g' on a color-blocked background was highly recognizable and attractive, while seeming to capture the essence of Google".

@@ -1,0 +1,35 @@
+"Live Home 3D" is a virtual home design software for  macOS, Windows 10 computers and iOS.
+
+The app allows design in both 2D and 3D, and the creation of high-resolution interior and exterior renderings, on video walkthrough or 360-degree panoramic images.
+* 3D mode that renders the design live. (*7)
+* Project Gallery with house projects and sample rooms.
+* Universal Windows Platform
+
+== Version history ==
+
+=== Version 1 ===
+* was Live Interior 3D
+* Released in April 4, 2007
+* Mac only version
+
+=== Version 2 ===
+* macOS version released in October 13, 2008
+
+=== Version 3 ===
+* macOS and Windows 10 version released in September 19, 2016
+
+== References ==
+== External links ==
+
+* 
+
+Category:Windows multimedia software
+Category:MacOS software
+Category:Computer-aided design software
+Category:Computer-aided design
+Category:Design engineering
+Category:Software
+Category:3D graphics software
+Category:3D imaging
+Category:Architectural design
+Category:Interior design

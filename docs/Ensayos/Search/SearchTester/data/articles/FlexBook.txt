@@ -1,0 +1,36 @@
+"FlexBook" is a textbook authoring platform offered by the CK-12 Foundation. Launched in 2008, FlexBooks reduce the cost of textbooks for the K-12 market both in U.S and worldwide. Derived from the words "flexibility" and "textbook," a FlexBook allows users to produce and customize content by re-purposing educational content using different modules. FlexBooks can be designed to suit a learner’s learning style, region, language, or level of skill, while adhering to the local education standards.
+
+== Features ==
+FlexBooks are designed to overcome some of the limitations of traditional textbooks. Anyone – including teachers, students, and parents - can adapt, create, and configure a FlexBook.
+
+Some FlexBooks features include:
+* Web-based collaborative model, where the user can create and edit content to produce a custom textbook
+* Open Educational Resource(OER) which allows for easy remixing of content
+* Available in PDF, HTML, ePub (for iPad) and AZW (for Kindle)
+
+== Licensing ==
+Each CK-12 FlexBook is created under Creative Commons Attribution-Non-Commercial 3.0 Unported (CC BY-NC 3.0) License, giving its author/user a right to share (i.e., right to copy, distribute and transmit the work) a right to remix (i.e., right to adapt the work). However, conditions of Attribution and Non-commercial apply.
+
+== Examples of use and collaboration ==
+In March 2009, FlexBook was lauded as “an adaptive, web-based set of instructional materials” by Virginia officials when members from Virginia’s K-12 physics community along with university and industry volunteers developed an eleven chapter FlexBook titled “21st Century Physics FlexBook: A Compilation of Contemporary and Modern Technologies” in just 4 months.  In September 2010, NASA teamed up with CK-12 to add a chapter on “modeling and simulation” to the existing Physics FlexBook created earlier.   In November 2011, teachers from a school district, Anoka-Hennepin, Minnesota, reportedly, saved the district $175,000 by writing their own online textbook instead of buying $65 textbooks – earlier, costing the district to the tune of $200,000. Wolfram has teamed up with CK-12 to produce interactive FlexBooks with Wolfram demonstrations embedded into the FlexBooks.
+
+== See also ==
+* OpenCourseWare
+* Open educational resources
+* Open textbook
+* Bookboon
+* China Open Resources for Education
+* Connexions
+* Curriki
+* Flat World Knowledge
+* Free High School Science Texts South Africa
+* Khan Academy
+* MIT OpenCourseWare
+* National Programme on Technology Enhanced Learning India
+* Open.Michigan
+* Tufts OpenCourseWare
+
+== References ==
+== External links ==
+* 
+Category:software

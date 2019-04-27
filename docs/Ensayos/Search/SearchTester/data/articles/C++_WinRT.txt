@@ -1,0 +1,23 @@
+"C++/WinRT" is a C++ library for Microsoft's Windows Runtime platform, designed to provide access to modern Windows APIs. C++/WinRT is provided as a standard C++17 header file library, unlike C++/CX, which is an extension to C++ and requires a recent version of Microsoft Visual C++.
+
+C++/WinRT was introduced as part of the Microsoft Windows SDK in version 10.0.17134.0 (Windows 10, version 1803). Microsoft Visual Studio support for C++/WinRT is provided by an officially-supported extension.
+
+C++/WinRT was originally released in 2015 by Kenny Kerr, who shortly afterward joined Microsoft. C++/WinRT is now Microsoft's recommended replacement for both the Windows Runtime C++ Template Library, and for C++/CX.
+
+== Overview ==
+
+Microsoft's Windows Runtime is based on Component Object Model (COM) APIs, and is designed to be accessed through "language projections". A language projection hides the COM details, and provides a more natural programming experience for a given language. For C++ developers, C++/WinRT is the officially supported, modern C++ language projection.
+
+As of version 10.0.17134.0 (Windows 10, version 1803), the Microsoft Windows SDK contains a header-file-based standard C++ library for consuming first-party Windows APIs (that is, Windows Runtime APIs in Windows namespaces). C++/WinRT also ships with the <code>cppwinrt.exe</code> tool, which can be pointed at a Windows Runtime metadata (.winmd) file to generate a header-file-based standard C++ library that "projects" the APIs described in the metadata for consumption from C++/WinRT code. Windows Runtime metadata (.winmd) files provide a canonical way of describing a Windows Runtime API surface. By pointing the <code>cppwinrt.exe</code> tool at metadata, users can generate a library for use with any runtime class implemented in a second- or third-party Windows Runtime component, or implemented in their own application.
+
+With C++/WinRT, users can also implement their own runtime classes using standard C++, without resorting to COM-style programming. For a runtime class, types can be described in a [https://docs.microsoft.com/uwp/midl-3/intro/ MIDL file] (.idl), and from that file the <code>midl.exe</code> and <code>cppwinrt.exe</code> tools generate the implementation boilerplate source code files, ready for users to add their own implementation. Alternatively, users can just implement interfaces by deriving from a base class that's part of the C++/WinRT header library. These techniques employ the curiously recurring template pattern for function-calling via static dispatch. C++/WinRT makes use of a host of modern ISO C++11 (and later) language features to increase productivity and run-time performance. Features that were not available when C++/WinRT's predecessors ([https://msdn.microsoft.com/en-us/library/hh438466.aspx WRL] and C++/CX) were designed.
+
+Standard C++ data types, algorithms, and keywords are used with C++/WinRT; however, the projection also has its own custom data types.
+
+C++/WinRT produces smaller binaries than other language options for the Windows Runtime.
+
+== History ==
+
+Design and development of C++/WinRT was begun in 2014 by the then-independent software developer [https://kennykerr.ca/ Kenny Kerr]. At the time, the prevailing way for developers to call Windows Runtime APIs using C++ was with the C++/CX language projection. C++/CX adds non-standard extensions to the C++ language, such as the <code>ref new</code> and <code>^</code> (hat) notation inherited from C++/CLI. It hadn't been fully appreciated then that advances in ISO C++ language features meant that it had become possible to design a Windows Runtime language projection for standard C++, without extensions. "There are a lot of very experienced C++ developers at Microsoft who have spent decades-long careers working with C++ and COM," Kerr says. "I think it took someone who didn't realize that it was impossible to just try it anyway and show that it works."
+
+"I had had some previous experience projecting COM APIs into modern C++, so I decided to see whether I could apply those same techniques to the Windows Runtime." One early challenge in developing C++/WinRT was managing the trade-offs that the Windows Runtime makes to support projections for JavaScript and managed .NET languages out of the box. The complexity in the way that generic collections work across language projections is another example of these design challenges, as was coming up with an efficient way for standard C++ to handle the Windows Runtime's interface-versioning model. "It really pushed my understanding of C++ at that time, and it's since pushed the Microsoft Visual C++ compiler to more efficiently handle such techniques at this scale."

@@ -1,0 +1,34 @@
+"Permainan-Tabal" is a two-player abstract strategy board game from Indonesia.  The game is sometimes referred to as a cross between Alquerque and Draughts.  It is essentially Draughts played on an expanded Alquerque board.  It is especially similar to Draughts in that the moves of the pieces are strictly forward and sideways until they are promoted to Kings by reaching the other player's first rank. The game is also referred to as Dama.
+
+== Setup ==
+The game consist of a standard Alquerque board but flanked on two of its opposite sides are triangular boards.
+
+Each player has 16 pieces.  One player has the black pieces, and the other player has the white pieces, although any two colors or distinguishable objects are appropriate.
+
+Players decide among themselves what colored pieces to play.  They also decide who will start first.
+	 
+Each player's 16 pieces are placed initially on the first four ranks of each player's side of the board.
+
+== Rules ==
+* Players alternate their turns using one piece to either move or capture exclusively per turn.
+* Pieces may only move one space per turn either straight forward, diagonally forward, or sideways along a line onto a vacant adjacent intersection point.  They cannot move backwards in any direction until they are promoted to Kings.  However, pieces can make "capturing" moves backward.
+* Captures are compulsory.
+* Captured pieces are removed from the board.
+* For pieces that have not yet been promoted to King, their captures are done by the short leap as in draughts and Alquerque.  A piece leaps over an adjacent enemy piece onto a vacant adjacent intersection point on the other side.  The leap must be in a straight line following the pattern on the board.  Even pieces that are not yet promoted to King can capture enemy pieces backwards.  A player's piece must continue to capture within a turn provided each capture meets the criteria of the short leap.
+* A piece is promoted to King when it reaches the other player's first rank.
+* Kings can move any number of unoccupied spaces in any available direction following the pattern of the board like the King in international draughts. 
+* Kings can leap over an enemy piece (and only one enemy piece per leap) from any distance and land any distance behind it onto a vacant intersection point as in the King in international draughts.  The King must continue to capture within the turn if it is able to do so.
+* The player who captures all of their opponent's pieces is the winner.
+
+== Related Games ==
+
+* Sixteen Soldiers
+* Shola guti
+
+== References ==
+== External links ==
+* http://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi/20359?do=show;id=1528
+* https://web.archive.org/web/20090107194930/http://www.pbm.com/pipermail/hist-games/2008/001369.html
+Category:Abstract strategy games
+Category:Traditional board games
+Category:Java

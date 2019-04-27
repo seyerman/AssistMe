@@ -1,0 +1,39 @@
+During the 2004 U.S. presidential election, Google bombs were used to further various political agendas. Two of the first were the "miserable failure" Google bomb linked to George W. Bush's White House biography and the "waffles" Google bomb linked to John Kerry's website. Supporters and detractors of the candidates were able to manipulate search engine rankings so that searches for "miserable failure" and "waffles" returned links to the targets' sites.
+
+In 2006, Google altered its searching algorithm to make massive link farms less effective, making search results less politically slanted.
+
+In January 2009, President Barack Obama's official White House web site also appeared on the first few results for "miserable failure" on Live Search and Yahoo, and on the first page of results for the word "failure" on Google. The cause of this is disputed, with some claiming it to be the result of a similar campaign. 
+
+Others believe it to be a result of URL redirection from the old White House site (under President Bush) to the site for President Barack Obama. Because the HTTP301 redirect indicates that the old page is permanently replaced by the new one, it also inherits all links to it and therefore the ranking for the same keywords.
+
+==Bombing of George W. Bush==
+U.S. President George W. Bush was the subject of a variety of Google bombs. "Miserable failure" was the first. In October 2003, an effort was launched to create links of "miserable failure" to the official White House biography of President Bush. In about six weeks, the link to George W. Bush's biography became the first result for "miserable failure" on a Google search. 
+
+A blogger from Washington has since taken credit for starting this tactic, though the phrase had been in heavy use following its adoption as a catchphrase by the Dick Gephardt campaign. For a time, Bush's official biography had also become the top result for both "miserable" and "failure".
+
+==Bombing of John Kerry==
+Senator John Kerry was also the target of Google bombs.  The first of these is the "waffles" Google bomb.  In April 2004, Ken Jacobson, then a law school student at Duquesne University in Pittsburgh launched the "waffles" Google bombing of Kerry, in part to retaliate for Democrats' Google bombing of George W. Bush. with text reading "miserable failure", a relatively small number (possibly as few as 32) of website owners and bloggers were able to make the site appear as the first result when searching for "miserable failure".
+
+Political blogger George Johnston of Old Fashioned Patriot claimed to be the coordinator of this particular Google bomb, which began a month after the Dick Gephardt campaign began using the catchphrase "miserable failure" to attack the administration. In October 2003, he began to encourage his visitors to participate in the "bombing". Democratic partisan e-mailing lists and blogging groups began passing the word to do similar things in the same time period.
+
+The bomb has proliferated beyond the Google web search: "miserable failure" returns images of Bush on Google Images and Local and Maps return the "US Executive Mansion" and the White House as the first two results for "miserable failure" in Washington, D.C.
+
+== Google's response ==
+Google originally took the position that it would not alter the result (or any other Google bombed results) because it wished to preserve the integrity of its search engine. On September 28, 2005, [http://googleblog.blogspot.com/2005/09/googlebombing-failure.html a Google blog] written by Marissa Mayer (Google Director of Consumer Web Products) began to appear alongside the search results; the blog explains the situation and the company's reason for not manually editing the search results.
+
+<blockquote>
+"We don't condone the practice of googlebombing, or any other action that seeks to affect the integrity of our search results, but we're also reluctant to alter our results by hand in order to prevent such items from showing up. Pranks like this may be distracting to some, but they don't affect the overall quality of our search service, whose objectivity, as always, remains the core of our mission."
+</blockquote>
+
+In January 2007, Google changed their indexing structure so that Google bombs such as "miserable failure" would "typically return commentary, discussions, and articles" about the tactic itself. Google announced the changes on its official blog. In response to criticism for allowing the Google bombs, Matt Cutts, the head of the Google’s web spam team, said that Google bombs had "not been a very high priority for us."
+
+<blockquote>
+"Over time, we've seen more people assume that they are Google's opinion, or that Google has hand coded the results for these Google bombed queries. That's not true, and it seemed like it was worth trying to correct that misperception."
+</blockquote>
+
+== References ==
+Category:2003 beginnings
+Category:2003 in American politics
+Category:Google
+Category:Political Internet memes
+Category:2004 United States presidential election

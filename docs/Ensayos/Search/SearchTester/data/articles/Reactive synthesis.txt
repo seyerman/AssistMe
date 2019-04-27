@@ -1,0 +1,11 @@
+"Reactive synthesis" (or "temporal synthesis") is the field of computer science that studies automatic generation of state machines (e.g. Moore machines) from high-level specifications (e.g. formulas in linear temporal logic). "Reactivity" highlights the fact that the synthesized machine interacts with the user, reading an input and producing an output, and never stops its operation.
+
+The synthesis problem was introduced by Alonzo Church in 1962 , with specifications being formulas in monadic second-order logic and state machines in the form of digital circuits.
+
+== See also ==
+* Program synthesis
+* Model checking
+
+== References ==
+Category:Computer science
+Category:Logic

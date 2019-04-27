@@ -1,0 +1,10 @@
+The "Liquid Galaxy" is an open source project founded by Google. Created in 2008 by Google employee Jason Holt, the Liquid Galaxy started out as a panoramic multi-display Google Earth viewer, but has evolved to become a general data visualization tool for operations, marketing, and research.
+
+The Liquid Galaxy gives the ability to fly around Google Earth, view panoramic video and photos, develop interactive tours, and graphically display GIS data.
+
+Liquid Galaxies are regularly used by Google to showcase Google's geospatial technologies and to promote its image at trade shows and exhibits. Other nonprofit and commercial enterprises are using Liquid Galaxies inside company offices and at trade shows to attract attention with their own featured content.
+
+Liquid Galaxy with Touchscreen and Space Navigator
+
+== Development partners ==
+For most of the life of the Liquid Galaxy project, Liquid Galaxy construction and support has been outsourced to End Point Corporation. Other companies like Tietronix and GLGteam have also produced Liquid Galaxy systems.

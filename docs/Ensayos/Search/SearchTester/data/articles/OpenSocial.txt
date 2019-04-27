@@ -1,0 +1,83 @@
+"OpenSocial" is a public specification that defines a component hosting environment (container) and a set of common application programming interfaces (APIs) for Web-based applications. Initially, it was designed for social network applications and developed by Google along with MySpace and a number of other social networks. More recently, it has become adopted as a general use runtime environment for allowing untrusted and partially trusted components from third parties to run in an existing web application. The OpenSocial Foundation moved to integrate or support numerous other Open Web technologies. This includes OAuth and OAuth 2.0, Activity Streams, and Portable Contacts, among others.
+
+It was released on November 1, 2007. 
+Applications implementing the OpenSocial APIs are interoperable with any social network system that supports them. At launch, OpenSocial took a one-size-fits-all approach to development. As it became more robust and the user-base expanded, OpenSocial modularized the platform to allow developers to only include the parts of the platform it needed. that OpenSocial would no longer exist as a separate entity and encouraged the OpenSocial community to continue development work through the [http://www.w3.org/Social/ W3C Social Web Activity] in the [http://www.w3.org/Social/WG Social Web Working Group] and [http://www.w3.org/Social/IG Social Interest Group]. The OpenSocial Foundation stated that "the community will have a better chance of realizing an open social web through discussions at a single organization, and the OpenSocial Foundation board believes that working as an integrated part of W3C will help reach more communities that will benefit from open social standards." On January 1, 2015, [http://www.opensocial.org opensocial.org] began redirecting all page requests to https://www.w3.org/blog/2014/12/opensocial-foundation-moves-standards-work-to-w3c-social-web-activity/.|400x400px]]
+Based on HTML and JavaScript, as well as the Google Gadgets framework, OpenSocial includes multiple APIs for social software applications to access data and core functions on participating social networks. Each API addresses a different aspect. It also includes APIs for contacting arbitrary third party services on the web using a proxy system and OAuth for security.
+
+In version 0.9 OpenSocial added support for a tag-based language.
+
+==History==
+
+===Background===
+OpenSocial is commonly described as a more open cross-platform alternative to the Facebook Platform, a proprietary service of the popular social network service Facebook.
+
+===Development===
+OpenSocial was rumored to be part of a larger social networking initiative by Google code-named "Maka-Maka", which is defined as meaning "intimate friend with whom one is on terms of receiving and giving freely" in Hawaiian.
+
+===Implementation===
+An open-source project, Shindig, was launched in December 2007, to provide a reference implementation of the OpenSocial standards. It has the support of Google, Ning, and other companies developing OpenSocial-related software. The Myspace OpenSocial parser was released as project Negroni in January 2011 and provides a C# based implementation of OpenSocial.
+
+Apache Rave is a lightweight and open-standards based extensible platform for using, integrating and hosting OpenSocial and W3C Widget related features, technologies and services. It will also provide strong context-aware personalization, collaboration and content integration capabilities and a high quality out-of-the-box installation as well as be easy to integrate in other platforms and solutions.
+
+Both Shindig and Apache Rave are no longer in development and have been retired by the Apache foundation.
+
+== Usage ==
+Enterprise websites, such as Friendster, hi5, LinkedIn, MySpace, Orkut, and Salesforce.com are major users of OpenSocial.
+
+===Friendster===
+Friendster has deployed APIs from version 0.7 of the OpenSocial specification, making it easy for existing OpenSocial applications using version 0.7 to be launched on Friendster and reach Friendster's over 75 million users. Friendster also plans to support additional OpenSocial APIs in the coming months, including the new 0.8 APIs.
+
+=== hi5 ===
+hi5 taps Widgetbox's support for OpenSocial to get access to the unsurpassed choice of web widgets Widgetbox provides.
+
+=== MySpace ===
+Myspace Developer Platform (MDP) is based on the OpenSocial API. It supports social networks to develop social and interacting widgets. It can be seen as an answer to Facebook's developer platform.
+
+==Security issues==
+Initial OpenSocial support experienced vulnerabilities in security, with a self-described amateur developer demonstrating exploits of the RockYou gadget on Plaxo, and of Ning social networks using the iLike gadget. As reported by TechCrunch on 5 November 2007, OpenSocial was quickly cracked. The total time to crack the OpenSocial-based iLike on Ning was just 20 minutes, with the attacker being able to add and remove songs on a user's playlist and access the user's friend information.
+
+Hasel and Iacono showed that “OpenSocial specification were far from being comprehensive in respect to security”. They discussed different security implications in the context of OpenSocial. They introduced possible vulnerabilities in Message Integrity and Authentication, Message Confidentiality, and Identity Management and Access Control.
+
+==Release versions==
+===Criticism of initial release===
+
+Opened to much fanfare in news coverage, OpenSocial did not work well in the beginning; it only ran on Google-owned Orkut, and only with a limited number of gadgets, returning errors for other gadgets. Other networks were still looking into implementing the framework.
+
+On December 6, TechCrunch followed up with a report by MediaPops founder Russ Whitman, who said "While we were initially very excited, we have learned the hard way just how limited the release truly is." Russ added that "core functionality components" are missing and that "write once, distribute broadly" was not accurate.
+
+"Legend: "
+===Version 2.5.1===
+Changes to the REST API were made to address several issues that required changes in the OpenSocial specifications so it could be used by the Open Mobile Alliance.
+
+===Version 2.5.0===
+Common Containers were added that provided "a set of common services that Container developers can leverage for features like in-browser Gadget lifecycle event callbacks, Embedded Experiences, selection handlers, and action handlers."  A new Metadata API gives OpenSocial applications the ability to adapt to the capabilities of different OpenSocial containers. The WAP authentication extension was deprecated.
+
+===Version 2.0.1===
+OAuth 2.0 support was finalized in this version of OpenSocial.
+
+===Version 2.0.0===
+OpenSocial introduced support for Activity Streams. JSON had emerged as the preferred data format and support for ATOM was deprecated. The Gadget format was simplified to give the ability to define a template library within a Gadget specification. While not finalized, the groundwork for OAuth 2.0 support was put in place.
+
+===Version 1.1.0===
+In response to enterprise environment needs, OpenSocial added support for advanced mashup scenarios. It enabled gadgets to "securely message each other in a loosely coupled manner." This new feature was called Inter-Gadget Communication.
+
+===Version 1.0.0===
+OpenSocial acknowledged that the "one-size-fits-all" approach it was taking was not going to work for the diverse type of websites that had adopted the platform. To address this issue, OpenSocial modularized into four compliance modules: Core API Server, Core Gadget Server, Social API Server, and Social Gadget Server. This allowed a developer to pick and choose the modules they wanted to use while using other services that aren't part of OpenSocial. Extensions were introduced to allow developers to extend OpenSocial containers.
+
+===Version 0.9.0===
+In response to feedback and observation of how developers were using the API, this version focused on making "application development, testing, and deployment easier and faster, while reducing the learning curve for new app developers." The OpenSocial Javascript API was streamlined to make it lightweight while retaining the power of the old Javascript API. Proxied content was introduced to eliminate the need for developers to work around previous AJAX limitations. Proxied content allows a content to be fetched from a URL and displayed in a <Content> tag. In response to a common use of sending data to a remote server immediately after a request, OpenSocial 0.9.0 introduced data pipelining. Data pipelining allows the developer to specify the social data the application will need and make the data immediately available. OpenSocial Templates were introduced to create data-driven UI with a separation of markup and programmatic logic. OpenSocial Markup Language (OSML Markup) is a new set of standardized tags to accomplish common tasks or safely perform normally unsafe operations within templates. OSML is extensible. Developers can create a library of their own custom tags.
+
+===Version 0.8.1===
+This minor release placed a major focus on server-to-server protocols as "the Person schema has been aligned with the Portable Contacts effort, and an optional RPC proposal has been added." JSON-RPC protocol was added to increase server to server functionality. The RESTful protocol that was introduced in v0.8.0 underwent a large revision with several fields being added, modified, and deleted.
+
+===Version 0.8.0===
+OpenSocial changed specifications for containers to implement a RESTful API. Many of the OpenSocial Javascript API changes made this version incompatible with previous versions. Existing gadgets continued to use v0.7.0. After updating the gadget, it would use v0.8.0. Security improved with the introduction of OAuth authorization and HTML sanitation, and container lifecycle events. Persistence data was stored in JSON.
+
+===Version 0.7.0===
+Released as the "first iteration that can fully support rich, social applications." It added several standard fields for profile information, the ability to send a message to install an application, an Activity template to control activity notifications about what users have been doing, and a simplified persistence API to use feeds instead of global and instance-scoped application data. Another major announcement came from Apache Shindig. Apache Shindig made gadgets open sourced. In coordination with this announcement, OpenSocial 0.7.0 introduced Gadget Specifications for developers to be able to define their gadgets using the Gadget API.
+
+===Version 0.6.0===
+Security was a large focus in version 0.6.0. Permission controls were tightened to prevent a gadget from returning information if it is not authorized to do so. New classes were added, such as the Environment class to allow a gadget to respond differently according to its environment and the Surface class to support navigation from one surface to another.  The Activities class was simplified based on developer needs and the Stream class was deprecated.
+
+===Version 0.5.0===
+Google announced the launch of OpenSocial with a pre-release of version 0.5.0. While unstable, this API introduced "various XML DTDs, Javascript interfaces and other data structures" to the OpenSocial platform.

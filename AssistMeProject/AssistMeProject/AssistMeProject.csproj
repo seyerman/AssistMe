@@ -49,6 +49,8 @@
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="4.3.1" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="IKVM" Version="8.1.5717" />
+    <PackageReference Include="MailKit" Version="2.1.3" />
     <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -98,6 +100,10 @@
     <PackageReference Include="Microsoft.Extensions.WebEncoders" Version="2.2.0" />
     <PackageReference Include="Microsoft.Net.Http.Headers" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="MimeKit" Version="2.1.3" />
+    <PackageReference Include="slf4j-api" Version="1.7.5.4" />
+    <PackageReference Include="Stanford.NLP.CoreNLP" Version="3.9.1" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,81 @@
+Trailer for the prize.
+
+The "Google Lunar XPRIZE" ("GLXP"), sometimes referred to as Moon 2.0,
+was a 2007–2018 inducement prize space competition organized by the X Prize Foundation, and sponsored by Google.  The challenge called for privately funded teams to be the first to land a  robotic spacecraft on the Moon, travel 500 meters, and transmit back to Earth high-definition video and images.
+
+The original deadline was the end of 2014, with enhanced prize money for a landing by 2012. In 2015, XPRIZE announced that the competition deadline would be extended to December 2017 if at least one team could secure a verified launch contract by 31 December 2015. Two teams secured such a launch contract, and the deadline was extended.  In August 2017, the deadline was extended again, to 31 March 2018.
+
+Entering 2018, five teams remained in the competition: SpaceIL, Moon Express, Synergy Moon, Team Indus, and Team Hakuto, having secured verified launch contracts with Spaceflight Industries, Rocket Lab, Interorbital Systems, and ISRO (jointly for the last two teams).
+
+On 23 January 2018, the X Prize Foundation announced that "no team would be able to make a launch attempt to reach the Moon by the [31 March 2018] deadline... and the US$30 million Google Lunar XPRIZE will go unclaimed."  On 5 April 2018, the X Prize Foundation announced that the Lunar XPRIZE would continue as a non-cash competition.
+
+On 11 April 2019 the SpaceIL spacecraft crashed while attempting to land on the moon.  The SpaceIL team was awarded a $1 million "Moonshot Award" by the X Prize Foundation in recognition of touching the surface of the moon. The competition offered a total of US$30&nbsp;million in prizes to the first privately funded teams to land a robot on the Moon that successfully travels more than 500 meters (1,640&nbsp;ft) and transmits back high-definition images and video. The first team to do so would have claimed the US$20&nbsp;million grand prize; while the second team to accomplish the same tasks would have been awarded a US$5&nbsp;million second prize. Teams also earned additional money by completing additional tasks beyond the baseline requirements required to win the grand or second prize, such as traveling ten times the baseline requirements (greater than 5,000 meters (3&nbsp;mi)), capturing images of the remains of Apollo program hardware or other man-made objects on the Moon, verifying from the lunar surface the recent detection of water ice on the Moon, or surviving a lunar night. Additionally, a US$1&nbsp;million diversity award was to be given to teams that make significant strides in promoting ethnic diversity in STEM fields.
+
+To provide an added incentive for teams to complete their missions quickly, it was announced that the prize would decrease from US$20&nbsp;million to US$15&nbsp;million whenever a government-led mission lands on and explores the lunar surface. However, in November 2013, the organizers and the teams agreed to drop this rule, as the launch of the Chinese Chang'e 3 probe—which landed on the Moon in December 2013—approached.
+
+In 2015, XPRIZE announced that the competition deadline would be extended to December 2017 if at least one team could secure a verified launch contract by 31 December 2015. SpaceIL, Moon Express, Synergy Moon, Team Indus, and Hakuto having secured verified launch contracts for 2017 (with SpaceX, Rocket Lab, Interorbital Systems and ISRO respectively).
+
+The Google Lunar XPRIZE expired on 31 March 2018 as none of the five final teams were able to launch their vehicles by the deadline. Another extension of the deadline was ruled out by Google, and the prize went unclaimed.
+
+==Overview==
+Peter Diamandis, the project founder, wrote on the official web page in 2007: 
+
+The goal of the Google Lunar X Prize was similar to that of the Ansari X Prize: to inspire a new generation of private investment in hopes of developing more cost-effective technologies and materials to overcome many limitations of space exploration that are currently taken for granted.
+
+==History==
+
+The Google Lunar XPRIZE was announced in 2007.
+
+===Origin of the prize===
+
+Similar to the way in which the Ansari XPRIZE was formed, the Google Lunar XPRIZE was created out of a former venture of Peter Diamandis to achieve a similar goal. Dr Diamandis served as CEO of BlastOff! Corporation, a commercial initiative to land a robotic spacecraft on the Moon as a mix of entertainment, internet, and space. Although it was ultimately unsuccessful, the BlastOff! initiative paved the way for the Google Lunar X Prize.
+
+Initially, NASA was the planned sponsor and the prize purse was just US$20&nbsp;million. As NASA is a federal agency of the United States government, and thus funded by US tax money, the prize would only have been available to teams from the United States. The original intention was to propose the idea to other national space agencies, including the European Space Agency and the Japanese space agency, in the hope that they would offer similar prize purses.
+
+However, budget setbacks stopped NASA from sponsoring the prize. Peter Diamandis then presented the idea to Larry Page and Sergey Brin, co-founders of Google, at an XPRIZE fundraiser. They agreed to sponsor it, and also to increase the prize purse to US$30&nbsp;million, allowing for a second place prize, as well as bonus prizes. In 2010, the deadline was extended by one year, with the prize to expire at the end of December 2015, and the reduction of the grand prize from $20&nbsp;million to $15&nbsp;million changed from originally 2012 to "if a government mission successfully lands on the lunar surface."
+
+On 16 December 2014, XPRIZE announced another extension in the prize deadline from 31 December 2015 to 31 December 2016. In May 2015, the foundation announced another extension of the deadline. The deadline for winning the prize was now December 2017, but contingent on at least one team showing by 31 December 2015 that they have a secured contract for launch. On 9 October 2015, team SpaceIL announced their officially verified launch contract with SpaceX, therefore extending the competition until the end of 2017. None of the remaining teams were be able to claim the Google X-Prize money due to the inability to launch before the final deadline.
+
+===Objections to the Heritage Bonus Prizes===
+Some observers have raised objections to the inclusion of the two "Heritage Bonus Prizes," particularly the Apollo Heritage Bonus Prize, which was to award an additional estimated US$1&nbsp;million to the first group that successfully delivers images and videos of the landing site of one of the Apollo Program landing sites, such as Tranquility Base, after landing on the lunar surface. Such sites are widely regarded as archaeologically and culturally significant, and some have expressed concern that a team attempting to win this heritage bonus might inadvertently damage or destroy such a site, either during the landing phase of the mission, or by piloting a rover around the site. As a result, some archaeologists went on record calling for the Foundation to cancel the heritage bonus and to ban groups from targeting landing zones within  of previous sites.
+
+In turn, the Foundation noted that, as part of the competition's educational goals, these bonuses fostered debate about how to respectfully visit previous lunar landing sites, but that it does not see itself as the appropriate adjudicator of such an internationally relevant and interdisciplinary issue. This response left detractors unsatisfied. The Foundation pointed to the historical precedent set by the Apollo 12 mission, which landed nearby the previous Surveyor 3 robotic probe. Pete Conrad and Alan Bean approached and inspected Surveyor 3 and even removed some parts from it to be returned to Earth for study; new scientific results from that heritage visit, on the exposure of manmade objects to conditions in outer space, were still being published in leading papers nearly four decades later. However, as Surveyor 3 and Apollo 12 were both NASA missions, there was no controversy at the time.
+
+In January 2011, NASA's manager for lunar commercial space noted on Twitter that work was underway to provide insight and guidelines on how lunar heritage sites could be protected while still allowing visitations that could yield critical science. And in July 2011, NASA issued "Recommendations to Space-Faring Entities: How to Protect and Preserve the Historic and Scientific Value of U.S. Government Lunar Artifacts".  These guidelines were developed with the assistance of Beth O'Leary, an anthropology professor at New Mexico State University in Las Cruces, and a recognized leader in the emerging field of space archaeology. However, these are only guidelines and recommendations and are not enforceable beyond the possibility of "moral sanctions."  An organization called For All Moonkind, Inc. is now working to develop an international treaty that will include enforceable provisions designed to manage access to the Apollo sites and protect and preserve those sites, as well as others on the Moon, as the common heritage of all humankind.
+
+Nevertheless, some of the Apollo astronauts themselves have expressed support for the bonus, with Apollo 11 Moonwalker Buzz Aldrin appearing at the Google Lunar XPRIZE's initial announcement and reading a plaque signed by the majority of his fellow surviving Apollo Astronauts.
+
+===Prize not won===
+On 23 January 2018, the X Prize Foundation announced that "no team would be able to make a launch attempt to reach the Moon by the [31 March 2018] deadline... and the  Google Lunar XPRIZE will go unclaimed."
+
+On 11 April 2019, the foundation awarded a US$ 1 million dollar award to SpaceIL after its craft Beresheet crashed on the moon.
+
+==Competitors==
+Registration in the Google Lunar X Prize closed by 31 December 2010. The complete roster of 32 teams was announced in February 2011. By January 2017, there were just five officially registered Google Lunar X Prize teams continuing to pursue the prize objectives, as other teams had left the competition entirely, failed to achieve a competition interim milestone, or merged with other teams:
+Initially 32 teams were registered, with 16 teams having actively participated in all activities and only 5 teams satisfying the rule requiring a verified launch contract by 31 December 2016.
+Shortly after the announcement of the complete roster of teams, an X Prize Foundation official noted that a total of thirty one teams entered a partial registration program by filing a "Letter of Intent" to compete; of these, twenty did indeed register or join other registered teams, while eleven ultimately did not register.
+
+==Terrestrial Milestone Prizes==
+
+===Overview===
+In November 2013 the X-Prize organization announced that several milestone prizes will be awarded to teams for demonstrating key technologies prior to the actual mission. A total of  was awarded throughout 2014 for achieving the following milestones:
+* $1&nbsp;million (for up to 3 teams) for the "Lander System Milestone Prize" to demonstrate hardware and software that enables a soft-landing on the Moon.
+* $500,000 (for up to 4 teams) for the "Mobility Subsystem Milestone Prize" to demonstrate a mobility system that allows the craft to move 500 meters after landing.
+* $250,000 (for up to 4 teams) for the "Imaging Subsystem Milestone Prize" for producing "Mooncasts" consisting of high-quality images and video on the lunar surface.
+
+===Selected teams===
+In February 2014, a judging panel selected five teams which could compete for several interim prizes based on their proposals to achieve particular goals. The teams and their ultimate awards were:
+
+The five selected teams were required to accomplish the milestones outlined in their submissions through testing and mission simulations, in order to be awarded the interim prizes. The teams had until October 2014 to complete the prize requirements. The winners were officially awarded on 26 January 2015 in San Francisco.
+
+== Teams with confirmed launch contracts as of the end of 2016 ==
+
+Teams were required to have verified launch contracts by the end of 2016 in order to remain in the competition.  Although the contest ended without a winner, some of these teams have expressed an intention to launch in the future.
+===Other teams===
+Three competitors who were unable to get a verified launch contract by 31 December 2016, disqualifying them from the competition, are also still planning to launch their crafts independently.
+==See also==
+
+* Ansari X Prize
+* Commercial Lunar Payload Services - a NASA partnership program which includes several Google Lunar X Prize contestants
+* Lunar Lander Challenge
+* NewSpace

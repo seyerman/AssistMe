@@ -1,0 +1,30 @@
+In computer science, the "Krauss matching wildcards algorithm" is a pattern matching algorithm. Based on the wildcard syntax in common use, e.g. in the Microsoft Windows command-line interface, the algorithm provides a non-recursive mechanism for matching patterns in software applications, based on syntax simpler than that typically offered by regular expressions.
+
+== History ==
+The algorithm is based on a history of development, correctness and performance testing, and programmer feedback that began with an unsuccessful search for a reliable non-recursive algorithm for matching wildcards. An initial algorithm, implemented in a single while loop, quickly prompted comments from software developers, leading to improvements. Ongoing comments and suggestions culminated in a revised algorithm still implemented in a single while loop but refined based on a collection of test cases and a performance profiler. The experience tuning the single while loop using the profiler prompted development of a two-loop strategy that achieved further performance gains, particularly in situations involving empty input strings or input containing no wildcard characters. The two-loop algorithm is available for use by the open-source software development community, under the terms of the Apache License v. 2.0, and is accompanied by test case code.
+
+== Usage ==
+The algorithm made available under the Apache license is implemented in both pointer-based C++ and portable C++ (implemented without pointers). The test case code, also available under the Apache license, can be applied to any algorithm that provides the pattern matching operations below. The implementation as coded is unable to handle multibyte character sets and poses problems when the text being searched may contain multiple incompatible character sets.
+
+== Pattern matching operations ==
+The algorithm supports three pattern matching operations:
+* A one-to-one match is performed between the pattern and the source to be checked for a match, with the exception of asterisk (*) or question mark (?) characters in the pattern.
+* An asterisk (*) character matches any sequence of zero or more characters.
+* A question mark (?) character matches any single character.
+
+== Examples ==
+* "*foo*"  	  matches any string containing "foo".
+* "mini*"       matches any string that begins with "mini" (including the string "mini" itself).
+* "???*"        matches any string of three or more letters.
+
+== Applications ==
+The original algorithm has been ported to the DataFlex programming language by Larry Heiges for use with Data Access Worldwide code library. It has been posted on GitHub in modified form as part of a log file reader. The 2014 algorithm is part of the Unreal Model Viewer built into the Epic Games Unreal Engine game engine.
+
+== See also ==
+* pattern matching
+* glob (programming)
+* wildmat
+
+== References ==
+Category:Algorithms
+Category:Computer science

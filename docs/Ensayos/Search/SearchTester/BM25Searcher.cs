@@ -1,8 +1,10 @@
-﻿using System;
+﻿using edu.stanford.nlp.process;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using jio = java.io;
+using ling = edu.stanford.nlp.ling;
+
 
 namespace AssistMeProject.Models
 {
@@ -10,6 +12,7 @@ namespace AssistMeProject.Models
     {
         private const double K1 = 2;
         private const double B = 0.75;
+        private const double l = 2;
 
         public List<SearchDocument> Documents { get; set; }
 
@@ -28,8 +31,7 @@ namespace AssistMeProject.Models
         public List<ISearchable> Search(string query)
         {
             _idfList = new Dictionary<string, double>();
-            var punctuation = query.Where(Char.IsPunctuation).Distinct().ToArray();
-            var queryTerms = query.Split().Select(x => x.Trim(punctuation));
+            var queryTerms = Tokenize(query);
 
             foreach (SearchDocument d in Documents)
             {
@@ -46,7 +48,7 @@ namespace AssistMeProject.Models
             List<ISearchable> docs = new List<ISearchable>();
             foreach (SearchDocument d in Documents)
             {
-                docs.Add(d.Value);
+                if (d.Score > 0) docs.Add(d.Value);
             }
             return docs;
         }
@@ -92,7 +94,7 @@ namespace AssistMeProject.Models
                 int N = Documents.Count;
                 int nq = DocumentsThatContain(q);
                 double val = (N - nq + 0.5) / (nq + 0.5);
-                val = Math.Log(val);
+                val = Math.Log(val + l);
                 if (val < 0) val = 0;
                 return _idfList[q] = val;
             }
@@ -109,6 +111,22 @@ namespace AssistMeProject.Models
                 }
             }
             return count;
+        }
+
+        public static List<string> Tokenize(string s)
+        {
+            var tokenizerFactory = PTBTokenizer.factory(new CoreLabelTokenFactory(), "");
+            tokenizerFactory.setOptions("untokenizable=noneDelete");
+            var reader = new jio.StringReader(s);
+            var words = tokenizerFactory.getTokenizer(reader).tokenize();
+            var tokens = new List<string>();
+            for (int i = 0; i < words.size(); i++)
+            {
+                ling.CoreLabel word = (ling.CoreLabel)words.get(i);
+                string w = word.toString().ToUpper();
+                tokens.Add(w);
+            }
+            return tokens;
         }
     }
 }

@@ -1,0 +1,26 @@
+"Social cloud computing", also "peer-to-peer social cloud computing", is an area of computer science that generalizes cloud computing to include the sharing, bartering and renting of computing resources across peers whose owners and operators are verified through a social network or reputation system. It expands cloud computing past the confines of formal commercial data centers operated by cloud providers to include anyone interested in participating within the cloud services sharing economy. This in turn leads to more options, greater economies of scale, while bearing additional advantages for hosting data and computing services closer to the edge where they may be needed most.
+
+==Research==
+Peer-to-peer (P2P) computing and networking to enable decentralized cloud computing has been an area of research for sometime. Social cloud computing intersects peer-to-peer cloud computing with social computing to verify peer and peer owner reputation thus providing security and quality of service assurances to users. On demand computing environments may be constructed and altered statically or dynamically across peers on the Internet based on their available resources and verified reputation to provide such assurances.
+
+==Applications==
+Social cloud computing has been highlighted as a potential benefit to large-scale computing, video gaming, and media streaming. The tenets of social cloud computing has been most famously employed in the Berkeley Open Infrastructure for Network Computing (BOINC), making the service the largest computing grid in the world. Another service that uses social cloud computing is Subutai Social. Subutai allows peer-to-peer sharing of hardware resources as well as files globally or within a small network.
+
+==Challenges==
+Many challenges arise when moving from a traditional cloud infrastructure, to a social cloud environment.
+
+===Availability of computational resources===
+
+In the case of traditional cloud computing, availability on demand is essential for many cloud customers.  Social Cloud Computing doesn't provide this availability guarantee because in a P2P environment, peers are mobile devices which may enter or leave the P2P network at any time, or PCs which have a primary purpose that can override the P2P computation at any time.  The only relatively successful use cases as of recent years are those which do not require real time results, only computation power for a small subset or module of a larger algorithm or data set.
+
+===Trust and security===
+
+Unlike large scale data centers and company brand image, people may be less likely to trust peers vs. a large company like Google or Amazon.  Running some sort of computation with sensitive information would then need to be encrypted properly and the overhead of that encryption may reduce the usefulness of the P2P offloading. When resources are distributed in small pieces to many peers for computations, inherent trust must be placed in the client, regardless of the encryption that may be promised to the client.
+
+===Reliability===
+
+Similar to availability, reliability of computations must be consistent and uniform.  If computations offloaded to the client are continuously interrupted, some mechanism for detecting this must be in place such that the client may know the computation is tainted or needs to be completely re-run.  In P2P social computing, reliable expected computation power is difficult to achieve because the speed of the client calculation may depend on how much the client is using the end device.  Some ways of overcoming this may be to only allow computations to occur at night, or during specified times the client resources will not be in use.
+
+==See also==
+* Berkeley Open Infrastructure for Network Computing
+* [https://subutai.io Subutai Social]

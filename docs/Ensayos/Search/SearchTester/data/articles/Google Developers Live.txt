@@ -1,0 +1,7 @@
+"Google Developers Live" is the live, streaming content for the developers and Google developers on many of Google's platforms. Through the use of streaming video and Google+ hangouts, it is organized by Google around the world. Google Developers Live features highly technical, in-depth topics focused on building of web, mobile, and enterprise applications with Google and open web technologies such as Android, HTML5, Chrome, Chrome OS, Google APIs, Google Web Toolkit, App Engine,Cloud, Google Maps, YouTube and more, and give participants an excellent chance to learn about Google developer products as well as meet the engineers who work on them.
+
+==See also==
+*Google I/O
+*AtGoogleTalks
+*Google Developer Day
+*Android Developer Day

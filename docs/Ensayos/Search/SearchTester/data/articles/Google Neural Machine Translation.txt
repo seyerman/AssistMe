@@ -1,0 +1,33 @@
+"Google Neural Machine Translation" (GNMT) is a neural machine translation (NMT) system developed by Google and introduced in November 2016, that uses an artificial neural network to increase fluency and accuracy in Google Translate.
+
+GNMT improves on the quality of translation by applying an example based (EBMT) machine translation method in which the system "learns from millions of examples".
+
+==History==
+
+The Google Brain project was established in 2011 in the "secretive Google X research lab" Ng’s work has led to some of the biggest breakthroughs at Google and Stanford.
+
+In September 2016, a research team at Google announced the development of the Google Neural Machine Translation system (GNMT) and by November Google Translate began using neural machine translation (NMT) in preference to its previous statistical methods (SMT) which had been used since October 2007, with its proprietary, in-house SMT technology.
+
+Google Translate's NMT system uses a large artificial neural network capable of deep learning. By using millions of examples, GNMT improves the quality of translation, The new translation engine was first enabled for eight languages: to and from English and French, German, Spanish, Portuguese, Chinese, Japanese, Korean and Turkish in 2016. In March 2017, three additional languages were enabled: Russian, Hindi and Vietnamese along with Thai for which support was added later. Support for Hebrew and Arabic was also added with help from the Google Translate Community in the same month. In mid April 2017 Google Netherlands announced support for Dutch and other European languages related to English. Further support was added for nine Indian languages, viz. Hindi, Bengali, Marathi, Gujarati, Punjabi, Tamil, Telugu, Malayalam and Kannada at the end of April 2017.
+
+== Languages Supported by GNMT ==
+This is a list of language translation pairs supported by Google Translate's Neural Machine Translation (NMT) model. As of July 2017 all languages currently only support translation to and from English:
+==Zero-shot translation==
+The GNMT system is said to represent an improvement over the former Google Translate in that it will be able handle "zero-shot translation", that is it directly translates one language into another (for example, Japanese to Korean). Currently, no non-English language pairs are supported.
+
+==See also==
+
+*Example-based machine translation 
+*Rule-based machine translation
+*Comparison of machine translation applications
+*Statistical machine translation
+*Artificial intelligence
+*Cache language model
+*Computational linguistics
+*Computer-assisted translation
+*History of machine translation
+*List of emerging technologies
+*List of research laboratories for machine translation
+*Neural machine translation
+*Machine translation
+*Universal translator

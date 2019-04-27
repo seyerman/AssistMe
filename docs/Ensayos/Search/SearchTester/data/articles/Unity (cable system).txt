@@ -1,0 +1,19 @@
+"Unity" is a Trans-Pacific submarine communications cable between Japan and the United States that was completed in April 2010. 
+
+Unity comprises a 10,000&nbsp;km linear cable system with a "multi-terabit" capacity of up to 7.68 Tbit/s. Unity's installation cost around US$300 million, and its completion increased Trans-Pacific cable capacity by around 20 per cent. The cable reached Japan in November 2009. Testing of the cable was completed, and it became ready for service, in April 2010.
+
+==Specifications==
+Unity is a 10,000 kilometer Trans-Pacific cable between Chikura, located off the coast near Tokyo, and Los Angeles and other network points of presence on the West Coast of the United States. At Chikura, Unity is connected to other cable systems.
+
+The new five fiber pair cable system has five fiber pairs, with each fiber pair capable of carrying up to 960 gigabits per second (Gbit/s). By having a high fiber count, Unity is able to offer more capacity at lower unit costs.
+
+Unity is expected to initially increase Trans-Pacific lit cable capacity by about 20 percent, with the potential to add up to 7.68 terabits per second (Tbit/s) of bandwidth across the Pacific.
+
+==Media response==
+Writing in "The New York Times" in September 2007, Saul Hansell said of Google's anticipated involvement in Unity that:
+
+"Google may be the ultimate do-it-yourself company. From the start, Google's sense of its own engineering superiority, combined with a tightwad sensibility, led it to build its own servers. It writes its own operating systems. It is now threatening to buy wireless carrier spectrum and it is getting ready to hire ships that will lay a data communications cable across the Pacific..." 
+
+==See also==
+* List of international submarine communications cables
+* FASTER (cable system)

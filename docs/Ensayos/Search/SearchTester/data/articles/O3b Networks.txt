@@ -1,0 +1,54 @@
+"O3b Networks Ltd." is a network communications service provider building and operating a medium Earth orbit (MEO) satellite constellation primarily intended to provide voice and data communications to mobile operators and Internet service providers, and is a wholly owned subsidiary of SES S.A.
+
+==Overview==
+The network combines the relatively large reach of satellite with high speed and medium latency to deliver satellite Internet services and mobile backhaul services to emerging markets. The name "O3b" stands for "Other 3 billion", referring to the population of the world where broadband Internet is not currently available.
+
+Since early 2018, the network has comprised 16 Ka-based satellites in the O3b satellite constellation orbiting at an altitude of , which is less than one quarter of the altitude of geostationary satellites, significantly reducing satellite latency. the first four satellites were launched on June 25, 2013. A second four satellites were launched in July 2014, and another four in December 2014 bringing the satellite constellation to 12 satellites. Three years later, four additional sats were launched in March 2018 and a final four are scheduled for launch in April 2019, expected to bring the constellation to 20 satellites, including the three current backup satellites which are used as on-orbit spares.
+
+==Ownership==
+O3b was founded by Greg Wyler in 2007. 
+The company was financially backed by SES, Google, HSBC, Liberty Global, Allen & Company, North Bridge Venture Partners, Soroof International, Development Bank of Southern Africa, Sofina and Satya Capital.
+
+In April 2016, SES announced that (subject to regulatory approvals which are expected to be completed by the end of 2016) it would pay $20 million to increase its fully diluted ownership of O3b from 49.1% to 50.5%, taking a controlling share in the company. In May 2016, SES said it would raise another $710 million to purchase all of O3b Networks, exercising a call option with O3b minority shareholders and eliminating the possibility of an O3b stock offering, and then subsequently announced the completion of the capital raising and completion of the acquisition.
+
+==History==
+Operators in the Cook Islands, Pakistan and Nigeria were among the first to prebook capacity on the O3b constellation to serve their respective markets.
+
+O3b also announced the selection of Europe Media Port (EMP) the world’s fastest growing teleport in 2009 according to the World Teleport Association – to be the first provider of Gateway Teleport services for O3b’s global network. O3b also announced a contract with ViaSat for the production and installation of Ka-band infrastructure indicating significant progress in the deployment of O3b’s Next Generation Network. The value of the ViaSat contract is approximately $47 million.
+
+In 2011, once financial closure had been obtained, Mark Rigolle, former Chief Finance Officer of SES and O3b CEO since 2010, returned to SES. In his place, Steve Collar joined from SES World Skies where he had served as Senior Vice President of Business and Market Development and was formerly an O3b board member representing SES' interests. This change marks the 5th CEO for O3b in three years.
+
+O3b has attracted investment interest with SES joining Google, Liberty Global, HSBC and North Bridge Venture Partners to the $465 million buyer credit facility the company secured from Coface, the export credit agency acting on behalf of the French government.
+
+O3b has also recently raised a total of $1.2 billion to fully finance the construction of its satellites.
+
+The first four satellites were launched on a Soyuz-2/Fregat-MT rocket by Arianespace on June 25, 2013 at 19:27:03 UTC, The second four satellites were launched by the same type of rocket from the Space Center in French Guiana, on July 10, 2014. The third launch of four took place in December 2014.
+
+In July 2014, SES Government Solutions (a subsidiary of O3b investor, SES) received approval to offer O3b services on their General Services Administration (GSA) Schedule allowing SES GS to be the first distribution partner to offer O3b capability directly to the US Government.
+
+In November 2014, MS Quantum of the Seas became the first cruise ship to provide fast internet to guests through O3b Networks. The service is branded "Voom" by its cruise line, Royal Caribbean International  and it was subsequently rolled out to every ship in their fleet. [http://www.cntraveler.com/stories/2014-11-21/royal-caribbean-quantum-of-the-seas-smart-ship-technology] [http://www.royalcaribbeanblog.com/2015/07/08/royal-caribbean-high-speed-voom-internet-everything-you-need-know] [http://www.royalcaribbeanblog.com/2016/04/29/royal-caribbean-add-high-speed-internet-every-ship-the-fleet-may-1st]
+
+In August 2015, SES subsidiary, SES Government Solutions agreed a one-year contract with US government scientific agency, NOAA (National Oceanic and Atmospheric Administration) to supply O3b services and ground equipment to the National Weather Service Office in American Samoa, which will expand NOAA's broadband connectivity outside the continental US to provide weather, water, and climate data, and forecasts and warnings to American Samoa.
+
+In May 2016, SES said that O3b had a firm backlog of $350 million, and revenue in 2016 was expected to exceed $100 million, reaching around $680 million in 2023.
+
+Four additional satellites were launched on March 9, 2018 on a Soyuz-2.1b rocket from the Guiana Space Centre, to join the existing constellation of 12. In December 2018, Thales Alenia Space said that tests on the final four O3b satellites would be completed by the end of January 2019 and the satellites would then be flown to the Guiana Space Centre for launch in March 2019.
+
+==See also==
+
+*O3b (satellite)
+*SES
+*Satellite phone
+*Project Loon
+*ASTRA2Connect
+*ASTRA2Connect Maritime Broadband
+*EchoStar Mobile
+*Globalstar
+*Gonets
+*ICO Global Communications
+*Inmarsat
+*Iridium Satellite LLC
+*Orbcomm
+*SkyTerra
+*SkyWave Mobile Communications
+*TerreStar Corporation
