@@ -37,12 +37,12 @@
         <div id="header-top">
             <section class="container clearfix">
                 <!--nav class="header-top-nav">
-                    <ul>
-                        <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                    </ul>
-                </nav -->
+                <ul>
+                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                </ul>
+            </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -74,22 +74,24 @@
                         <li>
                             <a href="user_profile.html">User</a><!--Faltan estas funcionalidades-->
                             <ul>
-                                <li><a href="/Users/">Iniciar sesión</a></li>
-                                <li><a href="/Users/Profile">Perfil de Usuario</a></li>
+                                <li><a href="/Users/">Log-in</a></li>
+                                <li><a href="/Users/Profile">User Profile</a></li>
+                                <!--
                                 <li><a href="user_questions.html">User Questions</a></li>
                                 <li><a href="user_answers.html">User Answers</a></li>
                                 <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
                                 <li><a href="user_points.html">User Points</a></li>
-                                <li><a href="edit_profile.html">Edit Profile</a></li>
-                                <li><a href="/Users/Logout">Cerrar Sesión</a></li>
+                                -->
+                                <li><a href="/Users/Edit">Edit Profile</a></li>
+                                <li><a href="/Users/Logout">Log-out</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="admin.html">Administrador</a><!--Faltan estas funcionalidades-->
                             <ul>
-                                <li><a href="/Admin/">Página Administrador</a></li>
-                                <li><a href="/Admin/AddAdminList">Asignar Rol Administrador</a></li>
-                                <li><a href="/Admin/CreateStudio">Crear Nuevo Studio</a></li>
+                                <li><a href="/Administrator/Index">Página Administrador</a></li>
+                                <li><a href="/Administrator/AddAdmin">Asignar Rol Administrador</a></li>
+                                <li><a href="/Administrator/CreateStudio">Crear Nuevo Studio</a></li>
                             </ul>
                         </li>
 
@@ -111,11 +113,19 @@
                 </nav>
             </section><!-- End container -->
         </header><!-- End header -->
+
+        <aside class="col-md-3 sidebar">
+            @await Component.InvokeAsync("Stats")
+            @await Component.InvokeAsync("TagWidget")
+            @await Component.InvokeAsync("TopUsers")
+        </aside><!--End Sidebar-->
+
     </div> <!--End wrap-->
 
     <partial name="_CookieConsentPartial" />
 
     <div class="container main-content">
+
         @RenderBody()
         <hr />
 

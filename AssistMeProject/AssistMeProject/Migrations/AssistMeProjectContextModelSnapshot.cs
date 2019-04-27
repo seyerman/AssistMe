@@ -61,11 +61,28 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Comment");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.Label", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("NumberOfTimes");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Label");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.Question", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("AskAgain");
 
                     b.Property<DateTime>("Date");
 
@@ -82,11 +99,26 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Question");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
+                {
+                    b.Property<int>("QuestionId");
+
+                    b.Property<int>("LabelId");
+
+                    b.HasKey("QuestionId", "LabelId");
+
+                    b.HasIndex("LabelId");
+
+                    b.ToTable("QuestionLabels");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -104,8 +136,6 @@ namespace AssistMeProject.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("ADMIN");
 
                     b.Property<string>("CITY");
 
@@ -153,6 +183,19 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Answer", "Answer")
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Label", "Label")
+                        .WithMany("QuestionLabels")
+                        .HasForeignKey("LabelId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.Question", "Question")
+                        .WithMany("QuestionLabels")
+                        .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

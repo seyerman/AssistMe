@@ -2,110 +2,46 @@
 
 @{
     ViewData["Title"] = "Details";
-    ViewData["IsQuestionMin"] = false;
+    ViewData["IsQuestionMin"] = true;
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Question</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-    </dl>
-</div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(m => m.Answers)
-            </th>
 
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Answers)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
 
-<div>
-    <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id">Agregar Respuesta</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+
 
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
         <div class="col-md-9">
-            <!--
-    <article class="question single-question question-type-normal">
-        <h2>
-            @Html.DisplayFor(model => model.Title)
-        </h2>
-        <a class="question-report" href="#">Report</a>
-        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
-        <div class="question-inner">
-            <div class="clearfix"></div>
-            <div class="question-desc">
-                @Html.DisplayFor(model => model.Description)
-            </div>
-            <div class="question-details">
-                <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span><!--Aqui poner icono si la pregunta fue respondidad o no ->
-            <span class="question-favorite"><i class="icon-star"></i>5</span>
-            <!--num de votos interesantes ->
-    </div>
-                <!--No se va usar wordpress-->
-            <!--<span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span> ->
-                <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(model => model.Date)</span>
-                <span class="question-comment"><a href="#"><i class="icon-comment"></i>@Html.DisplayFor(model => model.Answers.Count)</a></span> <!--num de respuestas ->
-                <span class="question-view"><i class="icon-user"></i>70 views</span>
-                <span class="single-question-vote-result">+22</span>
-                <ul class="single-question-vote">
-                    <li><a href="#" class="single-question-vote-up" title="Like"><i class="icon-thumbs-up"></i></a></li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-        </article>
-    -->
+
             <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
+
+            <div class="page-content clearfix">
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
+            </div>
 
             <div class="share-tags page-content">
                 <div class="question-tags">
                     <i class="icon-tags"></i>
-                    <a href="#">wordpress</a>, <a href="#">question</a>, <a href="#">developer</a>
+                    @{
+                        foreach (QuestionLabel ql in Model.QuestionLabels)
+                        {
+                            string text = ql.Label.Tag;
+                            if (Model.QuestionLabels.Last() != ql)
+                            {
+                                text += ", ";
+                            }
+                            <a href="#">@text</a>
+                        }
+                    }
                 </div>
-
                 <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
                 <div class="clearfix"></div>
+
             </div><!-- End share-tags -->
 
             <div class="about-author clearfix">
@@ -121,10 +57,21 @@
             <div id="related-posts">
                 <h2>Related questions</h2>
                 <ul class="related-posts">
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This Is My Second Poll Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my third Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fourth Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fifth Question</a></h3></li>
+                    @{
+                        if (ViewBag.Related.Count == 0)
+                        {
+                            <li class="related-item"><h3>There are no related questions</h3></li>
+                        }
+                        else
+                        {
+                            foreach (var q in ViewBag.Related)
+                            {
+                                <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
+                            }
+                        }
+
+                    }
+
                 </ul>
             </div><!-- End related-posts -->
 
@@ -171,104 +118,7 @@
                 </p>
             </div><!-- End post-next-prev -->
         </div><!-- End main -->
-        <aside class="col-md-3 sidebar">
-            <div class="widget widget_stats">
-                <h3 class="widget_title">Stats</h3>
-                <div class="ul_list ul_list-icon-ok">
-                    <ul>
-                        <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
-                        <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
-                    </ul>
-                </div>
-            </div>
 
-
-
-            <div class="widget widget_login">
-                <h3 class="widget_title">Login</h3>
-                <div class="form-style form-style-2">
-                    <form>
-                        <div class="form-inputs clearfix">
-                            <p class="login-text">
-                                <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
-                                <i class="icon-user"></i>
-                            </p>
-                            <p class="login-password">
-                                <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}">
-                                <i class="icon-lock"></i>
-                                <a href="#">Forget</a>
-                            </p>
-                        </div>
-                        <p class="form-submit login-submit">
-                            <input type="submit" value="Log in" class="button color small login-submit submit">
-                        </p>
-                        <div class="rememberme">
-                            <label><input type="checkbox" checked="checked"> Remember Me</label>
-                        </div>
-                    </form>
-                    <ul class="login-links login-links-r">
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-
-            <div class="widget widget_highest_points">
-                <h3 class="widget_title">Highest points</h3>
-                <ul>
-                    <li>
-                        <div class="author-img">
-                            <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
-                        </div>
-                        <h6><a href="#">admin</a></h6>
-                        <span class="comment">12 Points</span>
-                    </li>
-                    <li>
-                        <div class="author-img">
-                            <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
-                        </div>
-                        <h6><a href="#">vbegy</a></h6>
-                        <span class="comment">10 Points</span>
-                    </li>
-                    <li>
-                        <div class="author-img">
-                            <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
-                        </div>
-                        <h6><a href="#">ahmed</a></h6>
-                        <span class="comment">5 Points</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="widget widget_tag_cloud">
-                <h3 class="widget_title">Tags</h3>
-                <a href="#">projects</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Wordpress</a>
-                <a href="#">Html</a>
-                <a href="#">Css</a>
-                <a href="#">jQuery</a>
-                <a href="#">2code</a>
-                <a href="#">vbegy</a>
-            </div>
-
-            <div class="widget">
-                <h3 class="widget_title">Recent Questions</h3>
-                <ul class="related-posts">
-                    <li class="related-item">
-                        <h3><a href="#">This is my first Question</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <div class="clear"></div><span>Feb 22, 2014</span>
-                    </li>
-                    <li class="related-item">
-                        <h3><a href="#">This Is My Second Poll Question</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <div class="clear"></div><span>Feb 22, 2014</span>
-                    </li>
-                </ul>
-            </div>
-
-        </aside><!-- End sidebar -->
     </div><!-- End row -->
 </section><!-- End container -->
 
@@ -289,6 +139,6 @@
 
 
 
-   
-    
+
+
 }

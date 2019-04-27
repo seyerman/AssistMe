@@ -12,8 +12,12 @@ namespace AssistMeProject.Controllers
 {
     public class QuestionsController : Controller
     {
+
+        private const int MAX_RELATED_QUESTIONS = 5;
+
         private readonly AssistMeProjectContext _context;
         public AssistMe model;
+        private BM25Searcher _searcher;
 
         public QuestionsController(AssistMeProjectContext context)
         {
@@ -30,7 +34,13 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            return View(await _context.Question.Include(q => q.Answers).ToListAsync());
+            var questions = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .ToListAsync();
+            questions.Sort();
+            return View(questions);
         }
 
         // GET: Questions/Details/5
@@ -41,18 +51,71 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Question.Include(q => q.Answers)
+            var question = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
                 return NotFound();
             }
 
+            initSearcher();
+
+            var relatedQuestions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(question.Title);
+
+            foreach (ISearchable s in searchables)
+            {
+                Question q = (Question)s;
+                if (q.Id != question.Id)
+                    relatedQuestions.Add(q);
+                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+            }
+
+
+            ViewBag.Related = relatedQuestions;
             return View(question);
+        }
+
+        private void initSearcher()
+        {
+            _searcher = new BM25Searcher();
+            LoadSearcher();
+        }
+
+        private void LoadSearcher()
+        {
+            var questions = _context.Question.ToList();
+            foreach (var question in questions)
+            {
+                _searcher.AddDocument(question);
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string query)
+        {
+            initSearcher();
+            List<Question> questions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(query);
+            foreach (ISearchable s in searchables)
+            {
+                questions.Add((Question)s);
+            }
+            return View("Index", questions);
+            //return View(await _context.Question.ToListAsync());
         }
 
         // GET: Questions/Create
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult AdvancedSearch()
         {
             return View();
         }
@@ -62,11 +125,29 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        public async Task<IActionResult> Create(string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(question);
+                string[] tagsStr = question_tags.Split(",");
+                foreach (string t in tagsStr)
+                {
+                    var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
+                    if (tag == null)
+                    {
+                        tag = new Label();
+                        tag.Tag = t;
+                        _context.Add(tag);
+                    }
+                    tag.NumberOfTimes++;
+                    var questionLabel = new QuestionLabel
+                    {
+                        LabelId = tag.Id,
+                        QuestionId = question.Id
+                    };
+                    _context.Add(questionLabel);
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -157,5 +238,35 @@ namespace AssistMeProject.Controllers
         {
             return _context.Question.Any(e => e.Id == id);
         }
+		public async Task<IActionResult> UpdateDate(int? id)
+		{
+			var question = await _context.Question.FindAsync(id);
+			if (question == null)
+			{
+				return NotFound();
+			}
+			question.Date = DateTime.Now;
+            question.AskAgain = true;
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					_context.Update(question);
+					await _context.SaveChangesAsync();
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+					if (!QuestionExists(question.Id))
+					{
+						return NotFound();
+					}
+					else
+					{
+						throw;
+					}
+				}
+			}
+			return RedirectToAction(nameof(Details), new { id = question.Id });
+		}
     }
 }

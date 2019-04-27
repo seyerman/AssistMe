@@ -7,13 +7,9 @@ namespace AssistMeProject.Models
 {
     public class Label
     {
-
-        private int IdLabel { get; set; }
-
-        private string Tag { get; set; }
-
-        private string Icon { get; set; }
-
-        private int NumberOfTimes { get; set; }
+        public int Id { get; set; }
+        public string Tag { get; set; }
+        public virtual List<QuestionLabel> QuestionLabels { get; set; }
+        public int NumberOfTimes { get; set; }
     }
 }

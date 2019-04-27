@@ -10,9 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Admin\AddAdminList.cshtml" />
-    <None Include="Views\Admin\CreateStudio.cshtml" />
-    <None Include="Views\Admin\Index.cshtml" />
+    <None Include="Views\Administrator\CreateStudio.cshtml" />
+    <None Include="Views\Administrator\Index.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
@@ -106,5 +105,11 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\Components\Stats\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>
