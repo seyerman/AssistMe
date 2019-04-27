@@ -24,6 +24,8 @@
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
 
+
+
             <div class="share-tags page-content">
                 <div class="question-tags">
                     <i class="icon-tags"></i>
@@ -109,6 +111,25 @@
                 </form>
             </div>
 
+
+            <p>
+
+            </p>
+
+            <p>
+
+            </p>
+
+            <div id="related-posts">
+                <h2>Opciones avanzadas</h2>
+        
+
+
+                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none" type="button" class="button medium red-button custom-button">Eliminar pregunta  </a>
+                <a id="but2" href="#" style="display:none" type="button" class="button medium red-button custom-button">Archivar pregunta </a>
+                <h1 id="lab" style="display:none"> Opciones no disponibles para este usuario </h1>
+            </div><!-- End related-posts -->
+
             <div class="post-next-prev clearfix">
                 <p class="prev-post">
                     <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Prev question</a>
@@ -117,14 +138,37 @@
                     <a href="#">Next question&nbsp;<i class="icon-double-angle-right"></i></a>
                 </p>
             </div><!-- End post-next-prev -->
+
+
         </div><!-- End main -->
 
+
     </div><!-- End row -->
+
 </section><!-- End container -->
+
+
 
 @section scripts{
 
     <script>
+
+    var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('but1').style.display = 'block';
+            document.getElementById('but2').style.display = 'block';
+        }else {
+                        document.getElementById('lab').style.display = 'block';
+
+        }
+    }
+
+
         $(function () {
             $.ajax({
                 url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"

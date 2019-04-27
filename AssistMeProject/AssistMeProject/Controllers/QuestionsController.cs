@@ -50,6 +50,21 @@ namespace AssistMeProject.Controllers
             {
                 return NotFound();
             }
+            //Example of how to get the actual user that logged into the application
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if(actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
 
             var question = await _context.Question
                 .Include(q => q.Answers)

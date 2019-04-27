@@ -17,6 +17,7 @@ namespace AssistMeProject.Models
 
         public bool AskAgain { get; set; }
 
+
         public Question()
         {
             Answers = new HashSet<Answer>();
