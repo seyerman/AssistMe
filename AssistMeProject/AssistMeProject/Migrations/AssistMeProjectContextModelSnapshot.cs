@@ -94,6 +94,8 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
+                    b.Property<string>("Username");
+
                     b.HasKey("Id");
 
                     b.ToTable("Question");
