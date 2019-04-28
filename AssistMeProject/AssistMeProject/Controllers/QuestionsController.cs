@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
+using System.Net.Mail;
 
 namespace AssistMeProject.Controllers
 {
@@ -28,6 +29,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> Index()
         {
+
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
@@ -40,7 +42,11 @@ namespace AssistMeProject.Controllers
                     .ThenInclude(ql => ql.Label)
                 .ToListAsync();
             questions.Sort();
+
+
+
             return View(questions);
+
         }
 
         // GET: Questions/Details/5
@@ -102,7 +108,11 @@ namespace AssistMeProject.Controllers
 
         private void LoadSearcher()
         {
-            var questions = _context.Question.ToList();
+            var questions = _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .ToList();
             foreach (var question in questions)
             {
                 _searcher.AddDocument(question);
@@ -127,6 +137,15 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Create
         public IActionResult Create()
         {
+            string Activeuser = HttpContext.Session.GetString("USERNAME");
+            if (string.IsNullOrEmpty(Activeuser))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Please Log In"} );
+            }
+
+            ViewBag.username = Activeuser;
+
+
             return View();
         }
 
@@ -142,6 +161,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
+            question.Username = HttpContext.Session.GetString("USERNAME");
             if (ModelState.IsValid)
             {
                 _context.Add(question);
@@ -164,6 +184,22 @@ namespace AssistMeProject.Controllers
                     _context.Add(questionLabel);
                 }
                 await _context.SaveChangesAsync();
+
+              
+
+                try
+                {
+                    Email manager = new Email();
+                    MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n"+question.Description);
+                    manager.EnviarCorreo(email);
+                
+                }
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
                 return RedirectToAction(nameof(Index));
             }
             return View(question);

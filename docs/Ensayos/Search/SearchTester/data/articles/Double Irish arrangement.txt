@@ -1,0 +1,123 @@
+The "Double Irish" is a base erosion and profit shifting ("BEPS") corporate tax tool, used mostly by US multinationals since the late 1980s, to avoid corporate taxation on most non–U.S. profits. It is the largest tax avoidance tool in history and by 2010, was shielding US$100 billion annually in US multinational foreign profits from taxation,  and was the main tool by which US multinationals built up untaxed offshore reserves of US$1 trillion from 2004 to 2018.  Traditionally, it was also used with the Dutch Sandwich BEPS tool; however, changes to Irish tax law in 2010 dispensed with this requirement for most users.
+The 2014–16 EU investigation into Apple in Ireland (see below), showed that the Double Irish existed as far back as 1991. Early U.S. academic research in 1994 into U.S. multinational use of tax havens identified "profit shifting" accounting techniques.  U.S. congressional investigations into the tax practices of U.S. multinationals were aware of such BEPS tools for many years.  However, the U.S. did not try to force the closure of the Double Irish BEPS tool, instead it was the EU which forced Ireland to close the Double Irish to new schemes in October 2014.  Even still, existing users of the Double Irish BEPS tool (e.g. Apple, Google, Facebook, Microsoft, amongst many others), were given five more years until January 2020, before the tool would be fully shut-down to all users.
+
+This approach by successive U.S. administrations is explained by an early insight that one of the most cited U.S. academic researchers into tax havens, and corporate taxation, James R. Hines Jr., had in 1994. Hines realised in 1994, that: "low foreign tax rates [from tax havens] ultimately enhance U.S. tax collections". as would others, and it would guide U.S. policy in this area for decades, including introducing the "check-the-box" rules in 1996, curtailing the 2000–10 OECD initiative on tax havens, and not signing the 2016 OECD anti-BEPS initiative.
+By September 2018, tax academics proved U.S. multinationals were the largest users of BEPS tools, and that Ireland was the largest global BEPS hub.
+
+In December 2018, Seamus Coffey, the Chairman of the Irish Fiscal Advisory Council, told "The Times" in relation to the closure of the Double Irish that "A lot of emphasis has been put on residency rules and I think that emphasis has been misplaced and the changes didn’t have that much [of an] effect". On 3 January 2019, "The Guardian" reported that Google avoided corporate taxes on US$23 billion of profits in 2017 by using the Double Irish with the Dutch sandwich extension.
+
+=== Apple's €13 billion EU fine (2016) ===
+The EU Commission's diagram of Apple's "Double Irish" BEPS tool
+By 2016, Apple was Ireland's largest company, and post leprechaun economics, was over one quarter of Irish GDP.  Apple's use of the Double Irish BEPS tool to achieve tax rates <1%, dates back to the late 1980s, and covered in the main financial media.
+
+On 29 August 2016 the European Commissioner for Competition concluded Apple had received illegal State aid from Ireland. The Commission ordered Apple to pay €13 billion, plus interest, in unpaid Irish taxes on circa €111 billion of profits, for the ten-year period, 2004–2014.  It was the largest corporate tax fine in history.
+
+Apple was not using the standard Double Irish arrangement of two Irish companies (IRL1 in Ireland, and IRL2 in Bermuda). Instead, Apple combined the functions of the two companies inside one Irish company (namely, Apple Sales International, or ASI), which was split into two internal "branches".  The Irish Revenue issued "private rulings" to Apple in 1991 and 2007 regarding this hybrid-double Irish structure, which the EU Commission considered as illegal State aid.
+==Single Malt==
+===Concept and origin (2014)===
+
+In an October 2013 interview, the noted "grand architect" of the Double Irish BEPS tool, Irish International Financial Services Centre ("IFSC") PWC tax partner Feargal O'Rourke (see above),
+
+In October 2014, as the EU forced the Irish State to close the Double Irish BEPS tool, The Irish media picked up the article, but when an Irish MEP notified the then Finance Minister, Michael Noonan, he was told to "Put on the green jersey".
+
+===Basic structure===
+The Single Malt is also an IP–based BEPS tool, and as a small variation of the Double Irish, required little additional development, except choosing specific locations with the necessary specific wording in their Irish bilateral tax treaties (e.g. Malta and the UAE); thus the basic structure is almost identical to the Double Irish with often a Maltese company replaced as BER1 (from earlier).  The report detailed Microsoft's (via LinkedIn), and Allergen's schemes and extracts from advisers to their clients.  The then Irish Finance Minister Paschal Donohoe said that it would be investigated, however, questions were raised regarding the Irish State's policy of addressing corporate tax avoidance.
+In September 2018, the "Irish Times" revealed that U.S. medical device manufacturer Teleflex, had created a new Single Malt scheme in July 2018, and had reduced their overall effective corporate tax rate to circa 3%.  The same article quoted a spokesman from the Department of Finance (Ireland) saying they had not as yet taken any action regarding the Single Malt BEPS tool, but they were keeping the matter, "under consideration". however, the exact closure date of the Irish Single Malt BEPS tool with Malta was deferred until September 2019.
+
+On the same day that the closure was announced, the "Irish Times" reported that LinkedIn (Ireland), identified as a user of the Single Malt tool in 2017 (see above), had announced in filings that it had sold a major IP asset to its parent, Microsoft (Ireland).  Earlier in July 2018, Ireland's "Sunday Business Post", disclosed that Microsoft (Ireland) were preparing a restructure of their Irish BEPS tools into a CAIA (or Green Jersey) Irish tax structure.
+In June 2009, the Irish State established the "Commission on Taxation", to review Ireland's tax regime, and included Feargal O'Rourke, the "grand architect"  of the Double Irish tool.  The 2009 Finance Act, materially expanded the range of intangible assets attracting Irish capital allowances cover more esoteric intangibles such as types of general rights, general know-how, general goodwill, and the right to use software. The control is that the intangible assets must be acceptable under GAAP (older 2004 Irish GAAP is used), and auditable by an Irish IFSC accounting firm, like PwC or Ernst & Young.
+
+In the 2010 Finance Act, on the recommendation of the Department of Finance's "Tax Strategy Group", the CAIA BEPS tool was upgraded, reducing the amortisation and "clawback" period from 15 to 10 years, and expanding the range of intangible assets to include "a broader definition of know-how". In the 2011 and 2012 Finance Acts, the "Tax Strategy Group" made additional amendments to the rules regarding the acquisition of intangible assets from "connected parties", and the "employment tax" users of the CAIA BEPS tool must pay. The 2012 Finance Act removed the minimum amortisation period for the acquired intangible assets, and reduced the "clawback" to 5 years for CAIA schemes set up after February 2013.
+
+The first known user of the CAIA BEPS tool was by "Accenture", the first U.S. corporate tax inversion to Ireland in 2009.
+
+===Basic structure===
+The CAIA follows the first three steps of the Double Irish, and Single Malt, basic structure (see above, except in this case the example is not a per-unit example, but for the entire sales of a "block" of intellectual property), namely: and author of the State's 2017 "Review of Ireland's Corporation Tax Code", showed Apple restructured ASI into the CAIA BEPS tool in Q1 2015.
+
+During Q1 2018, Coffey, and international economists,
+
+===Microsoft's Green Jersey (2018)===
+In December 2017, the Irish Government accepted the recommendation of Coffey that the corporation tax relief for the Irish CAIA BEPS tool be capped at 80% for new arrangements, to restore the CAIA's effective Irish corporate tax rate ("ETR") back to 2.5%.  This was enacted in the 2017 Finance Budget, but only for new CAIA BEPS schemes (e.g. Apple's 2015 CAIA scheme would not be affected). Given the dramatic take-up in the CAIA tool in 2015, when the cap lifted (e.g. the ETR was 0%), Irish commentators challenged Coffey's recommendation. He responded in a paper in late 2017.
+In July 2018, it was reported that Microsoft was preparing to execute another "Green Jersey" CAIA BEPS transaction. which, due to technical issues with the TCJA, makes the CAIA BEPS tool attractive to U.S. multinationals. In July 2018, Coffey posted that Ireland could see a "boom" in the "onshoring" of U.S. IP, via the CAIA BEPS tool, between now and 2020, when the Double Irish is fully closed.
+
+==Effect of BEPS tools on Ireland's economy==
+In June 2018, academic tax researcher Gabriel Zucman ("et alia") estimated Ireland was the world's largest BEPS hub, and also the world's largest tax haven.]]
+
+An "artificially inflated GDP-per-capita statistic", is a feature of tax havens, due to the BEPS flows.  However, in December 2017, Eurostat reported that Modified GNI* did not remove all of the distortions from Irish economic date.  By September 2018, the Irish Central Statistics Office ("CSO") reported that Irish GDP was 162% of Irish GNI* (e.g. BEPS tools artificially inflated Ireland's GDP by 62%).  In contrast EU–28 2017 GDP was 100% of GNI. Irish public indebtedness changes dramatically depending on whether Debt-to-GDP, Debt-to-GNI* or Debt-per-Capita is used ("Per-Capita" removes all BEPS tool distortion).
+
+===Concentration of US multinationals===
+Tax academics show multinationals from countries with "territorial" tax systems make little use of tax havens like Ireland.  Since the UK changed its tax regime to a "territorial" system in 2009–12, Ireland has failed to attract corporates from any other jurisdiction except the US, one of the last "worldwide" tax systems.  By September 2018, US–controlled corporates were 25 of Ireland's 50 largest companies, paid 80% of Irish business taxes, and directly employed 25% of the Irish labour force, and created 57% of Irish value-add.  The past President of the Irish Tax Institute stated they pay 50% of all Irish salary taxes (due to higher paying jobs), 50% of all Irish VAT, and 92% of all Irish customs and excise duties.  The American-Ireland Chamber of Commerce estimated the value of US investment in Ireland in 2018 was €334 billion, exceeding Irish GDP (€291 billion in 2016), and exceeding the combined investment of US investment in the BRIC countries.  The US multinational subsidiaries in Ireland, are not simply used for booking EU sales, in most cases, they handle the entire non–US business of the Group.  Apart from US corporates, and legacy UK corporates (pre 2009–12), there are no foreign corporates in Ireland's top 50 firms. Academics say Ireland is more accurately described as a "US corporate tax haven", and a shield for non–US profits from the historic US "worldwide" tax system. which it defends as being the "effective" tax rate ("ETR").  Independent studies show that Ireland's "aggregate" effective corporate tax rate is between 2.2% to 4.5% (depending on assumptions made).  This lower "aggregate" effective tax rate is consistent with the "individual" effective tax rates of US multinationals in Ireland, as well as the IP-based BEPS tools openly marketed by the main Irish tax-law firms, in the IFSC, with ETRs of 0–3% (see "effective tax rate").]]
+
+In June 2018, tax academics showed that Ireland had become the world's largest global BEPS hub, and turned the U.K. into one of the leading destinations for U.S. corporate tax inversions (although Ireland is still the most popular).  A similar case study was cited in the switch by Japan in 2009 from a full US "worldwide" tax system (e.g. very high domestic tax rate, partially mitigated by a "controlled foreign corporation" regime), to a full "territorial" tax system, with positive results.
+
+As discussed in , Hines had shown as early as 1994, that under the U.S. "worldwide" tax system, U.S. multinational use of tax havens and BEPS tools, had increased long-term U.S. exchequer returns. Academics point to these facts as the explanation for the extraordinary  in Ireland's economy, and the equal failure of Ireland to attract non-U.S. multinationals or any multinationals from "territorial" tax systems. While Ireland sometimes describes itself as a "global knowledge hub for selling into Europe", it is more accurately described as a U.S. corporate tax haven for shielding non-U.S. revenues from the historical U.S. "worldwide" tax system.
+In March–April 2018, major U.S. tax law firms showed that pre the TCJA, U.S. multinationals with the IP needed to use Irish BEPS tools, would achieve effective Irish tax rates ("ETR") of 0–3% versus 35% under the historical U.S. system. However, post the TCJA, these multinationals can use their IP to achieve U.S. ETRs, which net of the TCJA's 100% capital relief provisions, are similar to the ETRs they would achieve in Ireland when the TCJA's new GILTI provisions are taken into account (e.g. ETR of circa 11–12%).  In Q1 2018, U.S. multinationals like Pfizer announced in Q1 2018, a post-TCJA global tax rate for 2019 of circa 17%, which is close to the circa 15–16% 2019 tax rate announced by past U.S. corporate tax inversions to Ireland, Eaton, Allergan, and Medtronic.
+
+=== Early implications for Ireland (2018)===
+As the TCJA was being passed in December 2017, the new corporate tax provisions were recognised by the Irish media, as a challenge.  Donald Trump had "singled out" Ireland in 2017 speeches promoting the TCJA, and Trump administration economic advisor, Stephen Moore, predicted "a flood of companies" would leave Ireland due to the TCJA.  Leading U.S. tax academic, Mihir A. Desai in a post–TCJA 26 December 2017 interview in the "Harvard Business Review" said that: "So, if you think about a lot of technology companies that are housed in Ireland and have massive operations there, they’re not going to maybe need those in the same way, and those can be relocated back to the U.S.
+
+In December 2017, U.S technology firm Vantiv, the world's largest payment processing company, confirmed that it had abandoned its plan to execute a corporate tax inversion to Ireland.  In March 2018, the Head of Life Sciences in "Goldman Sachs", Jami Rubin, stated that: "Now that [U.S.] corporate tax reform has passed, the advantages of being an inverted company are less obvious".
+
+However, in contrast, it was reported in May–July 2018, that U.S. tax academics and tax economists were discovering material technical flaws in the TCJA that incentivise the U.S. use of tax havens like Ireland. Of particular note was the exclusion from the GILTI tax of the first 10% of profits on overseas tangible assets, which incentivises investment in tangible assets abroad.  However, a more serious concern, was the acceptance of capital allowances, both tangible and intangible, as deductible against GILTI taxation, which would enable U.S. users of the CAIA BEPS tool to convert their Irish ETR of 0–3%, into a final U.S. ETR of 0–3%.  In May–July 2018, Google and Facebook announced large expansions of their Dublin office campuses in Ireland.
+
+A June 2018 IMF country report on Ireland, while noting the significant exposure of Ireland's economy to U.S. corporates, concluded that the TCJA may not be as effective as Washington expects in addressing Ireland as a U.S. corporate tax haven. In writing its report, the IMF conducted confidential anonymous interviews with Irish corporate tax experts.  In July 2018, it was reported that Microsoft was preparing to execute Apple's "Green Jersey" CAIA BEPS transaction.  posted that Ireland could see a "boom" in the "onshoring" of U.S. IP, via the CAIA BEPS tool, between now and 2020, when the Double Irish is fully closed.
+
+==Multinationals that used Irish BEPS tools==
+This is not a comprehensive list as many US multinationals in Ireland use "unlimited liability companies" (ULCs), which do not file public accounts with the Irish CRO.
+
+===Double Irish===
+Major companies in Ireland known to employ the Double Irish BEPS tool, include:
+===Single malt===
+Major companies in Ireland known to employ the single-malt BEPS tool, include:
+* Microsoft (LinkedIn), using Malta
+* Allergan (Zeitiq), using Malta
+* Teleflex, using Malta
+
+===Capital allowances for intangible assets===
+Major companies in Ireland known to employ the capital-allowances for intangible assets ("CAIA") BEPS tool, include:
+* Apple Inc., started in 2015 with the leprechaun economics affair
+* Accenture, started in 2009
+
+==See also==
+* Criticism of Google
+* Criticism of Apple Inc.
+* Criticism of Facebook
+* Taxation in the Republic of Ireland
+* Corporation tax in the Republic of Ireland
+* EU illegal State aid case against Apple in Ireland
+* Corporate tax haven
+* Tax haven
+* Leprechaun economics Apple BEPS tool in Ireland
+* Modified gross national income replaced Irish GDP/GNP
+* Green jersey agenda
+* Feargal O'Rourke architect of Ireland's BEPS tools
+* Matheson (law firm) Ireland's largest U.S. tax advisor
+* Qualifying investor alternative investment fund (QIAIF) Irish tax-free vehicles
+* Section 110 SPV Debt-based BEPS tool
+* Conduit and Sink OFCs analysis of tax havens
+* Ireland as a tax haven
+* Panama as a tax haven
+* United States as a tax haven
+* James R. Hines Jr., leader in academic research on tax havens
+* Dhammika Dharmapala, leader in academic research on tax havens
+* Gabriel Zucman, leader in academic research on tax havens
+==Notes==
+== References ==
+== External links ==
+* 
+*[http://www.abc.net.au/reslib/201211/r1039486_11965856.jpg An illustration of the "Double Irish Dutch Sandwich"]. Australian Broadcasting Corporation.
+Category:International taxation
+Category:Tax avoidance
+Category:Taxation in the Republic of Ireland
+Category:Corporate tax avoidance
+Category:Corporate taxation in the United States
+Category:Economy of Ireland
+Category:Apple Inc.
+Category:Google
+Category:Facebook
+Category:Microsoft
+Category:Medtronic
+Category:IBM
+Category:Starbucks
+Category:Pfizer
+Category:Global issues

@@ -1,0 +1,47 @@
+The "Android Dev Phone" ("ADP") is a SIM-unlocked and bootloader unlocked Android device that is designed for advanced developers. While developers can use regular consumer devices purchased at retail to test and use their apps, some developers may choose not to use a retail device, preferring an unlocked or no-contract device. The Google Nexus series has now taken the role of "development phones".
+
+== Android Dev Phone 1 ==
+On December 5, 2008, Google announced the Android Dev Phone 1, a version of the HTC Dream. The Android Dev Phone 1 is a SIM-unlocked and bootloader unlocked device that is designed for advanced developers. The device ships with a system image that is fully compatible with Android 1.0. It is possible to use any Subscriber Identity Module (SIM) in the device and one can flash custom Android builds that will work with the unlocked bootloader. Unlike the bootloader on retail devices, the bootloader on the Android Dev Phone 1 does not enforce signed system images. The Android Dev Phone 1 should also appeal to developers who live outside T-Mobile geographies. The device itself costs $399 (US) (including free shipping in the US). Google states that "The Android Dev Phone 1 devices are not intended for non-developer end-users. Because the device can be configured with system software not provided by or supported by Google or any other company, end-users operate these devices at their own risk."
+
+=== Criticism ===
+The Android Dev Phone 1 device is  available for  public purchase. To purchase one, one must first register as an Android developer on the Google Play site, which costs $25 (US). There is also a limit of 10 devices per developer account. Registration provides a method by which Google can track developers, but so far Google only states that registration (and the 10-devices limit) is "to accommodate demand".
+
+=== Availability ===
+The device is available for purchase in 19 international markets, including United States, United Kingdom, Germany, Japan, India, Canada, France, Taiwan, Spain, Australia, Singapore, Switzerland, Netherlands, Austria, Sweden, Finland, Poland, Egypt and Hungary.
+
+=== Hardware specifications ===
+Android Dev Phone 1:
+* Touch screen
+* Trackball
+* 3.2 megapixel camera with autofocus
+* Wi-Fi
+* GPS-enabled
+* Bluetooth v2.0
+** Handsfree profile v1.5
+** Headset profile v1
+* 3G WCDMA (1700/2100&nbsp;MHz)
+* Quad-band GSM (850/900/1800/1900&nbsp;MHz)
+* 256&nbsp;MB flash memory
+* 192&nbsp;MB RAM 
+* QWERTY slider keyboard
+* Includes 1&nbsp;GB MicroSD card (can be replaced with 16&nbsp;GB card
+
+== Android Dev Phone 2 ==
+The Android Dev Phone 2 is a hardware unlocked version of the HTC Magic. The Android Dev Phone 2 is a SIM-unlocked and bootloader unlocked device that is designed for advanced developers. The device ships with a system image that is fully compatible with Android 1.6. It is possible to use any SIM in the device and one can flash custom Android builds that will work with the unlocked bootloader. Unlike the bootloader on retail devices, the bootloader on the Android Dev Phone 2 does not enforce signed system images. The Android Dev Phone 2 should also appeal to developers who live outside T-Mobile geographies. The device itself costs $399 (USD) (including free shipping in the US)."
+
+=== Hardware specifications ===
+
+* 3.0 megapixel camera with autofocus
+* Wi-Fi 802.11b/g 
+* A-GPS-enabled
+* Bluetooth v2.0 with EDR
+* 3G WCDMA (1700/2100&nbsp;MHz)
+* Quad-band GSM (850/900/1800/1900&nbsp;MHz)
+* 512&nbsp;MB flash memory
+* 288&nbsp;MB RAM 
+* MicroSD card slot
+* USB 2.0
+* 1340&nbsp;mAh Battery
+
+==See also==
+* Android rooting

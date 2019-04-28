@@ -1,0 +1,44 @@
+"Patrick Baudisch" is a computer science professor and the chair of the Human Computer Interaction Lab at Hasso Plattner Institute, Potsdam University. While his early research interests revolved around natural user interfaces and interactive devices, his more recent research has been focussing on personal fabrication, such as 3D Printing and Laser cutting, as well as virtual reality and haptics.
+
+== Research interests ==
+Baudisch's research interests are natural user interfaces and interactive devices, which include miniature mobile devices, touch input, interactive floors, interactive rooms, and most recently, interactive fabrication. His five most cited publications on Google Scholar Citations are: Precise selection techniques for multi-touch screens, Halo: a technique for visualizing off-screen objects, Shift: a technique for operating pen-based interfaces using touch, drag-and-pop and drag-and-pick: Techniques for accessing remote screen content on touch-and pen-operated systems and Lucid touch: a see-through mobile device.
+
+=== Precise selection techniques for multi-touch screens ===
+The paper Precise selection techniques for multi-touch screens was published on April 4, 2006 by Hrvoje Benko, Andrew D Wilson and Patrick Baudisch, totally cited 530 times.
+
+The paper presents five techniques called Dual Finger Selections to leverage multi-touch sensitive displays to help users select very small targets on display. This is to resolve the issues, in the terms of touch screen interactions, introduced by factors such as large finger size and the lack of sensing precision. To make use of the techniques, a user would adjust the control-display ratio using a secondary finger, while controlling the cursor movements using the primary finger. The paper also introduces SimPress, a clicking technique, which reduces motion errors during the process of clicking as well as enable hovering state on devices that are not able to support proximity.
+
+The user study in paper reported that in terms of error rate reduction, the 3 chosen techniques (Stretch, X-Menu, and Slider) outperformed the control technique and were favoured by the participants. Among the chosen techniques Stretch, X-menu and Slider, Stretch has the best performance and preference overall.
+
+The paper introduces Halo, a visualization technique that shows users the location of off-screen objects, to enable spatial cognition. Halo achieves this by showing parts of rings in border region of the display to indicate off screen objects. Users can then identify the exact location of the off-screen objects based on the location and portion of the rings that are visible.
+
+The paper reported that users completed tasks 16-33% faster, giving no significant differences on error rates within the scope of the study.
+
+The paper proposes Shift, a pointing technique, so that users can touch target points on screens designed for styluses with high precision using their fingers rather than a stylus. Shift reduces targeting times and error rates by showing a copy of the targeted screen area at a separate location. Shift also shows a pointer to the actual selection point of the finger. Note that Shift is only enabled when the users find it necessary so that users have the option to have the conventional touch screen experience.
+
+Report results show that participants' actions have much lower error rates than an ordinary touch screen, and shorter times overall for larger targets compared to Offset Cursor.
+
+The paper presents interaction techniques Drag-and-pop and drag-and-pick, designed for display systems based on pen and touch interactions, and they grant users the access to see contents on screen that are otherwise not easy to reach. Drag-and-pop extends traditional drag-and-drop. More specifically, drag-and-pop responds to users by moving the potential target icons in users' cursor direction temporarily, so that users only need to move their hands on a smaller distance or scale. Drag-and-pick further extends drag-and-pop by activating icons such as to open folders or applications.
+
+Results of study report that drag-and-pop interface enables participants to file icons as fast as 3.7 times than the traditional drag-and-drop interaction on a 15' wide display.
+
+The paper focus on the difficult aspects of touch screens: touching the small screen of a mobile device can be inconvenient because users' hands and fingers could block the contents they plan to interact with. This paper introduces LucidTouch, a mobile device that users control from the back. LucidTouch displays an image of users' hands on screen, so that it gives the illusion that LucidTouch is transparent when in fact it is not. Users are able to interact with targets with greater precision because of the pseudo-transparency. Furthermore, like an ordinary mobile touch screen, LucidTouch reacts to multiple touch points at the same time so users can perform multi-touch actions
+
+Initial study results illustrate that because of factors such as improved accuracy, and unblocked view of the screen, many users prefer interactions with LucidTouch than interactions with conventional devices.
+
+==== CHI 2013 Best Paper Award ====
+Winning Paper: LaserOrigami: Laser-Cutting 3D Objects
+
+== Students ==
+Patrick Baudisch's PhD students include:
+
+* Christian Holz, now faculty at ETH Zurich
+* Stefanie Mueller, now faculty at MIT
+* Pedro Lopes, now faculty at the University of Chicago 
+* Lung-Pan Cheng, now faculty at National Taiwan University
+
+== References ==
+Category:Academic Journal articles by quality
+Category:Computer science
+Category:Year of birth missing (living people)
+Category:Living people

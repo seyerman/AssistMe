@@ -1,0 +1,42 @@
+"Google Fi" (formerly "Project Fi") is an MVNO telecommunications service by Google that provides telephone calls, SMS, and mobile broadband using cellular networks and Wi-Fi. Google Fi uses networks operated by Sprint, T-Mobile, U.S. Cellular, and Three.
+
+The service was launched for the Nexus 6, by invitation only, on April 22, 2015. The service was opened to the public on March 7, 2016, and support for additional devices, including the Pixel and Pixel XL smartphones, was introduced on October 4, 2016. On November 28, 2018, Google rebranded Project Fi as Google Fi and added support for more phones, including iPhones.
+
+Google Fi automatically switches between networks depending on signal strength and speed. It automatically connects to Wi-Fi hotspots with encryption through an automatic VPN. Phone calls transition between Wi-Fi and cellular networks. With all networks combined, the service covers more than 170 countries around the world.
+
+A subscription costs $20 per month for unlimited calls and messaging, plus a customizable data allowance costing an additional $10 per gigabyte. Money for unused data is credited back to the user's account, and overuse of data costs an additional $10 per gigabyte. A group plan costs an additional $15 per user per month, and offers features including data overview, data notifications, monthly allowances, and the ability to pause users' data usage. A data-only SIM card can be used on supported tablets, smartphones, and car modems (e.g., Volvo). A Data-only sim will have access to data, but will not be able to make calls or transmit texts across cellular networks.
+
+== History ==
+Google Fi was announced exclusively for the Nexus 6 smartphone on April 22, 2015, with support for Sprint and T-Mobile. Due to high demand at launch, the service required that users receive invitations, which were gradually released throughout summer 2015. The invitation system was dropped on March 7, 2016. U.S. Cellular was added on June 8, 2016. Three was added on July 12, 2016. In October 2016, Google added support for the Pixel and Pixel XL smartphones, and later introduced a Group Plan, letting subscribers add extra members to their plans.
+
+On January 17, 2018, Google Fi announced bill protection which caps the charge for data at $60. If the data used is greater than 15GB, then Fi may slow the data speed to 256kbps. The user can avoid the slowdown by paying full price for the data used at $10 per GB. Bill protection also works with group plans, with a maximum charge of $85 for two people, $120 for three people, and $140 for four people. The rate for unlimited calls and texting is not affected by bill protection.
+
+== Features ==
+Google Fi automatically switches between networks depending on signal strength and speed. It automatically connects to open Wi-Fi hotspots while securing data with encryption through an automatic VPN. Phone calls will seamlessly transition to a cellular network if Wi-Fi coverage is lost.
+
+Google Fi users can use Google Hangouts on any phone, tablet, or computer to call and text. Google Fi also supports VoLTE as part of a staged rollout. With all of its networks combined, Google Fi's service covers more than 170 countries and territories around the world.
+
+== Plans ==
+Monthly plans are flat fee–based, When outside the United States, cellular phone calls cost $0.20 per minute, data costs the same $10 per gigabyte (i.e. there are no extra data charges outside of the US), and texting is free. Data is free at full speeds between 6GB to 15GB for the duration of the billing cycle with Bill Protection. After 15GB, data continues to be free but will be throttled to unspecified speeds.   A data-only SIM card can be used on tablets and other compatible devices, including the 2013 Nexus 7, Nexus 9, and iPad Air 2. The devices must be compatible with the T-Mobile network, and users can add up to 9 data-only SIM cards in one account.
+
+A Group Plan, which allows users, referred to as "managers", to add other people, referred to as "members", to their subscription, costs an additional $15 per user. Group Plans let managers view data usage by member, set data notifications, add monthly allowances, and pause members' data usage.
+
+==Devices==
+* LG G7 ThinQ
+* LG V35 ThinQ
+* Moto X4 (Android One version)
+* Moto G6
+* Moto G7
+* Nexus 6
+* Nexus 5X
+* Nexus 6P
+* Pixel and Pixel XL
+* Pixel 2 and Pixel 2 XL
+* Pixel 3 and Pixel 3 XL
+* IPhone 5S and later (Beta)
+*Other Devices may work with Data-only SIMs if they are unlocked and work with T-Mobile GSM network. Google Fi may not be able to help activate or troubleshooted unlisted devices.
+
+== Reception ==
+Nicole Lee of "Engadget" praised the service's plans, writing that "In the course of six months, I've barely touched my monthly 2 GB data allotment and frequently receive money back each month from unused data. I found myself paying a little more than $20 a month for Fi, which is the least I've paid for a cell phone service, ever." Lee liked the service's transition between Wi-Fi and cellular data.
+
+JR Raphael of "Computerworld" also praised the pricing strategy and network transitions. Raphael also wrote that "Fi's customer support is [...] actually a pretty good experience", elaborating that "if you need extra help, both interfaces offer the ability to get 24/7 support from a real person via phone or email."

@@ -1,0 +1,35 @@
+"AlphaZero" is a computer program developed by artificial intelligence research company DeepMind to master the games of chess, shogi and go.  The algorithm uses an approach similar to AlphaGo Zero. On December 5, 2017, the DeepMind team released a preprint introducing AlphaZero, which within 24 hours achieved a superhuman level of play in these three games by defeating world-champion programs, Stockfish, elmo, and the 3-day version of AlphaGo Zero. In each case it made use of custom tensor processing units (TPUs) that the Google programs were optimized to use. AlphaZero was trained solely via "self-play" using 5,000 first-generation TPUs to generate the games and 64 second-generation TPUs to train the neural networks, all in parallel, with no access to opening books or endgame tables.  After just four hours of training, DeepMind estimated AlphaZero was playing at a higher Elo rating than Stockfish 8; after 9 hours of training, the algorithm decisively defeated Stockfish 8 in a time-controlled 100-game tournament (28 wins, 0 losses, and 72 draws). The trained algorithm played on a single machine with four TPUs. DeepMind's paper on AlphaZero was published in the journal "Science" on 7 December 2018.
+
+==Relation to AlphaGo Zero==
+AlphaZero (AZ) is a more generalized variant of the AlphaGo Zero (AGZ) algorithm, and is able to play shogi and chess as well as Go. Differences between AZ and AGZ include: In a series of twelve 100-game matches (of unspecified time or resource constraints) against Stockfish starting from the 12 most popular human openings, AlphaZero won 290, drew 886 and lost 24.
+
+Given the difficulty in chess of forcing a win against a strong opponent, the 28–72–0 result is a significant margin of victory. However, some grandmasters, such as Hikaru Nakamura and Komodo developer Larry Kaufman, downplayed AlphaZero's victory, arguing that the match would have been closer if the programs had access to an opening database (since Stockfish was optimized for that scenario). Romstad additionally pointed out that Stockfish is not optimized for rigidly fixed-time moves and the version used is a year old.
+
+Similarly, some shogi observers argued that the elmo hash size was too low, that the resignation settings and the "EnteringKingRule" settings (cf. shogi § Entering King) may have been inappropriate, and that elmo is already obsolete compared with newer programs.
+
+===Reaction and criticism===
+Papers headlined that the chess training took only four hours: "It was managed in little more than the time between breakfast and lunch." "Wired" hyped AlphaZero as "the first multi-skilled AI board-game champ". AI expert Joanna Bryson noted that Google's "knack for good publicity" was putting it in a strong position against challengers. "It's not only about hiring the best programmers. It's also very political, as it helps make Google as strong as possible when negotiating with governments and regulators looking at the AI sector."
+
+Grandmaster Hikaru Nakamura was less impressed, and stated "I don't necessarily put a lot of credibility in the results simply because my understanding is that AlphaZero is basically using the Google supercomputer and Stockfish doesn't run on that hardware; Stockfish was basically running on what would be my laptop. If you wanna have a match that's comparable you have to have Stockfish running on a supercomputer as well."
+
+Motohiro Isozaki, the author of YaneuraOu, noted that although AlphaZero did comprehensively beat elmo, the rating of AlphaZero in shogi stopped growing at a point which is at most 100~200 higher than elmo. This gap is not that high, and elmo and other shogi software should be able to catch up in 1–2 years.
+
+==Final results==
+DeepMind addressed many of the criticisms in their final version of the paper, published in December 2018 in "Science".
+
+===Chess===
+In the final results, Stockfish ran under the same conditions as in the TCEC superfinal: 44 CPU cores, Syzygy endgame tablebases, and a 32GB hash size. Instead of a fixed time control of one move per minute, both engines were given 3 hours plus 15 seconds per move to finish the game. The version of Stockfish used was version 8. AlphaZero won with a score of 155 wins to 6 losses, with the rest drawn. DeepMind also played a series of games using the TCEC opening positions. AlphaZero won 95 out of the 100 mini-matches from these positions.
+
+===Shogi===
+Similar to Stockfish, Elmo ran under the same conditions as in the 2017 CSA championship. The version of Elmo used was WCSC27 in combination with YaneuraOu 2017 Early KPPT 4.79 64AVX2 TOURNAMENT. Elmo operated on the same hardware as Stockfish: 44 CPU cores and a 32GB hash size. AlphaZero won 98.2% of games when playing black (which plays first in shogi) and 91.2% overall.
+
+===Reactions and criticisms===
+Human grandmasters were generally impressed with AlphaZero's games against Stockfish. Former world champion Garry Kasparov said it was a pleasure to watch AlphaZero play, especially since it plays the same open and dynamic style as him.
+
+Reactions from the computer chess community were more muted. Komodo developer Mark Lefler called it a "pretty amazing achievement", but also pointed out that the data is old, since Stockfish has gained a lot in strength in the months since January 2018 (when Stockfish 8 was released). Fellow developer Larry Kaufman went further and claimed that AlphaZero would probably lose a match against the latest version of Stockfish, Stockfish 10, under TCEC conditions. Kaufman argued that the only advantage of neural network–based engines was that they used a GPU, so if one doesn't care about power consumption (e.g. in an equal-hardware contest where both engines have access to the same CPU and GPU) then anything the GPU achieves is "free". Based on this, he stated that the strongest engine is likely to be a hybrid that utilizes both neural networks and standard alpha–beta search.
+
+==See also==
+*Leela Chess Zero
+*General game playing
+
+==Notes==

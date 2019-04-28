@@ -1,0 +1,86 @@
+"Alphabet Inc." is an American multinational conglomerate headquartered in Mountain View, California. It was created through a corporate restructuring of Google on October 2, 2015, and became the parent company of Google and several former Google subsidiaries. The two founders of Google assumed executive roles in the new company, with Larry Page serving as CEO and Sergey Brin as president.
+
+Alphabet's portfolio encompasses several industries, including technology, life sciences, investment capital, and research. Some of its subsidiaries include Google, Calico, Chronicle, GV, CapitalG, Verily, Waymo, X, Loon and Google Fiber. Some of the subsidiaries of Alphabet have altered their names since leaving Google and becoming part of the new parent company—Google Ventures becoming GV, Google Life Sciences becoming Verily and Google X becoming just X. Following the restructuring, Page became CEO of Alphabet and Sundar Pichai took his position as CEO of Google.
+
+The establishment of Alphabet was prompted by a desire to make the core Google Internet services business "cleaner and more accountable" while allowing greater autonomy to group companies that operate in businesses other than Internet services. Sundar Pichai, Product Chief, became the new CEO of Google, replacing Larry Page.
+
+In his announcement, Page described the planned holding company as follows:
+As well as explaining the origin of the company's name:
+In a 2018 talk, Schmidt disclosed that the original inspiration for the name came from the location of the then Google Hamburg office's street address: .
+
+Page says the motivation behind the reorganization is to make Google "cleaner and more accountable". He also said he wanted to improve "the transparency and oversight of what we're doing", and to allow greater control of unrelated companies.
+
+On February 1, 2016, Alphabet Inc. surpassed Apple to become the world's most valuable publicly traded company until February 3, 2016, when Apple surged back over Alphabet to retake the position. Experts cited Apple's lack of innovation as well as increasing Chinese competition as reasons for the poor performance.
+
+=== Website ===
+Alphabet has chosen the domain abc.xyz with the .xyz top-level domain (TLD), which was introduced in 2014. It does not own the domain alphabet.com, which is owned by a fleet management division of BMW. BMW has said that it is "necessary to examine the legal trademark implications" of the proposals. Additionally, it does not own the domain abc.com, which is the promoted domain of the Disney-owned American Broadcasting Company (abc.com redirects to a subdomain of go.com, through which most of Disney's sites are hosted).
+
+The website features an Easter egg in the paragraph where Larry Page writes, "Sergey and I are seriously in the business of starting new things. Alphabet will also include our X lab, which incubates new efforts like Wing, our drone delivery effort. We are also stoked about growing our investment arms, Ventures and Capital, as part of this new structure." The period after "drone delivery effort" is a hyperlink to "hooli.xyz", a reference to the television series "Silicon Valley".
+
+== Structure ==
+Alphabet's largest subsidiary is Google, other subsidiaries being Calico, Chronicle, Dandelion, DeepMind, GV, CapitalG, X, Google Fiber, Jigsaw, Sidewalk Labs, Verily, Waymo and Wing. , their equity are held by a subsidiary known as "XXVI Holdings, Inc." (referring to the Roman numeral of 26, the number of letters in the alphabet), so that they can be valued and legally separated from Google. At the same time, it was announced that Google will be reorganized as a limited liability company, Google LLC.
+
+While many companies or divisions formerly a part of Google became subsidiaries of Alphabet, Google remains the umbrella company for Alphabet's Internet-related businesses. These include many of the most widely used products and services long associated with Google, such as the Android mobile operating system, YouTube, LLC, and Google Search, which remain direct components of Google.
+
+Former subsidiaries include Nest Labs, which was merged into Google in February 2018.
+
+==Revenue==
+As per its 2017 annual report, 86% of Alphabet's revenues came from Performance advertising (through user clicks using Adsense and Google Ads) and Brand Advertising. Of these, 53% came from its international operations. This translated to a total revenue of US$110,855&nbsp;million in 2017 and a net income of US$12,662&nbsp;million.
+
+== Proposed growth ==
+Eric Schmidt said at an Internet Association event in 2015 that there may eventually be more than 26 Alphabet subsidiaries. He also said that he was currently meeting with the CEOs of the current and proposed Alphabet subsidiaries. He said, "You'll see a lot coming."
+
+== Restructuring process ==
+Google Inc. was restructured as a subsidiary directly owned by Alphabet. The roles of these two companies – Google as the owner and Alphabet as the subsidiary – was reversed in a two-step switch. First, a dummy subsidiary of Alphabet was created. Then Google merged with that dummy subsidiary while converting Google stock to Alphabet stock. Under Delaware law, a holding company reorganization such as this can be done without a vote of shareholders, as this reorganization was.
+
+The restructuring process was completed on October 2, 2015.
+
+==Lawsuit==
+Alphabet Inc. sued Uber over technology similar to Alphabet's proprietary self-driving car technology. Alphabet's autonomous vehicle technology has been under development for a decade by Alphabet's Waymo (self-driving vehicle division). The proprietary technology is related to 14,000 documents believed to have been downloaded and stolen by a former Waymo engineer, subsequently employed by Uber. The lawsuit was settled in February 2018, with Uber agreeing not to use the self-driving technology in dispute and also agreed to provide Waymo with an equity stake of 0.34%, equating to around $245&nbsp;million at the firm's early 2018 value.
+
+== Investments and acquisitions ==
+
+=== Investments ===
+In January 2017, Alphabet Inc. led a Series B round of $15&nbsp;million along with Sequoia India in education startup Cuemath.
+
+In October 2017, Alphabet Inc. led a $1&nbsp;billion round in Lyft.
+
+In November 2017, Alphabet Inc. led a Series A round of $70&nbsp;million along with Andreessen Horowitz and 20th Century Fox in music startup United Masters, founded by Steve Stoute.
+
+=== Acquisitions ===
+
+On January 13, 2018, Alphabet Inc. acquired smartphone technology startup Redux, which specialized in turning smartphone screens into speakers. Spectators claimed that the technology would somehow be integrated into Google's smartphone Pixel.
+
+An analysis of the company's investments in 2017 suggested that it was the most active investor in that period, outdoing the capital arm of Intel and also its own best customer. Alphabet, Inc. acquired 7 of its own capital-backed startups in the 2017 financial year, with Cisco second having acquired 6 of the company's previous investments.
+
+Flatiron Health, a start-up founded by two former Google employees and backed by Alphabet, Inc., announced that it was to be acquired by health conglomerate Hoffman-La Roche for $1.8&nbsp;billion. The company provides electronic medical records and analysis to identify improved treatments for oncology patients.
+
+== CEO-to-worker Pay Ratio ==
+For the first time in 2018, a new Securities and Exchange Commission rule mandated under the 2010 Dodd-Frank financial reform requires publicly traded companies to disclose how their CEOs are compensated in comparison with their employees. In public filings, companies have to disclose their "pay ratios", or the CEO's compensation divided by the median employee's. Alphabet Inc. Chief Executive Officer Larry Page takes home $1 a year, while the median worker at the company earns $197,274. That means the CEO pay ratio is 0.000005-to-1. , steelmaker Nucor represented the median CEO-to-worker ratio from SEC filings with values of 133 to 1.
+
+== See also ==
+
+* 
+
+== References ==
+== External links ==
+
+* 
+ 
+Category:2015 establishments in California
+Category:American companies established in 2015
+Category:Companies based in Mountain View, California
+Category:Companies based in Silicon Valley
+Category:Companies listed on NASDAQ
+Category:Computer-related introductions in 2015
+Category:Conglomerate companies established in 2015
+Category:Conglomerate companies of the United States
+Category:Google
+Category:Holding companies established in 2015
+Category:Holding companies of the United States
+Category:Multinational companies headquartered in the United States
+Category:Science and technology in the San Francisco Bay Area
+Category:Technology companies based in the San Francisco Bay Area
+Category:Technology companies established in 2015
+Category:Technology companies of the United States
+Category:Video game companies based in California

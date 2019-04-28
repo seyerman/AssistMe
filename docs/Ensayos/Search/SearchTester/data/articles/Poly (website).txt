@@ -1,0 +1,20 @@
+"Poly" is a website created by Google for users to browse, distribute, and download 3D objects. It is intended to allow creators to easily share and access 3D objects. It features a free library containing thousands of 3D objects for use in virtual reality and augmented reality applications.
+
+== Features ==
+Users can search the Poly model library by specific keywords and upload or download models in the OBJ file format. Most models can be "remixed" using Tilt Brush and Google Blocks application integration; the remixed object is automatically published on Poly with credit and links to the original creator. 3D objects can be viewed using Google Cardboard or Daydream View. Users can also create simple animated GIFs of the objects available for download.
+
+=== API ===
+On November 30, 2017, Google released the Poly API. It allows developers to easily integrate 3D objects into their projects, and provides users access to the object library while the app itself is running. The API also allows uploading 3D objects directly to Poly with the Poly Upload API. The API can be used for web, Android, and iOS apps, while the Poly Toolkit is required for Unity and Unreal developers.
+
+==See also==
+*WebGL
+*Facebook 3D Posts
+*Remix 3D
+*TurboSquid
+*Sketchfab
+
+== References ==
+Category:2017 software
+Category:Google services
+Category:Google
+Category:3D publishing

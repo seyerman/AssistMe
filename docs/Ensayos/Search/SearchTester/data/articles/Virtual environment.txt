@@ -1,0 +1,6 @@
+Any networked application that permits both interaction with the computing environment and the work of other users.  Email, chat, web-based document sharing applications are all examples of virtual environments.  Simply put, it is a networked common operating space.  Once the fidelity of the virtual environment is such that it "creates a psychological state in which the individual perceives himself or herself as existing within the virtual environment" (Blascovich, 2002, pg 129) then the virtual environment (VE) had progressed into the realm of immersive virtual environments (IVEs).
+
+== References ==
+
+Blascovich, J. (2002).  [https://link.springer.com/chapter/10.1007/978-1-4471-0277-9_8 Social Influence within Immersive Virtual Environments].  In R. Schroeder (Ed.), The Social Life of Avatars:  Presence and Interaction in Shared Virtual Environments (pp. 127-145). London: Springer.
+Category:Computer science

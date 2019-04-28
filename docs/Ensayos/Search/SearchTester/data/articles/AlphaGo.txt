@@ -1,0 +1,82 @@
+alt=AlphaGo logo
+
+"AlphaGo" is a computer program that plays the board game Go. It was developed by Alphabet Inc.'s Google DeepMind in London. AlphaGo had three far more powerful successors, called AlphaGo Master, AlphaGo Zero  and AlphaZero.
+
+In October 2015, the original AlphaGo became the first computer Go program to beat a human professional Go player without handicaps on a full-sized 19&times;19 board. Although it lost to Lee Sedol in the fourth game, Lee resigned in the final game, giving a final score of 4 games to 1 in favour of AlphaGo. In recognition of the victory, AlphaGo was awarded an honorary 9-dan by the Korea Baduk Association. The lead up and the challenge match with Lee Sedol were documented in a documentary film also titled "AlphaGo", directed by Greg Kohs. It was chosen by "Science" as one of the Breakthrough of the Year runners-up on 22 December 2016.
+
+At the 2017 Future of Go Summit, its successor AlphaGo Master beat Ke Jie, the world No.1 ranked player at the time, in a three-game match (the even more powerful AlphaGo Zero already existed but was not yet announced). After this, AlphaGo was awarded professional 9-dan by the Chinese Weiqi Association. 
+
+AlphaGo and its successors use a Monte Carlo tree search algorithm to find its moves based on knowledge previously "learned" by machine learning, specifically by an artificial neural network (a deep learning method) by extensive training, both from human and computer play. Starting from a 'blank page', with only a short training period, AlphaGo Zero achieved a 100-0 victory against the champion-defeating AlphaGo, while its successor, the self-taught AlphaZero, is currently perceived as the world's top player in Go as well as possibly in  chess.
+
+==History==
+Go is considered much more difficult for computers to win than other games such as chess, because its much larger branching factor makes it prohibitively difficult to use traditional AI methods such as alpha–beta pruning, tree traversal and heuristic search.
+
+Almost two decades after IBM's computer Deep Blue beat world chess champion Garry Kasparov in the 1997 match, the strongest Go programs using artificial intelligence techniques only reached about amateur 5-dan level, In 2012, the software program Zen, running on a four PC cluster, beat Masaki Takemiya (9p) two times at five and four stones handicap. In 2013, Crazy Stone beat Yoshio Ishida (9p) at four-stones handicap.
+
+According to DeepMind's David Silver, the AlphaGo research project was formed around 2014 to test how well a neural network using deep learning can compete at Go. AlphaGo represents a significant improvement over previous Go programs. In 500 games against other available Go programs, including Crazy Stone and Zen, AlphaGo running on a single computer won all but one. In a similar matchup, AlphaGo running on multiple computers won all 500 games played against other Go programs, and 77% of games played against AlphaGo running on a single computer. The distributed version in October 2015 was using 1,202 CPUs and 176 GPUs. a 2-dan (out of 9 dan possible) professional, five to zero. This was the first time a computer Go program had beaten a professional human player on a full-sized board without handicap. The announcement of the news was delayed until 27 January 2016 to coincide with the publication of a paper in the journal "Nature" describing the algorithms used. which were video-streamed live. Aja Huang, a DeepMind team member and amateur 6-dan Go player, placed stones on the Go board for AlphaGo, which ran through Google's cloud computing with its servers located in the United States. The match used Chinese rules with a 7.5-point komi, and each side had two hours of thinking time plus three 60-second byoyomi periods. "The Economist" reported that it used 1,920 CPUs and 280 GPUs.
+
+At the time of play, Lee Sedol had the second-highest number of Go international championship victories in the world. While there is no single official method of ranking in international Go, some sources ranked Lee Sedol as the fourth-best player in the world at the time. AlphaGo was not specifically trained to face Lee.
+
+The first three games were won by AlphaGo following resignations by Lee. However, Lee beat AlphaGo in the fourth game, winning by resignation at move 180. AlphaGo then continued to achieve a fourth win, winning the fifth game by resignation.
+
+The prize was US$1 million. Since AlphaGo won four out of five and thus the series, the prize will be donated to charities, including UNICEF. Lee Sedol received $150,000 for participating in all five games and an additional $20,000 for his win.
+
+In June 2016, at a presentation held at a university in the Netherlands, Aja Huang, one of the Deep Mind team, revealed that it had rectified the problem that occurred during the 4th game of the match between AlphaGo and Lee, and that after move 78 (which was dubbed the "divine move" by many professionals), it would play accurately and maintain Black's advantage. Before move 78, AlphaGo was leading throughout the game and Lee's move was not credited as the one which won the game, but caused the program's computing powers to be diverted and confused. Huang explained that AlphaGo's policy network of finding the most accurate move order and continuation did not precisely guide AlphaGo to make the correct continuation after move 78, since its value network did not determine Lee's 78th move as being the most likely, and therefore when the move was made AlphaGo could not make the right adjustment to the logical continuation.
+
+===Sixty online games===
+
+On 29 December 2016, a new account on the Tygem server named "Magister" (shown as 'Magist' at the server's Chinese version) from South Korea began to play games with professional players. It changed its account name to "Master" on 30 December, then moved to the FoxGo server on 1 January 2017. On 4 January, DeepMind confirmed that the "Magister" and the "Master" were both played by an updated version of AlphaGo, called AlphaGo Master. As of 5 January 2017, AlphaGo Master's online record was 60 wins and 0 losses, including three victories over Go's top ranked player, Ke Jie, who had been quietly briefed in advance that Master was a version of AlphaGo. then changed its nationality to United Kingdom. After these games were completed, the co-founder of Google DeepMind, Demis Hassabis, said in a tweet, "we're looking forward to playing some official, full-length games later [2017] in collaboration with Go organizations and experts".
+
+Google DeepMind offered 1.5 million dollars winner prizes for the three-game match between Ke Jie and Master while the losing side took 300,000 dollars. Master won all three games against Ke Jie, after which AlphaGo was awarded professional 9-dan by Chinese Weiqi Association.
+
+===AlphaGo Zero and AlphaZero===
+
+AlphaGo's team published an article in the journal "Nature" on 19 October 2017, introducing AlphaGo Zero, a version without human data and stronger than any previous human-champion-defeating version. By playing games against itself, AlphaGo Zero surpassed the strength of AlphaGo Lee in three days by winning 100 games to 0, reached the level of AlphaGo Master in 21 days, and exceeded all the old versions in 40 days.
+
+In a paper released on arXiv on 5 December 2017, DeepMind claimed that it generalized AlphaGo Zero's approach into a single AlphaZero algorithm, which achieved within 24 hours a superhuman level of play in the games of chess, shogi, and Go by defeating world-champion programs, Stockfish, Elmo, and 3-day version of AlphaGo Zero in each case.
+
+Grandmaster Hikaru Nakamura was less impressed at AlphaZero's chess win, stating that "my understanding is that AlphaZero is basically using the Google supercomputer and Stockfish doesn't run on that hardware; Stockfish was basically running on what would be my laptop. If you wanna have a match that's comparable you have to have Stockfish running on a supercomputer as well." Top US correspondence chess player Wolff Morrow was also unimpressed, claiming that AlphaZero would probably not make the semifinals of a fair competition such as TCEC where all engines play on equal hardware. Morrow further stated that although he might not be able to beat AlphaZero if AlphaZero played drawish openings such as the Petroff Defence, AlphaZero would not be able to beat him in a correspondence chess game either.
+
+===Teaching tool===
+On 11 December 2017, DeepMind released AlphaGo teaching tool on its website to analyze winning rates of different Go openings as calculated by AlphaGo Master. The teaching tool collects 6,000 Go openings from 230,000 human games each analyzed with 10,000,000 simulations by AlphaGo Master. Many of the openings include human move suggestions.
+
+In the Future of Go Summit in May 2017, DeepMind disclosed that the version of AlphaGo used in this Summit was AlphaGo Master, and revealed that it had measured the strength of different versions of the software. AlphaGo Lee, the version used against Lee, could give AlphaGo Fan, the version used in AlphaGo vs. Fan Hui, three stones, and AlphaGo Master was three-stone stronger further.
+==Algorithm==
+As of 2016, AlphaGo's algorithm uses a combination of machine learning and tree search techniques, combined with extensive training, both from human and computer play. It uses Monte Carlo tree search, guided by a "value network" and a "policy network," both implemented using deep neural network technology.
+
+==Style of play==
+Toby Manning, the match referee for AlphaGo vs. Fan Hui, has described the program's style as "conservative". AlphaGo's playing style strongly favours greater probability of winning by fewer points over lesser probability of winning by more points. It makes a lot of opening moves that have never or seldom been made by humans, while avoiding many second-line opening moves that human players like to make. It likes to use shoulder hits, especially if the opponent is over concentrated.
+
+==Responses to 2016 victory ==
+
+===AI community===
+AlphaGo's March 2016 victory was a major milestone in artificial intelligence research. Go had previously been regarded as a hard problem in machine learning that was expected to be out of reach for the technology of the time. Most experts thought a Go program as powerful as AlphaGo was at least five years away; some experts thought that it would take at least another decade before computers would beat Go champions. Most observers at the beginning of the 2016 matches expected Lee to beat AlphaGo. Some commentators believe AlphaGo's victory makes for a good opportunity for society to start discussing preparations for the possible future impact of machines with general purpose intelligence. (As noted by entrepreneur Guy Suter, AlphaGo itself only knows how to play Go, and doesn't possess general purpose intelligence: "[It] couldn't just wake up one morning and decide it wants to learn how to use firearms" Some scholars,  such as Stephen Hawking, warned (in May 2015 before the matches) that some future self-improving AI could gain actual general intelligence, leading to an unexpected AI takeover;<!--  and says "I don't see why we would speak about fears. On the contrary, this raises hopes in many domains such as health and space exploration."
+
+In China, AlphaGo was a "Sputnik moment" which helped convince the Chinese government to prioritize and dramatically increase funding for artificial intelligence.
+
+In 2017, the DeepMind AlphaGo team received the inaugural IJCAI Marvin Minsky medal for Outstanding Achievements in AI. “AlphaGo is a wonderful achievement, and a perfect example of what the Minsky Medal was initiated to recognise”, said Professor Michael Wooldridge, Chair of the IJCAI Awards Committee.  “What particularly impressed IJCAI was that AlphaGo achieves what it does through a brilliant combination of classic AI techniques as well as the state-of-the-art machine learning techniques that DeepMind is so closely associated with. It’s a breathtaking demonstration of contemporary AI, and we are delighted to be able to recognise it with this award.”
+
+===Go community===
+Go is a popular game in China, Japan and Korea, and the 2016 matches were watched by perhaps a hundred million people worldwide. Many top Go players characterized AlphaGo's unorthodox plays as seemingly-questionable moves that initially befuddled onlookers, but made sense in hindsight: where a computer had beaten a Go professional for the first time ever without the advantage of a handicap. The Korea Baduk Association, the organization that oversees Go professionals in South Korea, awarded AlphaGo an honorary 9-dan title for exhibiting creative skills and pushing forward the game's progress.
+
+China's Ke Jie, an 18-year-old generally recognized as the world's best Go player at the time, initially claimed that he would be able to beat AlphaGo, but declined to play against it for fear that it would "copy my style". but regaining confidence after AlphaGo displayed flaws in the fourth match.
+
+Toby Manning, the referee of AlphaGo's match against Fan Hui, and Hajin Lee, secretary general of the International Go Federation, both reason that in the future, Go players will get help from computers to learn what they have done wrong in games and improve their skills.
+
+After game two, Lee said he felt "speechless": "From the very beginning of the match, I could never manage an upper hand for one single move. It was AlphaGo's total victory." Lee apologized for his losses, stating after game three that "I misjudged the capabilities of AlphaGo and felt powerless." Although a strong player against other computer Go programs, as of early 2016, it had not yet defeated a professional human player. Darkforest has lost to CrazyStone and Zen and is estimated to be of similar strength to CrazyStone and Zen.
+
+DeepZenGo, a system developed with support from video-sharing website Dwango and the University of Tokyo, lost 2–1 in November 2016 to Go master Cho Chikun, who holds the record for the largest number of Go title wins in Japan.
+
+A 2018 paper in Nature cited AlphaGo's approach as the basis for a new means of computing potential pharmaceutical drug molecules.
+
+==Example game==
+
+AlphaGo Master (white) v. Tang Weixing (31 December 2016), AlphaGo won by resignation. White 36 was widely praised.
+==Impacts on Go==
+The AlphaGo documentary film raised hopes that Lee Sedol and Fan Hui would have benefitted from their experience of playing AlphaGo, but as of May 2018 their ratings were little changed; Lee Sedol was ranked 11th in the world, and Fan Hui 545th. However the overall Go community may have been moved forward in how it plays the game.
+
+==See also==
+* Chinook (draughts player), draughts playing program
+* Glossary of artificial intelligence
+* Go and mathematics
+* TD-Gammon, backgammon neural network

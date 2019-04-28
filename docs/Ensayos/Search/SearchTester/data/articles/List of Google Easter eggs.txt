@@ -1,0 +1,196 @@
+The technology company Google "prides itself on being a playful company" and has added "Easter eggs" and April Fools' Day jokes and hoaxes into many of its products and services, such as Google Search, YouTube, and Android since at least 2000.
+
+Easter eggs are hidden features or messages, inside jokes, and cultural references inserted into media. They are often well hidden, so that users find it gratifying when they discover them, helping form bonds between their creators and finders. Google's Easter eggs are sometimes created by employees during their 20% time and Google avoids adding them to popular search pages, as they do not want to negatively impact usability.
+== Search engine ==
+
+ As Google searches are case insensitive, search terms are listed in lower case except where case sensitivity is explicitly referenced.
+
+A Google web search for:
+* "a long time ago in a galaxy far far away" resulted in the same tilted, scrolling style that the introductions to the original "Star Wars" movies were presented in. This included the music,
+* "" shows "Did you mean: "nag a ram"".
+** "" shows "Did you mean: "nerd fame again"".
+** "anagram" and "define anagram" also work in other languages. For example, a Google ES search for "" shows ".
+* "" causes and "tilt" once caused the results page to be tilted, leaning down, left to right.
+* "binary", "hex", "hexadecimal" and "octal" shows the number of search results in the respective numeral system.
+* "" shows the name of the attraction being decoded in the Knowledge Graph.
+* "", "blink tag", or "blink html" includes samples of the blink element in the results.
+* "christmas", "hanukkah", and "kwanzaa" will show decorations next to the search bar for each respective holiday. The feature is only active during the month of December. Each year, new decorations are shown.
+** Certain words related to these holidays, such as "" and "" will also bring up these decorations.
+* "" on a desktop browser generates a running configuration of the game to the right of the search results. The process can also be stopped and altered by the user.
+* "" shows an image of the Festivus pole beside the search results and the message "A festivus miracle!" next to the number of search results.
+* "" on a desktop browser will generate a layout similar to the one Google used for its search engine in 1998.
+* "" will add spaces between the letters of the word "kerning" in the search results. Kerning refers to the process of adjusting the space between letters in a word.
+** "" will remove spaces between the letters of the word "keming". particularly when not enough space is used between letters, which can cause mistakes like "kerning" to be read as "keming".
+* "", "marquee tag", or "marquee html" will apply the marquee element to the results count at the top of the results.
+* "" describes Pluto as "Our favorite dwarf planet since 2006" in the Knowledge Graph.
+* "" includes a "Did you mean: "recursion"" link back to the same page.
+* "" (a misspelling of Super Bowl) used to result in an infobox of Super Bowl LIII titled "Superb Owl" with an image of an owl wearing a crown.
+* "" shows a Knowledge Graph for "Super Mario Bros." that contains a flashing "?" block which generates a coin and 200 points when clicked. After 100 coins are collected, the "1UP" sound plays.
+
+* "" or "google easter eggs" using most popular modern browsers (except Safari) and opening the browser's developer console will trigger a text-based adventure game playable within the console.
+* "" turns the Google logo into moving colored blocks. This is a reference to an automated YouTube channel made by Google to test YouTube's performance. This does not work on mobile devices or when there is a Google Doodle on that day.
+* "" results in Google's Search asking "Did you mean: "i am in great pain please help me"". When using Google Assistant, it responds with "Are you in pain? How can I help?", "Sorry, I don't speak Birdperson" or "Morty, let's get Schwifty", referencing the adult animated science fiction sitcom "Rick and Morty".
+* "" causes an army of Google Os to attack and destroy the search results, which can be defeated by clicking on them. Once you are defeated (as victory is impossible), the Os form two Gs (GG), meaning Good Game.
+* "" on a mobile device will have an interactive spirit level.
+* "" or "rgb to hex" will provide a color picker and a conversion between RGB and hexadecimal color values. Selecting "Show color values" will also show conversions to the CMYK, HSL and HSV color models.
+* "" will flip a coin: heads or tails.
+* "" will have a metronome that can be adjusted from 40 to 208 BPM.
+* "" will have a playable game of minesweeper. Users can select between three modes: easy, medium and hard.
+* "", "google pacman" or "play pacman" will show the Pac-Man related interactive Google Doodle from 2010. Clicking  twice will enable a second player, Ms. Pac-Man.The initial configuration of Google's Pac-Man banner.
+* "" will spin a dreidel, landing on one of four letters of the Hebrew alphabet: <span style="font-size:100%"></span> (Nun), <span style="font-size:100%"></span> (Gimel), <span style="font-size:100%"></span> (He) or <span style="font-size:100%"></span> (Shin).
+* "random number generator" or "rng" will generate a random number. The starting range is between 1 and 10, but the maximum and minimum can be adjusted. Changing the maximum or minimum to a number with more than 10 digits will generate a dizzy face emoji ??.
+* "" will roll a die: between 1 and 6. Clicking the snake after the game ends will switch it between blue to rainbow; a new game can be played with the rainbow snake.
+* "" will have a playable game of solitaire. Users can select between two modes: easy and hard. which can be toggled via the switch. For the spinning wheel, a dropdown menu can change the number of numbers on the wheel: from 2 to 20. Whereas, for the fidget spinner, users have to mimic a rotating motion
+* "" will sound out what a dog will make. The word "dog" can be replaced with other animals in the search query.
+
+==== Google birthday surprise spinner ====
+Searching for "" will result in a wheel that spins to one of a selection of playable Google Doodles, tools (see above) and games. Whichever is randomly selected may be opened, or the wheel may be spun again. It was added in celebration of Google's 19th birthday.
+
+==== Calculator ====
+Late 2011, Google added a graphical calculator to search results. By using natural language processing, Google's algorithms have calculated that the result might be mathematical in nature. Woven into this feature are several, not entirely academic, results which might be considered Easter eggs.
+
+A Google web search for:
+* "" shows the additional result "1 baker's dozen = 13"
+* "the answer to <nowiki>[the ultimate question of]</nowiki> life the universe and everything" provides the answer "42" as a result in reference to the Douglas Adams novel series, "The Hitchhiker's Guide to the Galaxy".
+
+The result of multiple Easter eggs may be calculated; for example: "" will return "43".
+
+=== Image search ===
+* A Google image search for "" starts a game of "Breakout", using the gallery of image results as bricks. Once the bricks are destroyed, a random phrase is automatically searched, the player will add the extra ball, and the game will restart.
+* Another 3D buildings Easter egg involves the famous bridge jump scene from "The Blues Brothers", which is recreated in Google Earth at the Tacony–Palmyra Bridge linking New Jersey and Philadelphia.
+* On July 20, 2005, the 36th anniversary of the first human landing on the Moon, Google debuted a version of Google Maps that included a small segment of the surface of the Moon. It is based entirely on NASA images and includes only a very limited region. Panning causes the map to tile. Zooming to the closest level used to show that the Moon was made of cheese.
+* In Street View, on Earls Court Rd, London, United Kingdom, a TARDIS from the famous science fiction series "Doctor Who" is on display. Street View allows one to enter the  where it is "Bigger on the Inside" and explore the set actually used in the show.
+* When navigating from Snowdon to Brecon Beacons, the user can choose to travel by dragon, which takes 37 minutes.
+* When navigating from Urquhart Castle to Fort Augustus, the user can choose to travel by the Loch Ness Monster, which takes 25 minutes.
+* When navigating from Magdalene College to President's Lodge Queens College, the user can choose to be punted, which takes 45 minutes.
+* Searching for public transportation from Windsor Castle to Buckingham Palace will offer the Royal Carriage option.
+* Certain navigation within the greater London area showed the as-yet unopened Crossrail (Elizabeth Line) in royal purple (April Fool's Day, 2016).
+
+* To promote the upcoming release of "Batman v Superman: Dawn of Justice", users could explore Bruce Wayne's residence and the Batcave.
+* For April Fools' Day 2015, when in certain areas in Google Maps, there was a Pac-Man button. When clicked (if one's in a suitable area for it to work), a "Pac-Man" game started, controlled by arrow keys, using the roads as paths for Pac-Man to go. 
+** A similar feature was brought back for April Fools' Day 2017, allowing users to play a version of "Ms. Pac-Man" upon clicking the icon on the Google Maps webpage or mobile app.
+* In early test versions of Google Maps, searching for a route between locations separated by expanses of water (e.g. Paris and New York City) provided road directions to the coast of the embarkation country (in this case, the west coast of France) before suggesting "Swim the Atlantic Ocean (3,500&nbsp;miles)" or another ocean for a different distance.
+* Searching for "R'lyeh" would take users to the coordinates of the sunken city. It was listed as a "Place of worship".
+* Visiting "Salford Lads' Club" with 3D buildings activated will show Morrissey of The Smiths at the entrance. The club was featured in the cover art of the Smiths' album The Queen Is Dead.
+* On Mario Day (March 10) 2018, Google and Nintendo had partnered up to bring Mario into Google Maps mobile app worldwide for a week. A yellow icon with a question mark would show up at the bottom of the directions page, next to the start navigation button. Tapping on the icon would allow the user to have Mario and his kart as the navigation arrow. Tapping the icon 100 times would activate a 1-UP sound like in Nintendo's games.
+
+=== Pegman ===
+
+* If the user navigates to Loch Ness, the lake can be seen from a street view and the Pegman looks like the Loch Ness Monster.
+* He is given special clothing for some widely observed special occasions: for Halloween he rides a broomstick; for Valentine's Day he stands upon a heart; and during Christmas week, he becomes a snowman and on certain hashtags like the [https://landing.google.com/intl/en/pride/ #prideforeveryone] hashtag he gets a certain object like a rainbow cape.
+* Around February 8, the launch day of Google Maps, he appears dressed as a birthday cake.
+* When viewing past street views, he turns into Emmett "Doc" Brown, one of the protagonists from the "Back to the Future" universe.
+* When dragged into Legoland in Carlsbad, the Pegman turns into a Lego minifigure.
+* When dragged into Street View in Sun Valley, Idaho, he becomes a skier.
+* On Election Day the Pegman is wearing a Uncle Sam's hat and an "I voted" button.
+* When dragged onto the vicinity of the Arthur Ashe Stadium,  Flushing Meadows–Corona Park, Pegman becomes a tennis player holding a racket.
+* Dragged near the Kennedy Space Center,  Pegman becomes an astronaut.
+* When dragging Pegman around Groom Lake in Nevada or Area 51,  he will turn into a UFO.
+* When viewing some royal residences, such as Buckingham Palace (and the surrounding palaces), The Palace of Holyroodhouse and Hillsborough Castle, the Pegman turns into a representation of Queen Elizabeth II, "PegMa'am".
+* When dragged onto Hawaii or Florida, the Pegman becomes a mermaid, but only when close to the ocean. The figure reverts if dragged too far inland. Pegman also turns into a mermaid when dragged to the vicinity of the Galápagos Islands.
+
+* Dragging the Google Street View Pegman onto Telegraph Avenue in Berkeley, CA used to display him with a tie-dyed shirt.
+* There is a place on the southern point of Half Moon Island, Antarctica that has blue "roads". When the Pegman was dragged on this spot, the Pegman turned into a penguin and users could explore the area as if on roads. Penguins and a research team in red parkas can be seen at various points on these roads.
+* For the release of the video game "The Legend of Zelda: Twilight Princess HD" for the Wii U, the Pegman was Link holding a Master Sword and a Hylian Shield.
+* For Google Street View's 10th birthday, the Pegman appears on both Maps and Street View as if he is celebrating a birthday, wearing a red and white striped miniature party hat and holding three pastel violet, pink, and blue balloons in his right hand.
+
+== Google Translate ==
+
+* On Monday, November 29, 2010, Reddit user "harrichr" posted in [https://www.reddit.com/r/todayilearned/comments/ed39q/til_how_to_make_google_beatbox_for_you/ a "r/todayilearned" thread] details of "how to make Google beatbox for you!" and soon after, Robert Quigley reported the discovery in an article on "geekosystem.com" (now The Mary Sue), stating that he was "Not sure if this falls in the category of Easter Egg or clever manipulation" and that although he had "No idea why", it transpired that using Google Translate to translate nonsense text of all consonants from German to German and clicking  would result in machine generated speech that sounded like beatboxing. As time went on, "redditors" and other interested parties experimented with translation combinations, posting their results on sites including Hacker News where reader "iamdave" is reported to have posted "a pretty comprehensive Google Translate beatboxing guide". Three years later Time magazine published an article indicating that Google had acknowledged the existence of this "feature" with an Easter egg "Beatbox" tooltip when hovering over the "speaker icon" button after setting everything up to the aforementioned specification.
+* When using Google Translate to translate the "German" version of The Funniest Joke in the World ("") to English, the result will be "[FATAL ERROR]".
+
+== Google homepage ==
+* Rolling over the  button causes the button text to spin, landing on a random phrase. Clicking on the button without text in the search bar will serve the corresponding web page.
+=== Google languages ===
+Google offers interfaces for several different fictional languages. Users can set any language (except pig latin) as their preferred language in their search settings.
+=== Google subpages ===
+The teapot found at Google's 418 error page.
+* When Ken Perlin visited Google February 2000, Sergei Brin asked him for a version of an interactive jumping heart character he'd created as a Java applet to be put on the Google site for Valentine's day. "www.google.com/heart" will redirect to an archived page which is a preservation of the old, but still functional, Google interface, complete with the Valentine's heart and a banner that states "This site is an old friend from Google’s past, kept in its original form. Enjoy!"
+* "" is a simple plain text file serving to remind its readers that Google isn't only built on technology but, is created by many humans too. It asks for interested readers to visit their careers page.
+* "www.google.com/killer-robots.txt" is a, , humorous plain text file in robots.txt format.
+* "" states, "418. I’m a teapot. The requested entity body is short and stout. Tip me over and pour me out." Clicking on the picture of the teapot or tilting the mobile device will result in an animation of it pouring tea into a teacup. The web page is a reference to the Hyper Text Coffee Pot Control Protocol.
+
+== Android ==
+
+* Since the version 2.3 (Gingerbread) of Google's Android operating system an Easter egg containing an animation has been hidden. The Easter egg can be accessed through the "Settings" application, in the "About phone" section, by repeatedly tapping the "Android version" section. The animation is different in every version of the OS.
+** In 2.3 – 2.3.7 (Gingerbread) there is a painting of an Android next to a zombie gingerbread man, surrounded by zombies using cellphones.
+** In 3.0 – 3.2.6 (Honeycomb) there is a blue honeybee. Below it, there is the text "REZZZZZZZ…" as a reference to "Tron: Legacy".
+** In 4.0 – 4.0.4 (Ice Cream Sandwich) there is pixel art of an ice cream sandwich android. Long-pressing it will result in many ice cream sandwich androids flying across the screen, dubbed the "nyan droid" as they are a tribute to Nyan Cat.
+** In 4.1 – 4.3.1 (Jelly Bean) a red jelly bean appears, which if pressed will show its face along with the OS version. If this jelly bean is then long-pressed, an interactive jelly bean mini-game will appear. This is where one can fling the jelly beans around.
+** In 4.4 (KitKat) a rotating letter "K" appears, which if continually tapped turns into the text "Android" in the styling of a KitKat logo. If the Android logo is then long-pressed or twisted with two fingers a tile interface, known as "a daydream" called "Dessert Case", loads with icons from all previous versions of Android. It appears to be a mock of the Windows Phone interface.
+** In 5.x (Lollipop) and 6.x (Marshmallow), a colored circle appears (or a circle with a stylized M inside in Marshmallow). If continuously tapped, it will turn into a lollipop with the text "lollipop" inside (or the M changes into a marshmallow in 6.x). Tapping the circle changes the color. When long-pressed, a game of "Flappy Bird" starts with the Android mascot instead. In Marshmallow, tapping the plus sign adds extra players (up to five), which can be controlled by the user or other players.
+** In 7.0 (Nougat), an "N" appears, which will enable another Easter egg if tapped. This Easter egg, titled "Android Neko" as a reference to the cat collecting mobile game "Neko Atsume", can be accessed from the Quick Settings menu, and allows the user to create virtual treats, which will eventually attract kittens. The kittens can be viewed in a gallery-style screen. Additionally, long-pressing on the aforementioned "N" repeatedly will alternate between displaying the no symbol and the cat face emojis, respectively toggling the Easter egg on and off. "No" and "cat" is a mondegreen for "nougat".
+** In 8.0 (Oreo), instead of the normal way of going to the Easter egg, heading to System > About Phone and tapping on the Android version repeatedly will launch the Easter egg. An orange circle appears, representing an "O" for Oreo. Long pressing on the center will open a blue screen representing a sea with an octopus floating around. The "O" in octopus represents Oreo while the eight legs on the octopus represent the version (8.0). The octopus can be moved by dragging the head around.
+** In 9.0 (Pie), the Easter egg is found by going to System > About Phone > Android version and then tapping three times on the Android version on the next screen. A white, extended "P" will then appear, usually with concentric colored circles disappearing into the "P". Each time the Easter egg is invoked, it displays different colors. The animation can be pinched to zoom.
+*** On Google Pixel phones (that run 9.0 Pie), tapping the "P" icon several times will reveal a drawing app. 
+<gallery>
+Android Gingerbread Easter egg.jpg|Gingerbread
+Android Honeycomb Easter egg.jpg|Honeycomb
+Android Ice Cream Sandwich Easter egg.jpg|Ice Cream Sandwich
+Android Jelly Bean Easter egg.jpg|Jelly Bean
+Android KitKat Easter egg.jpg|KitKat
+Android Lollipop Easter egg.jpg|Lollipop
+Android Marshmallow Easter egg.jpg|Marshmallow
+Android Nougat Easter egg.jpg|Nougat
+Android Oreo Easter egg.jpg|Oreo
+Android 9.0.jpg|Pie
+</gallery>
+* "Spells" may be "cast" on an Android phone by saying "Ok Google" followed by "Lumos" or "Nox" to turn the flashlight on and off, or "Silencio" to silence the ringer and notifications.
+* In the Google Allo app, sending the Konami Code to the Google Assistant by typing "up up down down left right left right b a start" will respond with "Cheat mode enabled". Typing it again will respond with random statements relatable to the code.
+* In the Google Phone (Dialer) app, inputting the "Emergency Number" "0118 999 881 999 119 725 3", advertised to replace "999" in The IT Crowd's season 1 episode "Calamity Jen", will cause the phone to vibrate and the call button to flash blue and red. The feature only works on stock Android Marshmallow and Android Nougat.
+* In Google+, if the device is shaken while viewing a photo, snow will fall; if the device is shaken again it will save an animated GIF of the image with falling snow to the pictures directory.
+* Searching for "let's go caroling" or "let's go carolling" on Google Now will result in an extra card which displays a list of Christmas carols. The phone will play the music and show the words if one of them is selected.
+* On YouTube Creator Studio, swiping down the screen repeatedly will show a cat at the top of the screen.
+* Entering the tabview on the Google Chrome App and swiping up on a tab five times will cause the tab do a backflip.
+* Opening more than 99 tabs in the Google Chrome App will result in ":D" shown instead of the number of opened tabs.
+* On a video published by Numberphile on June 22, 2012, titled "Why do YouTube views freeze at 301?", the view count was frozen at 301,
+* Adding "&wadsworth=1" to a video URL would apply "Wadsworth's constant", skipping the first 30% of the video.
+* Whilst viewing any video, typing "awesome" makes the progress bar and other player elements flash multicolored. Typing "awesome" again stops it.
+* YouTube's robots.txt file at "" states that it was "Created in the distant future (the year 2000) after the robotic uprising of the mid 90's which wiped out all humans." This is an ostensible reference to the song "Robots" by Flight of the Conchords.
+* When the live-stream countdown reaches 24 hours before it is scheduled to start, a "Dawn of The Final Day -24 Hours Remain-" is shown along with a sound effect, referencing the video game "The Legend of Zelda: Majora's Mask".
+* On December 12, 2015, in order to promote the then-upcoming release of "Star Wars: The Force Awakens", the progress bar was changed in order to look like a Lightsaber. By signing up to a specially created promotional page, users were able to follow the Light Side (which would change the progress bar to blue) or the Dark Side (which would change the progress bar to red). Account users had the option to return the effect to normal. Google disabled it for all users, February 1, 2016. Along with this, mousing over the volume controls would play a lightsaber sound like it was turned on, and mousing off of it would play a power off sound.
+* A Snake game could be activated in the Adobe Flash player by pressing a combination of arrow keys whilst videos were paused or playing. Once started, the snake could be controlled by further use of the arrow keys, directing it to "gobble up dots" to increase its size. If the snake hit the edges of the video window, the game ended. The feature no longer works with the HTML5 video player.
+* When watching a video with "" in the title, the buffering icon would change into a spinning fidget spinner.The Fidget Spinner that replaces the buffering icon
+* The title of the video "Too Many Cooks", a surreal dark comedy short by Adult Swim, is yellow and in the Georgia font, mimicking the video's theme.
+
+=== Search ===
+A YouTube search for:
+* "beam me up scotty", a reference to "Star Trek", would cause the search results to beam down onto the screen, as in "Star Trek".
+* "doge meme" changes the font on the search result page to pastel color Comic Sans typical of the Doge meme.
+* "do the harlem shake" will cause the Harlem Shake song to play and the results to dance around.
+* "use the Force luke" causes the results to levitate, as if by the Force mentioned in "Star Wars".
+* Searching "yanny" shows "Did you mean: laurel", and vice versa. This is a reference to Yanny or Laurel, an auditory illusion that became popular in May 2018.
+
+== Chrome ==
+
+Lonely T-Rex
+* If the user tries to browse when offline, a message is shown that they are not connected to the Internet. An illustration of the "Lonely T-Rex" dinosaur is shown at the top, designed by Sebastien Gabriel. Reaching a score of 900 will switch the colour scheme back to day, and the switch back and forth will occur at further subsequent milestones. The game is also available at the "" and "chrome://dino" pages. The game's code is available on the Chromium site.
+
+== Other ==
+"PRIDE" Easter Egg in Google Sheets being demonstrated
+
+* Pressing  in the Picasa desktop application will cause a teddy bear to appear on the screen. Note that the Picasa application no longer exists, as it was replaced by Google Photos.
+* In the Google I/O 2013 page, "", one can click the letters "<code>I</code>" and "<code>O</code>" to input passwords.
+* In Google Glass, tapping "Settings" -> "Device info" -> "View licenses", then tapping the touchpad 9 times, will show a "Tap Meet Team" option. Tapping again will show a photo of the Google Glass development team.
+* Any photograph with Christmas lights uploaded to Google+ will be turned into an animated GIF, showing sparkling lights.
+* In Google's iPhone and iPod touch search application, swiping downwards (past About) repeatedly in the Settings interface brings up a hidden menu item, called Bells and Whistles, allowing customization of colors, sounds and more within the app. However, this no longer works as of the newer app updates.
+* On Google Forms, entering the table flip emoticon "" as the title will cause the interface to flip and replace the title with ""
+* The model numbers for the first generation Chromecast unit and its power adapter read H2G2-42 and MST3K-US, respectively.
+** The password for Project Fi data only SIM cards is h2g2, another reference to The Hitchhiker's Guide to the Galaxy.
+* In Sheets, as to celebrate LGBT pride, typing "PRIDE" in cells A1-E1 with each individual letter in each cell will make change the fill color of columns to make a rainbow.
+* elgooG
+* Google Doodle
+* List of Google April Fools' Day jokes
+* Google bomb
+* Intelligence Quotient (IQ) and Browser Usage (AptiQuant)
+* Netflix April Fools' Day jokes
+
+== References ==
+== External links ==
+* [https://www.google.com/intl/en/about/index.html About Google]
+Category:April Fools' Day jokes
+Easter eggs
+Category:Internet hoaxes
+Category:Computer humor
+Category:Internet humor
+Easter eggs

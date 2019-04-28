@@ -1,0 +1,6 @@
+"Adiantum" is a cipher construction for disk encryption, which uses the ChaCha and Advanced Encryption Standard (AES) ciphers, and Poly1305 cryptographic message authentication code (MAC).
+
+It was designed in 2018 by Paul Crowley and Eric Biggers at Google specifically for low-powered mobile devices running Android Go. It's available in the Linux kernel since version 5.0. 
+"HPolyC" is an earlier variant of Adiantum, which uses a different construction for the Poly1305 hash function.
+
+The HBSH construction consists of hash, block cipher, stream cipher, hash.

@@ -1,0 +1,25 @@
+The "Google Play edition devices" ("GPE") is a series of consumer mobile devices sanctioned by Google that run the Android operating system. Unlike the standard versions of Android on these devices, which have received "skins" from the original equipment manufacturer, such as Samsung TouchWiz or HTC Sense, they run a "stock" version of Android, without any manufacturer or wireless carrier modifications, making them essentially like Google Nexus and Google Pixel devices in terms of software but they do not carry the Google Nexus branding, nor does their hardware differ from that of the original devices upon which the Play editions are based. Because of this, the software includes slight, under-the-hood changes to function on the original manufacturer's hardware.
+
+These devices are carrier unlocked and GSM-based, and have been offered exclusively through Google's Play Store. Updates for these devices are delivered by Google (bypassing carriers), but are supplied by the original device manufacturer.
+Although the updates are not supplied directly by Google, as is the case with the products from the Nexus line, these devices receive Android updates at nearly the same time as Nexus products.
+
+In January 2015, Google stopped selling their final Google Play edition phone. While Google never officially announced the end of the program, no new phones have been announced since. However, stock Android devices are still being made - as of 2017 by companies including Google (Pixel), HMD Global (Nokia) and Lenovo (Motorola).
+
+== Phones ==
+* Samsung Galaxy S4 - At the Google I/O 2013 keynote, it was announced that a special edition of the Samsung Galaxy S4 would be released in the United States through Google Play on June 26, 2013. Unlike normal versions of the S4 (which ship with Samsung's TouchWiz interface and software), the phone will ship with a stock build of Android 4.2.2 with Google-supplied updates, similarly to Nexus devices. The price of the Google Edition is $649, and sold exclusively through the Google Play Store. On August 5, 2014 the device was retired.
+* HTC One - On May 30, 2013, HTC announced that a similar version of the HTC One with stock Android in place of HTC Sense would be released on the same day. The price of the Google Edition is $599, and sold exclusively through the Google Play Store. On March 26, 2014 the price was dropped $100 to $499 and eventually retired on May 19, 2014
+* Sony Z Ultra - On December 10, 2013 a Google Play edition of Sony Xperia Z Ultra phone was announced, dropping the Xperia branding, priced at $649, and sold exclusively through the Google Play Store. On April 29, 2014 the price was dropped $200 to $449, before being retired in July 2014.
+* Motorola Moto G - On January 14, 2014 Google announced and released a Google Edition of the widely popular Motorola Moto G. At the same price as the normal Motorola Moto G ($179 for 8 GB and $199 for 16 GB) however it receives updates from Google and not Motorola. The phone was retired in January 2015.
+* HTC One M8 - On March 25, 2014, the same day HTC announced the HTC One M8, they announced that their new flagship phone would also become available with a Google Play edition. Later that afternoon the listing went live on Google Play at a price tag of $699. In January 2015, the One M8, the last remaining Google Play edition device, was removed from the Google Play website.
+
+== Tablets ==
+* LG G Pad 8.3 - On December 10, 2013 a Google Play edition of this tablet was announced,
+
+== References ==
+== External links ==
+* [http://www.phonearena.com/news/The-Google-Android-fork-Google-Play-services-Android-4.4-and-the-Nexus-Experience_id48229 Google Play services and the Nexus Experience]
+Category:Android (operating system) devices
+Google Play edition devices
+Category:Smartphones
+Category:Tablet computers
+Category:Google

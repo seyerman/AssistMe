@@ -1,0 +1,42 @@
+"Google Ad Grants" is a donation program that distributes free in-kind advertising to select 501(c)(3) nonprofit organizations. As of 2018, qualifying non-profit organizations are eligible to receive up to $10,000 per month in in-kind advertising within the AdWords search engine marketing platform. Google Ad Grants, along with other services, is made available by Google for Nonprofits and is available in over 50 countries.
+
+== Eligibility ==
+Google specifies a number of organizational criteria in order to be eligible for a Google Grant, including:
+* Participation in the Google for Nonprofits program
+* Current 501(c)(3) status
+* Organization website with substantial content to which ads can be linked
+Google Grants for charities are not available to the following organisations:
+
+* Government entities and organisations
+* Hospitals and medical groups
+* Schools, childcare centres, academic institutions and universities (however, philanthropic arms of educational organizations are eligible)
+
+== Restrictions ==
+Google Grants for nonprofit organisations available in many countries. The following restrictions apply:
+
+* A daily budget set to $329, which is equivalent to about $10,000 per month
+* A maximum cost-per-click (CPC) limit of US$2 if using a manual bidding strategy, or unlimited if using Maximize Conversions.
+* Only run keyword-targeted campaigns
+* Only appear on Google search result pages
+* Only run text ads
+* Complete an annual survey to share impact data
+* The click-through rate (CTR) of the account as a whole must not fall below 5% for two consecutive months, or risk temporary suspension.
+* New applicants must set up conversion tracking and switch to a non-manual bidding strategy within a few months of setting up their account.
+
+== Grantspro programme ==
+The Grantspro program offered eligible charities an increased budget cap of US$40,000 per month instead of the standard US$10,000 per month. New admissions to the program ceased as of September 1, 2016. There were an additional set of requirements to qualify for the Grantspro programme. In order to join, beneficiaries of the Grantspro programme had to have spent at least $9,900 of their budget for at least two months over a six-month period. When Google stopped accepting new applications to the Grantspro program, they simply stated: "The Ad Grants team is no longer accepting Grantspro applications." statements by Google indicate that this suspension may be permanent "as part of new efforts to streamline the program."
+
+This had no effect on the standard Google Ad Grants programme, which is still accepting and enrolling qualifying nonprofits.
+
+== Application and management ==
+Eligible nonprofit organizations can apply for Google Grants on line. The application and enrollment of the Grant can take up to 10 business days and is administered by the Google for Nonprofits team. Upon receipt of a Google Grant, the grantee is responsible for setting up and managing their Google Grant AdWords account, including its various campaigns, ad groups, ads, and keywords. Most Google Grant recipients choose to manage their grant independently, while others seek search engine marketing consultants to optimize their grant performance.
+
+== Ad Grants Certified Professionals program ==
+The Google Ad Grants Certified Professionals Community certifies the network of agencies, consultants and trainers who look after nonprofits, and connects grantees to recommended professionals through a directory.
+
+== References ==
+== External links ==
+* 
+Ad Grants
+Ad Grants
+Category:Online advertising

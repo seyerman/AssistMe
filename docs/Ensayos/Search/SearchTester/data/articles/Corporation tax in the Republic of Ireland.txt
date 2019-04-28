@@ -1,0 +1,223 @@
+, the key attributes that tax experts note regarding the Irish corporate tax system are as follows:
+* Transparent.  Many of Ireland's corporation tax tools are OECD–whitelisted, and Ireland has one of the lowest "secrecy scores" in the 2018 FSI rankings.
+* "Worldwide tax". Ireland is one of 6 remaining countries that use a "worldwide tax" system (Chile, Greece, Ireland, Israel, South Korea, Mexico).
+* No "thin capitalisation".  Ireland has no thin capitalisation rules, which means that Irish corporates can be financed with 100% debt, and 0% equity.
+* Double Irish residency. Before 2015, Irish CT was based where a company was "managed and controlled" versus registered; the "Double Irish" ends in 2020.]]
+U.S.–controlled multinationals, either legally based in the U.S. or legally based in Ireland (e.g. tax inversions), dominate Ireland's economy.  In June 2018, the "American Chamber of Commerce (Ireland)" estimated the value of U.S. investment in Ireland was €334 billion, which compared to 2017 Irish GNI* of €181.2 billion. In January 2018, Eurostat used 2015 data to show the "gross operating surplus" of foreign companies in Ireland was almost exclusively from U.S. companies, with the UK was a distant second, and little other foreign firm activity (see graphic).  Not only did U.S. companies rank ahead of Irish companies, but a material quantum of the "gross operating surplus" attributed to Irish companies, is from U.S. tax inversion such as Medtronic, Eaton and Allergan, who are in effect, U.S.–controlled multinationals, and have little attachment to Ireland.
+
+In 2016–2017, foreign multinationals, being entirely U.S.–controlled:
+
+* Directly employed one–quarter of the Irish private sector workforce;
+* Directly contributed €28.3 billion annually in taxes, wages and capital spending;
+* "They are from countries with "worldwide tax" systems".  Tax academics show that firms from "territorial tax" systems (over 95% of all countries), make little use of tax havens.  The only non–U.S. foreign firms in the top 50 Irish firms are UK firms from pre–2009, after which the UK switched to a "territorial tax" system. In December 2017, the U.S. switched to a hybrid-"territorial tax" system.
+* "They are concentrated."  The top–20 corporate taxpayers pay 50% of all Irish corporate taxes, while the top–10 pay 40% of all Irish corporate taxes. The top 10 U.S.–controlled multinationals comfortably account for over 50% of Irish 2017 GDP.
+* "They are mostly technology and life sciences."  To use Ireland's main BEPS tools, a multinational needs to have intellectual property (or "IP"),
+* "They use Ireland to shield all non–U.S. profits, not just EU profits, from the US "worldwide tax" system."  In 2016, Facebook recorded global revenues of $27 billion, while Facebook (Ireland) paid €30 million in Irish tax on Irish revenues of €13 billion (half of all global revenues).  Similarly, Google also runs most of its non–U.S. revenue and profits through its Dublin operation.
+* "They artificially inflate Irish GDP by 62%."  All tax havens have a distorted GDP due to the effect of BEPS flows. The US Bureau of Economic Analysis gives an effective 2015 Irish CT rate of 2.5%. and the CT rates of Irish BEPS tools (0-3%).
+
+* Prove they are carrying out a "relevant trade" on the IP in Ireland (i.e. Ireland is not just an "empty shell" through which IP passes en route to another tax haven);
+* Prove the level of Irish employment doing the "relevant activities" on the IP is consistent with the Irish tax relief being claimed (the ratio has never been disclosed);
+* Show that the average wages of the Irish employees are consistent with such a "relevant trade" (i.e. must be "high-value" jobs earning +€60,000–€90,000 per annum);
+* Put this into an approved "business plan" (agreed with Revenue Commissioners and other State bodies, such as IDA Ireland), for the term of the tax relief scheme;
+* Agree to suffer "clawbacks" of the Irish tax relief granted (i.e. pay the full 12.5% level), if they leave before the end plan (5 years for schemes started after February 2013) or 2.3%
+
+To the extent that the Irish jobs are performing real functions (e.g. the function is not replicated elsewhere in the Group), the cost is not a "employment tax", however, at worst case, the U.S. multinational should incur an aggregate effective Irish corporation tax of 2–6% (actual Irish BEPS tool tax of 0–3%, plus Irish employment costs of 2–3%).  Therefore, as shown in , while Irish CT has consistently been between 10 and 15% of Total Irish Tax, the additional employment contribution made by U.S. multinationals in Ireland, has led to strong growth in overall Irish Total Taxes.
+
+===Top 50 Irish Corporates===
+The top 50 Irish companies, ranked by 2017 Irish registered revenues, are as follows:
+From the above table:
+==Multinational tax schemes==
+
+===Background===
+By September 2018, the Irish Central Statistics Office ("CSO") reported that Irish GDP was 162% of Irish GNI* (e.g. BEPS tools had artificially inflated Ireland's economic statistics by 62%). Irish public indebtedness changes dramatically depending on whether Debt-to-GDP, Debt-to-GNI* or Debt-per-Capita is used; the Debt-per-Capita metric removes all distortion from Irish BEPS tools and implies a level of Irish public-sector indebtedness that is only surpassed by Japan.
+(†) The Central Statistics Office (Ireland) revised 2015 GDP higher in 2017, increasing Ireland's "leprechaun economics" 2015 GDP growth rate from 26.3% to 34.4%.<br>
+(‡) Eurostat show that GNI* is also still distorted by certain BEPS tools, and specifically contract manufacturing, which is a significant activity in Ireland. and the EU discovered Irish Revenue rulings on the Double Irish for Apple in 1991. Almost every major U.S. technology and life sciences firm has been associated with the Double Irish.  In 2018, tax academics showed the Double Irish shielded $106 billion of mainly U.S. annual corporate profits from both Irish and U.S. taxation in 2015.  As the BEPS tool with which U.S. multinationals built up untaxed offshore reserves of circa US$1 trillion from 2004 to 2017, the Double Irish is the largest tax avoidance tool in history. In 2016, when the EU levied a €13 billion fine on Apple, the largest tax fine in history, it covered the period 2004–14, during which Apple paid an Irish ETR of <1% on €110.8 billion in Irish profits. Despite the loss of taxes to the U.S. exchequer, it was the EU Commission that forced Ireland to close the Double Irish from January 2015; with closure to existing users by 2020.
+
+====Single Malt====
+
+In an October 2013 interview, PwC tax partner Feargal O'Rourke ("architect" of the Double Irish, see above), said that: "the days of the Double Irish tax scheme are numbered". In October 2014, as the EU forced the Irish State to close the Double Irish BEPS tool,  The Irish media picked up the article, but when an Irish MEP notified the then Finance Minister, Michael Noonan, he was told to "Put on the green jersey".  A November 2017 report by Christian Aid, titled "Impossible Structures", showed how quickly the Single Malt BEPS tool was replacing the Double Irish.  The report detailed Microsoft's and Allergen's schemes and extracts from advisers to their clients. and that the Irish State were keeping the matter, "under consideration".  On the same day the closure was announced, LinkedIn in Ireland, identified as a user of the Single Malt tool in 2017, announced in filings that it had sold a major IP asset to its parent, Microsoft (Ireland).  In July 2018, it was disclosed in the Irish financial media that Microsoft (Ireland) were preparing a restructure of their Irish BEPS tools into a CAIA (or Green Jersey) Irish tax structure.  Whereas the Double Irish and Single Malt BEPS tools enable Ireland to act as a "confidential" "Conduit OFC" for rerouting untaxed profits to places like Bermuda (e.g. it must be "confidential" as higher-tax locations would not sign full tax treaties with locations like Bermuda), the CAIA BEPS tool, enables Ireland to act as the "Sink OFC" (e.g. the terminus for untaxed profits, like Bermuda).
+CAIA uses the accepted tax concept of providing capital allowances for the purchase of physical assets.  However, Ireland turns it into a BEPS tool by providing the allowances for the purchase of "intangible assets", and particularly "intellectual property" assets; and critically, where the owner of the intangible assets is a "connected party" (e.g. a Group subsidiary, often located in a tax haven); and has valued the assets for the inter-Group transaction using an Irish IFSC accounting firm.
+
+CAIA "capitalises" the tax shield of the Double Irish, and thus materially increases the distortion of the Irish national accounts.  This was shown in July 2016 when the Irish CEO had to restate Irish 2015 GDP by 34.4% due to Apple's Q1 2015 "leprechaun economics" restructure into a CAIA BEPS tool. A June 2018 report by the EU Parliament's GUE–NGL body showed that Apple doubled the Irish corporate tax shield of its CAIA BEPS tool by financing the acquisition of the IP via Jersey (the report called the CAIA BEPS tool, the "Green Jersey").  Whereas the Double Irish and Single Malt have an ETR of less than 1%, the ETR of the CAIA BEPS tool ranges from 0% to 3% depending on the date on which the CAIA tool was started (see effective tax rates).
+
+====Knowledge Development Box====
+Ireland created the first OECD–compliant "Knowledge Development Box" ("KDB"), in the 2015 "Finance Act", to further support it's intellectual property BEPS toolkit.
+
+The KDB behaves like a CAIA BEPS scheme with a cap of 50% (i.e. similar to getting 50%–relief against capitalised IP, for a net effective Irish tax rate of 6.25%). As with the CAIA BEPS scheme, the KDB is limited to specific "qualifying assets", however, unlike CAIA tool, these are quite narrowly defined by the 2015 "Finance Act".
+
+The Irish KDB was created with tight conditions to ensure OECD compliance and thus meets the OECD's "modified Nexus standard" for IP. This has drawn criticism from Irish tax advisory firms who feel that its use is limited to pharmaceutical (who have the most "Nexus" compliant patents/processes), and some niche sectors.
+
+It is expected these conditions will be relaxed over time through refinements of the 2015 "Finance Act"; a route taken by other Irish IP–based BEPS tools:
+
+* Double Irish – the unusual definition of tax residence was embedded in the 1997 "Taxes and Consolidation Act" (TCA), and expanded in 1999-2003 "Finance Acts".
+* Single Malt – takes the Double Irish tax-residence concept around "management and control", and worded directly into specific bilateral tax treaties (Malta, UAE).
+
+===Debt–based BEPS tools===
+====Section 110 SPV====
+A "Section 110 Special Purpose Vehicle" ("SPV") is an Irish tax resident company, which qualifies under Section 110 of the 1997 "Irish Taxes Consolidation Act" (“TCA”), by virtue of restricting itself to only holding "qualifying assets", for a special tax regime that enables the SPV to attain full tax neutrality (i.e. the SPV pays no Irish corporate taxes).  It is a major Irish Debt–based BEPS tool.
+
+Section 110 was created to help International Financial Services Centre ("IFSC") legal and accounting firms compete for the administration of global securitisation deals. While they pay no Irish taxes, they contribute circa €100 million annually to the Irish economy from fees paid to the IFSC legal and accounting firms. IFSC firms lobbied the Irish State for successive amendments to the Section 110 legislation, so that by 2011, Section 110 had become an Irish Debt–based BEPS tool, for avoiding tax on Irish and international assets.
+
+In 2016, it was discovered that U.S. distressed debt funds used Section 110 SPVs, structured by IFSC professional service firms, to avoid material Irish taxes on domestic Irish activities, while State-backed mezzanine funds were using Section 110 SPVs to lower their clients Irish corporate tax liability.  Academic studies in 2017 note that Irish Section 110 SPVs operate in a brass plate fashion with little regulatory oversight from the Irish Revenue or Central Bank of Ireland, and have been attracting funds from undesirable activities (e.g. sanctioned Russian banks).
+
+These abuses were discovered because Section 110 SPVs must file public accounts with the Irish CRO.  In 2018 Central Bank of Ireland overhauled the little-used L–QIAIF vehicle, so that is now offers the same tax benefits on Irish assets held via debt as the Section 110 SPV, but without having to file Irish public accounts.
+
+====L–QIAIF====
+
+Sales price as multiple of the cost of build for a prime office in Dublin, versus other EU-28 countries (2016).
+Sales price of Dublin prime office versus other EU-28 countries (2016).
+The Irish QIAIF regime is exempt from all Irish taxes and duties (including VAT and withholding tax), and apart from the VCC wrapper, do not have to file public accounts with the Irish CRO. This has made QIAIF an important "backdoor" out of the Irish corporate tax system. The most favoured destination is to Sink OFC Luxembourg, which receives 50% of all outbound Irish foreign direct investment ("FDI). QIAIFs, with Section 110 SPVs, have made Ireland the 3rd largest Shadow Banking OFC.
+
+When the Section 110 SPV Irish domestic tax avoidance scandals surfaced in late 2016, it was due to Irish financial journalists and Dáil Éireann representatives scrutinising the Irish CRO public accounts of U.S. distressed firms. In November 2016 the Central Bank began to overhaul the L-QIAIF regime.  In early 2018, the Central Bank upgraded the L-QIAIF regime so that it could replicate the Section 110 SPV (e.g. closed end debt structures), but without needing to file public CRO accounts. In June 2018, the Central Bank announced that €55 billion of U.S. distressed debt assets had transferred out of Section 110 SPVs.
+
+It is expected that the Irish L–QIAIF will replace the Irish Section 110 SPV as Ireland's main Debt–based BEPS tool for U.S. multinationals in Ireland.
+
+The ability of foreign institutions to use QIAIFs (and particularly the ICAV-wrapper) to avoid all Irish taxes on Irish assets has been blamed for the bubble in Dublin commercial property (and, by implication, the Dublin housing crisis). This risk was highlighted in 2014 when Central Bank of Ireland consulted the European Systemic Risk Board ("ESRB") after lobbying to expand the L-QIAIF regime.
+
+===TP–based BEPS tools===
+Ireland's transfer pricing ("TP") based BEPS tools are mostly related to contract manufacturing.  By refusing to implement the 2013 EU Accounting Directive (and invoking exemptions on reporting holding company structures until 2022), Ireland enables their TP and IP–based BEPS tools to structure as "unlimited liability companies" (ULCs) which do not have to file public accounts with the Irish CRO. In spite of this, many Irish IP–based BEPS tools are so large that tax academics have been able to separate out their scale from filed group accounts (e.g. work of Gabriel Zucman). However, Irish TP–based BEPS tools are smaller, and therefore harder to pick out from a listed multinational's group accounts.  In addition, the Irish State, to help obfuscate the activities of the larger and more important IP–based BEPS tools, sometimes present their data as "manufacturing" data, and blended in with TP–based BEPS data; the example of how the Irish State obfuscated Apple's Q1 2015 CAIA BEPS tool, by crediting the 2015 leprechaun economics GDP growth rate to contract manufacturing and aircraft leasing activities is a notable case.  It is generally regarded that Ireland's main TP–based BEPS tool users are the life sciences manufacturers.
+
+==Effective tax rate (ETR)==
+===Background===
+The "headline" tax rate is the rate of taxation that is applied to the profits that a tax-code deems to be taxable after deductions.  The "effective" tax rate is the rate of taxation implied by the actual quantum of tax paid versus profits before all deductions are applied.  The gap between the Irish corporate "headline" rate of 12.5%, and the much lower Irish corporate "effective" rate of 2–4%, is a source of controversy:
+The Irish State asserts Ireland's ETR similar to the Irish "headline" CT rate of 12.5%. This is an important issue as Ireland's BEPS tools, the core of Ireland's , rely on having a global network of full bilateral tax treaties that accept Ireland's BEPS tools; major economies do not sign full bilateral tax treaties with known tax havens (e.g. Bermuda or Jersey).  When the EU Commission published their findings on Apple's Irish BEPS tools in 2016 (see below), Brazil became the first G–20 economy to blacklist Ireland as a tax haven, and suspended the Brazil–Ireland bilateral tax treaty.
+
+In 2014, Ireland refused to implement the 2013 EU Accounting Directive, and invoked exemptions on reporting holding company structures until 2022, so that multinationals can register as Irish "unlimited liability companies" (ULCs), which do not have to file public accounts with the Irish CRO. American tax economist James R. Hines Jr., published the most cited academic paper on tax havens, The report featured research into the "architect" of the Double Irish BEPS tool, PWC tax partner Feargal O'Rourke, who Bloomberg noted was regarded as a "hero" in Ireland. used the U.S. Bureau of Economic Analysis data filed by U.S. multinationals on their global operations, to estimate that the effective tax rate of U.S. multinationals in Ireland for 2011 was 2.2% to 3.8% (depending on assumptions).
+
+In November 2014, the "Tax Justice Network", in their "Ireland Country Report" from the 2013 Financial Secrecy Index, said the Irish State's claims that the effective tax rate was 12.5% were "misleading", and that Ireland's corporate ETR was between 2.5% to 4.5%, depending on the various assumptions used.
+
+In November 2017, Irish economist David McWilliams writing in "The Irish Times" quoted that the U.S. BEA statistics implied that U.S. multinationals in Ireland paid an effective tax rate of 3.27% on Irish registered pre-tax income of $106,789 million in 2013, and 3.38% on Irish registered pre-tax income of $108,971 million in 2014, due to "a myriad of loopholes to avoid even our own low rates of tax".
+
+In June 2018, 24 years after the 1994 James R. Hines paper into global corporate tax havens, noted French tax economist Gabriel Zucman, in his major study into the BEPS flows of global tax havens titled: "The Missing Profits of Nations"; also estimated in Appendix I of the study that Ireland's "aggregate" effective corporate tax rate was 4%.
+
+In January 2019, research commissioned by the Greens/EFA Group in the European Parliament found an ETR of 15.7%.
+
+===Filed accounts===
+Over the years, the largest U.S. multinationals in Ireland, who are both Ireland's largest companies and pay most of Ireland's corporation tax (see low tax economy),
+* Google <1% (4th largest Irish company,
+* Oracle <1% (12th largest Irish company,
+
+===Marketing brochures===
+Irish BEPS tools are not overtly marketed as brochures showing near-zero effective tax rates would damage Ireland's ability to sign and operate bilateral tax treaties (i.e. higher-tax countries do not sign full treaties with known tax havens). However, in the Irish financial crisis, some Irish tax law firms in the IFSC produced CAIA brochures openly marketing that its ETR was 2.5%. The investigation aimed to examine whether Apple used offshore structures, in conjunction with arrangements, to shift profits from the U.S. to Ireland. Senators Carl Levin and John McCain drew light on what they referred to as a special tax arrangement between Apple and Ireland which allowed Apple to pay a corporate tax rate of less than 2%.  The investigation labelled Ireland as the "holy grail of tax avoidance".
+
+In June 2014, the EU Commission launched an investigation into Apple's tax practices in Ireland for the period 2004–2014, whose summary findings were published on 30 August 2016 in a 4–page press release; Commissioner Margrethe Vestager stated: "In fact, this selective treatment allowed Apple to pay an effective corporate tax rate of 1 per cent on its European profits in 2003, down to 0.005 per cent in 2014". O'Rourke also referenced the PricewaterhouseCoopers/World Bank survey that Ireland's ETR was circa 12%.
+
+In December 2014, the Irish Department of Finance, gathered a panel of Irish experts (but no international experts) to estimate Irish corporate ETR for the Committee on Finance Public Expenditure. the Irish Revenue Commissioners stated that they: "had collected the full amount of tax that was due from Apple in accordance with the Irish law".
+
+In December 2017, the Department of Finance published a report they commissioned on the Irish corporate tax code by UCC economist, Seamus Coffey.  Ireland's corporate tax code has a holding company regime that enables the foreign multinational's new Irish–based "legal headquarters", to gain full Irish tax-relief on Irish withholding taxes and payment of dividends from Ireland.  The US tax code's anti-avoidance rules prohibit a US company from creating a new "legal" headquarters in Ireland while its main business is in the US (known as a "self-inversion").
+
+Once inverted, the US company can use Irish multinational BEPS strategies to achieve an effective tax rate well below the Irish headline rate of 12.5% on non–U.S. income, and also reduce US taxes on US income.  In September 2014, "Forbes Magazine" quoted research that estimated a US inversion to Ireland reduced the US multinational's "aggregate" tax rate from above 30% to well below 20%.
+
+In July 2017, the Irish Central Statistics Office (CSO) warned that tax inversions to Ireland artificially inflated Ireland's GDP data (e.g. without providing any Irish tax revenue).
+===U.S. inversions===
+====Share of inversions====
+, Bloomberg ranks Ireland as the most popular destination for U.S. tax inversions, attracting almost a quarter of the 85 inversions since 1983:
+====List of inversions====
+, the table below is the Bloomberg list of the 21 U.S. corporate tax inversions to Ireland (note, Bloomberg lists U.S. corporate tax inversions by order of the year in which they first left the U.S. which is used below). All of the U.S. multinationals listed below are listed on stock exchanges and the Market Capitalisation is as per 21 November 2018.  "Spin-off inversions" and "self-inversions" happen outside of the U.S. (e.g. the corporate/corporate parent had previously left the U.S.), and thus do not need an acquisition of an Irish—based corporate to execute the move to Ireland, as per U.S. tax code requirements (see above).
+====U.S. countermeasures====
+
+In April 2016, the Obama administration announced new tax rules to increase the threshold for a U.S. corporate tax inversion to be considered a "foreign company", and thus escape U.S. taxation. The new rules were directly designed to block the proposed $160 billion merger of U.S.–based Pfizer and Irish–based Allergan, which would have been the largest corporate tax inversion in history.  The rule changes worked by disregarding acquisitions a target (e.g. Allergan), had made in the 3 years prior to the inversion, in meeting the requirement for the target to be 40% of the merged group.
+
+In December 2017, the Trump administration's U.S. Tax Cuts and Jobs Act (TCJA) overhauled the U.S. tax-code and replicated many of the changes the UK made to their tax-code in 2009–2012 to successfully combat inversions (see below). In particular, the TCJA moved the U.S to a hybrid–"territorial tax" system, reduced the headline rate from 35% to 21% and introduced a new GILTI–FDII–BEAT regime designed to remove incentives for U.S. multinationals to execute corporate tax inversions to Ireland.
+
+In December 2017, U.S technology firm Vantiv, the world's largest payment processing company, confirmed it had abandoned its plan to execute a corporate tax inversion to Ireland.  In Q1 2018, Pfizer disclosed that post the TCJA its global tax rate for 2019 would be 17%, similar to the circa 15–16% 2019 tax rate of past U.S. corporate tax inversions to Ireland, Eaton, Allergan, and Medtronic. In March 2018, the Head of Life Sciences in "Goldman Sachs", Jami Rubin, stated that: "Now that [U.S.] corporate tax reform has passed, the advantages of being an inverted company are less obvious".
+
+, there have been no further U.S. corporate tax inversions to Ireland since the 2016–2017 rule changes by the Obama, and the Trump administrations.
+
+====Apple's inversion====
+[[File:Ireland Balance of Payment Components (2012-2017).png|thumb|Apple's Q1 restructuring of IP on Ireland's Balance of Payments.<br>Brad Setser & Cole Frank (the Council on Foreign Relations)
+
+===UK inversions===
+Ireland's largest law firm, "Authur Cox", records the move of "Experian plc" to Ireland in 2006, as the first UK corporate tax inversion to Ireland.  Experian was formed in 2006 from the de-merger of UK conglomerate GUS plc, but most of Experian's business was U.S. based (e.g. it had a limited connection to the UK).
+
+Between 2007 and 2009, several UK multinationals "re-domiciled" to Ireland: WPP plc, United Busines Media plc, Henderson Group plc, Shire plc and Charter (Engineering) plc. Unlike the U.S. tax-code, the UK tax-code did not require the inversion to be executed by way of an acquisition of an Irish–based corporate who was at least 20% of the merged group. By 2014, the UK "HMRC" reported that most of the UK multinationals that had inverted to Ireland had either returned to the UK (e.g., WPP plc, United Business Media plc, Henderson plc), or were about to be acquired by U.S. multinationals as part of a U.S. tax inversion (e.g. Shire plc).
+
+The UK corporate tax reforms not only reversed many of Irish tax inversions but in 2014, "The Wall Street Journal" reported that "In U.S. tax inversion Deals, U.K. is now a winner". , the UK had received the 3rd–largest number of U.S. corporate tax inversions in history, only ranking behind Ireland and Bermuda in popularity (see above).
+
+, there have been no further UK corporate tax inversions to Ireland since the 2009–2012 rule changes by the Labour, and the Conservative governments.
+
+===Other inversions===
+Ireland's largest law firm, "Authur Cox", records the move of "Pentair" to Ireland in 2014, as the first Swiss corporate tax inversion to Ireland.
+
+, outside of U.S. and UK inversions to Ireland, there have been no other recorded corporate tax inversions to Ireland from other jurisdictions.
+
+==Corporate tax haven==
+===Ireland as a tax haven===
+
+[[File:Uncovering Offshore Financial Centers Figure 3 Network of ownership flows between countries.jpg|thumb|Conduit and Sink OFCs: CORPNET estimate Ireland to be one of the world's global Conduit OFCs. During 2007–2008, several major UK multinationals executed corporate tax inversions to Ireland.  During 2009–2012, both the Labour Government and the Conservative Government, overhauled the UK corporate tax code, switching from a "worldwide tax" system to a "territorial tax" system. the EU has challenged Ireland's tax code under State-aid legislation. Seamus Coffey's 2016 "Review of Ireland's Corporation Tax Code" chronicled how the EU withdrew the exemption from State-aid rules for Ireland's special tax rate of 10% in 1996–1998, however, Ireland countered the EU withdrawal by lowering the entire Irish standard rate of corporate tax from 40% to 12.5% over 1996–2003 (see ).  In October 1994, the "Financial Times" chronicled how the EU Commission forced the closure of the Double Irish BEPS tool in 2015 on the threat of a full State-aid investigation into Ireland's tax code.
+
+In January 2017, the EU Commissioner for Taxation, Pierre Moscovici, explicitly stated to an Irish State Oireachtas Finance Committee that "Ireland is not a tax haven"; however, in January 2018 Moscovi called Ireland and the Netherlands "tax black holes".  In January 2018, Ireland was accused of "tax dumping" by German political leaders.
+
+In March 2018, the EU Commission proposed a "Digital Services Tax" (DST), targeted at U.S. technology firms using Irish BEPS tools. The DST is designed to "override" Ireland's BEPS tools and force a minimum level of EU tax on U.S. technology firms.  The EU have proposed the DST should be a 3% tax on revenues which would translate into an effective 10–15% tax rate (using pre-tax margins of 20–30% for Apple, Google and Microsoft); it is also expensible against national tax, and so the DST would reduce net Irish tax (e.g. Google Ireland would offset its DST against Irish CT).
+
+In April 2018, the EU Commission's GDPR rules forced Facebook to move 1.5 billion of the 1.9 billion Facebook accounts hosted in Ireland ( 79% of the 2.4 billion total global Facebook accounts), back to the U.S. The April 2018 Irish High Court ruling in the Max Schrems EU data-protection case could make Ireland even less attractive to Facebook.
+
+The EU Commission's long-standing desire to introduce a Common Consolidated Corporate Tax Base ("CCCTB"), would have a more severe effect on Ireland's CT system.
+
+====US countermeasures (2016–2018)====
+
+The U.S. has had a contradictory approach to Ireland's CT system.  U.S. investigations, from the first U.S. IRS study in 1981,
+
+This contradiction is chronicled in "political compromises". The source of the contradiction is ascribed to the findings of U.S. tax academic, James R. Hines Jr.; Hines is the most cited author on tax haven research, and his important 1994 Hines–Rice paper was one of the first to use the term" "profit shifting"". Hines' insight that the U.S. is the largest beneficiary from tax havens was confirmed by others, and dictated U.S. policy towards tax havens, including the 1996 "check-the-box" rules, and U.S. hostility to OECD attempts in curbing Ireland's BEPS tools.
+
+However, by 2014 Ireland had become the leading destination for U.S. corporate tax inversions, and in 2016, the Obama administration decided to move against Ireland's CT system by amending the U.S. tax-code to block the proposed $160 billion Pfizer–Allergan Irish corporate tax inversion, which would have been the largest tax inversion in history.
+
+The most serious threat to Ireland's CT system, and Ireland's economic model came in December 2017 with the passing of the Tax Cuts and Jobs Act (TCJA) by the Trump administration. Parts of the TCJA are specifically targeted at Irish BEPS tools as used by U.S. multinationals in Ireland.  The TCJA introduces many of the changes that the UK made to its tax code in 2009-2012, including moving to a "territorial tax" system and reduction of headline rate of tax; could be a "boom for Ireland", over the next few years.
+
+===Sustainability of system===
+The above post–2009 UK, EU and U.S. countermeasures against Ireland's corporate tax system, and by extension Ireland's economic model, have been a cause of concern in Ireland, and even the "architect" of Ireland's BEPS tools, PricewaterhouseCoopers tax-partner, Feargal O'Rourke, has warned on the sustainability of Irish CT revenues.
+
+In December 2017, the Irish Government published a study on the sustainability of its corporate tax system by University College Cork economist Seamus Coffey (called the "Coffey Report"). but caveated that given the concentration of CT revenues to a handful of U.S. multinationals, a shock to CT revenues was "inevitable".
+
+In Q2 2018, an IMF country report on Ireland, while noting the significant exposure of Ireland's economy to U.S. corporates, concluded that the TCJA may not be as effective as Washington expects in countering Ireland as a U.S. corporate tax haven. In writing its report, the IMF conducted confidential anonymous interviews with Irish corporate tax experts.
+
+However, in June 2018, the former IMF mission-chief for Ireland Ashoka Mody, who oversaw Ireland's bailout during the 2009–22012 Irish financial crisis, warned that in relation to TCJA:
+==Historical rates (1994–2018)==
+[[File:Irish Corporation Tax Rates (1974 to 2016).png|thumb|Irish corporate tax rates (1974 to 2016). Source: Revenue. This has not been without controversy and complaint from both Ireland's EU partners, and also from the US (whose multinationals, for specific reasons, comprise almost all of the major foreign multinationals in Ireland).
+
+===Post-independence under Cumann na nGaedheal===
+It was only with the acceptance of the Anglo-Irish Treaty by both the Dáil and British House of Commons in 1922 that the mechanisms of a truly independent state begin to emerge in the Irish Free State. In keeping with many other decisions of the newly independent state the Provisional Government and later the Free State government continued with the same practices and policies of the iriash administration with regard to corporate taxation.
+
+This continuation meant that the British system of "corporate profits taxation" ("CPT") in addition to income tax on the profits of firms was kept. The CPT was a relatively new innovation in the United Kingdom and had only been introduced in the years after World War I, and was widely believed at the time to have been a temporary measure. However, the system of firms being taxed firstly through income taxed and then through the CPT was to remain until the late seventies and the introduction of Corporation Tax, which combined the income and corporation profits tax in one.
+
+During the years of W. T. Cosgrave's governments, the principal aim with regard to fiscal policy was to reduce expenditure and follow that with similar reductions in taxation. This policy of tax reduction did not extend to the rate of the CPT, but companies did benefit from two particular measures of the Cosgrave government. Firstly, and probably the achievement of which the Cumann na nGaedheal administration was most proud, was the reduction by 50% in the rate of income tax from 6 shillings in the pound to 3 shillings. While this measure benefited all income earners, be they private individuals or incorporated companies, a number of adjustments in the Finance Acts, culminating in 1928, increased the allowance on which firms were not subject to taxation under the CPT. This allowance was increased from £500, the rate at the time of independence, to £10,000 in 1928. This measure was in part to compensate Irish firms for the continuation of the CPT after it has been abolished in the United Kingdom.
+
+A measure which marked the last years of the Cumann na nGaedheal government, and one that was out of kilter with their general free trade policy, but which came primarily as a result of Fianna Fáil pressure over the 'protection' of Irish industry, was the introduction of a higher rate of CPT for foreign firms. This measure survived until 1948, when the Inter-Party government rescinded it, as many countries with which the government was attempting to come to double taxation treaties viewed it as discriminatory.
+
+===Fianna Fáil under Éamon de Valera===
+The near twenty years of Fianna Fáíl government between from 1931 to 1948, cannot be said to have been a time where much effort was expended on changing or analysing the taxation system of corporations. Indeed, only one policy sticks out during those year of Fianna Fáil rule; being the continued reduction in the level of the allowance on which firms were to be exempt from taxation under the CPT, from £10,000 when Cumman na nGaehael left office, to £5,000 in 1932 and finally to £2,500 in 1941. The impact of this can be seen in the increasing importance of CPT as a percentage of government revenue, rising from and less than 1% of tax revenue in the first decade of the Free State to 3.64% in the decade 1942–43 to 1951–52. This increase in revenue from the CPT was due to more firms being in the tax net, as well as the reduction in allowances. The increased tax net can be seen from the fact that between 1932–33 and 1938–39, the number of firms paying CPT increased by over 33%. One other aspect of the Fianna Fáil government which bears all the fingerprints of Seán Lemass, was the 1946 decision to allow mining companies to write off all capital expenditure against tax over five years.
+
+===Seán Lemass and an Irish tax system===
+The period between after the late 1950s and up to the mid-1970s can be viewed as a period of radical change in the evolution of the Irish Corporate Taxations system. The increasing realisation of the government that Ireland would be entering into an age of increasing free trade encouraged a number of reforms of the tax system. By the mid-1970s, a number of amendments, additions and changes had been made to the CPT, these included fifteen-year tax holidays for exporting firms, the decision by the government to allow full depreciation in 1971 and in 1973, and the Section 34 of the Finance Act, which allowed total tax relief in respect of royalties and other income from licenses patented in Ireland.
+
+This period from c.1956 to c.1975, is probably the most influential on the evolution of the Irish corporate tax system and marked the development of an 'Irish' corporate tax system, rather than continuing with a version of the British model.
+
+This period saw the creation of Corporation Tax, which combined the Capital Gains, Income and Corporation Profits Tax that firms previously had to pay. Future changes to the corporate tax system, such as the measures implemented by various governments over the last twenty years can be seen as a continuation of the policies of this period. The introduction in 1981 of the 10% tax on manufacturing was simply the easiest way to adjust to the demands of the EEC to abolish the export relief, which the EEC viewed as discriminatory. With the accession to the EEC, the advantages of this policy became increasingly obvious to both the Irish government and to foreign multi-nationals; by 1982 over 80% of companies who located in Ireland cited the taxation policy as the primary reason they did so.
+
+===Charles Haughey low-tax economy (1987–2009)===
+The Irish International Financial Services Centre ("IFSC") was created in Dubin in 1987 by Taoiseach Charles Haughey with an EU approved 10% special economic zone corporate tax rate for global financial firms within its 11-hectare site.  The creation of the IFSC is often considered the birth of the Celtic Tiger and the driver of its first phase of growth in the 1990s.
+
+In response to EU pressure to phase out the 10% IFSC rate by the end 2005, the overall Irish corporation tax was reduced to 12.5% on trading income, from 32%, effectively turning the entire Irish country into an IFSC.
+
+In the 1998 Budget (in December 1997) Finance Minister, Charlie McCreevy laid the foundation for the new vehicles and structures that would become used by IFSC law and accounting firms to help global multinationals use Ireland as a platform to avoid non-US taxes (and even the 12.5% Irish corporate tax rate). These vehicles would become famous as the Double Irish, Single Malt and the Capital Allowances for Intangible Assets tax arrangements. The Act also created the Irish Section 110 SPV, which would make the IFSC the largest securitisation location in the EU.
+
+===Post crisis zero-tax economy (2009–2018)===
+The Irish financial crises created unprecedented forces in the Economy. Irish banks, the largest domestic corporate taxpayers, faced insolvency, while Irish public and private debt-to-GDP metrics approached the highest levels in the OECD. The Irish Government needed foreign capital to re-balance their overleveraged economy. Directly, and indirectly, they amended many Irish corporate tax structures from 2009-2015 to effectively make them "zero-tax" structures for foreign multinationals and foreign investors. The US Bureau of Economic Analysis ("BEA") "effective" Irish CT rate, fell to 2.5%.  When Apple "onshored" their ASI subsidiary in January 2015, it caused Irish GDP to rise 26.3% in one quarter ("leprechaun economics"). Foreign multinationals were now 80% of corporate taxes, and concentrated in a smaller group. Under pressure from the EU, Ireland closed down the double Irish in 2015, which was described as the largest tax avoidance scheme in history. However, Ireland replaced it with the new single malt system, and an expanded capital allowances scheme. More targeted responses have come in the form of the US 2017 TCJA (esp. FDII and GILTI rates), and the EU's 2018 impending Digital Services Tax.
+
+==See also==
+* Taxation in the Republic of Ireland
+* Base erosion and profit shifting
+* Corporate tax haven
+* International Financial Services Centre
+* Tax haven
+* Leprechaun economics Apple BEPS tool in Ireland
+* Modified gross national income replaced Irish GDP/GNP
+* Feargal O'Rourke architect of Ireland's BEPS tools
+* Matheson (law firm) Ireland's largest U.S. tax advisor
+* Qualifying investor alternative investment fund (QIAIF) Irish tax-free vehicles
+* Double Irish IP-based BEPS tool
+* Single malt arrangement IP-based BEPS tool
+* CAIA arrangement IP-based BEPS tool
+* Section 110 SPV Debt-based BEPS tool
+* Conduit and Sink OFCs analysis of tax havens
+==Notes==

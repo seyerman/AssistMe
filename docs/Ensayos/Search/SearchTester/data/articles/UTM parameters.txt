@@ -1,0 +1,12 @@
+"Urchin Tracking Module" ("UTM") "parameters" are five variants of URL parameters used by marketers to track the effectiveness of online marketing campaigns across traffic sources and publishing media. They were introduced by Google Analytics' predecessor Urchin and, consequently, are supported out-of-the-box by Google Analytics. The UTM parameters in a URL identify the campaign that refers traffic to a specific website, and attributes it to the browser's website session and the sessions after that until the campaign attribution window expires. The parameters can be parsed by analytics tools and used to populate reports. including the Google Analytics URL Builder for websites, and the equivalent Chrome extension. When a hyperlink is followed that contains a URL with UTM parameters, the web analytics software of the destination website interprets the parameter information and attributes it to the browser's website session and the sessions after that until the campaign attribution window has expired (by default, six months in Google Analytics).
+
+== Metrics ==
+UTM parameters that are passed to URLs can be parsed by analytics tools such as Google Analytics and Adobe Analytics, with the data used to populate standard and custom analytics reports. Web analytics software may attribute parameters to the browser's current and subsequent sessions until the campaign window has expired.
+
+== UTM parameters ==
+There are five different UTM parameters, which may be used in any order:
+== References ==
+Category:Web analytics
+Category:Web log analysis software
+Category:URL
+Category:Google
