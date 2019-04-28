@@ -1,0 +1,39 @@
+In computer science, an algorithm for "matching wildcards" (also known as a "globbing") is useful in comparing text strings that may contain wildcard syntax. Common uses of these algorithms include command-line interfaces, e.g. the Bourne shell or Microsoft Windows command-line or text editor or file manager, as well as the interfaces for some search engines and databases. Matching wildcards functionality is central to the processing of regular expressions.
+
+== History ==
+Early algorithms for matching wildcards often relied on recursion, but the technique was criticized on grounds of performance and reliability considerations. Non-recursive algorithms for matching wildcards have gained favor in light of these considerations.
+
+Among both recursive and non-recursive algorithms, strategies for performing the pattern matching operation vary widely, as evidenced among the variety of example algorithms referenced below. Test case development and performance optimization techniques have been demonstrably brought to bear on certain algorithms, particularly those developed by critics of the recursive algorithms.
+
+== Examples of recursive algorithms ==
+* Rich Salz' wildmat open source algorithm
+* Filip's algorithm
+* Deadlock's algorithm
+* Vignesh Murugesan's WildCard Matching Algorithm
+* Apple Inc's open source algorithm
+
+== Non-recursive algorithms developed by critics of the recursive algorithms ==
+* Krauss open source matching wildcards algorithm
+* Alessandro Cantatore's open source wildcard matching algorithms
+* Siler's algorithm
+
+== Other non-recursive algorithms ==
+* M Shahid Shafiq's open source algorithm
+* Jack Handy's algorithm
+
+== See also ==
+* Pattern matching
+* Pattern calculus
+* Glob_(programming)
+* Wildcard character
+* List of algorithms
+
+== References ==
+Category:Computer file formats
+Category:Computer science
+Category:Computing commands
+Category:History of human–computer interaction
+Category:Pattern matching
+Category:Software architecture
+Category:User interface techniques
+Category:User interfaces

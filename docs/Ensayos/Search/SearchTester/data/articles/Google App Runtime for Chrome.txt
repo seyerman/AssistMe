@@ -1,0 +1,41 @@
+"Android Runtime for Chrome" ("ARC") is a discontinued compatibility layer and sandboxing technology for running Android applications on desktop and laptop computers in an isolated environment. It allowed applications to be safely run from a web browser, independent of user operating system, at near-native speeds. It has since been discontinued after Google developed another method to run Android apps on Chrome OS devices.
+
+==Overview==
+The Android Runtime for Chrome is a partially open-sourced project under development by Google. It was announced by Sundar Pichai at the Google I/O 2014 developer conference. In a limited beta consumer release in September 2014, Duolingo, Evernote, Sight Words, and Vine Android applications were made available in the Chrome Web Store for installation on Chromebook devices running OS version 37 or higher.
+
+, the development by Google is taking place behind closed doors with individual repository commits, code reviews and most issue tracking being kept internal to the company. The open sourced parts of ARC are licensed under a BSD-style license.
+
+==Development==
+In a limited beta consumer release in September 2014, Duolingo, Evernote, Sight Words, and Vine Android applications were made available in the Chrome Web Store for installation on Chromebook devices running OS version 37 or higher.
+
+In October 2014, three more apps were added: CloudMagic, Onefootball, and Podcast Addict.
+
+In March 2015, Anandtech reported that VLC media player should be added in the coming months.
+
+On April 1, 2015, Google released "ARC Welder", a Chrome Packaged App providing the ARC runtime and application packager. It is intended to give Android developers a preview of the upcoming technology and a chance to test their Android apps on the Chrome platform.
+
+==Architecture==
+ARC builds upon the Google Native Client. The Native Client platform is being extended with a POSIX-compatible layer on top of the NaCl Integrated Runtime and Pepper APIs which emulate the Linux environment in the foundation of an Android phone. This then allows running an almost unchanged Dalvik VM in a sandboxed environment.
+
+ARC uses the Chrome permission system, not the Android one.
+
+==Security==
+According to a security evaluation by Meng Xu, ARC apps may communicate with other installed Chrome Extensions and the files stored on the underlying operating system which might open avenues to various attacks. These threats are mitigated by the heavily sandboxed environment of ARC.
+
+==Community efforts==
+During the second half of 2014, before any developer tools or documentation was released by Google, several community efforts about ARC appeared.
+
+Vlad Filippov maintains ARChon, an unofficial distribution of the ARC runtime which can be installed to non-chromebook computers. The same developer also maintains a JavaScript (nodejs) tool to automate packaging Android apps for use with ARC.
+
+Other developers created more user-friendly tools beyond chromeos-apk to simplify packaging applications for the ARCon runtime. The first of them is a Chrome Packaged App called twerk and the other is an Android application ARCon Packager It used to be named Chrome APK Packager but the name was changed at Google's request.
+
+===Software===
+There is an active Reddit community which maintains a list of Android apps that work with the ARCon runtime. Vlad Filippov published a guide how to run Opera Mini inside Chromium browser.
+
+==Reception==
+The reception has been mostly positive. Some developers expressed confusion about the wide scale of competing development platforms which Google now offers: Web apps, Chrome Packaged Apps and Android Apps delivered through ARC. Google responded that they are fully committed to all those platforms and encourage developers to choose the one that fits them best.
+
+==See also==
+* Google Native Client
+* BlueStacks
+* Android-x86

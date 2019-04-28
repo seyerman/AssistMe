@@ -1,0 +1,11 @@
+"Google Fred" was a series of mysterious Google Search updates that occurred in March 2017.  The name was given to these updates jokingly by Gary Illyes, webmaster trends analyst at Google. Illyes wrote that from now on every Google Search update will be called Fred unless stated otherwise.
+
+Google Fred had a big impact on the Google rankings of websites worldwide. Initially most SEO news websites reported that Google Fred looked at the quality of websites, however, Illyes subsequently stated that Google Fred was not just one update but several different updates.
+
+== Purpose ==
+The purpose of the Google Fred updates around March 2017 is not totally clear. At the SMX West Conference in 2017 Illyes said that the techniques Fred went after specifically are mentioned in the Google Webmaster Guidelines.
+
+Google Fred is an algorithm update that targets black-hat tactics tied to aggressive monetization. This includes an overload on ads, low-value content, and little added user benefits. This does not mean all sites hit by the Google Fred update are dummy sites created for ad revenue, but (as Barry Schwartz noted in his [https://www.seroundtable.com/google-fred-update-ad-heavy-low-value-23538.html observations of Google Fred]) the majority of websites affected were content sites that have a large amount of ads and seem to have been created for the purpose of generating revenue over solving a user's problem.
+
+==Confirmed instances==
+* March 28, 2017, update.

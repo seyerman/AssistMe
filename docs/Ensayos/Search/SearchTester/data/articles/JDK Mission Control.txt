@@ -1,0 +1,18 @@
+"JDK Mission Control" is an open source tools suite for the Java virtual machine. The tools help finding problems in, and optimizing, programs running on the JVM in production. JDK Mission Control supports OpenJDK 11 (and above) and Oracle JDK 7u40 (and above).
+
+JDK Mission Control primarily consists of the following tools:
+* A JFR (JDK Flight Recorder) analyzer and visualizer
+* A JMX Console
+
+There are also various plug-ins available, such as:
+* A heap dump (hprof format) analyzer (JOverflow)
+
+==History==
+JDK Mission Control started out as JRockit Mission Control, a production time profiling and diagnostics tools suite which was delivered as a part of the JRockit JVM distribution. After Oracle acquired Sun Microsystems, JRockit Flight Recorder and JRockit Mission Control were rebranded Java Flight Recorder and Java Mission Control. In 2018 both Java Flight Recorder and Java Mission Control were open sourced. When open sourced they were rebranded JDK Mission Control and JDK Flight Recorder respectively, due to Java trademark issues. At the same time, the delivery format for JMC was changed, making it easier to upgrade JMC and the JDK independently.
+
+==See also==
+
+* Java platform
+* Java version history
+* JRockit
+* JDK Flight Recorder

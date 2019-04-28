@@ -1,0 +1,12 @@
+"Makani Power" is an Alameda, California-based company that developed airborne wind turbines with the support of Google X and the U.S. Department of Energy office of ARPA-E.  Makani is a leader in the development of airborne wind power extraction systems.
+Makani was founded in 2006 by Saul Griffith, Don Montague, and Corwin Hardham. It received funding as part of Google.org's Renewable Energy cheaper than Coal (RE<C) initiative. "Makani" is Hawaiian for "wind." One of the founders, Corwin Hardham, died in 2012 at age 38. On May 23, 2013, Makani Power was acquired by Google and was folded into Google X.
+
+== Working principle ==
+In order to meet its goal of producing low-cost renewable energy, the Makani kite-energy system uses autonomous tethered wings which fly in a circular path and generate electricity via wind turbines mounted upon the main wing, a method already in public domain; expert Miles Loyd in 1980 stated that for large scale purposes flying the generators was expected to be disfavored because of the need to fly the mass of the generators; many of Makani Power competitors have generators kept on the ground, like KiteGen, Italy. The electricity is transmitted to the ground via an electrical cable within the kite's tether.  Several patent applications have been made; some have been granted.
+
+== Development milestones ==
+In December 2016, Makani operated for the first time a 600&nbsp;kW prototype with 28 meter wing span.
+The energy kite is currently being tested on the Big Island of Hawaii.
+
+==See also==
+* List of airborne wind energy organizations

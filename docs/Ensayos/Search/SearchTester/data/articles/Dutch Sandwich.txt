@@ -1,0 +1,37 @@
+[[Image:JoopWijn.jpg|thumb|right|"Ex. Dutch Minister Joop Wijn" credited with introducing the Dutch Sandwich IP-based BEPS tool (which is often used with the Double Irish BEPS tool), and the "Dutch Double Dip" Debt-based BEPS tool]]
+
+"Dutch Sandwich" is a base erosion and profit shifting (BEPS) corporate tax tool, used mostly by U.S. multinationals to avoid incurring EU withholding taxes on untaxed profits as they were being moved to non-EU tax havens (such as the Bermuda black hole).  These untaxed profits could have originated from within the EU, or from outside the EU, but in most cases were routed to major EU corporate-focused tax havens, such as Ireland and Luxembourg, by the use of other BEPS tools.  The Dutch Sandwich was often used with Irish BEPS tools such as the Double Irish, the Single Malt and the Capital Allowances for Intangible Assets ("CAIA") tools.  In 2010, Ireland changed its tax-code to enable Irish BEPS tools to avoid such withholding taxes without needing a Dutch Sandwich.
+
+==Explanation==
+
+The structure relies on the tax loophole that most EU countries will allow royalty payments be made to other EU countries without incurring withholding taxes.  However, the Dutch tax code allows royalty payments to be made to several offshore tax havens (like Bermuda), without incurring Dutch withholding tax.
+
+The Dutch Sandwich therefore behaves like a "backdoor" out of the EU corporate tax system and into un-taxed non-EU offshore locations.
+
+These royalty payments require the creation of intellectual property ("IP") licensing schemes, and therefore the Dutch sandwich is limited to specific sectors that are capable of generating substantial IP.  This is most common in the technology, pharmaceutical, medical devices and specific industrials (who have patents) sectors.
+
+Its creation is generally attributed to Joop Wijn (State Secretary of Economic Affairs in May 2003) after lobbying from U.S. tax lawyers from 2003–2006.
+==Double Irish==
+The Dutch Sandwich is most commonly associated with the double Irish BEPS tax structure,  The Double Irish is the largest BEPS tool in history, helping mostly US technology and life sciences multinationals shield up to US$100 billion per annum from taxation.
+
+The Double Irish uses an Irish company (IRL2) that is legally incorporated in Ireland, and thus the US-tax code regards it as foreign, but is "managed and controlled" from, say, Bermuda (and thus the Irish tax code also regards it as foreign).  The Dutch Sandwich, with the Dutch company as the "dutch slice" in the "sandwich", is used to move money to this Irish company (IRL2), without incurring Irish withholding tax.  
+
+In 2013, Bloomberg reported that lobbying by PriceWaterhouseCoopers Irish Managing Partner Feargal O'Rourke, who Bloomberg labelled "grand architect" of the Double Irish, led to the Irish Government to relax the rules for making Irish royalty payments to non-EU companies (i.e. IRL2), without incurring Irish withholding tax.  This removed the explicit need for the Dutch Sandwich, but there are still several conditions that will not suit all types of Double Irish structures, and thus several US multinationals in Ireland continued with the classic "Double Irish with a Dutch Sandwich" combination. the Double Irish BEPS tool was closed to new users in 2015, however, new Irish BEPS tools were created to replace it:
+
+* Microsoft's and Allergan's Single Malt Irish BEPS tool;
+
+* Apple's and Accenture's Capital Allowances for Intangible Assets (CAIA) Irish BEPS tool (made famous by leprechaun economics).
+
+==Conduit OFC==
+The Dutch Sandwich has made Netherlands the largest of the top five global Conduit OFCs identified in a 2017 analysis published by Nature of offshore financial centres titled: ""Uncovering Offshore Financial Centers: Conduits and Sinks in the Global Corporate Ownership Network"". The five global Conduit OFCs (Netherlands, United Kingdom, Ireland, Singapore, and Switzerland) are countries not formally labeled "tax havens" by the EU/OCED, however, they are responsible for routing almost half the flows global corporate tax avoidance to the twenty-four Sink OFCs, without incurring tax in the Conduit OFC. 
+
+Conduit OFCs rely on major offices of large law and accounting firms to create legal vehicles, where as Sink OFCs have smaller operations (e.g. branches of these larger firms).  For example, Ireland has the BEPS tools to enable US IP-heavy multinationals to reroute global profits into Ireland, tax-free.  The Netherlands then enables these Irish profits to get to a classical tax haven (e.g. the Cayman Islands or Jersey) without incurring EU withholding tax.
+
+==See also==
+* Tax exporting
+* Tax inversion
+* Tax haven
+* Conduit and Sink OFCs
+* Bermuda Black Hole
+* Irish Financial Services Centre
+* Feargal O'Rourke

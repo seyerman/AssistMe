@@ -1,0 +1,37 @@
+"Project Zero" is the name of a team of security analysts employed by Google tasked with finding zero-day vulnerabilities, the secret hackable bugs that are exploited by criminals, state-sponsored hackers, and intelligence agencies. It was announced on 15 July 2014.
+
+==History==
+After finding a number of flaws in software used by many end-users while researching other problems, such as the critical "Heartbleed" vulnerability, Google decided to form a full-time team dedicated to finding such vulnerabilities, not only in Google software but any software used by its users. The new project was announced on 15 July 2014 on Google's security blog.
+
+While the idea for Project Zero can be traced back to 2010, its establishment fits into the larger trend of Google's counter-surveillance initiatives in the wake of the 2013 global surveillance disclosures by Edward Snowden. The team was formerly headed by Chris Evans, previously head of Google's Chrome security team, who subsequently joined Tesla Motors. Other notable members include security researchers, such as Ben Hawkes, Ian Beer and Tavis Ormandy.
+
+==Bug finding and reporting==
+Bugs found by the Project Zero team are reported to the manufacturer and only made publicly visible once a patch has been released
+
+==Notable members==
+
+*Ben Hawkes
+
+==Past members==
+*Gal Beniamini
+*Thomas Dullien
+*Chris Evans
+*Matt Tait
+*Steven Vittitoe
+
+==Notable discoveries==
+One of the first Project Zero reports that attracted attention involved a flaw that allowed hackers to take control of software running the Safari browser. For its efforts, the team, specifically, Beer, was cited in Apple's brief note of thanks. 
+
+On 30 September 2014 Google detected a security flaw within Windows 8.1's system call "NtApphelpCacheControl", which allows a normal user to gain administrative access. Microsoft was notified of the problem immediately but did not fix the problem within 90 days, which meant information about the bug was made publicly available on 29 December 2014.
+
+On the 9th of March 2015, Google Project Zero's blog posted a guest post that disclosed how a previously-known hardware flaw in commonly-deployed DRAM called Row Hammer could be exploited to escalate privileges for local users. This post spawned a large quantity of follow-up research both in the academic and
+hardware community.
+
+On 19 February 2017 Google discovered a flaw within Cloudflare's reverse proxies, which caused their edge servers to run past the end of a buffer and return memory that contained private information such as HTTP cookies, authentication tokens, HTTP POST bodies, and other sensitive data. Some of this data was cached by search engines. A member of the Project Zero team referred to this flaw as Cloudbleed. On 31 March 2017, LastPass announced they had fixed the problem.
+
+Project Zero was involved in discovering the Meltdown and Spectre vulnerabilities affecting many modern CPUs, which were discovered in mid-2017 and disclosed in early January 2018. The issue was discovered by Jann Horn independently from the other researchers who reported the security flaw and was scheduled to be published on 9 January 2018 before moving the date up because of growing speculation.
+
+==See also==
+* Proactive cyber defence
+* Row hammer
+* Speculative Store Bypass (SSB)

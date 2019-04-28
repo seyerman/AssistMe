@@ -1,0 +1,7 @@
+"Mediabot" is the web crawler that Google uses for analysing the content so Google AdSense can serve contextually relevant advertising to a web page. Mediabot identifies itself with the user agent string "Mediapartners-Google/2.1".
+
+Unlike other crawlers, Mediabot does not follow links to discover new crawlable URLs, instead only visiting URLs that have included the AdSense code. Where that content resides behind a login, the crawler can be given a login so that it is able to crawl protected content.
+
+Mediabot will usually first visit a page within seconds of AdSense code first being called from that page. Thereafter it revisits pages on a regular but unpredictable basis. Changes made to a page therefore do not immediately cause changes to the ads displayed on the page.
+
+Ads can still be shown on a page even if the Mediabot has not yet visited it. In this instance ads chosen will be based on a combination of the overall domain theme and keywords appearing in the URL string. If no ads can be matched to the page, either public service ads, blank space, or a solid color are shown, depending on the settings for that ad unit.

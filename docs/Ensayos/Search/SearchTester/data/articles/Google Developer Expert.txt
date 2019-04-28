@@ -1,0 +1,38 @@
+A "Google Developers Expert" (GDE) is a person recognized by Google Inc. as having exemplary expertise in one or more of their Google Developers products. GDEs are awarded through the Google Developers Experts program established and administered by Google. GDEs have a tenure of one year which can be extended through re-interview. A Google Developers Expert cannot be a Google employee whilst a member of the program. GDEs are not permitted to "make any statements on behalf of Google or any Google company" and be clear that any opinions are not those of Google.
+
+As of February 2019, there are 738 people with this designation 
+
+==Supported Products==
+
+* Android
+* Angular JS
+* Chrome: Dart
+* Chrome: HTML5
+* Design Sprint
+* Google AdWords
+* Google Analytics
+* Google Apps APIs
+* Google Apps Script
+* Google Chrome
+* Google Cloud Platform
+* Google Drive SDK
+* Google Glass (US only)
+* Google Maps API
+* Google Pay
+* Google+ Platform
+* Machine Learning
+* UI and UX Design
+* YouTube APIs
+==GDE Application Process==
+The current Google Developers Experts award process requires that the candidate to:
+# Submit written evidence of existing work demonstrating their engagement with the developer community for the supported Google product.
+# Eligibility check by the Regional Lead and product point of contact from Google regarding the fit.
+# Pass an interview with another GDE specialising in the supported product.
+# Pass an interview with a Google employee with expertise in the supported product.
+# Sign a non disclosure agreement with Google not to reveal any confidential information about future product information etc.
+
+==History==
+The Google Developer Experts program initially started in Japan as the Google Developer API Expert program.  In July 2012 Google renamed it to Google Developers Expert program and made it available to developers around the world. In 2014 the official Google Developers Expert site started referring to the program as Google Developer Experts.
+
+==Similar Programs/Awards==
+* Microsoft Most Valuable Professional

@@ -1,0 +1,20 @@
+__NOTOC__
+__NOEDITSECTION__
+<div style="background:#EEEEEE; padding:20px;">
+<div style="clear:both; width:100%;">
+
+<div style="text-align:center; padding-bottom:.9em;"><span style="font-size:200%; font-family:Roboto,Arial,sans-serif; color:#373737;">The&nbsp;&nbsp;</span>alt=Google logo<span style="font-size:200%; color:#373737; font-family:Roboto,Arial,sans-serif;">&nbsp;&nbsp;Portal</span></div>
+<div class="portal-column-left"> 
+</div>
+
+<div class="portal-column-right">
+ 
+</div>
+
+</div>
+</div>
+</div>
+?
+Category:Computing portals
+Category:Google portal
+Category:WikiProject Google

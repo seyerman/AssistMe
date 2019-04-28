@@ -1,0 +1,70 @@
+In computer science and statistics, the "Jaro–Winkler distance" is a string metric measuring an edit distance between two sequences. It is a variant proposed in 1990 by William E. Winkler of the "Jaro distance" metric (1989, Matthew A. Jaro).
+
+The Jaro–Winkler distance uses a prefix scale <math>p</math> which gives more favourable ratings to strings that match from the beginning for a set prefix length <math>\ell</math>. 
+
+The lower the Jaro–Winkler distance for two strings is, the more similar the strings are. The score is normalized such that 1 equates to no similarity and 0 is an exact match. The "Jaro–Winkler similarity" is given by 1 - Jaro–Winkler distance.
+
+Although often referred to as a "distance metric", the Jaro–Winkler distance is not a metric in the mathematical sense of that term because it does not obey the triangle inequality.
+
+== Definition ==
+
+=== Jaro Similarity ===
+The Jaro Similarity <math>sim_j</math> of two given strings <math>s_1</math> and <math>s_2</math> is
+
+: <math>sim_j = \left\{
+
+\begin{array}{l l}
+  0 & \text{if }m = 0\\
+  \frac{1}{3}\left(\frac{m} + \frac{m} + \frac{m-t}{m}\right) & \text{otherwise} \end{array} \right.</math>
+
+Where:
+
+* <math>|s_i|</math> is the length of the string <math>s_i</math>;
+* <math>m</math> is the number of "matching characters" (see below);
+* <math>t</math> is half the number of "transpositions" (see below).
+
+Two characters from <math>s_1</math> and <math>s_2</math> respectively, are considered "matching" only if they are the same and not farther than <math>\left\lfloor\frac{\max(|s_1|,|s_2|)}{2}\right\rfloor-1</math>.
+
+Each character of <math>s_1</math> is compared with all its matching characters in <math>s_2</math>. The number of matching (but different sequence order) characters divided by 2 defines the number of "transpositions".
+For example, in comparing CRATE with TRACE, only 'R'   'A'   'E'  are the matching characters, i.e. m=3. Although 'C', 'T' appear in both strings, they are farther than 1 (the result of <math>\lfloor\tfrac{5}{2}\rfloor - 1</math>).  Therefore, t=0 . In DwAyNE versus DuANE the matching letters are already in the same order D-A-N-E, so no transpositions are needed.
+
+=== Jaro–Winkler Similarity ===
+Jaro–Winkler similarity uses a prefix scale <math>p</math> which gives more favorable ratings to strings that match from the beginning for a set prefix length <math>\ell</math>. Given two strings <math>s_1</math> and <math>s_2</math>, their Jaro–Winkler similarity <math>sim_w</math> is:
+
+: <math>sim_w = sim_j + \ell p (1 - sim_j),</math>
+
+where:
+* <math>sim_j</math> is the Jaro similarity for strings <math>s_1</math> and <math>s_2</math>
+* <math>\ell</math> is the length of common prefix at the start of the string up to a maximum of four characters
+* <math>p</math> is a constant scaling factor for how much the score is adjusted upwards for having common prefixes. <math>p</math> should not exceed 0.25, otherwise the similarity could become larger than 1. The standard value for this constant in Winkler's work is <math>p = 0.1</math>
+
+The Jaro-Winkler distance <math>d_w</math> is defined as <math>d_w = 1 - sim_w</math>.
+
+Although often referred to as a "distance metric", the Jaro–Winkler distance is not a metric in the mathematical sense of that term because it does not obey the triangle inequality. The Jaro–Winkler distance also does not satisfy the identity axiom <math> d(x,y)=0 \leftrightarrow x = y</math>.
+
+== Relationship with other edit distance metrics ==
+There are other popular measures of edit distance, which are calculated using a different set of allowable edit operations. For instance,
+* the Levenshtein distance allows deletion, insertion and substitution;
+* the Damerau–Levenshtein distance allows insertion, deletion, substitution, and the transposition of two adjacent characters;
+* the longest common subsequence (LCS) distance allows only insertion and deletion, not substitution;
+* the Hamming distance allows only substitution, hence, it only applies to strings of the same length.
+Edit distance is usually defined as a parameterizable metric calculated with a specific set of allowed edit operations, and each operation is assigned a cost (possibly infinite). This is further generalized by DNA sequence alignment algorithms such as the Smith–Waterman algorithm, which make an operation's cost depend on where it is applied.
+
+== See also ==
+* Record linkage
+* Census
+
+== Footnotes ==
+== References ==
+* 
+* 
+* 
+* 
+
+* 
+
+== External links ==
+* [https://web.archive.org/web/19990822155334/http://www.census.gov/geo/msb/stand/strcmp.c strcmp.c - Original C implementation by the author of the algorithm]
+Category:String similarity measures
+Category:Similarity and distance measures
+Category:Computer science

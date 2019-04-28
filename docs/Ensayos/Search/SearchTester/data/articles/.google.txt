@@ -1,0 +1,18 @@
+".google" is a brand top-level domain (TLD) used in the Domain Name System of the Internet. Created in 2014, it is operated by Alphabet Inc. It was the first registered Brand gTLD to be associated with a publicly accessible website. Plans have been made to move other Alphabet Inc. products to .google and several of their other registered domains.
+
+Google Domains, a domain registration service offered by Google, is hosted at [http://domains.google/ domains.google].
+
+Google owns and runs a number domains that are using the .google domain extension. These include:
+*[https://About.google about.google], a site showcasing Google products and information about Google,  
+*[https://web.archive.org/web/20150401041958/https://com.google/ com.google], which redirects to the Google homepage for the country you are in. (Not currently activated.)
+*[https://domains.google/ domains.google], which allows domain registration.
+*[https://blog.google/ blog.google], a blog that posts news about Google products.
+*[https://registry.google/ registry.google], A informational site about Google's registered domains.
+*[http://nic.google nic.google] which redirects to Google registry. 
+*[https://ai.google/ ai.google], a website showcasing the usages of Google's Artificial Intelligence
+*[https://design.google design.google] information and news about Google Design
+*[https://environment.google environment.google] A site promoting sustainable growth and the environment.
+*[https://pride.google pride.google] A site promoting awareness about Pride parades across America.
+*[https://crisisresponse.google crisisresponse.google] A site building awareness about how Google can help in a crisis.
+*[https://grow.google grow.google] A site with tools from Google to grow small businesses and startups.
+*[https://Safety.google safety.google]  A site dedicated to educating and empowering people on topics like data security, privacy controls and online protections.

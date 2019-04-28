@@ -1,0 +1,13 @@
+"Project Baseline" is a broad effort to map human health, led by  Verily Life Sciences (formerly Google Life Sciences), Alphabet, Inc.'s health sciences division, and was announced in the Wall Street Journal on July 24, 2014. It begins with the Project "Baseline study", which will collect phenotypic health data from approximately 10,000 participants over the course of at least four years. The project employs experts from widely varying fields including science, medicine, user experience and design, engineering and patient advocacy.
+
+==Purpose==
+
+The Project Baseline study is the first initiative of Project Baseline, a broader effort designed to develop a well-defined reference, or "baseline," of good health as well as a rich data platform that may be used to better understand the transition from health to disease and identify additional risk factors for disease. To bridge these encounters, Verily has developed tools such as the investigational Study Watch to allow participants to provide insights throughout their everyday lives.
+
+That means the Project Baseline study dataset will include clinical, molecular, imaging, self-reported, behavioral, environmental, sensor and other health-related measurements. To organize this information, Verily is developing infrastructure that can process multi-dimensional health data - much of which have never been combined for an individual.  In addition, the study aims to identify biomarkers that make certain people more or less susceptible to various diseases. Sites include Duke University School of Medicine and Stanford Medicine, 
+
+==Ethical concerns==
+Specialist online reporting service STAT News reported in 2016 that the contract for testing of the 200 patients for the study's pilot phase had been awarded without competitive bidding to the California Health & Longevity Institute, a luxury health clinic largely owned by Conrad that offers medical and cosmetic para-medical services and alternative medicine in a spa-like setting.   The report said that Conrad had stated that the clinic had the advantage of having all the testing equipment needed for the study in one location, but neither he nor officials from the clinic would disclose what relevant experience the clinic had in conducting the complex research required for the project.
+
+== External links ==
+* [https://www.projectbaseline.com Project Baseline] - official web site

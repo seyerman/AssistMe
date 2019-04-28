@@ -1,0 +1,42 @@
+A "Supnick matrix" or "Supnick array" &ndash; named after Fred Supnick of the City College of New York, who introduced the notion in 1957 &ndash; is a Monge array which is also a symmetric matrix.
+
+== Mathematical definition ==
+
+A Supnick matrix is a square Monge array that is symmetric around the main diagonal.
+
+An "n"-by-"n" matrix is a Supnick matrix if, for all "i", "j", "k", "l" such that if
+:<math>1\le i < k\le n</math> and <math>1\le j < l\le n</math>
+then
+:<math>a_{ij} + a_{kl} \le a_{il} + a_{kj}\,</math>
+
+and also
+
+:<math>a_{ij} = a_{ji}. \,</math>
+
+A logically equivalent definition is given by Rudolf & Woeginger who in 1995 proved that
+
+:"A matrix is a Supnick matrix iff it can be written as the sum of a sum matrix "S" and a non-negative linear combination of LL-UR block matrices."
+
+The "sum matrix" is defined in terms of a sequence of "n" real numbers {a<sub>"i"</sub>}:
+
+:<math>
+S = [s_{ij}] = [\alpha_i + \alpha_j]; \,
+</math>
+
+and an "LL-UR block matrix" consists of two symmetrically placed rectangles in the lower-left and upper right corners for which "a<sub>ij</sub>"&nbsp;=&nbsp;1, with all the rest of the matrix elements equal to zero.
+
+== Properties ==
+
+Adding two Supnick matrices together will result in a new Supnick matrix (Deineko and Woeginger 2006).
+
+Multiplying a Supnick matrix by a non-negative real number produces a new Supnick matrix (Deineko and Woeginger 2006).
+
+If the distance matrix in a traveling salesman problem can be written as a Supnick matrix, that particular instance of the problem admits an easy solution (even though the problem is, in general, NP hard).
+
+== References ==
+*
+*
+* 
+
+Category:Computer science
+Category:Matrices

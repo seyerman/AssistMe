@@ -1,0 +1,35 @@
+"Wojciech Zaremba" is a co-founder of OpenAI (2016-now), where he leads the robotics team. His team is working on developing general purpose robots via new approaches to transfer learning and teaching robots complex behaviors. The mission of OpenAI is to build safe artificial intelligence (AI), and ensure that its benefits are as evenly distributed as possible.
+
+== Early life ==
+Zaremba was born in Kluczbork, Poland. At a young age, he won local competitions and awards in mathematics, computer science, chemistry and physics. In 2007, Zaremba represented Poland in the International Mathematical Olympiad in Vietnam, and won a silver medal.
+
+Zaremba studied at the University of Warsaw and École Polytechnique mathematics and computer science, and graduated in 2013 with two master's degrees in mathematics. He then began his PhD at New York University (NYU) in deep learning under the supervision of Yann LeCun and Rob Fergus. Zaremba graduated and received his PhD in 2016.
+
+== Career ==
+During his bachelor studies, he spent time at NVIDIA during the pre deep learning era (2008). In the following years, NVIDIA's chips became 
+a cornerstone of artificial intelligence.
+
+His PhD was divided between Google Brain where he spent a year, and Facebook Artificial Intelligence Research where he spent another year.
+
+During his stay at Google, he co-authored work on adversarial examples for neural networks. This result created the field of adversarial attacks on neural networks.
+
+His Ph.D. is focused on matching capabilities of neural networks with the algorithmic power of programmable computers. The problem of training neural networks to represent an algorithmic power of programmable computers became a separate field.
+
+In 2015, Zaremba became one of the co-founders of OpenAI, a non-profit artificial intelligence (AI) research company. The aim of the project is to create safe artificial intelligence. The main office is located in San Francisco and its budget is a billion dollars. In OpenAl, Zaremba works as robotics research manager. Zaremba sits on the advisory board of Growbots, a Silicon Valley startup company aiming to automate sales processes with the use of machine learning and artificial intelligence.
+
+Zaremba has published over 40 publications with several thousand citations devoted to machine learning and artificial intelligence.
+
+== Honors and awards ==
+
+*30 the most influential Polish before 30's, Polish edition of magazine "Forbes" 2017
+*Google Fellowship 2015
+*Silver Medal in 48th International Mathematical Olympiad, Vietnam
+
+== References ==
+Category:Artificial intelligence
+Category:Computer science
+Category:Computer scientists
+Category:People from Kluczbork
+Category:Polish mathematicians
+Category:1988 births
+Category:Living people

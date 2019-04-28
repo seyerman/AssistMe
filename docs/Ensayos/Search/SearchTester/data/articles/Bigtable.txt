@@ -1,0 +1,33 @@
+"Bigtable" is a compressed, high performance, proprietary data storage system built on Google File System, Chubby Lock Service, SSTable (log-structured storage like LevelDB) and a few other Google technologies. On May 6, 2015, a public version of Bigtable was made available as a service. Bigtable also underlies Google Cloud Datastore, which is available as a part of the Google Cloud Platform.
+
+==History==
+Bigtable development began in 2004 and is now used by a number of Google applications, such as web indexing, MapReduce, which is often used for generating and modifying data stored in Bigtable, Google Maps, Google Book Search, "My Search History", Google Earth, Blogger.com, Google Code hosting, YouTube, and Gmail. Google's reasons for developing its own database include scalability and better control of performance characteristics.
+
+Google's Spanner RDBMS is layered on an implementation of Bigtable with a Paxos group for two-phase commits to each table. Google F1 was built using Spanner to replace an implementation based on MySQL.
+
+==Design==
+Bigtable is one of the prototypical examples of a wide column store. It maps two arbitrary string values (row key and column key) and timestamp (hence three-dimensional mapping) into an associated arbitrary byte array. It is not a relational database and can be better defined as a sparse, distributed multi-dimensional sorted map.  Bigtable is designed to scale into the petabyte range across "hundreds or thousands of machines, and to make it easy to add more machines [to] the system and automatically start taking advantage of those resources without any reconfiguration".  For example, Google's copy of the web can be stored in a bigtable where the row key is a domain-reversed URL, and columns describe various properties of a web page, with one particular column holding the page itself.  The page column can have several timestamped versions describing different copies of the web page timestamped by when they were fetched.  Each cell of a bigtable can have zero or more timestamped versions of the data.  Another function of the timestamp is to allow for both versioning and garbage collection of expired data.
+
+Tables are split into multiple "tablets" – segments of the table are split at certain row keys so that each tablet is a few hundred megabytes or a few gigabytes in size. A bigtable is somewhat like a mapreduce worker pool in that thousands to hundreds of thousands of tablet shards may be served by hundreds to thousands of BigTable servers.  When Table size threaten to grow beyond a specified limit, the tablets may be compressed using the algorithm BMDiff and the Zippy compression algorithm publicly known and open-sourced as Snappy, which is a less space-optimal variation of LZ77 but more efficient in terms of computing time. The locations in the GFS of tablets are recorded as database entries in multiple special tablets, which are called "META1" tablets. META1 tablets are found by querying the single "META0" tablet, which typically resides on a server of its own since it is often queried by clients as to the location of the "META1" tablet which itself has the answer to the question of where the actual data is located. Like GFS's master server, the META0 server is not generally a bottleneck since the processor time and bandwidth necessary to discover and transmit META1 locations is minimal and clients aggressively cache locations to minimize queries.
+
+==See also==
+
+* Big data
+* Distributed data store
+* Dynamo (storage system)
+* Wide column store
+
+== References ==
+== Bibliography ==
+* .
+
+==External links==
+* . .
+** .
+** .
+* .
+* .
+ 
+Category:Database management systems
+Category:Distributed data stores
+Category:Google

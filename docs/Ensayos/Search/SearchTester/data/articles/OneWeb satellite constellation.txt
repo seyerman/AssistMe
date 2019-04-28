@@ -1,0 +1,76 @@
+The "OneWeb satellite constellation"—formerly, WorldVu constellation—is an initial 650-satellite constellation currently being built out to provide global satellite Internet broadband services to people everywhere and is on track to provide global services starting in 2021. The constellation is being deployed by the company OneWeb, formerly known as WorldVu Satellites and is headquartered in London, UK with offices in California, Florida, Virginia, Dubai and Singapore. The first six satellites of the constellation were launched in February 2019.
+
+The small satellites are being built by OneWeb Satellites, a joint venture between Airbus and OneWeb. The satellites will operate in circular low Earth orbit, at approximately  altitude,  
+
+By June 2014, WorldVu (which would later be renamed to OneWeb) had acquired the satellite spectrum that was formerly owned by SkyBridge, a company that went bankrupt in 2000 in a much earlier attempt to offer broadband Internet services via satellite.
+
+By September 2014, the WorldVu company had 30 employees, and several Google employees who had joined Google as part of the acquisition of O3b Networks in 2013—Greg Wyler, Brian Holz and David Bettinger—left Google to become a part of WorldVu Satellites Ltd.  The rights to the radio frequency spectrum were transferred to WorldVu.  It was unclear why the WorldVu team left Google, as well as what Google's role might be in WorldVu going forward.  At the time, WorldVu was working closely with SpaceX and SpaceX' founder Elon Musk to explore satellite internet services,
+although no formal relationship had been established and no launch commitments have been made.
+
+In May 2014, the early concept had been to have at least 20 satellites operating in each of 20 different orbital planes to provide consistent internet coverage over the surface of the Earth.
+Also in November, WorldVu issued a tender "to satellite manufacturers for 640 125-kilogram satellites", asking for responses by mid-December, having secured regulatory approval for use of the requisite electromagnetic spectrum communication frequencies in mid-2014.
+
+The 2014 OneWeb solicitation to satellite manufacturers was for a total build of approximately 900 small Internet-delivery satellites, including ground and on-orbit spares.  Responses were received from both European and US manufacturers including Airbus Defence and Space, Lockheed Martin Space Systems, OHB SE, SSL and Thales Alenia Space, and discussions focused on how each of these companies might "escape their status-quo histories as major space hardware contractors and remake themselves into producers capable of producing multiple satellites per month, each with a cost of less than ."
+
+In January 2015, the "Wall Street Journal" reported that WorldVu, now operating under the name OneWeb LTD, had secured funding from  Virgin Group and Qualcomm to build and launch the constellation, while SpaceX was not an investor and their role in the venture was not clear. OneWeb also divulged that the planned satellites would weigh approximately  and that the plans were to deploy approximately 650 of them in low Earth orbit to operate at  altitude.  Only a few days later, Elon Musk announced the rival SpaceX satellite constellation venture, with the opening of the SpaceX satellite development facility in Seattle, Washington, Seattle, with the intent of taking SpaceX itself into the business of internet provision and internet backhaul services, aiming to build an approximately 4000 satellite constellation, with the first generation becoming operational in approximately 2020.
+
+The satellites for the OneWeb constellation were initially announced to be in the -class, about the same size as the two Earth-imaging satellites that are operated by Skybox Imaging, which Google acquired in August 2014.
+However, by the following year, sources put the satellites nearer  in mass.
+By 2015, there was also an option to use Ariane 6 for up to three launches after 2021, making this the first potential contract announced for the Ariane launch vehicle.
+
+By June 2015, the company had modified their plan somewhat to orbit a somewhat larger constellation of 720 satellites, operating in low Earth orbit at  altitude,
+and development was remained on schedule one year later with the first ten satellites still headed for a 2017 launch on a Europeanized Soyuz launch vehicle. That same month, Hughes Communications made an equity investment in OneWeb, and agreed to produce the ground network system for OneWeb.
+
+In December 2016, SoftBank Group Corp agreed to invest $1 billion in OneWeb, thus becoming OneWeb's largest shareholder, with a roughly 40% stake. Another $200 million was funded at that time by its current investors, which include Qualcomm Inc, Airbus Group and Virgin Group. The transaction was expected to close in the first quarter of 2017.
+With the original capital raise of $500 million in 2015, plus the $1 billion investment of SoftBank in 2016, previous "investors committed to an additional $200 million, bringing OneWeb’s total capital raised to $1.7 billion."
+
+Some controversy arose in 2015–2017 with regulatory authorities on licensing the communications spectrum for these large constellations of satellites. The traditional and historical regulatory rule for satellites licensing of communications spectrum has been that satellite operators could "launch a single spacecraft to meet their in-service deadline [from the regulator], a policy subsequently seen as allowing an operator to block the use of valuable radio spectrum for years without deploying its fleet."
+
+In August 2018, it was announced that the first test satellite launch might move into 2019, and would be no earlier than mid-December 2018, and by December, was planned to be no earlier than March 2019.
+After OneWeb had built the initial satellites and done ground testing where they found the as-built sats "demonstrated better than expected performance", OneWeb announced in December 2018 that the company will need only 600 satellites rather than the 900 previously planned for the initial constellation.
+
+On February 27, OneWeb successfully launched the first six of the 648 planned satellites (600 active plus 48 on-orbit spares) into low Earth orbit from the Guiana Space Centre in French Guiana using a Russian Soyuz-2 ST-B rocket.
+Also on that date, OneWeb announced that it signed its first two client agreements marking the beginning of its commercialization.
+Additional launches are expected throughout 2019 and after.
+
+==Design characteristics==
+The satellites in the OneWeb constellation are approximately  in mass
+
+The satellites will operate in the Ku band, communicating in the microwave range of frequencies in the 12–18&nbsp;GHz portion of the electromagnetic spectrum.
+By early 2015, OneWeb indicated that the first launches would occur no earlier than 2017.
+
+By the time the actual orbital deployment of the constellation began, in February 2019, the constellation size had settled once again at  648, near the original projection, with 600 active satellites with 48 on-orbit spares.
+
+==Concerns==
+
+===End-of-life concerns===
+With such a large number of satellites being added to the already crowded low Earth orbit, plans for handling the satellites once the operational life of each satellite is completed are an important consideration.  The region between  is already the most congested orbital regime around Earth, and concerns about adding to the existing space debris problem have been expressed.
+
+By October 2017, OneWeb had filed documents with the US FCC with their space debris mitigation plan.  OneWeb "satellites are designed for mission lives of at least five years, and 'the post-mission disposal operation is anticipated to take less than one year.' OneWeb also said it has designed its satellite network to avoid collisions with space stations and debris, and that OneWeb 'will actively and regularly screen for conjunctions between its own satellites and other objects in the Joint Space Operations Center's ('JSpOC') published catalog."
+
+===Interference with other Earth-bound transceivers===
+OneWeb competitor, satellite fleet operator ABS, has expressed concerns about the amount of electromagnetic interference that the OneWeb constellation could add to existing terrestrial transceivers.
+
+===Russian security concerns===
+Vladimir Sadovnikov of the Federal Security Service stated that the FSB was opposed to OneWeb covering Russia, claiming that OneWeb could be used for espionage purposes. OneWeb's request for a frequency band was previously rejected by the Ministry for Digital Development and Communications, purportedly due to outstanding legal issues.
+
+==Competition==
+Competition to OneWeb for producing smaller and lower-cost satellites in general is thought to come "from other makers of small satellites, such as Nevada-based Sierra Nevada Corp. and Britain’s Surrey Satellite Technology Ltd."
+
+Amazon announced a large broadband internet satellite constellation in April 2019, planning to launch 3,236 satellites in the next decade in what Amazon calls "Project Kuiper", a satellite constellation that will work in concert
+with Amazon's previously-announced large network of 12 satellite ground station facilities (the "AWS Ground Station unit") announced in November 2018.
+
+Historically, earlier companies that have attempted to build satellite internet service networks and provide space-based internet connections have not fared well, as both services were hobbled by high costs which consequently attracted few users.  Iridium SSC filed for bankruptcy protection in 1999 and Globalstar did the same in 2002.
+
+==See also==
+*Iridium satellite constellation – an operational constellation of 66 active satellites used to provide global satellite phone service
+*ORBCOMM – an operational constellation used to provide global asset monitoring and messaging services from its constellation of 29 LEO communications satellites orbiting at 775&nbsp;km
+*Teledesic – a former (1990s) venture to accomplish broadband satellite internet services
+*Viasat,_Inc. - a current broadband satellite provider providing fixed, ground mobile, and airborne antennas
+*Kymeta – small form factor satellite antennas for mobile terrestrial applications
+*Hughes Network Systems – subsidiary of EchoStar
+
+== Literature ==
+* "Derek Webber". No Bucks, No Buck Rogers: The Business of Commercial Space. — Universal-Publishers, 2017. — P. 248. — 296 p. — .
+* "Alessandra Vernile". The Rise of Private Actors in the Space Sector. — Springer, 2018. — P. 37. — 121 p. — .
+* "John Bloom". Eccentric Orbits: The Iridium Story. — Grove/Atlantic, Inc., 2016. — 577 p. — .
