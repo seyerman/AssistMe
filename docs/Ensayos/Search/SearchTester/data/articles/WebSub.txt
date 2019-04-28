@@ -1,0 +1,36 @@
+"WebSub" (formerly "PubSubHubbub") is an open protocol for distributed publish–subscribe communication on the Internet. Initially designed to extend the Atom (and RSS) protocols for data feeds, the protocol can be applied to any data type (e.g. HTML, text, pictures, audio, video) as long as it is accessible via HTTP. Its main purpose is to provide real-time notifications of changes, which improves upon the typical situation where a client periodically polls the feed server at some arbitrary interval. In this way, WebSub provides pushed HTTP notifications without requiring clients to spend resources on polling for changes.
+
+In October 2017, PubSub was renamed to WebSub for simplicity and clarity.
+, the WebSub protocol has been adopted by the W3C as a Recommendation.
+
+== Protocol ==
+Under WebSub, there is an ecosystem of publishers, subscribers, and hubs.
+
+A subscriber first retrieves content from an HTTP resource (URL) by requesting it from the webserver. The subscriber then inspects the contents of the response, and if it references a hub, the subscriber can subscribe to that resource's URL (it's called a 'topic' by the spec) on that hub. The subscriber needs to run a web accessible server so that hubs can directly notify it when any of its subscribed topics have updated, using a webhook mechanism.
+
+Publishers expose their content with the inclusion of hub references in the HTTP headers. They post notifications to those referenced hubs whenever they publish something. Thus, when a publication event occurs, the publisher calls its hubs and the hubs call their subscribers.
+
+WebSub includes a simple verification of intent mechanism in order to prevent abusive subscriptions, and a validation mechanism allows for subscriptions to private or protected web resources. When the subscriber sends the subscription request to the hub, the subscriber address and a code needs to be included. The hub immediately sends a verification message to the subscriber with the URL of the topic and the above code. The subscription request will only be accepted if the subscriber sends a positive response to the verification request of the hub.
+
+In order to provide a secure chain, subscribers should share a secret with the hub, which will be used by the hub to compute an HMAC key that will be sent to the subscriber. The latter can then easily verify the origin by comparing the supplied signature with a similarly computed signature on their end.
+
+== Usage ==
+WebSub is used to push content by many websites, including all blogs served by Blogger and WordPress.com, news sites including CNN and Fox news, and social networks like diaspora*, Mastodon, MySpace or Medium.com.
+
+Subscribing services (“feed readers”) include Flipboard, Feedly, NewsBlur, among other popular options.
+
+Community Hosted hub providers include pubsubhubbub.appspot.com (operated by Google) and pubsubhubbub.superfeedr.com (operated by Superfeedr).
+
+Superfeedr provides a detailed PubSubHubbub guide for implementation.
+
+== See also ==
+* Publish–subscribe pattern
+* RSS Cloud
+* RSS to email
+
+== References ==
+RSS (file format)
+Category:Web syndication formats
+Category:XML-based standards
+Category:Computer file formats
+Category:Google

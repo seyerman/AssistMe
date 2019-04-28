@@ -1,0 +1,28 @@
+﻿@model AssistMeProject.Models.User;
+
+@{
+   ViewData["Title"] = "Details";
+
+}
+
+
+<section class="container main-content">
+    <div class="row">
+        <!--Espacios-->
+        <div>
+            <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p>
+        </div>
+        <div class="col-md-9">
+            <div class="boxedtitle page-title"><h2>Nuevo Administrador</h2></div>
+            <div class="alert-message success">
+                <i class="icon-ok"></i>
+                <p>
+                    <span>@Html.DisplayFor(model => model.USERNAME)</span><br>
+                    Ha sido asignado exitosamente como Administrador.
+                </p>
+            </div>
+
+
+        </div><!-- End main -->
+    </div><!-- End row -->
+</section><!-- End #alert -->

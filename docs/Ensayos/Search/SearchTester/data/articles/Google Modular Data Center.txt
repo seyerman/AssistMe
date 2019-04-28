@@ -1,0 +1,19 @@
+The "Google Modular Data Center" was a modular data center built from a set of shipping containers, and used by Google to house some of its servers. 
+
+The data centers were rumored to cost $600 million USD each, and use from 50 to 103 megawatts of electricity.  They housed the computing resources that comprise the Google platform.
+
+==History==
+Google was reported in November 2005 to be working on their own shipping container datacenter.   Google's patent on the concept was still pushed through the patent system and was successfully issued in October 2007. In 2009 Google announced that their first container based data center has been in production since 2005.
+
+== See also ==
+* Sun Modular Datacenter
+
+== References ==
+==External links==
+* [https://www.google.com/corporate/green/datacenters/summit.html Going Green at Google]
+* [http://www.ultraupdates.com/2015/03/google-data-center-tour-video/ Google Data Center]
+* 
+Modular Data center
+Category:Data centers
+Category:Intermodal containers
+Category:Modular datacenter

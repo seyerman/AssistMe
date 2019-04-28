@@ -1,0 +1,14 @@
+"Mattermost" is an open-source, self-hostable chat service. It is designed as an internal chat for organisations and companies, and mostly markets itself as an alternative to Slack.
+
+The code was originally proprietary, as Mattermost was used as an internal chat tool inside SpinPunch, a game developer studio, but was later open-sourced.
+
+The project is maintained and developed by Mattermost Inc. The company generates funds by selling support services and additional features that aren't in the open-source edition.
+
+There are Clients on Windows, MacOS, and Linux and for iOS and Android.
+
+In the media Mattermost is mostly regarded as an alternative to the more popular Slack. It also got integrated into GitLab as "GitLab Mattermost", although in the mean time GitLab acquired Gitter, another popular chat tool.
+
+== References ==
+Category:Software
+Category:Open-source cloud applications
+Category:Instant messaging

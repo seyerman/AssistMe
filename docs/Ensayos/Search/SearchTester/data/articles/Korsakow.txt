@@ -1,0 +1,40 @@
+"The Korsakow System" (Pronounced 'KOR-SA-KOV') is a software for creating browser-based dynamic documentaries. Invented in 2000 by Berlin-based artist Florian Thalhofer, Korsakow allows users without any programming expertise to create and interact with non-linear or database-driven narratives, referred to as Korsakow-Films or K-Films. The software can be used to produce documentary, experimental and fictional narrative works and has been integrated into live performance and installation pieces. Korsakow is currently 299 US$ for the PRO version. Educational licenses are also available.
+
+==Versions==
+
+===Development and Early Versions===
+In the late 1990s, Florian Thalhofer began developing a software program to produce a documentary about alcohol consumption to accompany his Master's thesis. During his research, Thalhofer learned about an effect of extreme alcoholism known as "Korsakoff's Syndrome," characterized by short-term memory loss and a compulsion to tell stories. Thalhofer borrowed the name for his thesis and first Korsakow-film, "[http://thalhofer.com/korsakow/syndrom/ Korsakow Syndrom]".
+
+From 2000 to 2015 the application has been released as free software.
+
+=== Version 6 ===
+Released in October 2016, Korsakow 6 is now exporting to html5.
+
+===Version 5===
+Released in July 2009, the newest version of the Korsakow System involved a complete overhaul of the previous versions. This upgrade was produced under the aegis of the Concordia Interactive Narrative Experimentation Research Group (CINER-G, 2007-2011). CINER-G was funded by a research/creation grant from the Quebec Government's Fonds de recherche sur la société et la culture (FQRSC). In 2011 CINER-G was succeeded by Adventures in Research/Creation. ARC was funded by a research/creation grant from the Social Sciences and Humanities Council of Canada (SSHRC) from 2011 to 2015. Thalhofer remained the creative lead during the project, while Matt Soar co-directed the project and also designed the current logo. The coding is by David Reisch with early assistance from Stuart Thiel. Soar left the project in 2016.
+
+In addition to addressing many of the problems with version 3, version 5.0 was recreated from scratch in Java as open source software. The new version of the application can export as a .swf file which requires flash player to view, currently a much more common browser extension than Shockwave. Another change offered in the new version is the ability to design and use an unlimited number of interfaces per film.
+
+As the developers believed that the jump from version 3 to the current version was so substantial that, as an inside joke, they skipped 4.0 altogether.
+
+==Korsakow-Films==
+
+===SNUs===
+Though it may be used as such, the Korsakow System was not intended as a choose your own adventure builder. Instead, the intention of the software is to create narratives based on dynamic relationships between very short video clips, rather than on predetermined paths. In order to achieve this, each Korsakow-film is composed of multiple SNUs or smallest narrative units. These are usually short video clips ranging from 20 seconds to a few minutes in duration and are the building blocks of each Korsakow-film.
+
+Users of the Korsakow software "SNUify" their media by adding rules guiding the relationship between each SNU. Each SNU can be assigned "in" and "out" tags. Whenever a clip begins, the database will be queried for other SNUs whose "in" tags match the "out" tags of the current video. Any matches will be displayed as related options for viewing. Queries can be cued at specific points during the current SNU.
+
+As part of a non-linear narrative, each SNU may be reused within the narrative. SNUs may be assigned a number of "lives" or times they are allowed to appear within the narrative.
+
+The term "SNU" ("s"mallest "n"arrative "u"nit) was coined by experimental filmmaker Prof. Heinz Emigholz at a lecture at the University of the Arts in Berlin on February 6, 2002. The lecture was later published in his book "Das schwarze Schamquadrat" .
+
+===Compatibility===
+The following file formats can be accepted by the software:
+* Video files: .mp4 (codec: H.264)
+* Previews: .jpg, .gif, .png, .mov (H.264)
+* Startscreen: .jpg, .png, .gif
+* Audio files: .wav, .mp3
+* Subtitles: .srt
+
+===Interface===
+Films output on Korsakow version 3 or earlier could only be viewed online in a single generic interface. This layout involved a single primary frame, in which the selected clips would play, and up to three preview frames of other related clips. While this remained the default layout in version 5.0, filmmakers now have the option of creating different interfaces for each SNU.

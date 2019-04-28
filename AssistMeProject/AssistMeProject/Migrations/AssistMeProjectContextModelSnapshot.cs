@@ -82,6 +82,8 @@ namespace AssistMeProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("AskAgain");
+
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
@@ -92,9 +94,24 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
+                    b.Property<string>("Username");
+
                     b.HasKey("Id");
 
                     b.ToTable("Question");
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
+                {
+                    b.Property<int>("QuestionId");
+
+                    b.Property<int>("LabelId");
+
+                    b.HasKey("QuestionId", "LabelId");
+
+                    b.HasIndex("LabelId");
+
+                    b.ToTable("QuestionLabels");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
@@ -102,6 +119,8 @@ namespace AssistMeProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -166,6 +185,19 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Answer", "Answer")
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Label", "Label")
+                        .WithMany("QuestionLabels")
+                        .HasForeignKey("LabelId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.Question", "Question")
+                        .WithMany("QuestionLabels")
+                        .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

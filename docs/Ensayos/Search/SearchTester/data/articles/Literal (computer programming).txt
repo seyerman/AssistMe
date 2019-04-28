@@ -1,0 +1,46 @@
+In computer science, a "literal" is a notation for representing a fixed value in source code.  Almost all programming languages have notations for atomic values such as integers, floating-point numbers, and strings, and usually for booleans and characters; some also have notations for elements of enumerated types and compound values such as arrays, records, and objects. An anonymous function is a literal for the function type.
+
+In contrast to literals, variables or constants are symbols that can take on one of a class of fixed values, the constant being constrained not to change. Literals are often used to initialize variables, for example, in the following, 1 is an integer literal and the three letter string in "cat" is a string literal:
+
+<source lang=java>
+ int a = 1;
+ string s = "cat";
+</source>
+
+In lexical analysis, literals of a given type are generally a token type, with a grammar rule, like "a string of digits" for an integer literal. Some literals are specific keywords, like <code>true</code> for the boolean literal "true".
+
+In some object-oriented languages (like ECMAScript), objects can also be represented by literals. Methods of this object can be specified in the object literal using function literals. The brace notation below, which is also used for array literals, is typical for object literals:  
+<source lang=javascript>
+ {"cat","dog"}
+ {name:"cat",length:57}
+</source>
+
+==Literals of objects==
+In ECMAScript (as well as its implementations JavaScript or ActionScript), an object with methods can be written using the object literal like this:
+<source lang="ecmascript">
+var newobj = {
+  var1: true,
+  var2: "very interesting",
+  method1: function () {
+    alert(this.var1)
+  },
+  method2: function () {
+    alert(this.var2)
+  }
+};
+newobj.method1();
+newobj.method2();
+</source>
+
+These object literals are similar to anonymous classes in other languages like Java.  
+
+The JSON data interchange format is based on a subset of the JavaScript object literal syntax, with some additional restrictions (among them requiring all keys to be quoted, and disallowing functions and everything else except data literals). Because of this, "almost" every valid JSON document (except for some subtleties with escaping) is also valid JavaScript code, a fact exploited in the JSONP technique.
+
+==See also==
+* Character literal
+* Function literal
+* Here document – a file literal or stream literal
+* Integer literal
+* String literal
+Category:Programming constructs
+Category:Computer science

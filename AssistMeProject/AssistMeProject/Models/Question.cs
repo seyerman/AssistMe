@@ -9,14 +9,21 @@ namespace AssistMeProject.Models
 {
     public class Question : Element
     {
-        [Required(ErrorMessage ="Agregue un Titulo a su pregunta"), MaxLength(150),Display(Name ="Titulo")]
+        [Required(ErrorMessage = "Agregue un Titulo a su pregunta"), MaxLength(150), Display(Name = "Titulo")]
         public string Title { get; set; }
-   //     public List<Label> labels { get; set; }
+
         public virtual ICollection<Answer> Answers { get; set; }
+
+        public virtual List<QuestionLabel> QuestionLabels { get; set; }
+
+        public bool AskAgain { get; set; }
+
+        public string Username { get; set; }
 
         public Question()
         {
             Answers = new HashSet<Answer>();
+            AskAgain = false;
         }
 
         public override string GetDocumentText()
@@ -26,6 +33,20 @@ namespace AssistMeProject.Models
             sb.Append(" ");
             sb.Append(Description);
             return sb.ToString();
+        }
+
+        public override int CompareTo(object obj)
+        {
+            Question other = (Question)obj;
+            if(this.AskAgain && !other.AskAgain)
+            {
+                return -1;
+            }
+            if (!this.AskAgain && other.AskAgain)
+            {
+                return 1;
+            }
+            return base.CompareTo(obj);
         }
 
     }

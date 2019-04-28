@@ -1,0 +1,108 @@
+The "Lempel-Ziv complexity" was first presented in the article "On the Complexity of Finite Sequences" (IEEE Trans. On IT-22,1 1976), by two Israeli computer scientists, Abraham Lempel and Jacob Ziv. This complexity measure is related to Kolmogorov complexity, but the only function it uses is the recursive copy (i.e., the shallow copy).
+
+The underlying mechanism in this complexity measure is the starting point for some algorithms for lossless data compression, like LZ77, LZ78 and LZW. Even though it is based on an elementary principle of words copying, this complexity measure is not too restrictive in the sense that it satisfies the main qualities expected by such a measure: sequences with a certain regularity do not have a too large complexity, and the complexity grows as the sequence grows in length and irregularity.
+
+The Lempel-Ziv complexity can be used to measure the repetitiveness of binary sequences and text, like song lyrics or prose.
+
+== Principle ==
+Let S be a binary sequence, of length n, for which we have to compute the Lempel-Ziv complexity, denoted C(S). The sequence is read from the left.
+
+Imagine you have a delimiting line, which can be moved in the sequence during the calculation. At first, this line is set just after the first symbol, at the beginning of the sequence. This initial position is called position 1, from where we have to move it to a position 2, which is considered the initial position for the next step (and so on). We have to move the delimiter (starting in position 1) the further possible to the right, so that the sub-word between position 1 and the delimiter position be a word of the sequence that starts before the position 1 of the delimiter.
+
+As soon as the delimiter is set on a position where this condition is not met, we stop, move the delimiter to this position, and start again by marking this position as a new initial position (i.e., position 1). Keep iterating until the end of the sequence. The Lempel-Ziv complexity corresponds to the number of iterations needed to finish this procedure.
+
+Said differently, the Lempel-Ziv complexity is the number of different sub-strings (or sub-words) encountered as the binary sequence is viewed as a stream (from left to right).
+
+== Formal explanations ==
+The method proposed by Lempel and Ziv uses three notions: reproducibility, producibility and exhaustive history of a sequence, that we defined here.
+
+=== Notations ===
+Let S be a binary sequence of length n (i.e., n symbols taking value 0 or 1). Let S(i,j), with <math>1\leq i,j\leq n</math>, be the sub-word of S from index i to index j (if j<i, S(i,j) is the empty string). The length n of S is denoted l(S), and a sequence Q is said to be a fixed prefix of S if:
+
+<math>\exists j<{\text{l(S), s.t. S(1,j) = Q .}}</math>
+
+=== Reproducibility and producibility ===
+<imagemap>Image:Reproductibilité1.svg|200px|thumb|Example of reproducibility [http://upload.wikimedia.org/wikipedia/commons/a/ad/Reproductibilit%C3%A91.svg Click here] </imagemap>
+
+On the one hand, a sequence S of length n is said to be reproducible from its prefix S(1,j) when S(j+1,n) is a sub-word of S(1,n-1). This is denoted S(1,j)?S.
+
+Said differently, S is reproducible from its prefix S(1,j) if the rest of the sequence, S(j+1,n), is nothing but a copy of another sub-word (starting at an index i < j+1) of S(1,n-1).
+
+To prove that the sequence S can be reproduced by one of its prefix S(1,j), you have to show that:
+
+<math>\exists p\leq j, {\text{ s.t.  }}S(j+1,n)=S(p,l(S(j+1,n))+p-1)</math>
+
+<imagemap>Image:Productibilité.svg|200px|thumb|Example of Productibility [https://upload.wikimedia.org/wikipedia/commons/1/13/Productibilit%C3%A9.svg Click here] </imagemap>
+
+On the other hand, the producibility, is defined from the reproducibility : a sequence S is producible from its prefix S(1,j) if S(1,n-1) is reproducible from S(1,j). This is denoted S(1,j)?S. Said differently, S(j+1,n-1) has to be a copy of another sub-word of S(1,n-2). The last symbol of S can be a new symbol (but could not be), possibly leading to the production of a new sub-word (hence the term producibility).
+
+<imagemap>Image:Prod_reprod1.svg|200px|thumb|Comparison between reproducibility and producibility [https://upload.wikimedia.org/wikipedia/commons/8/87/Prod_reprod1.svg Click here] </imagemap>
+
+=== Exhaustive history and complexity ===
+From the definition of productibility, the empty string ?=S(1,0) ? S(1,1). So by a recursive production process, at step i we have S(1,hi) ? S(1,hi+1), so we can build S from its prefixes. And as S(1,i) ? S(1,i+1) (with hi+1 =hi + 1) is always true, this production process of S takes at most n=l(S) steps. Let m, <math>1\leq {\text{m}}\leq l(S)</math>, be the number of steps necessary for this product process of S. S can be written in a decomposed form, called history of S, and denoted H(S), defined like this:
+
+<math>H(S)=S(1,h_{1})S(h_{1}+1,h_{2})\dotsm S(h_+1,h_{m})</math>
+<math>H_{i}(S)=S(h_+1,h_{i}),i=1,2\dotsm m,
+{\text{where}  }\; h_{0}=0,h_{1}=1,h_{m}=l(S),{\text{ is called component of } H(S)}.
+</math>
+
+<imagemap>Image:Hist_exh&complexite1.svg|200px|thumb|Comparison between reproductibility and productibility [https://upload.wikimedia.org/wikipedia/commons/3/3c/Hist_exh%26complexite1.svg Click here] </imagemap>
+
+A component of S, Hi(S), is said to be exhaustive if S(1,hi) is the longest sequence produced by S(1,hi-1) (i.e., S(1,hi-1) ? S(1,hi)) but so that S(1,hi-1) does not produce S(1,hi) (denoted ).<math>S(1,h_{i}-1)\nrightarrow S(1,h_{i})</math> The index p which allows to have the longest production is called pointer.
+
+The history of S is said to be exhaustive if all its component are exhaustive, except possibly the last one. From the definition, one can show that any sequence S has only one exhaustive history, and this history is the one with the smallest number of component from all the possible histories of S. Finally, the number of component of this unique exhaustive history of S is called the Lempel-Ziv complexity of S.
+
+== Algorithm ==
+Hopefully, there exists a very efficient method for computing this complexity, in a linear number of operation (<math>\mathcal{O}(n)</math> for <math>n=l(S)</math> length of the sequence S).
+
+A formal description of this method is given by the following algorithm:
+* i = p - 1, p is the pointer (see above)
+* u is the length of the current prefix
+* v is the length of the current component for the current pointer p
+* vmax is the final length used for the current component (largest on all the possible pointers p)
+* and C is the Lempel-Ziv Complexity, incremented iteratively.
+
+<syntaxhighlight line lang="pascal">
+// S is a binary sequence of size n
+i := 0
+C := 1
+u := 1
+v := 1
+vmax := v
+while u + v <= n do
+   if S[i + v] = S[u + v] then
+      v := v + 1
+   else
+      vmax := max(v, vmax)
+      i := i + 1
+      if i = u then  // all the pointers have been treated
+         C := C + 1
+         u := u + vmax
+         v := 1
+         i := 0
+         vmax := v
+      else
+         v := 1
+      end if
+   end if
+end while
+if v != 1 then
+    C := C+1
+end si
+</syntaxhighlight>
+
+== Notes and references ==
+
+=== Bibliography ===
+* Abraham Lempel and Jacob Ziv, « On the Complexity of Finite Sequences », IEEE Trans. on Information Theory, January 1976, p.&nbsp;75–81, vol. 22, n°1
+
+=== Application ===
+* [https://pudding.cool/2017/05/song-repetition/ « Are Pop Lyrics Getting More Repetitive? », By Colin Morris], is a blog post explaining how to use the Lempel-Ziv complexity to measure repetitiveness of song lyrics [https://colinmorris.github.io/pop-compression/ (with source code available)].
+
+== External links ==
+* [https://stackoverflow.com/questions/41336798/lempel-ziv-compression-algorithm-implemention Example of a Python implementation and discussion on StackOverflow #41336798]
+* [https://GitHub.com/Naereen/Lempel-Ziv_Complexity Open-Source (MIT) implementation on Python and Cython on GitHub] [https://pypi.org/project/Lempel-Ziv_Complexity/ available on PyPi]
+
+Category:Computer science
+Category:Computability theory
+Category:Information theory

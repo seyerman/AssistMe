@@ -1,0 +1,20 @@
+Logo
+"Gapminder Foundation" is a non-profit venture registered in Stockholm, Sweden, that promotes sustainable global development and achievement of the United Nations Millennium Development Goals by increased use and understanding of statistics and other information about social, economic and environmental development at local, national and global levels.
+
+==Overview==
+ 
+The Foundation continued the development of the Trendalyzer software, which was acquired by Google in March 2006. The team of developers for Gapminder had joined Google in April 2007. The current version of Trendalyzer is [https://www.gapminder.org/tools Gapminder World], a web-service displaying time series of development statistics for all countries and many sub-national regions. Gapminder world uses [https://developers.google.com/chart/interactive/docs/gallery/motionchart "Google Motion Charts"] to power its graphics. The Gapminder Foundation has also produced a number of other projects, including:
+* World Income Distribution, an interactive display of statistics on household income distribution for Bangladesh, Brazil, China, India, Indonesia, Japan, Nigeria, Pakistan and USA and the World as a whole in each year from 1970 to 1998.
+*Dollar Street, an interactive display of the world as a street. The street number is the daily income per person in the family. All people of the world live on Dollar Street. The poorest live in the left end and the richest in the extreme right end. All other people live in between on a continuous scale of daily incomes.
+* Human Development Trends 2003, a linear thematic Flash presentation is developed with United Nations Development Program (UNDP) for the release of the Human Development Report 200.
+*World Health Chart 2001, a display of 50 to 100 years of health development for all countries of the World with time series for 35 indicators provided by the World Health Organization.
+
+The founding board of the Gapminder Foundation was composed of Ambassador [https://docs.google.com/viewer?a=v&q=cache:yB9G3mElQ8UJ:www.oecd.org/dataoecd/28/35/36964436.pdf+Gun-Britt+Andersson+ministry+of+foreign+affairs&hl=en&gl=us&pid=bl&srcid=ADGEESij_mj8E5d_HFsGXQOd4zV_QBdYlwkAZl4a9OT5l9wgKNQJPBwEXVK1yikXwJsZpuTYMGV8szJB0xLTQPpoa9viezZWeuhXqf5lVu6FFZ-aLcvFf4n-Dx0MF1CkK76uj57l2sDQ&sig=AHIEtbT8JHYRdYcYBw7_Ry3AUs-kD0EFpg Gun-Britt Andersson], Professor [http://www.ekh.lu.se/ekhcgu/ Christer Gunnarsson] of Lund University, Professor [http://sites.google.com/site/bosundgren/ Bo Sundgren] of Stockholm School of Economics, Professor Hans Rosling of Karolinska Institute, and Professor [https://people.forbes.com/profile/hans-wigzell/143531 Hans Wigzell] of Karolinska Institute.
+
+== Mission statement ==
+The object of the Foundation shall be to promote sustainable global development and achievement of the United Nations Millennium Goals by increased use and understanding of statistics and other information about social, economic and environmental development at the local, national and global levels.
+
+The object of the Foundation shall be achieved by:
+#use and development of information technology for easily understandable visualization of statistics and other information;
+#ownership, protection and free dissemination of development results;
+#use, together with various cooperation partners, of the development results with a view to making statistics and other information about development available and understandable to broad user groups via the Internet and other media.

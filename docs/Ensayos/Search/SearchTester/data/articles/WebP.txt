@@ -1,0 +1,61 @@
+"WebP" is an image format employing both lossy and lossless compression. It is currently developed by Google, based on technology acquired with the purchase of On2 Technologies.
+
+As a derivative of the VP8 video format, it is a sister project to the WebM multimedia container format. WebP-related software is released under a BSD license.
+
+The format was first announced on 30 September 2010 as a new open standard for lossy compressed true-color graphics on the web, producing smaller files of comparable image quality to the older JPEG scheme. On October 3, 2011 Google announced WebP support for animation, ICC profile, XMP metadata, and tiling (compositing very large images from maximum 16384×16384 tiles).
+
+On 18 November 2011 Google began to experiment with lossless compression and support for transparency (alpha channel) in both lossless and lossy modes; support has been enabled by default in libwebp 0.2.0 (16 August 2012). According to Google's measurements, a conversion from PNG to WebP results in a 45% reduction in file size when starting with PNGs found on the web, and a 28% reduction compared to PNGs that are recompressed with pngcrush and PNGOUT.
+
+== Technology ==
+WebP's lossy compression algorithm is based on the intra-frame coding of the VP8 video format and the Resource Interchange File Format (RIFF) as a container format. Without further content, the mandatory RIFF container has an overhead of only twenty bytes, though it can also hold additional metadata.
+
+WebP’s lossless compression uses advanced techniques such as dedicated entropy codes for different color channels, exploiting 2D locality of backward reference distances and a color cache of recently used colors. This complements basic techniques such as dictionary coding, Huffman coding and color indexing transform. Google reports a 64% reduction in file size for images converted from animated GIFs to lossy WebP, and a 19% reduction when converted to lossless WebP.
+<gallery>
+Simple Animated Clock.webp|, MediaWiki supports only static WebP images; this animated image here could not be displayed correctly on Wikipedia.
+</gallery>
+
+== Support ==
+An example of WebP image
+Amongst web browsers, Google Chrome, Firefox, Opera, GNOME Web, Midori, Falkon, Pale Moon, and Waterfox natively support WebP. Microsoft Edge supports WebP through a platform extension (installed by default). Microsoft Edge doesn’t support platform extensions, including the WebP image format extension, when running in the security hardened “Application Guard” mode.
+
+WebP can also be displayed in all major browsers using the WebPJS JavaScript library, although support in Internet Explorer 6 and above is achieved using Flash.
+
+Amongst graphics software, Picasa (from version 3.9),
+PhotoLine, Pixelmator, ImageMagick, XnView, IrfanView, GDAL, Aseprite and GIMP (from version 2.10) all natively support WebP. Telegraphics has released a free plug-in that enables WebP support in Adobe Photoshop. The plugin was last updated in 2013 so it saves using an older revision of the WebP format. A more current beta Photoshop plugin has also been released by fnordware. Imagine and Paint.NET support WebP via plugins. GIMP up to version 2.8 also supported WebP via a plugin, later this plugin was shipped in GIMP 2.9 branch, and received multiple improvements. Google has also released a plug-in for Microsoft Windows  that enables WebP support in Windows Photo Viewer, Microsoft Office 2010, FastPictureViewer, and any other application that uses Windows Imaging Component.
+
+FFmpeg linked with the VP8/VP9 reference codec library "libvpx" can extract VP8 key frames from WebM media and a script can then add the WebP RIFF header and the NUL pad byte for odd frame lengths. Meanwhile, FFmpeg supports "libwebp" directly.
+
+Gmail and Picasa Web Albums (both Google web applications) support WebP. Support for WebP is also planned for Google App Engine. The "Instant Previews" feature of Google Search currently uses WebP internally to reduce disk space used by previews. Android 4.0 supports encoding and decoding WebP images (via bitmap and Skia). SDL_image supports the format since 1.2.11.
+
+Telegram Messenger uses WebP for their Stickers, claiming they are displayed 5 times faster compared to the other formats usually used in messaging apps.
+
+In early beta versions of macOS Sierra and iOS 10, Apple added WebP support. In the GM seed versions of iOS 10 and macOS Sierra released 7 September 2016, WebP support has been removed.
+
+CMS (Content Management Systems) usually do not support WebP natively or by default. However, for most popular CMS, extensions are available for automated conversion from other image formats to WebP and delivering WebP images to compatible browsers.
+
+== Restrictions ==
+Like VP8 on which it is based, former lossy WebP only supports 8-bit YUV 4:2:0 format, which may cause color loss on images with thin contrast elements (such as in pixel art and computer graphics) and ghosting in anaglyph. To overcome this restriction, new lossless WebP supports VP8L encoding that works exclusively with 8-bit ARGB color space.
+
+== Propagation ==
+Google actively propagates usage of WebP. The proprietary PageSpeed Insights tool recommends webmasters switching from JPEG and PNG to WebP in order to improve the website speed score.
+== Criticism ==
+In September 2010, Fiona Glaser, a developer of the x264 encoder, wrote a very early critique of WebP. and was not able to conclude WebP outperformed JPEG by any significant margin.
+
+== See also ==
+* FLIF, a work-in-progress lossless image format which claims to outperform PNG, lossless WebP, lossless BPG and lossless JPEG2000 in terms of compression ratio, introduced in 2015
+* BPG, an image format intended to be a more compression-efficient replacement for the JPEG image format, based on the intra-frame encoding of the High Efficiency Video Coding (HEVC) video compression standard, introduced in 2014
+* HEIF, another image format based on HEVC
+* JPEG XR, an alternative to JPEG 2000 supporting HDR and wide gamut color spaces, introduced in 2009
+* JPEG 2000, an improvement intended to replace the older JPEG by the JPEG committee, introduced in 2000
+* MNG and APNG, PNG-based animated image formats, supporting lossless 24-bit RGB color and 8-bit alpha channel
+* AV1 Still Image File Format, a container format based on the AV1 video codec
+
+== References ==
+== External links ==
+
+* 
+Category:Computer-related introductions in 2010
+Category:Google
+Category:Graphics file formats
+Category:Image compression
+Category:Open formats

@@ -1,0 +1,22 @@
+"Google Free Zone" was a global initiative undertaken by the Internet company Google in collaboration with mobile phone-based Internet providers, whereby the providers waive data (bandwidth) charges (also known as "zero-rate") for accessing select Google products such as Google Search, Gmail, and Google+. In order to use this service, users are required to have a Google account and a phone that has access to an internet connection.
+
+==History==
+* November 2012: Google Free Zone was announced by Google on November 8, 2012, with a launch in the Philippines in partnership with Globe Telecom, with the experimental round scheduled to run until March 31, 2013. Telkom Mobile in South Africa, then branded as "8ta", offered Google Free Zone 3 from 13 November 2012 but discontinued the service on 31 May 2013.
+* April 2013: launch in Sri Lanka on the Dialog mobile network.
+* June 2013: Google launched Google Free Zone in India in partnership with mobile Internet provider Airtel, and in Thailand on the AIS network.
+* December 2013: Airtel extended Google Free Zone to its services in Nigeria.
+* March 2014: Safaricom in Kenya had launched 60 day promotional Free Zone.
+
+==Reception and impact==
+
+A number of Internet commentators viewed Google Free Zone as both inspired by and a potential competitor to Facebook Zero.
+
+The "Subsecretaria de Telecomunicaciones" of Chile ruled that "Zero-rating" services like Wikipedia Zero, Facebook Zero, and Google Free Zone, that subsidize mobile data usage, violate net neutrality laws and had to end the practice by June 1, 2014.
+
+==See also==
+* Alliance for Affordable Internet
+* Facebook Zero
+* Internet.org
+* Project Loon
+* Wikipedia Zero
+* Zero-rating     Zero Rating / Toll Free Data / Toll Free Apps

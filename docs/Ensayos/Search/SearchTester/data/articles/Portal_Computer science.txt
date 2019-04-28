@@ -1,0 +1,23 @@
+{| width="100%" cellpadding="5" cellspacing="10" style="background:#FFFFFF; border-style:solid; border-width:1px; border-color:#FFFF33;"
+| width="55%" style="vertical-align:top;padding: 0; margin:0;" | 
+:
+<div style="clear:both; width:100%">
+</div>
+<div class="portal-column-left"> 
+</div>
+
+<div class="portal-column-right"> 
+</div>
+
+<div style="clear:both; width:100%">
+<div style="text-align: center;">Directory of pages for "Portal:Computing_science"
+</div>
+
+</div>
+__NOTOC__ __NOEDITSECTION__
+
+*
+Category:Computing portals
+Category:Science portals
+?
+Category:Portals with titles not starting with a proper noun
