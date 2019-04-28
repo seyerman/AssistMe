@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\AssistMeProject",
-    "\\AssistMeProject\\Controllers",
-    "\\AssistMeProject\\Models",
-    "\\AssistMeProject\\Views",
-    "\\AssistMeProject\\Views\\Home"
+    "\\docs",
+    "\\docs\\Informe de ingeniería",
+    "\\docs\\Requerimientos"
   ],
-  "SelectedNode": "\\AssistMeProject\\AssistMeProject.csproj",
+  "SelectedNode": "\\AssistMeProject\\AssistMeProject.sln",
   "PreviewInSolutionExplorer": false
 }
