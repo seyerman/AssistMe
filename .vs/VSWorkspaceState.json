@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\AssistMeProject",
-    "\\docs",
-    "\\docs\\Informe de ingeniería",
-    "\\docs\\Requerimientos"
+    "\\AssistMeProject\\AssistMeProject",
+    "\\AssistMeProject\\AssistMeProject\\Views",
+    "\\AssistMeProject\\AssistMeProject\\Views\\Comments"
   ],
-  "SelectedNode": "\\AssistMeProject\\AssistMeProject.sln",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
