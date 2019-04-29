@@ -15,7 +15,7 @@ namespace AssistMeProject.Models
         public Boolean isArchived { get; set; }
 
         public virtual ICollection<Answer> Answers { get; set; }
-
+        [Display(Name = "Nombre")]
         public virtual List<QuestionLabel> QuestionLabels { get; set; }
 
         public bool AskAgain { get; set; }
