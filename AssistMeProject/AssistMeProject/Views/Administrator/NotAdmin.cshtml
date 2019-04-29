@@ -1,27 +1,43 @@
 ﻿@model AssistMeProject.Models.User;
 
 @{
-   ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details";
 
 }
 
 
-<section class="container main-content">
-    <div class="row">
-        <!--Espacios-->
-        <div>
-            <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p>
-        </div>
-        <div class="col-md-9">
-            <div class="alert-message error">
-                <i class="icon-flag"></i>
-                <p>
-                    <span>Imposible acceder</span><br>
-                    Lo sentimos, su rol de usuario no permite acceder a esta funcionalidad.
-                </p>
+    <section class="container main-content">
+
+        <div class="row">
+            <!--Espacios-->
+            <div>
+                <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p>
             </div>
+            <div class="col-md-9">
+                <div class="alert-message error">
+                    <i class="icon-flag"></i>
+                    <p>
+                        <span>Imposible acceder</span><br>
+                        Lo sentimos, su rol de usuario no permite acceder a esta funcionalidad.
+                    </p>
+                </div>
 
 
+            </div><!-- End main -->
+        </div><!-- End row -->
+
+        <div class="row">
+            <div class="error_404">
+                <div>
+                    <h3>Solo Administradores</h3>
+                </div>
+                <div class="clearfix"></div><br>
+                <a asp-controller="Questions" asp-action="Index" class="button large color">Home Page</a>
+            </div>
         </div><!-- End main -->
-    </div><!-- End row -->
-</section><!-- End #alert -->
+
+    </section><!-- End #alert -->
+
+
+
+    <

@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Questions\NewFolder\**" />
+    <Content Remove="Views\Questions\NewFolder\**" />
+    <EmbeddedResource Remove="Views\Questions\NewFolder\**" />
+    <None Remove="Views\Questions\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20190317192326_cuatro.cs" />
     <Compile Remove="Migrations\20190317192326_cuatro.Designer.cs" />
   </ItemGroup>
@@ -107,6 +114,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Administrator\Index.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Update="Views\Questions\AdvancedSearch.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
