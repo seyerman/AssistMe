@@ -36,14 +36,14 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            var questions = await _context.Question
+            var questions = await _context.Question.Where(q=> q.isArchived == false)
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .ToListAsync();
             questions.Sort();
 
-
+           
 
             return View(questions);
 
@@ -319,5 +319,73 @@ namespace AssistMeProject.Controllers
 			}
 			return RedirectToAction(nameof(Details), new { id = question.Id });
 		}
+
+
+        // GET: Questions/Delete/5
+        public async Task<IActionResult> Archive(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var question = await _context.Question
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            return View(question);
+        }
+
+        // GET: Questions/Delete/5
+        public async Task<IActionResult> Desarchivar(int? id)
+        {
+            var question = await _context.Question.FindAsync(id);
+            question.isArchived = false;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> ArchiveQuestion(int? id)
+        {
+            var question = await _context.Question.FindAsync(id);
+            question.isArchived = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        // GET: Questions/Details/5
+        public async Task<IActionResult> ArchivedQuestionDetails(int? id)
+        {
+
+            var question = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            initSearcher();
+
+            var relatedQuestions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(question.Title);
+
+            foreach (ISearchable s in searchables)
+            {
+                Question q = (Question)s;
+                if (q.Id != question.Id)
+                    relatedQuestions.Add(q);
+                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+            }
+
+
+            ViewBag.Related = relatedQuestions;
+            return View(question);
+        }
     }
 }

@@ -1,0 +1,133 @@
+﻿@model IEnumerable<AssistMeProject.Models.Question>
+
+
+@{
+    string title = "Questions";
+    //Example of how to get data of user
+    if (ViewBag.User != null)
+    {
+        title = ViewBag.User.USERNAME;
+    }
+    //End of example
+    ViewData["Title"] = title;
+}
+
+<div class="col-md-9">
+
+    <section id="main" class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="tabs-warp question-tab">
+                    <ul class="tabs">
+                        <li class="tab"><a href="#" class="current">Recent Questions</a></li>
+                        <li class="tab"><a href="#">No answers</a></li>
+                    </ul>
+                    <div class="tab-inner-warp">
+                        <div class="tab-inner">
+                            @{
+                                int counter = 0;
+                                foreach (var item in Model)
+                                {
+
+                                    <article class="question question-type-normal">
+                                        <h2>
+                                            <a asp-controller="Questions" asp-action="ArchivedQuestionDetails" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
+                                        </h2>
+                                        <a class="question-report" href="#">Report</a>
+                                        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+
+                                        <div class="question-author">
+                                            <a href="#" original-title=@Html.DisplayFor(modelItem => item.Username) class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+                                        </div>
+                                        <div class="question-inner">
+                                            <div class="clearfix"></div>
+                                            <p class="question-desc">@Html.DisplayFor(modelItem => item.Description)</p>
+                                            <div class="question-details">
+                                                @{
+                                                    if (item.AskAgain)
+                                                    {
+                                                        <span class="question-answered"><i class="icon-star"></i>UP</span>
+
+                                                    }
+
+                                                }
+                                                @{ var n = DateTime.Now;
+                                                    if (item.Answers.Count > 0)
+                                                    {
+                                                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+                                                    }
+                                                    else if (n >= item.Date.AddDays(1))
+                                                    {
+                                                        <span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@item.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="question-answered"><i class="icon-ok"></i>in progress</span>
+                                                    }
+                                                }
+                                                <span class="question-favorite"><i class="icon-star"></i>5</span>
+                                            </div>
+
+                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i></a></span>
+                                            <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
+                                            <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>@item.Answers.Count</a></span>
+                                            <p>
+                                                <div class="question-tags">
+                                                    <i class="icon-tags"></i>
+                                                    @{
+                                                        foreach (QuestionLabel ql in item.QuestionLabels)
+                                                        {
+                                                            string text = ql.Label.Tag;
+                                                            if (item.QuestionLabels.Last() != ql)
+                                                            {
+                                                                text += ", ";
+                                                            }
+                                                            <a href="#">@text</a>
+                                                        }
+                                                    }
+                                                </div>
+                                            </p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </article>
+                                    counter++;
+                                }
+                            }
+                            <a href="#" class="load-questions"><i class="icon-refresh"></i>Load More Questions</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- End page-content -->
+
+
+
+        </div><!-- End row -->
+    </section><!-- End container -->
+
+</div><!-- End main -->
+
+
+
+<script>
+     var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('main').style.display = 'block';
+        } else {
+            foo();
+        }
+    }
+
+    function foo() {
+    window.location.href = 'NotAdmin';
+}
+
+
+</script>

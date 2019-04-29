@@ -149,10 +149,45 @@ namespace AssistMeProject.Controllers
         }
 
 
+        // GET: Questions
+        public async Task<IActionResult> ArchivedQuestions()
+        {
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+           
+            var questions = await _context.Question.Where(q => q.isArchived == true)
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .ToListAsync();
+            questions.Sort();
 
 
-     
 
- 
+            return View(questions);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

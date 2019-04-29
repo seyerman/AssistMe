@@ -12,6 +12,8 @@ namespace AssistMeProject.Models
         [Required(ErrorMessage = "Agregue un Titulo a su pregunta"), MaxLength(150), Display(Name = "Titulo")]
         public string Title { get; set; }
 
+        public Boolean isArchived { get; set; }
+
         public virtual ICollection<Answer> Answers { get; set; }
 
         public virtual List<QuestionLabel> QuestionLabels { get; set; }
@@ -24,6 +26,7 @@ namespace AssistMeProject.Models
         {
             Answers = new HashSet<Answer>();
             AskAgain = false;
+            isArchived = false;
         }
 
         public override string GetDocumentText()

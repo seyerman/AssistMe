@@ -37,61 +37,55 @@
             <div class="divider"><span></span></div>
 
             @*   <div id="tableEtiqueta" class="row">
-            <div class="col-md-12">
-                <div class="boxedtitle page-title"><h2>Tabla Preguntas Por Etiqueta</h2></div>
-
-
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th align="center" style="font-family:'Verdana Pro'">
-                                    @Html.DisplayNameFor(model => model.Id)
-                                </th>
-                                <th align="center" style="font-family:'Verdana Pro'">
-                                    @Html.DisplayNameFor(model => model.Title)
-                                </th>
-                                <th align="center" style="font-family:'Verdana Pro'">
-                                    @Html.DisplayNameFor(model => model.Date)
-                                </th>
-                                <th align="center" style="font-family:'Verdana Pro'">
-                                    @Html.DisplayNameFor(model => model.Description)
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td style="font-family:'Verdana Pro'">
-                                        @Html.DisplayFor(modelItem => item.Id)
-                                    </td>
-                                    <td style="font-family:'Verdana Pro'">
-                                        @Html.DisplayFor(modelItem => item.Title)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Date)
-                                    </td>
-                                    <td style="font-family:'Verdana Pro'">
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </td>
-
-                                    <td style="font-family:'Verdana Pro'">
-                                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-
-                </div>
-
-            </div>
-        </div><!-- End # etiqueta Table-->
-
-            <div class="divider"><span></span></div>
+                    <div class="col-md-12">
+                        <div class="boxedtitle page-title"><h2>Tabla Preguntas Por Etiqueta</h2></div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Id)
+                                        </th>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Title)
+                                        </th>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Date)
+                                        </th>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Description)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td style="font-family:'Verdana Pro'">
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>
+                                            <td style="font-family:'Verdana Pro'">
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Date)
+                                            </td>
+                                            <td style="font-family:'Verdana Pro'">
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td style="font-family:'Verdana Pro'">
+                                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!-- End # etiqueta Table-->
+                    <div class="divider"><span></span></div>
             *@
 
             <div id="tableEtiqueta" class="row">
@@ -251,9 +245,7 @@
 
 <script>
      var level = @ViewData["Admin"];
-
         window.onload = ocultar();
-
     function ocultar() {
         if (level == 2) {
             console.log('Este usuario es un administrador');
@@ -262,10 +254,7 @@
             foo();
         }
     }
-
     function foo() {
     window.location.href = 'NotAdmin';
 }
-
-
 </script>

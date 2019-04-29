@@ -114,6 +114,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Administrator\Index.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Update="Views\Questions\AdvancedSearch.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
