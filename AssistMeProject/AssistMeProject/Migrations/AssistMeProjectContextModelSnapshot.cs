@@ -96,6 +96,8 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Username");
 
+                    b.Property<bool>("isArchived");
+
                     b.HasKey("Id");
 
                     b.ToTable("Question");

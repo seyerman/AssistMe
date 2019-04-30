@@ -8,7 +8,7 @@
     <p> </p> <p> </p><p> </p><p> </p>
 
 </div>
-<section class="container main-content">
+<section class="container main-content" id="main">
     <div class="row">
         <div class="col-md-9">
             <div class="page-content ask-question">
@@ -65,3 +65,25 @@
    
     </div><!-- End row -->
 </section><!-- End container -->
+
+
+<script>
+     var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('main').style.display = 'block';
+        } else {
+            foo();
+        }
+    }
+
+    function foo() {
+    window.location.href = 'NotAdmin';
+}
+
+
+</script>
