@@ -60,8 +60,12 @@ C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\o
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Users\Login.g.cshtml.cs
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Users\Profile.g.cshtml.cs
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Stats\Default.g.cshtml.cs
-C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AddAdminList.g.cshtml.cs
-C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateStudio.g.cshtml.cs
-C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Index.g.cshtml.cs
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\TagWidget\Default.g.cshtml.cs
 C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\TopUsers\Default.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Administrator\AddAdmin.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Administrator\AsignRole.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Administrator\CreateStudio.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Administrator\Index.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Administrator\NotAdmin.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CommentPartial.g.cshtml.cs
+C:\Users\JORGE\Source\Repos\Tyrantrum\AssistMe\AssistMeProject\AssistMeProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\CommentList\Default.g.cshtml.cs

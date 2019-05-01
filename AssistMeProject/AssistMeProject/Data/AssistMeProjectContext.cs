@@ -18,6 +18,7 @@ namespace AssistMeProject.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<QuestionLabel>().HasKey(x => new { x.QuestionId, x.LabelId });
+            
             base.OnModelCreating(modelBuilder);
         }
 
