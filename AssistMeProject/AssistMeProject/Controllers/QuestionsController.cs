@@ -36,14 +36,15 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            var questions = await _context.Question.Where(q=> q.isArchived == false)
+            var questions = await _context.Question.Where(q => q.isArchived == false)
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
+                .Include(q => q.Studio)
                 .ToListAsync();
             questions.Sort();
 
-           
+
 
             return View(questions);
 
@@ -61,7 +62,7 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
 
-            if(actualUser != null)
+            if (actualUser != null)
             {
                 ViewData["Admin"] = actualUser.LEVEL;
             }
@@ -76,6 +77,7 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
+                .Include(q => q.Studio)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
@@ -140,10 +142,23 @@ namespace AssistMeProject.Controllers
             string Activeuser = HttpContext.Session.GetString("USERNAME");
             if (string.IsNullOrEmpty(Activeuser))
             {
-                return RedirectToAction("Index", "Users", new { message = "Please Log In"} );
+                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
             }
 
             ViewBag.username = Activeuser;
+
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            //list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
+
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
+
+
+            ViewData["Studios"] = new SelectList(list, "Value", "Text");
 
 
             return View();
@@ -159,12 +174,17 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        public async Task<IActionResult> Create(string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             question.Username = HttpContext.Session.GetString("USERNAME");
             if (ModelState.IsValid)
             {
                 _context.Add(question);
+                if (!string.IsNullOrEmpty(studio))
+                {
+                    var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+                    question.StudioId = st.Id;
+                }
                 if (!string.IsNullOrEmpty(question_tags))
                 {
                     string[] tagsStr = question_tags.Split(",");
@@ -189,14 +209,14 @@ namespace AssistMeProject.Controllers
 
                 await _context.SaveChangesAsync();
 
-              
+
 
                 try
                 {
                     Email manager = new Email();
-                    MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n"+question.Description);
+                    MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n" + question.Description);
                     manager.EnviarCorreo(email);
-                
+
                 }
                 catch (System.Exception ex)
                 {
@@ -293,36 +313,36 @@ namespace AssistMeProject.Controllers
         {
             return _context.Question.Any(e => e.Id == id);
         }
-		public async Task<IActionResult> UpdateDate(int? id)
-		{
-			var question = await _context.Question.FindAsync(id);
-			if (question == null)
-			{
-				return NotFound();
-			}
-			question.Date = DateTime.Now;
+        public async Task<IActionResult> UpdateDate(int? id)
+        {
+            var question = await _context.Question.FindAsync(id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+            question.Date = DateTime.Now;
             question.AskAgain = true;
-			if (ModelState.IsValid)
-			{
-				try
-				{
-					_context.Update(question);
-					await _context.SaveChangesAsync();
-				}
-				catch (DbUpdateConcurrencyException)
-				{
-					if (!QuestionExists(question.Id))
-					{
-						return NotFound();
-					}
-					else
-					{
-						throw;
-					}
-				}
-			}
-			return RedirectToAction(nameof(Details), new { id = question.Id });
-		}
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(question);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!QuestionExists(question.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = question.Id });
+        }
 
 
         // GET: Questions/Delete/5

@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190501034942_question-studio-single")]
+    partial class questionstudiosingle
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,7 +92,7 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
-                    b.Property<int?>("StudioId");
+                    b.Property<int>("StudioId");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -198,7 +200,8 @@ namespace AssistMeProject.Migrations
                 {
                     b.HasOne("AssistMeProject.Models.Studio", "Studio")
                         .WithMany("Questions")
-                        .HasForeignKey("StudioId");
+                        .HasForeignKey("StudioId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
