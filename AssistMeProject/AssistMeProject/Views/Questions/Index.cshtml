@@ -69,7 +69,7 @@
                                                 <span class="question-favorite"><i class="icon-star"></i>5</span>
                                             </div>
 
-                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i></a></span>
+                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i>@Html.DisplayFor(modelItem => item.Studio.Name)</a></span>
                                             <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
                                             <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>@item.Answers.Count</a></span>
                                             <p>

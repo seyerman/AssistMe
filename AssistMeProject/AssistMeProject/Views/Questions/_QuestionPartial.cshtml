@@ -8,7 +8,7 @@
     <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
     @if ((bool)ViewData["IsQuestionMin"]) {
         <div class="question-author">
-            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+            <a href="#" original-title="@Model.Username" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
         </div>
 	}
 
@@ -33,7 +33,7 @@
 			<span class="question-favorite"><i class="@Html.DisplayName(true?"icon-star":"icon-star-empty")"></i>5</span>
 			@if (true)
 			{
-				<span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span>
+				<span class="question-category"><a href="#"><i class="icon-folder-close"></i>@Html.DisplayFor(modelItem => Model.Studio.Name)</a></span>
 			}
 			<span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => Model.Date)</span>
 			<span class="question-view"><i class="icon-user"></i>70 views</span>
