@@ -59,12 +59,20 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
         {
-            setActiveUser();
             if (ModelState.IsValid)
             {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index","Users",new { message = "Congratulations, please login below"});
+                bool exist = UserExists(user.USERNAME);
+                string message = "";
+                if (exist)
+                {
+                    message = "El usuario ya existe, digite uno nuevo";
+                } else
+                {
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
+                    message = "Cuenta creada, inicie sesión";
+                }
+                return RedirectToAction("Index","Users",new { message});
             }
             return View(user);
         }
@@ -77,7 +85,7 @@ namespace AssistMeProject.Controllers
 
             if (currentlyActiveUsername == null)
             {
-                return RedirectToAction("Index", "Users", new { message = "Please, login below" });
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             }
 
             User user = model.GetUser(currentlyActiveUsername);
@@ -162,21 +170,29 @@ namespace AssistMeProject.Controllers
 
         private bool UserExists(int id)
         {
-            setActiveUser();
             return _context.User.Any(e => e.ID == id);
         }
 
-        [HttpGet]
+        private bool UserExists(string username)
+        {
+            return _context.User.Any(e => e.USERNAME.Equals(username));
+        }
+
+        [HttpGet] //////////////////////////////////////////////////////////////////
         public IActionResult Profile(string viewingToUser)
         {
             setActiveUser();
             string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
 
-            if (!string.IsNullOrEmpty(currentlyActiveUsername))
-                return View(model.GetUser(currentlyActiveUsername));
-            if (string.IsNullOrEmpty(viewingToUser))
-                return RedirectToAction("Index", "Users", new { message = "Please, login below" });
-            return View(model.GetUser(viewingToUser));
+            if (!string.IsNullOrEmpty(currentlyActiveUsername) ) {
+                if (string.IsNullOrEmpty(viewingToUser))
+                    return View(model.GetUser(currentlyActiveUsername));
+                ViewData["ACTIVE_USER"] = currentlyActiveUsername;
+                return View(model.GetUser(viewingToUser));
+            } else
+            {
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            }
         }
 
         [HttpPost]
@@ -186,11 +202,12 @@ namespace AssistMeProject.Controllers
             User found = model.FindUser(username,password,method);
             if (found == null)
             {
-                return RedirectToAction("Index","Users",new { message = "Error, try again"});
+                return RedirectToAction("Index","Users",new { message = "Error, prueba de nuevo"});
             } else
             {
-                //Only username it's saved for have a better security but this might be slower because have to search user every time
+                //Only username it's saved for have a better security but this might be slower because have to search user every time it's needed
                 HttpContext.Session.SetString(ACTIVE_USERNAME, found.USERNAME);
+                ViewData["ACTIVE_USER"] = username;
                 return View(found);
             }
         }
