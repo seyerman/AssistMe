@@ -32,8 +32,8 @@ namespace AssistMeProject.Controllers
 
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
             var questions = await _context.Question.Where(q => q.isArchived == false)
