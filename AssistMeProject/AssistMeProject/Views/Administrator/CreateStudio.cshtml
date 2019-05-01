@@ -1,0 +1,89 @@
+﻿@model AssistMeProject.Models.Studio
+
+@{
+    ViewData["Title"] = "Crear Nuevo Studio";
+}
+
+<div>
+    <p> </p> <p> </p><p> </p><p> </p>
+
+</div>
+<section class="container main-content" id="main">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="page-content ask-question">
+                <div class="boxedtitle page-title"><h2> Crear Nuevo Studio</h2></div>
+                <div class="form-style form-style-3" id="question-submit">
+                    <form asp-action="CreateStudio">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <p>
+                                <label asp-for="Name" class="required">Nombre del Studio<span>*</span></label>
+                                <input asp-for="Name" type="text" id="question-title">
+                                <span asp-validation-for="Name" class="form-description">Por favor escriba un nombre adecuado para el Studio</span>
+                            </p>
+                            <p>
+                                <div class="form-group">
+                                    <label asp-for="Unit" class="required">Categoría<span>*</span></label>
+
+                                    <span class="styled-select">
+
+                                        <select asp-for="Unit" class="form-control" asp-items="ViewBag.Unit"></select>
+                                    </span>
+
+                                    <span asp-validation-for="Unit" class="form-description">Verifique previamente el área a la que pertenecerá el nuevo Studio.</span>
+                                </div>
+                            </p>
+                            <div class="form-group">
+                                <p>
+                                    <label asp-for="Description" class="required">Detalles del Studio<span>*</span></label>
+                                    <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+                                    <span asp-validation-for="Description" class="form-description">Indique cualquier detalle que considere importante.</span>
+                                </p>
+                            </div>
+
+                            
+                                <label >Ícono del Studio</label>
+                                <div class="fileinputs">
+                                    <input  type="file" class="file">
+                                    <div class="fakefile">
+                                        <button type="button" class="button small margin_0">Subir archivo</button>
+                                        <span><i class="icon-arrow-up"></i>Browse</span>
+                                    </div>
+                                </div>
+                       
+
+                        </div>
+                      
+                        <p class="form-group">
+                            <input type="submit" id="crear-studio" value="Crear Studio" class="button color small submit">
+                        </p>
+                    </form>
+                </div>
+            </div><!-- End page-content -->
+        </div><!-- End main -->
+   
+    </div><!-- End row -->
+</section><!-- End container -->
+
+
+<script>
+     var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('main').style.display = 'block';
+        } else {
+            foo();
+        }
+    }
+
+    function foo() {
+    window.location.href = 'NotAdmin';
+}
+
+
+</script>

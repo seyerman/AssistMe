@@ -1,0 +1,48 @@
+Smartwatches are commonly used gadgets.
+A "gadget" is a small tool such as a machine that has a particular function, but is often thought of as a novelty. Gadgets are sometimes referred to as "gizmos".
+
+==History==
+The etymology of the word is disputed. The word first appears as reference to an 18th-century tool in glassmaking that was developed as a spring pontil.  As stated in the glass dictionary published by the Corning Museum of Glass, a gadget is a "metal rod with a spring clip that grips the foot of a vessel and so avoids the use of a pontil. Gadgets were first used in the late 18th century."  According to the Oxford English Dictionary, there is anecdotal (not necessarily true) evidence for the use of "gadget" as a placeholder name for a technical item whose precise name one can't remember since the 1850s; with Robert Brown's 1886 book "Spunyarn and Spindrift, A sailor boy’s log of a voyage out and home in a China tea-clipper" containing the earliest known usage in print.
+A widely circulated story holds that the word gadget was "invented" when Gaget, Gauthier & Cie, the company behind the repoussé construction of the Statue of Liberty (1886), made a small-scale version of the monument and named it after their firm; however this contradicts the evidence that the word was already used before in nautical circles, and the fact that it did not become popular, at least in the USA, until after World War I.
+</blockquote>
+
+The usage of the term in military parlance extended beyond the navy.  In the book "Above the Battle" by Vivian Drake, published in 1918 by D. Appleton & Co., of New York and London, being the memoirs of a pilot in the British Royal Flying Corps, there is the following passage: "Our ennui was occasionally relieved by new gadgets -- "gadget" is the Flying Corps slang for invention! Some gadgets were good, some comic and some extraordinary."
+
+By the second half of the twentieth century, the term "gadget" had taken on the connotations of compactness and mobility. In the 1965 essay "The Great Gizmo" (a term used interchangeably with "gadget" throughout the essay), the architectural and design critic Reyner Banham defines the item as:
+
+<blockquote>
+A characteristic class of US products––perhaps the most characteristic––is a small self-contained unit of high performance in relation to its size and cost, whose function is to transform some undifferentiated set of circumstances to a condition nearer human desires.  The minimum of skills is required in its installation and use, and it is independent of any physical or social infrastructure beyond that by which it may be ordered from catalogue and delivered to its prospective user. A class of servants to human needs, these clip-on devices, these portable gadgets, have coloured American thought and action far more deeply––I suspect––than is commonly understood.
+</blockquote>
+
+==Other uses==
+
+The first atomic bomb was nicknamed "the gadget" by the Scientists the Manhattan Project, tested at the Trinity site.
+
+==Application gadgets==
+
+In the software industry, "Gadget" refers to computer programs that provide services without needing an independent application to be launched for each one, but instead run in an environment that manages multiple gadgets. There are several implementations based on existing software development techniques, like JavaScript, form input, and various image formats.
+
+: 
+
+The earliest documented use of the term "gadget" in context of software engineering was in 1985 by the developers of AmigaOS, the operating system of the Amiga computers ("intuition.library" and also later "gad"tools.library"). It denotes what other technological traditions call "GUI widget"—a control element in graphical user interface. This naming convention remains in continuing use (as of 2008) since then.
+
+The X11 windows system 'Intrinsics' also defines gadgets and their relationship to widgets (buttons, labels etc.). The gadget was a windowless widget which was supposed to improve the performance of the application by reducing the memory load on the X server. A gadget would use the Window id of its parent widget and had no children of its own
+
+It is not known whether other software companies are explicitly drawing on that inspiration when featuring the word in names of their technologies or simply referring to the generic meaning. The word "widget" is older in this context. In the movie "Back to School" from 1986 by Alan Metter, there is a scene where an economics professor Dr. Barbay, wants to start for educational purposes a fictional company that produces "widgets: It's a fictional product."
+
+: 
+
+==See also==
+* Domestic technology
+* Electronics
+* Gadget Magazines
+* Gizmo (disambiguation)
+* "Inspector Gadget"
+* Merchandising
+* Multi-tool
+* Widget
+
+==Notes==
+Category:Tools
+Category:Placeholder names
+Category:Software

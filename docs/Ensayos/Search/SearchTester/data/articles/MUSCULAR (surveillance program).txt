@@ -1,0 +1,50 @@
+"MUSCULAR (DS-200B)", located in the United Kingdom, GCHQ is the primary operator of the program. GCHQ and the NSA have secretly broken into the main communications links that connect the data centers of Yahoo! and Google.
+
+== Operational details ==
+
+According to the leaked document the NSA's acquisitions directorate sends millions of records every day from internal Yahoo! and Google networks to data warehouses at the agency's headquarters at Fort Meade, Maryland. The program operates via an access point known as "DS-200B", which is outside the United States, and it relies on an unnamed telecommunications operator to provide secret access for the NSA and the GCHQ.
+
+According to the "Washington Post", the MUSCULAR program collects more than twice as many data points ("selectors" in NSA jargon) compared to the better known PRISM.
+
+Closely related programmes are called INCENSER and TURMOIL. TURMOIL, belonging to the NSA, is a system for processing the data collected from MUSCULAR. In mid-November, Yahoo! announced similar plans.
+
+In December 2013, Microsoft announced similar plans and used the expression "advanced persistent threat" in their press release (signed-off by their top legal representative), which the press immediately interpreted as comparison of the NSA with the Chinese government-sponsored hackers.
+
+== Gallery ==
+<gallery>
+
+Image:NSA-MUSCULAR-p22.png|Slide from NSA SSO presentation detailing the MUSCULAR capabilities
+Image:20131030-wapo-muscular.pdf|Internal NSA SSO update on the MUSCULAR operation, mentioning problem with Yahoo mailbox transfers, which required a throttling of data capture
+
+</gallery>
+
+== See also ==
+
+* 2013 mass surveillance disclosures
+* DISHFIRE, another NSA–GCHQ collaboration collecting SMS and similar messages worldwide
+* List of government mass surveillance projects
+* Mass surveillance
+** Mass surveillance in the United Kingdom
+** Mass surveillance in the United States
+* Squeaky Dolphin, program targeting Facebook, YouTube, and Blogger
+* STELLARWIND
+* Total Information Awareness
+
+== References ==
+== External links ==
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+Category:Government Communications Headquarters operations
+Category:National Security Agency operations
+Category:Intelligence agency programmes revealed by Edward Snowden
+Category:Secret government programs
+Category:Surveillance scandals
+Category:Hacking of Yahoo!
+Category:Google
+Category:Email hacking
+Category:Cyberattacks

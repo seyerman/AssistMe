@@ -1,0 +1,23 @@
+"Google Energy LLC" is a subsidiary company of Alphabet Inc., which was created to reduce costs of energy consumption of the Google Group, and subsequently to produce and sell clean energy.  The division also allows it to take advantage of projects funded through the philanthropic Google.org.
+
+== Operations ==
+By 2007 Google had invested a substantial amount of money in wind, solar, solar thermal, and geothermal projects, including a 1.6&nbsp;MW solar installation pilot project at its headquarters. In 2010 Google Energy made its first investment in a renewable-energy project, putting up US$38.8&nbsp;million for two wind farms in North Dakota. The company announced that the two locations will generate 169.5&nbsp;MW of power, or enough to supply 55,000&nbsp;homes. The farms, which were developed by NextEra Energy Resources, will reduce fossil fuel use in the region. NextEra Energy Resources sold Google a twenty percent stake in the project in order to get funding for project development. In addition, on July 30, 2010, Google Energy agreed to purchase 114&nbsp;MW of Iowa wind energy from NextEra Energy at a fixed rate for 20&nbsp;years. The corporation plans to primarily use the electricity for Google's data centers, but it may also be sold on the open market.
+
+In 2010 Google Energy, together with a group of other investors, announced a plan to build the Atlantic Wind Connection, an undersea cable off the Atlantic coast to connect future offshore wind farms with on-shore transmission grids.
+
+In April 2011, Google extended its partnership with NextEra by signing a 20-year power purchase agreement (PPA) for its Minco II Wind Energy Center. As of 2011, the 100.8-megawatt wind farm is being developed in the Grady and Caddo counties near Minco.
+
+Google invested two rounds in SolarCity, $280 million in 2011 and $300 million in 2015.
+
+On September 17, 2013, the corporation announced its plan to purchase all of the electricity produced by the 240-megawatt Happy Hereford wind farm that will be located near Amarillo, Texas, US upon the completion of the farm's construction. Purchased from the wind farms owners Chermac Energy, Google Energy will sell the electricity from Happy Hereford into the wholesale market in Oklahoma, the location of one of its data centers.
+
+, Google has power purchase agreements for 2,600 MW.
+
+== Deep Mind Integration ==
+Google Plans to combine its Deep Mind AI to optimize the production of energy from its wind farms. Wind power will always suffer from unpredictability. That limits its adoption when compared to other energy sources that can reliable deliver power at a set time. To help solve this problem, last year DeepMind started building algorithms to boost the efficacy of Google’s wind farms in the US, it said in a blog post. It trained a neural network on weather forecasts and past turbine data, so it could predict power output 36 hours ahead. Based on this, the model recommends how to allocate power to the grid a full day in advance. This boosted the “value” of Google’s wind farms by about 20%, it claims, though it hasn’t specified what form that value takes, or how it’s measured. While it’s only been built and tested out internally so far, it’s not hard to imagine Google hoping to sell this technology to wind farm operators.
+
+== Authorization to buy and sell energy ==
+In February 2010, the Federal Energy Regulatory Commission FERC granted Google an authorization to buy and sell energy at market rates. The order specifically states that Google Energy—a subsidiary of Google—holds the rights "for the sale of energy, capacity, and ancillary services at market-based rates", but acknowledges that neither Google Energy nor its affiliates "own or control any generation or transmission" facilities.
+
+==See also==
+* Google PowerMeter, a Google service that was discontinued in 2011.

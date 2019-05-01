@@ -1,0 +1,244 @@
+The following outline is provided as an overview of and topical guide to Google:
+
+The current Google logo was launched on September 1, 2015.
+"Google" – American multinational technology company specializing in Internet-related services and products that include online advertising technologies, search, cloud computing, software, and hardware. 
+== Google LLC. ==
+
+* "Motto": Don't be evil
+* "Website": 
+*"CEO:" Sundar Pichai
+*"Co-Founder:" Larry Page
+*"Co-Founder:" Sergey Brin
+*"Parent Company:" Alphabet Inc.
+* History of Google
+* Criticism of Google 
+* Censorship by Google
+* List of mergers and acquisitions by Google
+* Google.org 
+* Google platform 
+* Googleplex 
+* Google logo 
+* Google Doodles
+* List of Google Easter eggs
+* List of Google April Fools' Day jokes
+
+==Products ==
+===Google Search===
+
+Google Search
+*Algorithms:
+**PageRank
+**Google Hummingbird
+**Google Panda
+**Google Penguin
+**"Related:" Google penalty
+*Analysis:
+**Google Trends
+**Google Insights for Search
+**Knowledge Graph
+*Google Instant
+*Google Voice Search
+*Google Real-Time Search 
+*Google Personalized Search
+*Google Web History
+*Google Custom Search
+*Related:
+**Timeline of Google Search
+**Google Searchology
+
+===Google Maps===
+
+Google Maps
+*Google Traffic
+*Google Transit
+*Google Street View
+**Coverage of Google Street View
+***Google Street View in Africa
+***Google Street View in Antarctica
+***Google Street View in Asia
+****Google Street View in Israel
+***Google Street View in Europe
+***Google Street View in North America
+****Google Street View in Canada
+****Google Street View in the United States
+***Google Street View in Oceania
+***Google Street View in South America
+****Google Street View in Argentina
+****Google Street View in Chile
+****Google Street View in Colombia
+**Google Street View privacy concerns
+**Competition of Google Street View
+*Google Aerial View
+*Google Earth
+**Google Mars
+**Google Moon
+**Google Sky
+*Google Latitude
+*Google Maps Navigation
+*Google Maps (app)
+*Google Map Maker
+*Google Maps pin
+
+===YouTube===
+
+YouTube
+*History of YouTube
+*Social impact of YouTube
+*Censorship of YouTube
+*"Me at the zoo" &ndash; the first video uploaded onto YouTube
+
+===Gmail===
+
+Gmail
+*Gmail interface
+*History of Gmail
+
+===Google Chrome===
+
+Google Chrome
+*Mobile versions:
+**Google Chrome for Android
+**Google Chrome for iOS
+*Chrome OS
+*Chrome Web Store
+*Google Chrome Apps
+*Google Chrome Extensions
+*Open-source:
+**Chromium
+**Chromium OS
+*Google Chrome Frame 
+*Google Chrome Experiments
+
+===Android===
+*Android software development
+*Android version history
+**Android Lollipop
+**Android Jelly Bean
+**Android 4.0
+*Derivatives:
+**Android Wear
+**Android Auto
+**Android TV
+*Android One
+*List of features in Android
+*List of Android launchers
+*Android application package
+*Android Runtime
+*Android rooting
+*Android Studio
+
+===Pixel===
+*Chromebook Pixel
+*Pixelbook
+*Pixel C
+*Pixel Slate
+*Pixel
+*Pixel 2
+*Pixel 3
+*Pixel Buds
+
+==History==
+
+History of Google
+
+*Timeline of Google Search
+*History of Gmail
+*History of YouTube
+*History of Android
+**Android version history 
+*History of Google+
+*History of Google Chrome
+*History of Google Maps
+**Timeline of Google Street View
+*History of Google News 
+*History of Google Drive 
+*History of Google Docs
+*History of Blogger
+*History of Google Buzz
+*History of Orkut
+
+===Product release timeline===
+*1998 &ndash; Google Search
+*2001 &ndash; Google Groups
+*2002 &ndash; Google News 
+*2004 &ndash; Orkut
+*2004 &ndash; Gmail 
+*2005 &ndash; iGoogle
+*2005 &ndash; Android (acquisition)
+*2005 &ndash; Google Reader 
+*2006 &ndash; Google Calendar
+*2006 &ndash; Google Docs
+*2006 &ndash; YouTube (acquisition)
+*2010 &ndash; Google eBooks
+*2010 &ndash; Google Buzz
+*2011 &ndash; Google+
+*2012 &ndash; Google Drive
+*2012 &ndash; Google Play
+
+===Product discontinuation timeline===
+*2014 &ndash; Orkut
+*2013 &ndash; iGoogle
+*2013 &ndash; Google Reader
+*2011 &ndash; Google Buzz
+*2011 &ndash; Google Notebook 
+*2011 &ndash; Google Desktop
+*2011 &ndash; Google Pack
+
+== Acquisitions ==
+: "See: List of mergers and acquisitions by Google"
+
+==Criticism==
+
+Criticism of Google
+*Privacy concerns
+*Copyright issues
+*Monopoly, restraint of trade, and antitrust
+*Criticism of products:
+**Criticism of Gmail
+**Criticism of Google Buzz
+
+==Events==
+
+===For developers===
+*Google I/O
+*Google Developer Day
+*Android Developer Day
+*Android Developer Challenge
+*Google Code Jam
+
+===Other===
+*Google Science Fair
+*Google Searchology
+*Doodle4Google
+
+== People in relation to Google ==
+=== Management ===
+* CEO: Sundar Pichai
+* Co-Founder (advises Google execs on technology development): Sergey Brin
+* Co-Founder (advises Google execs on product management): Larry Page
+* Divisional Leadership:
+**Hiroshi Lockheimer: SVP, Platforms & Ecosystems
+** Rick Osterloh: SVP, Consumer Hardware
+** Ben Gomes: VP, Search & Assistant
+** Jeff Dean: SVP, AI
+** Thomas Kurian: CEO, Google Cloud
+** Susan Wojcicki: CEO, YouTube
+** Clay Bavor: VP, VR & AR
+** Prabhakar Raghavan: VP, Ads & Commerce
+* Functional Leadership:
+**Kent Walker: SVP & General Counsel
+**Donald Harrison: President, Global Partnerships and Corporate Development
+** Philipp Schindler: SVP, Global Sales & Operations
+** Lorraine Twohill: SVP, Global Marketing
+**Eileen Naughton: VP, People Operations
+** Kristen Gil: VP, Business Operations
+
+==Google's influence on language and culture==
+*Google (verb) 
+*Google bomb 
+*Googlewhack 
+==External links==
+* 
+* [https://www.blog.google Official Google Blog]
+Google
+Category:Google

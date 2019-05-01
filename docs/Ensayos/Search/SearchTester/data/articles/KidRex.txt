@@ -1,0 +1,9 @@
+"KidRex" is a child-safe search engine powered by Google Custom Search. The site utilizes Google SafeSearch and maintains its own database of inappropriate websites and keywords. The site has a colorful hand-drawn crayon and colored marker design. Time" magazine put KidRex on its list of the top 50 websites of 2013 and compared it to Google.
+
+<br />
+
+== History ==
+KidRex.org was launched in December of 2008, and was acquired by alarms.org in 2018. It broke new ground as being the second major kid friendly search engine, after KidzSearch, which launched in 2005. Kiddle would follow in 2014.
+
+==Controversy==
+In 2018, doubt was cast over KidRex's "child-safe" claims, when a security researcher was able to use the search engine to return adult-orientated search results. KidRex has also blocked the word gay, and has been criticized by the public.

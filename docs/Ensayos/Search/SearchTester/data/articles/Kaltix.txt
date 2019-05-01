@@ -1,0 +1,9 @@
+"Kaltix Corp.", commonly known as "Kaltix" is a personalized search engine company founded at Stanford University in June 2003 by Sep Kamvar, Taher Haveliwala and Glen Jeh. It was acquired by Google in September 2003.
+
+==Description==
+Kaltix was a startup company formed to commercialize personalized web search technology. The technology promised to make Google's search engine as much as 5 times faster and was said, by its founders, to offer a way to compute search results nearly 1,000 times faster than what was possible using current methods in 2003.
+
+==History==
+Kaltix is based on the work of Sep Kamvar, Taher Haveliwala and Glen Jeh when they were members of the PageRank Project at Stanford University as graduate students in 2002-03. Their purpose was to advance the PageRank algorithm developed by Larry Page and Sergey Brin, the co-founders of Google. Together, they formed the foundation of Kaltix.
+
+The first of these algorithms was presented in a paper to the Twelfth International World Wide Web Conference (WWW 2003) in Budapest, Hungary on May 22, 2003. Kaltix Corp was founded a short time later, on June 16, 2003; the same day the trio published their business plan and purchased the Kaltix domain name. By August 2003, the company's PageRank system, which was designed to show results based on the individual preferences of the user, was rumored soon to outrank Google's consensus approach. Just three months after the company's founding, on September 30, 2003, Kaltix was acquired by Google for an undisclosed sum. Enthusiasm for the potential of personalized Google search results up to five times faster was accompanied by speculation based on what little anyone knew of the company. Since its founding and acquisition by Google, Kaltix has been noted for its importance and its impact in the area of personalized search.

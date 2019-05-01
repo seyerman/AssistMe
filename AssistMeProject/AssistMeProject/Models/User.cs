@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class User : ICloneable
+    public class User : ICloneable 
     {
 
         public const int LEVEL_ROOT = 1;
@@ -54,8 +55,10 @@ namespace AssistMeProject.Models
         public int ID { get; set; }
         public string GOOGLE_KEY { get; set; }
         public int LEVEL { get; set; }
+        [Display(Name = "USERNAME")]
         public String USERNAME { get; set; }
         public String PASSWORD { get; set; }
+        [Display(Name = "EMAIL")]
         public String EMAIL { get; set; }
         public String PHOTO { get; set; }
         public int QUESTIONS_ANSWERED { get; set; }
@@ -79,5 +82,7 @@ namespace AssistMeProject.Models
         {
             return this.MemberwiseClone();
         }
+
+       
     }
 }

@@ -1,0 +1,24 @@
+"BigQuery" is a RESTful web service that enables interactive analysis of massively large datasets working in conjunction with Google Storage. It is a serverless "Platform as a Service" (PaaS) that may be used complementarily with MapReduce.
+
+==History==
+After a limited testing period in 2010, BigQuery was generally available in November 2011 at the Google Atmosphere conference.
+
+In April 2016, European users of the service suffered a 12-hour outage.
+In May 2016, support was announced for Google Sheets.
+
+== Design ==
+BigQuery provides external access to the Dremel technology, a scalable, interactive "ad hoc" query system for analysis of read-only nested data. BigQuery requires all requests to be authenticated, supporting a number of Google-proprietary mechanisms as well as OAuth.
+
+== Features ==
+* "Managing data" - create and delete tables based on a JSON-encoded schema, import data encoded as CSV or JSON from Google Storage.
+* " Query" - the queries are expressed in a standard SQL dialect and the results are returned in JSON with a maximum reply length of approximately 128 MB, or an unlimited size when large query results are enabled.
+* "Integration" - BigQuery can be used from Google Apps Script (e.g. as a bound script in Google Docs), or any language that can work with its REST API or client libraries.
+* "Access control" - is possible to share datasets with arbitrary individuals, groups, or the world.
+
+== References ==
+== External links ==
+*[https://cloud.google.com/bigquery/what-is-bigquery Official website]
+Category:Web services
+Category:Google
+Category:2010 software
+Category:Computer-related introductions in 2010

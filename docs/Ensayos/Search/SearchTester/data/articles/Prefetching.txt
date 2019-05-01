@@ -1,0 +1,10 @@
+"Prefetching" in computer science is a technique for speeding up fetch operations by beginning a fetch operation whose result is expected to be needed soon.  Usually this is before it is "known" to be needed, so there is a risk of wasting time by prefetching data that will not be used.  The technique can be applied in several circumstances:
+
+* Cache prefetching, a speedup technique used by computer processors where instructions or data are fetched before they are needed
+* Prefetch input queue (PIQ), in computer architecture, pre-loading machine code from memory
+* Link prefetching, a web mechanism for prefetching links
+* The Prefetcher technology in modern releases of Microsoft Windows
+* prefetch instructions, for example provided by
+** <code>PREFETCH</code>, an X86 instruction in computing
+* Prefetch buffer, a feature of DDR SDRAM memory
+* Swap prefetch, in computer operating systems, anticipatory paging

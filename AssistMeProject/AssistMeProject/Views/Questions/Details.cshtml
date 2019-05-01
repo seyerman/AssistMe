@@ -16,7 +16,7 @@
 <section class="container main-content">
     <div class="row">
         <div class="col-md-9">
-      
+
             <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
 
             <div class="page-content clearfix">
@@ -24,12 +24,23 @@
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
 
+
+
             <div class="share-tags page-content">
                 <div class="question-tags">
                     <i class="icon-tags"></i>
-                    <a href="#">wordpress</a>, <a href="#">question</a>, <a href="#">developer</a>
+                    @{
+                        foreach (QuestionLabel ql in Model.QuestionLabels)
+                        {
+                            string text = ql.Label.Tag;
+                            if (Model.QuestionLabels.Last() != ql)
+                            {
+                                text += ", ";
+                            }
+                            <a href="#">@text</a>
+                        }
+                    }
                 </div>
-
                 <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
                 <div class="clearfix"></div>
 
@@ -48,10 +59,21 @@
             <div id="related-posts">
                 <h2>Related questions</h2>
                 <ul class="related-posts">
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This Is My Second Poll Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my third Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fourth Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fifth Question</a></h3></li>
+                    @{
+                        if (ViewBag.Related.Count == 0)
+                        {
+                            <li class="related-item"><h3>There are no related questions</h3></li>
+                        }
+                        else
+                        {
+                            foreach (var q in ViewBag.Related)
+                            {
+                                <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
+                            }
+                        }
+
+                    }
+
                 </ul>
             </div><!-- End related-posts -->
 
@@ -89,6 +111,25 @@
                 </form>
             </div>
 
+
+            <p>
+
+            </p>
+
+            <p>
+
+            </p>
+
+            <div id="related-posts">
+                <h2>Opciones avanzadas</h2>
+        
+
+
+                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none"  class="button medium red-button custom-button">Eliminar pregunta  </a>
+                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id"  style="display:none" type="button" class="button medium red-button custom-button">Archivar pregunta </a>
+                <h1 id="lab" style="display:none"> Opciones no disponibles para este usuario </h1>
+            </div><!-- End related-posts -->
+
             <div class="post-next-prev clearfix">
                 <p class="prev-post">
                     <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Prev question</a>
@@ -97,14 +138,37 @@
                     <a href="#">Next question&nbsp;<i class="icon-double-angle-right"></i></a>
                 </p>
             </div><!-- End post-next-prev -->
+
+
         </div><!-- End main -->
-        
+
+
     </div><!-- End row -->
+
 </section><!-- End container -->
+
+
 
 @section scripts{
 
     <script>
+
+    var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('but1').style.display = 'block';
+            document.getElementById('but2').style.display = 'block';
+        }else {
+                        document.getElementById('lab').style.display = 'block';
+
+        }
+    }
+
+
         $(function () {
             $.ajax({
                 url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
@@ -119,6 +183,6 @@
 
 
 
-   
-    
+
+
 }
