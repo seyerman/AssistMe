@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190501044819_this")]
-    partial class @this
+    [Migration("20190501201949_thisis")]
+    partial class thisis
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,6 +92,8 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
+                    b.Property<int?>("StudioId");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150);
@@ -101,6 +103,8 @@ namespace AssistMeProject.Migrations
                     b.Property<bool>("isArchived");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StudioId");
 
                     b.ToTable("Question");
                 });
@@ -190,6 +194,13 @@ namespace AssistMeProject.Migrations
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.Question", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Studio", "Studio")
+                        .WithMany("Questions")
+                        .HasForeignKey("StudioId");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
