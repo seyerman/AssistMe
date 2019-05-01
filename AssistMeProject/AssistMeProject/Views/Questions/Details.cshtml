@@ -15,7 +15,13 @@
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
-        <div class="col-md-9">
+    <p>
+
+    </p>    
+    <p>
+
+    </p>
+    <div class="col-md-9">
 
             <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
 
@@ -122,11 +128,14 @@
 
             <div id="related-posts">
                 <h2>Opciones avanzadas</h2>
-        
 
 
-                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none"  class="button medium red-button custom-button">Eliminar pregunta  </a>
-                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id"  style="display:none" type="button" class="button medium red-button custom-button">Archivar pregunta </a>
+
+                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none" class="load-questions">Eliminar pregunta  </a>
+
+                <p></p>
+                <p></p>
+                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button" class="load-questions">Archivar pregunta </a>
                 <h1 id="lab" style="display:none"> Opciones no disponibles para este usuario </h1>
             </div><!-- End related-posts -->
 
