@@ -1,20 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
-
     <meta charset="utf-8" />
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@ViewData["Title"] - AssistMeProject</title>
 
     <environment include="Development">
-      <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
     <environment exclude="Development">
         <<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-                asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 
@@ -72,18 +70,18 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="user_profile.html">User</a><!--Faltan estas funcionalidades-->
+                            <a href="user_profile.html">Usuario</a>
                             <ul>
-                                <li><a href="/Users/">Log-in</a></li>
-                                <li><a href="/Users/Profile">User Profile</a></li>
+                                <li class="user-no-active"><a href="/Users/">Iniciar Sesión</a></li>
+                                <li class="user-active"><a href="/Users/Profile">Perfil del Usuario</a></li>
                                 <!--
                                 <li><a href="user_questions.html">User Questions</a></li>
                                 <li><a href="user_answers.html">User Answers</a></li>
                                 <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
                                 <li><a href="user_points.html">User Points</a></li>
                                 -->
-                                <li><a href="/Users/Edit">Edit Profile</a></li>
-                                <li><a href="/Users/Logout">Log-out</a></li>
+                                <li class="user-active"><a href="/Users/Edit">Editar Perfil</a></li>
+                                <li class="user-active"><a href="/Users/Logout">Cerrar Sesión</a></li>
                             </ul>
                         </li>
                         <li id="admin">

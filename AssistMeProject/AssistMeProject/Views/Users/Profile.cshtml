@@ -1,31 +1,18 @@
 ﻿@model AssistMeProject.Models.User;
 @{
-    ViewData["Title"] = "User Profile";
-    ViewData["ViewingUser"] = "asd";
-   
+    ViewData["Title"] = "Perfil del usuario - "+Model.USERNAME;
 
     if (Model == null)
     {
         <meta http-equiv="Refresh" content="0 ; url=/Users?message=Inicie Sesión">
     }
 }
+
 <style type="text/css">
-    .breadcrumbs {
-        display: none;
-    }
     .user-profile {
         padding-top: 1%;
     }
 </style>
-<div class="breadcrumbs">
-    <section class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@ViewData["Title"]</h1>
-            </div>
-        </div><!-- End row -->
-    </section><!-- End container -->
-</div><!-- End breadcrumbs -->
 <section class="container main-content">
     <div class="row">
         <div class="col-md-9">
@@ -34,22 +21,25 @@
                     <div class="col-md-12">
                         <div class="page-content">
                             <h2>
-                                Acerca del Usuario
+                                Acerca de
                                 @{
+                                    ViewData["PHOTO"] = "http://placehold.it/60x60/FFF/444";
                                     if (Model != null)
                                     {
                                         <span>: </span> @Model.USERNAME;
+                                        ViewData["PHOTO"] = Model.PHOTO;
                                     }
                                 }
                             </h2>
-                            <div class="user-profile-img"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt="admin"></div>
+                            <div class="user-profile-img"><img width="60" height="60" src="@ViewData["PHOTO"]" alt="PHOTO"></div>
                             <div class="ul_list ul_list-icon-ok about-user">
                                 <ul>
                                     @{
-                                        if (Model != null && ViewData["ViewingUser"].ToString().Equals(Model.USERNAME.ToString()))
+                                        if (Model != null && ViewData["ACTIVE_USER"]!=null && 
+                                            ViewData["ACTIVE_USER"].ToString().Equals(Model.USERNAME.ToString()))
                                         {
-                                            <li><i class="icon-tag"></i><span><b>ID:</b> @Model.ID</span></li>
-                                            <li><i class="social_icon-email"></i><span><b>Correo:</b> @Model.EMAIL</span></li>
+                                            <li><i class="icon-tag"></i><span><b>ID: </b> @Model.ID</span></li>
+                                            <li><i class="social_icon-email"></i><span><b>Correo: </b> @Model.EMAIL</span></li>
                                         }
                                         ViewData["CITY"] = "";
                                         ViewData["COUNTRY"] = "";
@@ -58,7 +48,7 @@
                                             ViewData["CITY"] = Model.CITY;
                                             ViewData["COUNTRY"] = Model.COUNTRY;
                                         }
-                                        <li><i class="icon-map-marker"></i><span><b>Ubicación:</b>@ViewData["COUNTRY"] , @ViewData["CITY"]</span></li>
+                                        <li><i class="icon-map-marker"></i><span><b>Ubicación: </b>@ViewData["COUNTRY"] , @ViewData["CITY"]</span></li>
                                     }
                                 </ul>
                             </div>
@@ -71,8 +61,8 @@
                                     ViewData["DESC"] = Model.DESCRIPTION;
                                     ViewData["INTS"] = Model.INTERESTS_OR_KNOWLEDGE;
                                 }
-                                <b>Descripción : </b><span>@ViewData["DESC"]</span><br /><br />
-                                <b>Intereses o Conocimientos : </b><span>@ViewData["INTS"]</span>
+                                <b>Descripción: </b><span>@ViewData["DESC"]</span><br /><br />
+                                <b>Intereses o conocimientos: </b><span>@ViewData["INTS"]</span>
                             }
                             <div class="user-profile-widget">
                                 <h2></h2>
@@ -86,8 +76,8 @@
                                                 ViewData["QUEST_ASK"] = Model.QUESTIONS_ASKED;
                                                 ViewData["QUEST_ANS"] = Model.QUESTIONS_ANSWERED;
                                             }
-                                            <li><i class="icon-question-sign"></i><a href="user_questions.html">Preguntas<span> ( <span>@ViewData["QUEST_ASK"]</span> ) </span></a></li>
-                                            <li><i class="icon-comment"></i><a href="user_answers.html">Respuestas<span> ( <span>@ViewData["QUEST_ANS"]</span> ) </span></a></li>
+                                            <li><i class="icon-question-sign"></i><a href="user_questions.html">Preguntas realizadas<span> ( <span>@ViewData["QUEST_ASK"]</span> ) </span></a></li>
+                                            <li><i class="icon-comment"></i><a href="user_answers.html">Respuestas realizadas<span> ( <span>@ViewData["QUEST_ANS"]</span> ) </span></a></li>
                                         }
                                     </ul>
                                 </div>
