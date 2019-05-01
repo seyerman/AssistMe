@@ -106,7 +106,7 @@ namespace AssistMeProject.Controllers
         public async Task<IActionResult> Edit([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
         {
             setActiveUser();
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _context.User.Count(p => p.USERNAME.Equals(user.USERNAME))==1)
             {
                 try
                 {
@@ -178,7 +178,7 @@ namespace AssistMeProject.Controllers
             return _context.User.Any(e => e.USERNAME.Equals(username));
         }
 
-        [HttpGet] //////////////////////////////////////////////////////////////////
+        [HttpGet]
         public IActionResult Profile(string viewingToUser)
         {
             setActiveUser();
