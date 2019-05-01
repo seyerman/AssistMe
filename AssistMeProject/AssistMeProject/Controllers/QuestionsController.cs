@@ -165,24 +165,28 @@ namespace AssistMeProject.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(question);
-                string[] tagsStr = question_tags.Split(",");
-                foreach (string t in tagsStr)
+                if (!string.IsNullOrEmpty(question_tags))
                 {
-                    var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
-                    if (tag == null)
+                    string[] tagsStr = question_tags.Split(",");
+                    foreach (string t in tagsStr)
                     {
-                        tag = new Label();
-                        tag.Tag = t;
-                        _context.Add(tag);
+                        var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
+                        if (tag == null)
+                        {
+                            tag = new Label();
+                            tag.Tag = t;
+                            _context.Add(tag);
+                        }
+                        tag.NumberOfTimes++;
+                        var questionLabel = new QuestionLabel
+                        {
+                            LabelId = tag.Id,
+                            QuestionId = question.Id
+                        };
+                        _context.Add(questionLabel);
                     }
-                    tag.NumberOfTimes++;
-                    var questionLabel = new QuestionLabel
-                    {
-                        LabelId = tag.Id,
-                        QuestionId = question.Id
-                    };
-                    _context.Add(questionLabel);
                 }
+
                 await _context.SaveChangesAsync();
 
               
