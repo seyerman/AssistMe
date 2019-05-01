@@ -169,9 +169,28 @@ namespace AssistMeProject.Controllers
         }
 
         // GET: api/Default/5/5
+        [HttpGet("api/Answers/Correct/{aid}/{uid}", Name = "MarkAsRead")]
+        public async Task<JsonResult> MarkAsRead(int aid, int uid)
+        {
+            Answer an = _context.Answer.First(a => a.Id == aid);
+            string error = "";
+            int status = 0;
+            if (an != null)
+            {
+                an.correctAnswer = !an.correctAnswer;
+                status = an.correctAnswer ? 1 : -1;
+                _context.SaveChanges();
+            }
+            else {
+                error = "La respuesta no existe.";
+            }
+            var json = new JsonResult(new { status=status, error=error});
+            return json;
+        }
+        // GET: api/Default/5/5
         [HttpGet("api/Answers/{quid}/{uid}", Name = "GetAnswersList")]
         public async Task<JsonResult> GetAnswersList(int quid, int uid)
-        {            
+        {
             var urlParams = Request.Query;
             var answers = _context.Answer
                 .Where(a => a.QuestionID == quid)

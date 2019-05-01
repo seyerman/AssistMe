@@ -1,12 +1,16 @@
 ﻿@model AssistMeProject.Models.Question
 <!-- ViewData["IsQuestionMin"]=bool -->
+@{
+    ViewData["IsQuestionMin"] = ViewData.ContainsKey("IsQuestionMin") ? ViewData["IsQuestionMin"] : true;
+}
 <article class="question question-type-normal @Html.DisplayName(((bool)ViewData["IsQuestionMin"])?"":"single-question")">
     <h2>
         <a asp-action="Details" asp-route-id="@Model.Id"> @Html.DisplayFor(modelItem => Model.Title)</a>
     </h2>
     <a class="question-report" href="#">Report</a>
     <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
-    @if ((bool)ViewData["IsQuestionMin"]) {
+    @if ((bool)ViewData["IsQuestionMin"])
+    {
         <div class="question-author">
             <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
         </div>
@@ -16,7 +20,7 @@
         <div class="clearfix"></div>
         <p class="question-desc">@Html.DisplayFor(modelItem => Model.Description)</p>
 
-        @if ((bool)ViewData["IsQuestionMin"])
+        @if (Model.Answers.Any(a => a.correctAnswer))
         {
             <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
         }
@@ -29,8 +33,8 @@
         <span class="question-view"><i class="icon-user"></i>70 views</span>
         <span class="question-comment"><a asp-action="Details" asp-route-id="@Model.Id"><i class="icon-comment"></i>@Html.DisplayFor(model => model.Answers.Count) Answer</a></span>
         <span class="question-vote"><a href="#"><i class="@Html.DisplayName(true?"icon-thumbs-up":"icon-thumbs-up")"></i> +22</a></span>
-		<span class="icon-spinner"> <a asp-action="UpdateDate" asp-route-id="@Model.Id"> <i class="icon.spinner"></i> Ask Again</a></span>
-	
+        <span class="icon-spinner"> <a asp-action="UpdateDate" asp-route-id="@Model.Id"> <i class="icon.spinner"></i> Ask Again</a></span>
+
         <div class="clearfix"></div>
     </div>
 </article>

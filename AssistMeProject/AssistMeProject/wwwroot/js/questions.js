@@ -6,6 +6,28 @@
     filterOptions = {};
 
 
+/**
+ * Función de site.js
+ * Envía una petición al servidor para marcar una respuesta como correcta.
+ * @param {any} uid ID de usuario que marca la respuesta como correcta.
+ * @param {any} aid ID de la respuesta a marcar.
+ */
+function markAsCorrect(uid, aid) {
+    var url = "/api/Answers/Correct/" + aid + "/" + uid;
+
+    $.ajax({ url: url })
+
+        .done(function (data) {
+            if (data.error == "") {
+                var btn = $("#answer_" + aid);
+                if (data.status == 1 || data.status == -1)
+                    btn.toggleClass("question-answered-done");
+            } else {
+                console.log("Error:", data.error);
+            }
+        }).fail(function () { alert("Error: Error al marcar la respuesta como correcta" ); console.log("Error: En respuesta correcta " + url); });
+
+}
 
 function initializeDefault(e_id, u_id, t, q_id) {
     elementID = e_id;
