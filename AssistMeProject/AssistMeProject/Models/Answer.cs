@@ -11,6 +11,7 @@ namespace AssistMeProject.Models
         public virtual ICollection<Comment> Comments { get; set; }
         public int QuestionID { get; set; }
         public virtual Question Question { get; set; }
+        public Boolean correctAnswer { get; set; }
 
         public Answer()
         {

@@ -33,6 +33,8 @@ namespace AssistMeProject.Migrations
 
                     b.Property<int>("QuestionID");
 
+                    b.Property<bool>("correctAnswer");
+
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");

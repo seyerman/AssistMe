@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
 using System.Net.Mail;
+using System.Globalization;
 
 namespace AssistMeProject.Controllers
 {
@@ -274,6 +275,7 @@ namespace AssistMeProject.Controllers
         {
             return _context.Question.Any(e => e.Id == id);
         }
+
 		public async Task<IActionResult> UpdateDate(int? id)
 		{
 			var question = await _context.Question.FindAsync(id);
@@ -304,5 +306,62 @@ namespace AssistMeProject.Controllers
 			}
 			return RedirectToAction(nameof(Details), new { id = question.Id });
 		}
+
+
+        [HttpGet("api/Questions/{uid}", Name = "GetQuestionsList")]
+        public async Task<JsonResult> GetQuestionsList(int uid) {
+            var urlParams = Request.Query;
+            var questions = _context.Question
+                .Include(a => a.Answers)
+                .ToList().Select(qt => {
+                    var data = new
+                    {
+                        id = qt.Id,
+                        title = qt.Title,
+                        description = qt.Description,
+                        date = qt.Date,
+                        answersCount = qt.Answers.Count(),
+                        userVote = false,//an.HasUserVote
+                        votes = 0 // an.Votes.COunt
+                    };
+                    return data;
+                });
+
+            string opt = urlParams["since"]+"";
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                questions = questions.Where(a => a.date >= dt);
+            }
+            opt = urlParams["until"];
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                questions = questions.Where(a => a.date <= dt);
+            }
+            opt = urlParams["studios"];
+            if (opt != null && !"".Equals(opt))
+            {
+                string[] studios = opt.Contains(",") ? opt.Split(",") : new string[1] { opt };
+                //questions = questions.Where(q => q.studios.Any(st=> studios.Contains(st)));
+            }
+            opt = urlParams["votes"];
+            if (opt != null && !"".Equals(opt))
+                if ("any".Equals(opt))
+                    questions = questions.Where(a => a.votes > 0);
+                else if ("no".Equals(opt))
+                    questions = questions.Where(a => a.votes == 0);
+                else
+                    questions = questions.Where(a => a.votes >= int.Parse(opt));
+            /*
+            opt = urlParams["autor"];
+            if (opt != null && !"".Equals(opt))
+                questions = questions.Where(a => opt.Equals(a.autor));
+            */
+
+            var json = new JsonResult(questions.ToList());
+            return json;
+        }
+
     }
 }

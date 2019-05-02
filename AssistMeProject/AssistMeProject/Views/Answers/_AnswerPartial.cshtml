@@ -23,7 +23,15 @@
                 <p>@Html.DisplayFor(m => m.Description)</p>
                 <p>Answered to: @Html.DisplayFor(m => m.Question.Title)</p>
             </div>
-            <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
+            @if (true){                
+                <div id="answer_@Model.Id" class="question-answered pt @Html.DisplayName(Model.correctAnswer?"question-answered-done":"")" onclick="markAsCorrect(1,@Model.Id)"><i class="icon-ok"></i>@Html.DisplayName(Model.correctAnswer?"Correct":"Mark as Correct")</div>
+            }
+            else if (Model.correctAnswer)
+            {
+                <div class="question-answered question-answered-done"><i class="icon-ok"></i>Correct</div>
+            }
+
+
         </div>
     </div>
     <div>
