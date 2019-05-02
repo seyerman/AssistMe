@@ -33,15 +33,9 @@ namespace AssistMeProject.Migrations
 
                     b.Property<int>("QuestionID");
 
-                    b.Property<bool>("correctAnswer");
-
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("QuestionID");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Answer");
                 });
@@ -60,13 +54,9 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AnswerId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Comment");
                 });
@@ -100,17 +90,19 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
+                    b.Property<int?>("StudioId");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150);
 
-                    b.Property<int>("UserId");
-
                     b.Property<string>("Username");
+
+                    b.Property<bool>("isArchived");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("StudioId");
 
                     b.ToTable("Question");
                 });
@@ -192,11 +184,6 @@ namespace AssistMeProject.Migrations
                         .WithMany("Answers")
                         .HasForeignKey("QuestionID")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AssistMeProject.Models.User", "User")
-                        .WithMany("Answers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Comment", b =>
@@ -205,19 +192,13 @@ namespace AssistMeProject.Migrations
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AssistMeProject.Models.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Question", b =>
                 {
-                    b.HasOne("AssistMeProject.Models.User", "User")
+                    b.HasOne("AssistMeProject.Models.Studio", "Studio")
                         .WithMany("Questions")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("StudioId");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>

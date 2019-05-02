@@ -11,7 +11,7 @@
     ViewData["Title"] = title;
 }
 
-<section class="container main-content">
+<section class="container main-content" id="main" style="display:none">
     <div class="row">
         <!--Espacios-->
         <div>
@@ -20,8 +20,8 @@
         <div class="col-md-9">
             <div id="commentlist" class="page-content">
                 <div class="boxedtitle page-title"><h2>Usuarios</h2></div>
-      
-          <ol class="commentlist clearfix">
+
+                <ol class="commentlist clearfix">
                     @foreach (var item in Model)
                     {
                         <li class="user">
@@ -34,7 +34,7 @@
                                         <div class="text">
                                             <p> @Html.DisplayFor(modelItem => item.EMAIL)</p>
                                         </div>
-                                        <a asp-action="AsignRole" asp-route-id="@item.ID" class="comment-reply" ><i class="icon-reply"></i>Asignar rol de Administrador</a>
+                                        <a asp-action="AsignRole" asp-route-id="@item.ID" class="comment-reply"><i class="icon-reply"></i>Asignar rol de Administrador</a>
                                     </div>
                                 </div>
                             </div>
@@ -56,5 +56,30 @@
                 </p>
             </div><!-- End post-next-prev -->
         </div><!-- End main -->
-        </div><!-- End row -->
+    </div><!-- End row -->
 </section>
+
+<script>
+     var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('main').style.display = 'block';
+        } else {
+            foo();
+        }
+    }
+
+    function foo() {
+    window.location.href = 'NotAdmin';
+}
+
+
+</script>
+
+
+
+

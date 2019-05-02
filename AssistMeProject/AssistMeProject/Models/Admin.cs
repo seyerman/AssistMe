@@ -13,7 +13,7 @@ namespace AssistMeProject.Models
 
         public Admin(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY, bool administrador) : base(iD, eMAIL, pHOTO, qUESTIONS_ANSWERED, pOSITIVE_VOTES_RECEIVED, qUESTIONS_ASKED, iNTERESTING_VOTES_RECEIVED, dESCRIPTION, iNTERESTS_OR_KNOWLEDGE, cOUNTRY, cITY)
         {
-
+    
         }
 
         public String addAdmin(int id)

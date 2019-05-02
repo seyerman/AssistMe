@@ -4,36 +4,73 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<h2></h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Question</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+<h3></h3>
+
+
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+                    <div class="alert-message error">
+                        <i class="icon-flag"></i>
+                        <p>
+                            <span>Estas a punto de eliminar la pregunta de titulo: @Html.DisplayFor(model => model.Title)</span><br>
+
+                        <p>La pregunta será eliminada y no podrá ser recuperada. </p>
+                           <p>            Si desea poder recuperar esta pregunta en algún momento, vaya a la opción de archivar pregunta.</p>
+                        </p>
+                    </div>
+                    
+                    
+                   
+                    <div class="question-inner">
+                        <div class="clearfix"></div>
+                        <div class="question-desc">
+                            <div class="poll_1">
+                                <div class="progressbar-warp">
+                                    <span class="progressbar-title">The first option 0%</span>
+                                    <div class="progressbar">
+                                        <div class="progressbar-percent poll-result" attr-percent="0"></div>
+                                    </div>
+
+                                    <span class="progressbar-title">The second option 75%</span>
+                                    <div class="progressbar">
+                                        <div class="progressbar-percent" style="background-color: #3498db;" attr-percent="75"></div>
+                                    </div>
+
+                                    <span class="progressbar-title">The third option 0%</span>
+                                    <div class="progressbar">
+                                        <div class="progressbar-percent poll-result" attr-percent="0"></div>
+                                    </div>
+
+                                    <span class="progressbar-title">The fourth option 25%</span>
+                                    <div class="progressbar">
+                                        <div class="progressbar-percent" style="background-color: #3498db;" attr-percent="25"></div>
+                                    </div>
+                                </div><!-- End progressbar-warp -->
+                                <a href="#" class="color button small poll_polls margin_0">Rating</a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="poll_2">
+                           
+                                <div>
+                                    <form asp-action="Delete">
+                                        <input type="hidden" asp-for="Id" />
+                                        <input class="button large red-button custom-button" type="submit" value="Delete" /> |
+                                        <a asp-action="Index">Back to List</a>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+         
+            
+      
+            </div><!-- End main -->
+    </section><!-- End container -->
+
+  
