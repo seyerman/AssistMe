@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
+using System.Globalization;
 
 namespace AssistMeProject.Controllers
 {
@@ -165,6 +166,81 @@ namespace AssistMeProject.Controllers
         private bool AnswerExists(int id)
         {
             return _context.Answer.Any(e => e.Id == id);
+        }
+
+        // GET: api/Default/5/5
+        [HttpGet("api/Answers/Correct/{aid}/{uid}", Name = "MarkAsRead")]
+        public async Task<JsonResult> MarkAsRead(int aid, int uid)
+        {
+            Answer an = _context.Answer.First(a => a.Id == aid);
+            string error = "";
+            int status = 0;
+            if (an != null)
+            {
+                an.correctAnswer = !an.correctAnswer;
+                status = an.correctAnswer ? 1 : -1;
+                _context.SaveChanges();
+            }
+            else {
+                error = "La respuesta no existe.";
+            }
+            var json = new JsonResult(new { status=status, error=error});
+            return json;
+        }
+        // GET: api/Default/5/5
+        [HttpGet("api/Answers/{quid}/{uid}", Name = "GetAnswersList")]
+        public async Task<JsonResult> GetAnswersList(int quid, int uid)
+        {
+            var urlParams = Request.Query;
+            var answers = _context.Answer
+                .Where(a => a.QuestionID == quid)
+                .Include(a => a.Comments)
+                .ToList().Select(an => {
+                var data = new
+                {
+                    id = an.Id,
+                    questionID = an.QuestionID,
+                    description = an.Description,
+                    date = an.Date,
+                    comments = an.Comments.ToList(),
+                    userVote = false,//an.HasUserVote
+                    votes = 0 // an.Votes.COunt
+                };
+                data.comments.ForEach(c => c.Answer = null);
+                return data;
+            });
+
+
+
+            string opt = urlParams["since"] + "";
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                answers = answers.Where(a => a.date >= dt);
+            }
+            opt = urlParams["until"];
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                answers = answers.Where(a => a.date <= dt);
+            }
+            opt = urlParams["studios"];
+            if (opt != null && !"".Equals(opt)) {
+                string[] studios = opt.Contains(",")?opt.Split(","):new string[1]{ opt};
+                //answers = answers.Where(a => studios.Contains(answers.Autor.Studio));
+            }
+            opt = urlParams["votes"];
+            if (opt != null && !"".Equals(opt))
+                if ("any".Equals(opt))
+                    answers = answers.Where(a => a.votes > 0);
+                else if ("no".Equals(opt))
+                    answers = answers.Where(a => a.votes == 0);
+                else
+                    answers = answers.Where(a => a.votes >= int.Parse(opt));
+            
+
+            var json = new JsonResult(answers.ToList());
+            return json;
         }
     }
 }
