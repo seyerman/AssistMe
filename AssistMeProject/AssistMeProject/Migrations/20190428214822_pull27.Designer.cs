@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190428214822_pull27")]
+    partial class pull27
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,15 +35,9 @@ namespace AssistMeProject.Migrations
 
                     b.Property<int>("QuestionID");
 
-                    b.Property<bool>("correctAnswer");
-
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("QuestionID");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Answer");
                 });
@@ -60,13 +56,9 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AnswerId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Comment");
                 });
@@ -104,13 +96,9 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
-                    b.Property<int>("UserId");
-
                     b.Property<string>("Username");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Question");
                 });
@@ -192,11 +180,6 @@ namespace AssistMeProject.Migrations
                         .WithMany("Answers")
                         .HasForeignKey("QuestionID")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AssistMeProject.Models.User", "User")
-                        .WithMany("Answers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Comment", b =>
@@ -204,19 +187,6 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Answer", "Answer")
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AssistMeProject.Models.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.Question", b =>
-                {
-                    b.HasOne("AssistMeProject.Models.User", "User")
-                        .WithMany("Questions")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

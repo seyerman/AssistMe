@@ -6,6 +6,7 @@
 <article class="question question-type-normal @Html.DisplayName(((bool)ViewData["IsQuestionMin"])?"":"single-question")">
 
     <h2>
+        
         <a asp-action="Details" asp-route-id="@Model.Id"> @Html.DisplayFor(modelItem => Model.Title)</a>
     </h2>
     <a class="question-report" href="#">Report</a>
@@ -13,8 +14,10 @@
     @if ((bool)ViewData["IsQuestionMin"])
     {
         <div class="question-author">
-            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+            <a href="#" original-title="@Html.DisplayFor(m=>m.User.USERNAME)" class="question-author-img tooltip-n"><span>@Html.DisplayFor(m=>m.User.USERNAME)</span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
         </div>
+
+        <h3><a href="#">@Html.DisplayFor(m => m.Username)</a> </h3>
 	}
 
         <div class="question-inner">

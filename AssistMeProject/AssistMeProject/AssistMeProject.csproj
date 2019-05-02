@@ -7,6 +7,12 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190317192326_cuatro.cs" />
     <Compile Remove="Migrations\20190317192326_cuatro.Designer.cs" />
+    <Compile Remove="Migrations\20190501003843_userQuestion.cs" />
+    <Compile Remove="Migrations\20190501003843_userQuestion.Designer.cs" />
+    <Compile Remove="Migrations\20190501011842_UserConnections.cs" />
+    <Compile Remove="Migrations\20190501011842_UserConnections.Designer.cs" />
+    <Compile Remove="Migrations\20190501012047_UserConnections.cs" />
+    <Compile Remove="Migrations\20190501012047_UserConnections.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

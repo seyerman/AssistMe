@@ -29,7 +29,7 @@ namespace AssistMeProject.Controllers
 
         public async Task<IActionResult> AnswerList(int? QuestionID)
         {
-            var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(q => q.Question).Include(q => q.Comments);
+            var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(a=> a.Question).Include(a => a.Comments).Include(a=>a.User);
             return PartialView(await asssitMeProjectContext.ToListAsync());
 
         }
@@ -57,7 +57,19 @@ namespace AssistMeProject.Controllers
         // GET: Answers/Create
         public IActionResult Create(int? QuestionID)
         {
-            ViewData["QuestionID"] = new SelectList(_context.Question, "Id", "Description");
+
+            string Activeuser = HttpContext.Session.GetString("USERNAME");
+            if (string.IsNullOrEmpty(Activeuser))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+            }
+            Question question= _context.Question.Find(QuestionID);
+            ViewData["Questioner"] = question.Username;
+            ViewData["TitleQ"] = question.Title;
+            ViewData["DescriptionQ"] = question.Description;
+
+            int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
+            ViewData["UserId"] = activeUserId;
             return View();
         }
 
@@ -70,7 +82,10 @@ namespace AssistMeProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                string Activeuser = HttpContext.Session.GetString("USERNAME");
+                int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
                 answer.Date = DateTime.Now;
+                answer.UserId = activeUserId;
                 _context.Add(answer);
                 await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
