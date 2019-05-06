@@ -15,35 +15,71 @@
 function interaction(interactionType = "v", userID, elementID, btnID) {
 
     url = "";
-    if (interactionType == "iv")
+    if (interactionType == "iv") {
         url = "/InterestingV/Create?UserID=" + userID + "&QuestionID=" + elementID
+        var iconSelectedClass = "icon-star";
+        var iconNoSelectedClass = "icon-star-empty";
+        var btn = $("#" + btnID);
+        var icon = btn.find("i");
+        var contador = btn.find("span");
 
-    var iconSelectedClass = "icon-star";
-    var iconNoSelectedClass = "icon-star-empty";
-    var btn = $("#" + btnID);
-    var icon = btn.find("i");
-     contador = btn.find("span");
+        $.ajax({ url: url })
+            .done(function (data) {
+
+                switch (data) {
+                    case -1:
+                        //console.log(contador[0].innerHTML);
+                        contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) - 1);
+                        icon.addClass(iconNoSelectedClass);
+                        icon.removeClass(iconSelectedClass);
+                        break;
+                    case 1:
+                        // console.log(contador[0].innerHTML);
+                        contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) + 1);
+                        // console.log((Number.parseInt(contador[0].innerHTML) + 1));
+                        icon.addClass(iconSelectedClass);
+                        icon.removeClass(iconNoSelectedClass);
+                        break;
+                    case 0: break;
+                }
+            }).fail(function () { alert("error" + url); });
+    }
+
+    if (interactionType == "pv") {
+        url = "/PositiveV/Create?UserID=" + userID + "&AnswerID=" + elementID
+        //var iconSelectedClass = "icon-star";
+        //var iconNoSelectedClass = "icon-star-empty";
+        var btn = $("#" + btnID);
+        var icon = btn.find("i");
+        contador = btn.find("span");
+
+        $.ajax({ url: url })
+            .done(function (data) {
+
+                switch (data) {
+                   case -1:
+                    //    //console.log(contador[0].innerHTML);
+                        contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) - 1);
+                        icon.addClass(iconNoSelectedClass);
+                        icon.removeClass(iconSelectedClass);
+                        break;
+                    case 1:
+                        // console.log(contador[0].innerHTML);
+                        contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) + 1);
+                        console.log((Number.parseInt(contador[0].innerHTML) + 1));
+                       // icon.addClass(iconSelectedClass);
+                       //icon.removeClass(iconNoSelectedClass);
+                        break;
+                    case 0: break;
+                }
+            }).fail(function () { alert("error" + url); });
+    }
+
+
     
-    $.ajax({ url: url })
-        .done(function (data) {
-        
-        switch (data) {
-            case -1:
-                //console.log(contador[0].innerHTML);
-                contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) - 1);
-                icon.addClass(iconNoSelectedClass);
-                icon.removeClass(iconSelectedClass);
-            break;
-            case 1:
-                // console.log(contador[0].innerHTML);
-                contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) + 1);
-                // console.log((Number.parseInt(contador[0].innerHTML) + 1));
-                icon.addClass(iconSelectedClass);
-                icon.removeClass(iconNoSelectedClass);
-                break;
-            case 0: break;
-        }
-    }).fail(function () { alert("error" + url); });
+    
+
+   
 
     
 }

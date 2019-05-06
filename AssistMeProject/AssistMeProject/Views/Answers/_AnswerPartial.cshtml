@@ -10,10 +10,20 @@
                 <div class="comment-author"><a href="#">admin</a></div>
                 <div class="comment-vote">
                     <ul class="question-vote">
-                        <li><a href="#" class="question-vote-up" title="Like"></a></li>
+
+                        <li>
+                            <!--<a href="#" class="question-vote-up" title="Like"></a>-->
+
+
+                            <span id="answer_vote_@Model.Id" onclick="interaction('pv', 1,@Model.Id,'answer_vote_@Model.Id' )" class="answer-favorite">
+                                <i class="@Html.DisplayName(Model.UserVote(1)?"question-vote-up":"question-vote-down")"></i>
+                                +<span style="display:initial">@Html.DisplayFor(model => model.PositiveVotes.Count)</span>
+                            </span>
+
+
+                        </li>
                     </ul>
                 </div>
-                <span class="question-vote-result">+1</span>
                 <div class="comment-meta">
                     <div class="date"><i class="icon-time"></i>@Html.DisplayFor(m => m.Date)</div>
                 </div>

@@ -9,22 +9,25 @@ using AssistMeProject.Models;
 
 namespace AssistMeProject.Controllers
 {
-    public class PositiveVotesController : Controller
+    public class PositiveVController : Controller
     {
         private readonly AssistMeProjectContext _context;
 
-        public PositiveVotesController(AssistMeProjectContext context)
+
+    
+        public PositiveVController(AssistMeProjectContext context)
         {
             _context = context;
         }
 
-        // GET: PositiveVotes
+        // GET: PositiveV
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PositiveVote.ToListAsync());
+            var assistMeProjectContext = _context.PositiveVote.Include(i => i.Answer).Include(i => i.User);
+            return View(await assistMeProjectContext.ToListAsync());
         }
 
-        // GET: PositiveVotes/Details/5
+        // GET: PositiveV/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,6 +36,8 @@ namespace AssistMeProject.Controllers
             }
 
             var positiveVote = await _context.PositiveVote
+                .Include(i => i.Answer)
+                .Include(i => i.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (positiveVote == null)
             {
@@ -42,29 +47,40 @@ namespace AssistMeProject.Controllers
             return View(positiveVote);
         }
 
-        // GET: PositiveVotes/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: PositiveVotes/Create
+
+        // POST: PositiveV/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID")] PositiveVote positiveVote)
+
+
+        public async Task<int> Create([Bind("ID,UserID,AnswerID")] PositiveVote positiveVote)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(positiveVote);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var lista = _context.PositiveVote.Where(x => x.UserID == positiveVote.UserID && x.AnswerID == positiveVote.AnswerID).ToList();
+                if (lista.Count() > 0)
+                {
+                    _context.PositiveVote.Remove(lista.First());
+                    await _context.SaveChangesAsync();
+                    return -1;
+                }
+                else
+                {
+                    _context.Add(positiveVote);
+                    await _context.SaveChangesAsync();
+                    return 1;
+                }
+                
             }
-            return View(positiveVote);
+
+
+
+            return 0;
+            
         }
 
-        // GET: PositiveVotes/Edit/5
+        // GET: PositiveV/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,15 +93,19 @@ namespace AssistMeProject.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["AnswerID"] = new SelectList(_context.Answer, "Id", "Description", positiveVote.AnswerID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "ID", positiveVote.UserID);
+
             return View(positiveVote);
         }
 
-        // POST: PositiveVotes/Edit/5
+        // POST: PositiveV/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID")] PositiveVote positiveVote)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,UserID,AnswerID")] PositiveVote positiveVote)
         {
             if (id != positiveVote.ID)
             {
@@ -112,10 +132,15 @@ namespace AssistMeProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["AnswerID"] = new SelectList(_context.Answer, "Id", "Description", positiveVote.AnswerID);
+            ViewData["UserID"] = new SelectList(_context.User, "ID", "ID", positiveVote.UserID);
+
+
             return View(positiveVote);
         }
 
-        // GET: PositiveVotes/Delete/5
+        // GET: PositiveV/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,6 +149,8 @@ namespace AssistMeProject.Controllers
             }
 
             var positiveVote = await _context.PositiveVote
+                .Include(i => i.Answer)
+                .Include(i => i.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (positiveVote == null)
             {
@@ -133,7 +160,7 @@ namespace AssistMeProject.Controllers
             return View(positiveVote);
         }
 
-        // POST: PositiveVotes/Delete/5
+        // POST: PositiveV/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

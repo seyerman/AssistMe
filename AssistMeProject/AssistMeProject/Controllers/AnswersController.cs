@@ -23,7 +23,7 @@ namespace AssistMeProject.Controllers
         public async Task<IActionResult> Index()
         {
             var assistMeProjectContext = _context.Answer.Include(a => a.Question);
-            return View(await assistMeProjectContext.ToListAsync());
+            return View(await assistMeProjectContext.Include(a => a.PositiveVotes).ToListAsync());
         }
 
         public async Task<IActionResult> AnswerList(int? QuestionID)
@@ -44,6 +44,7 @@ namespace AssistMeProject.Controllers
             var answer = await _context.Answer
                 .Include(a => a.Question)
                 .Include(a => a.Comments)
+                .Include(a => a.PositiveVotes)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {
