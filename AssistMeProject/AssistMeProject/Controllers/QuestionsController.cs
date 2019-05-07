@@ -41,6 +41,7 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.Studio)
+                .Include(q => q.User)
                 .ToListAsync();
             questions.Sort();
 
@@ -59,8 +60,8 @@ namespace AssistMeProject.Controllers
             }
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
             if (actualUser != null)
             {
@@ -78,6 +79,7 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.Studio)
+                .Include(q => q.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
@@ -114,6 +116,8 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
+                .Include(q => q.User)
+                .Include(q => q.Studio)
                 .ToList();
             foreach (var question in questions)
             {
@@ -125,15 +129,18 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Search(string query)
         {
-            initSearcher();
-            List<Question> questions = new List<Question>();
-            List<ISearchable> searchables = _searcher.Search(query);
-            foreach (ISearchable s in searchables)
-            {
-                questions.Add((Question)s);
+            if(BM25Searcher.IsValidString(query)){
+                initSearcher();
+                List<Question> questions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(query);
+                foreach (ISearchable s in searchables)
+                {
+                    questions.Add((Question)s);
+                }
+                return View("Index", questions);
             }
-            return View("Index", questions);
-            //return View(await _context.Question.ToListAsync());
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Questions/Create
@@ -176,7 +183,13 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
-            question.Username = HttpContext.Session.GetString("USERNAME");
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+            {
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+                question.UserId = actualUser.ID;
+            }
+               
             if (ModelState.IsValid)
             {
                 _context.Add(question);
@@ -388,6 +401,8 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
+                .Include(q => q.User)
+                .Include(q => q.Studio)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
