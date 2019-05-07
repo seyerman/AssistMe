@@ -129,15 +129,18 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Search(string query)
         {
-            initSearcher();
-            List<Question> questions = new List<Question>();
-            List<ISearchable> searchables = _searcher.Search(query);
-            foreach (ISearchable s in searchables)
-            {
-                questions.Add((Question)s);
+            if(BM25Searcher.IsValidString(query)){
+                initSearcher();
+                List<Question> questions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(query);
+                foreach (ISearchable s in searchables)
+                {
+                    questions.Add((Question)s);
+                }
+                return View("Index", questions);
             }
-            return View("Index", questions);
-            //return View(await _context.Question.ToListAsync());
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Questions/Create
