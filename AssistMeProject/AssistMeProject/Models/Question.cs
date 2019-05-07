@@ -20,7 +20,6 @@ namespace AssistMeProject.Models
 
         public bool AskAgain { get; set; }
 
-        public string Username { get; set; }
 
         public Studio Studio { get; set; }
 
