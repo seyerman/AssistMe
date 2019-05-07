@@ -26,6 +26,10 @@ namespace AssistMeProject.Models
 
         public int? StudioId { get; set; }
 
+        public User User { get; set; }
+
+        public int? UserId { get; set; }
+
         public Question()
         {
             Answers = new HashSet<Answer>();
