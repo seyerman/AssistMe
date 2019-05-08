@@ -151,24 +151,28 @@ namespace AssistMeProject.Controllers
                 }
                 await _context.SaveChangesAsync();
 
-              
-
-                try
-                {
-                    Email manager = new Email();
-                    MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n"+question.Description);
-                    manager.EnviarCorreo(email);
-                
-                }
-                catch (System.Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
+                SendEmail(question);
 
                 return RedirectToAction(nameof(Index));
             }
             return View(question);
+        }
+
+        public void SendEmail (Question question)
+        {
+
+            try
+            {
+                Email manager = new Email();
+                // MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n" + question.Description);
+                //manager.EnviarCorreo(email);
+
+                manager.EnviarCorreo(Email.EMAILNAME, question.Title, "Tienes una nueva pregunta \n" + question.Description);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // GET: Questions/Edit/5

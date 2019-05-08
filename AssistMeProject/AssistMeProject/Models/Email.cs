@@ -11,6 +11,9 @@ namespace AssistMeProject.Models
 {
     public class Email
     {
+
+        public const string EMAILNAME = "proyectofinalinge@gmail.com";
+
         private SmtpClient Server;
         private static IConfiguration Configuration { get; set; }
         private MailMessage Msg;
