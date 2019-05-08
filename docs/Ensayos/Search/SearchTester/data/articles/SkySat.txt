@@ -1,0 +1,32 @@
+"SkySat" is a constellation of sub-meter resolution Earth observation satellites owned by Planet Labs, providing imagery, high-definition video and analytics services.  Planet acquired the satellites with their purchase of Terra Bella (formerly Skybox Imaging), a Mountain View, California-based company founded in 2009 by Dan Berkenstock, Julian Mann, John Fenwick, and Ching-Yu Hu, from Google in 2017.
+
+==Overview==
+
+The resolution of the SkySat satellite imagery and videos is high enough to observe objects that impact the global economy such as terrain, cars and shipping containers. The satellites can capture video clips lasting up to 90 seconds at 30 frames per second. The high-definition satellite video from SkySat satellites “could help us understand our world better by analyzing movement of goods and people, providing visual data about supply chains, shipping, industrial plant activity, and even humanitarian relief efforts.” When Skybox originally delevoped the satellites, they planned to "change the nature" of the satellite industry by building satellites with "off-the-shelf" electronics that cost under $50 million.
+
+==Satellite constellation==
+The SkySat satellites are based on the CubeSat concept, using inexpensive automotive grade electronics and fast commercially available processors,, but scaled up to approximately the size of a minifridge. The satellites are approximately 80cm long, compared to approximately 30cm for a 3U CubeSat, and weigh 220lbs. the optical payloads are built by L3 Technologies, and the satellite thrusters are provided by ECAPS.
+
+== History ==
+By April 2012, Skybox Imaging had raised a total of  of private capital from Khosla Ventures, Bessemer Venture Partners, Canaan Partners and Norwest Venture Partners to develop the SkySat constellation. Less than a month later, on December 11, 2013, the first images captured by the SkySat-1 satellite, of Perth, Abu Dhabi, and the coast of Somalia, were released. The second satellite, SkySat-2, launched on a Soyuz-2/Fregat rocket from Baikonur, Kazakhstan on July 8, 2014, The company plans to eventually launch a fleet of 24 satellites. and released its first images within 48 hours of launch.
+
+On February 10, 2014, SSL announced that Skybox had awarded it a contract to build 13 more satellites based on a revised "SkySat C" design. The first of these, Skysat-3, also referred to as SkySat-C1, was launched on June 22, 2016 by ISRO on PSLV flight C34, with contract for four more satellites to launch.
+
+On June 10, 2014, Skybox Imaging announced that it had entered into an agreement to be acquired by Google for . The acquisition was completed on August 1, 2014. The new name was partially based on the Terra Bella Ave. in Mountain View, California, where the company's headquarters are located. Terra bella is Italian for "beautiful earth".
+
+Four more SkySat units were launched on September 16, 2016, by the Vega rocket's seventh flight from Kourou.
+
+In 2017, Google sold Terra Bella and its SkySat satellite constellation to Planet Labs for an undisclosed price and entered into a multi-year agreement to purchase SkySat imaging data. Planet launched six more SkySat satellites, along with four Dove CubeSats, on a Minotaur-C rocket from Vandenberg AFB on October 31, 2017.
+
+== References ==
+==External links==
+
+*[https://www.planet.com/products/hi-res-monitoring/ Official website]
+
+Category:Google
+Category:Private spaceflight
+Category:Earth observation satellites
+Category:Analytics companies
+Category:Companies based in Mountain View, California
+Category:2009 establishments in California
+Category:Satellite imagery

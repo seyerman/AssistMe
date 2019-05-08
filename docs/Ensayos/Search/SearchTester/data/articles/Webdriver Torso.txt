@@ -1,0 +1,21 @@
+A typical Webdriver Torso slide. Quality loss is visible in the text and along the rectangle edges.
+"Webdriver Torso" is a YouTube automated account, created by Google on 7 March 2013, that frequently posted videos showing simple slides accompanied by beeps in order to test the website's performance. The channel brought public attention in 2014, when it became a source of speculation for viewers who discovered it and noted its unusual nature, as well as three atypical videos featuring jokes. It remained a popular mystery until YouTube humorously acknowledged that the channel exists as an internal testing utility. The channel stopped posting videos at its same rate after 624,735 videos as of 4 May 2017. The channel posted a few more videos between May, August and October 2018.
+
+==Uploads==
+From 23 September 2013 to 26 October 2018, the channel uploaded a total of 624,746 videos. The interval between one upload and another usually lasted between 1 and 15 minutes, but sometimes up to one hour. With the exception of three, all videos follow the set of standards described below. The channel stopped uploading on 4 May 2017, but resumed uploading on 18 May 2018 until another halt four days later.
+
+Most of the videos are 11 seconds long, although some are also around 1 minute, 5 minutes, or 25 minutes long. They are slideshows showing slides about 1 second long each. Each slide consists of a solid white background overlapped by two solid color opaque rectangles, one red and the other blue. Both rectangles have a random size, shape, and position on the slide. When the two overlap, the red rectangle always appears over the blue one, and on rare occasions, the red rectangle completely covers up the blue one. Each slide has a random computer-generated wave tone. In the corner of each video, it says "aqua.flv - slide (number with four digits)". Early videos were called "aqua", which was then changed to "tmp", an abbreviation for the word "template" or "temporary", followed by random characters.
+
+===Abnormal uploads===
+The channel has three videos which do not follow the channel's standards, featuring instead internal references or jokes. One of them, titled "tmpRkRL85", appears a usual video until the red rectangle becomes a silhouette of Rick Astley dancing (referencing the Rickrolling phenomenon) in the second half of the video. The video "00014" is a piece of footage recorded in Paris that shows the Eiffel Tower being lit up at night. contact by extraterrestrial life-forms, construction plans and a Cicada 3301 recruitment program.
+ 	
+===Unexplained references===	
+Despite Google having clarified the channel's purpose, this did not explain the seemingly humorous references contained in some of the videos. These include the "Aqua Teen Hunger Force" episode, the Rick Astley silhouette, and the Eiffel Tower footage. In this last, Webdriver Torso at one time commented "Matei is highly intelligent". The "Matei" in question is unknown, but Basarab Matei, Matei Mancas, Matei Gruber, and Matei Ciocarlie have all been suspected. The  "Matei" comment was apparently removed at some later time.
+ 	
+===Soggetto Ventuno's investigation===	
+An Italian blogger named "Soggetto Ventuno" found out that Webdriver Torso belongs to a network of accounts called "ytuploadtestpartner_torso".
+ 	
+===YouTube's reply===	
+When YouTube was asked about Webdriver Torso, they replied:
+ 	
+"We're never gonna give you uploading that's slow or loses video quality, and we're never gonna let you down by playing YouTube in poor video quality. That's why we're always running tests like Webdriver Torso."

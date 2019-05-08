@@ -13,15 +13,26 @@ namespace AssistMeProject.Models
         public string Title { get; set; }
 
         public virtual ICollection<Answer> Answers { get; set; }
-
+        
+        [Display(Name = "Nombre")]
         public virtual List<QuestionLabel> QuestionLabels { get; set; }
 
         public bool AskAgain { get; set; }
+
+
+        public Studio Studio { get; set; }
+
+        public int? StudioId { get; set; }
+
+        public User User { get; set; }
+
+        public int? UserId { get; set; }
 
         public Question()
         {
             Answers = new HashSet<Answer>();
             AskAgain = false;
+            isArchived = false;
         }
 
         public override string GetDocumentText()

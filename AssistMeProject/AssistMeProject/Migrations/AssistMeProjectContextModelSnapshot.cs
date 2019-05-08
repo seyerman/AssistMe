@@ -90,11 +90,23 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
+                    b.Property<int?>("StudioId");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150);
 
+                    b.Property<int?>("UserId");
+
+                    b.Property<string>("Username");
+
+                    b.Property<bool>("isArchived");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("StudioId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Question");
                 });
@@ -184,6 +196,17 @@ namespace AssistMeProject.Migrations
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.Question", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Studio", "Studio")
+                        .WithMany("Questions")
+                        .HasForeignKey("StudioId");
+
+                    b.HasOne("AssistMeProject.Models.User", "User")
+                        .WithMany("Questions")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>

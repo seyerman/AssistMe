@@ -64,7 +64,6 @@ namespace AssistMeProject.Models
         public User GetUser(string username)
         {
             User found = (User)_context.User.FirstOrDefault(a => a.USERNAME.Equals(username)).Clone();
-            found.PASSWORD = "";
             return found;
         }
 

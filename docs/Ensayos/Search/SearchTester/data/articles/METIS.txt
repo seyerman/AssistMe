@@ -1,0 +1,12 @@
+"METIS" is a software package for graph partitioning that implements various multilevel algorithms. METIS' multilevel approach has three phases and comes with several algorithms for each phase:
+# Coarsen the graph by generating a sequence of graphs G<sub>0</sub>, G<sub>1</sub>, ..., G<sub>N</sub>, where G<sub>0</sub> is the original graph and for each 0 = i = j = N, the number of vertices in G<sub>i</sub> is greater than the number of vertices in G<sub>j</sub>.
+# Compute a partition of G<sub>N</sub>
+# Project the partition back through the sequence in the order of G<sub>N</sub>, ..., G<sub>0</sub>, refining it with respect to each graph.
+The final partition computed during the third phase (the refined partition projected onto G<sub>0</sub>) is a partition of the original graph.
+
+== References ==
+== External links==
+* [http://glaros.dtc.umn.edu/gkhome/views/metis METIS website]
+
+Category:Algorithms
+Category:Software

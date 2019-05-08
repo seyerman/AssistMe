@@ -1,0 +1,28 @@
+"Computational social choice" is a field at the intersection of social choice theory, theoretical computer science, and the analysis of multi-agent systems. It consists of the analysis of problems arising from the aggregation of preferences of a group of agents from a computational perspective. In particular, computational social choice is concerned with the efficient computation of outcomes of voting rules, with the computational complexity of various forms of manipulation, and issues arising from the problem of representing and eliciting preferences in combinatorial settings.
+
+== Winner determination ==
+The usefulness of a particular voting system can be severely limited if it takes a very long time to calculate the winner of an election. Therefore, it is important to design fast algorithms that can evaluate a voting rule when given ballots as input. As is common in computational complexity theory, an algorithm is thought to be efficient if it takes polynomial time. Many popular voting rules can be evaluated in polynomial time in a straightforward way (i.e., counting), such as the Borda count, approval voting, or the plurality rule. For rules such as the Schulze method or ranked pairs, more sophisticated algorithms can be used to show polynomial runtime. Certain voting systems, however, are computationally difficult to evaluate. In particular, winner determination for the Kemeny-Young method, Dodgson's method, and Young's method are all NP-hard problems. This has led to the development of approximation algorithms and fixed-parameter tractable algorithms to improve the theoretical calculation of such problems.
+
+== Hardness of manipulation ==
+By the Gibbard-Satterthwaite theorem, all non-trivial voting rules can be manipulated in the sense that voters can sometimes achieve a better outcome by misrepresenting their preferences, that is, they submit a non-truthful ballot to the voting system. Social choice theorists have long considered ways to circumvent this issue, such as the proposition by Bartholdi, Tovey, and Trick in 1989 based on computational complexity theory. They considered the second-order Copeland rule (which can be evaluated in polynomial time), and proved that it is NP-complete for a voter to decide, given knowledge of how everyone else has voted, whether it is possible to manipulate in such a way as to make some favored candidate the winner. The same property holds for single transferable vote.
+
+Hence, assuming the widely believed hypothesis that P ? NP, there are instances where polynomial time is not enough to establish whether a beneficial manipulation is possible. Because of this, the voting rules that come with an NP-hard manipulation problem are "resistant" to manipulation. One should note that these results only concern the worst-case: it might well be possible that a manipulation problem is usually easy to solve, and only requires superpolynomial time on very unusual inputs.
+
+== Other topics ==
+
+* "Tournament solutions." A tournament solution is a rule that assigns to every tournament a set of winners. Since a preference profile induces a tournament through its majority relation, every tournament solution can also be seen as a voting rule which only uses information about the outcomes of pairwise majority contests. Many tournament solutions have been proposed, and computational social choice theorists have studied the complexity of the associated winner determination problems. From a computational perspective, such domain restrictions are useful to speed up winner determination problems, both computationally hard single-winner and multi-winner rules can be computed in polynomial time when preferences are structured appropriately. On the other hand, manipulation problem also tend to be easy on these domains, so complexity shields against manipulation are less effective. Another computational problem associated with preference restrictions is that of recognizing when a given preference profile belongs to some restricted domain. This task is polynomial time solvable in many cases, including for single-peaked and single-crossing preferences, but can be hard for more general classes.
+
+== See also ==
+*Algorithmic game theory
+*Algorithmic mechanism design
+*Hedonic games
+*Cake-cutting
+*Fair division
+
+== References ==
+== External links ==
+* [http://www.illc.uva.nl/COMSOC/ The COMSOC website], offering a collection of materials related to computational social choice, such as academic workshops, PhD theses, and a mailing list.
+
+Category:Social choice theory
+Category:Voting theory
+Category:Computer science

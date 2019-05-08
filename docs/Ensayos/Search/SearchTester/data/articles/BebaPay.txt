@@ -1,0 +1,25 @@
+"BebaPay" was a form of electronic ticketing platform in Nairobi, Kenya that was developed by Google in partnership with Equity Bank.
+
+== Overview ==
+Bebapay platform worked using near field communication (NFC). Commuters of public transport would have their bus fare charged off their BebaPay prepaid cards by the bus conductors by simply "tapping" the card with a handheld android device. The service was introduced in line with the Kenya Gazette notice that was to disallow the use of cash for bus fare payments from July 2014.
+
+The rationale of the system was to help cut loss of income by transport operators due to theft by their staff, paying of bribes to traffic officers and greater accountability which would boost tax collection. Users also benefited from being able to access their online account.
+
+In September 2013, Google partnered with De La Salle University (DLSU) and Bank of the Philippine Islands to launch BebaPay service in Manila, Philippines. In Philippines, the service was to be used as a prepaid card by students of DLSU. The cards would be used for transport, purchase of food and other necessities.
+
+== Shutdown ==
+In April 2014, BebaPay exited the Philippines market only six months after it had launched into that market. at which point the service had over 700,000 active users in Nairobi. These users were taken up by Equity Bank through its prepaid MasterCard.
+
+The service failed mainly due to the failure by the government to disallow the use of cash for bus fare payments as was previously announced and stiff competition from other cashless solutions such as Pepea from KCB, Tangaza Pesa PSV card, My 1963 from Safaricom and M-Nauli from Co-op Bank.
+
+== See also ==
+* Oyster card
+* List of Google products
+* List of acquisitions by Google
+* Matatu
+
+== References ==
+Category:Google
+Category:Google services
+Category:2013 establishments in Kenya
+Category:Discontinued Google services

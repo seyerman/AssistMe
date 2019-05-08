@@ -1,0 +1,94 @@
+﻿@model AssistMeProject.Models.Question
+
+@{
+    ViewData["Title"] = "Details";
+    ViewData["IsQuestionMin"] = true;
+}
+
+
+
+
+
+
+<p>
+
+</p>
+
+
+<p>
+
+</p>
+<!-- omitido breadcrumbs del template agregar luego...-->
+<section class="container main-content">
+    <div class="row">
+        <div class="col-md-9">
+
+            <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
+
+
+
+
+
+            <div class="share-tags page-content">
+                <div class="question-tags">
+                    <i class="icon-tags"></i>
+                    @{
+                        foreach (QuestionLabel ql in Model.QuestionLabels)
+                        {
+                            string text = ql.Label.Tag;
+                            if (Model.QuestionLabels.Last() != ql)
+                            {
+                                text += ", ";
+                            }
+                        <a href="#">@text</a>
+                        }
+                    }
+                </div>
+                <div class="clearfix"></div>
+
+            </div><!-- End share-tags -->
+
+            <div class="about-author clearfix">
+                <div class="author-image">
+                    <a href="#" original-title="admin" class="tooltip-n"></a>
+                </div>
+                <div class="author-bio">
+                    <h4>Pregunta hecha por: </h4>
+                    @Html.DisplayFor(model => model.User.USERNAME)
+                </div>
+            </div><!-- End about-author -->
+
+            <a id="but1" asp-action="Desarchivar" asp-route-id="@Model.Id"  class="load-questions">Desarchivar pregunta  </a>
+
+
+        </div><!-- End main -->
+
+
+    </div><!-- End row -->
+
+</section><!-- End container -->
+
+
+
+@section scripts{
+
+    <script>
+
+
+        $(function () {
+            $.ajax({
+                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
+            }).done(function (data) {
+                $('#answerlist').html(data);
+            }).fail(function () {
+                alert("error");
+            });
+        }
+        );
+    </script>
+
+
+
+
+
+}

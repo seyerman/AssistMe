@@ -1,0 +1,51 @@
+"Minecraft" mods" are independent, user-made additions and changes to the 2011 Mojang video game "Minecraft". Thousands of these mods exist, and users can download them from the internet for free. Utilizing additional software, several mods are typically able to be used concurrently in order to enhance the gameplay and create an entirely different gaming experience when compared to standard issue "Minecraft". Mods are credited as one of the foremost reasons why "Minecraft" became as successful as it did, with the "Minecraft" modding community mentioned as one of the most active modding communities in gaming.
+
+"Minecraft" mods are available for the Java Edition (Windows, macOS, and Linux) and mobile versions of the game, but neither the console versions of the game nor the Windows 10 edition can be modded.
+
+==Technical feasibility==
+"Minecraft" is a video game particularly known for its adaptability for modifications. Over the course of the years, many independent programmers have made use of that in order to create additional content for the game, known amongst their users as 'mods'.
+
+The PC version "Minecraft" can be modded in two different ways: client modding and server modding. Client mods require the player to modify game files by inserting new files or installing a mod loader like "Forge", while server modding leaves the client's files untouched and only changes files on a server, to which the player can then log on and use the mods. The latter one is much easier to set up.
+
+All of these modifications to the PC version of "Minecraft" are possible because programmers can capitalize on "Minecraft"s source code which was written in Java. Modding to the mobile and console ('Bedrock Edition') version of "Minecraft" is different, because that iteration of the game was written in C++ rather than Java. client-side modding of the game did not start in earnest until the game reached its alpha stage in the summer of 2010. The only mods that appeared prior to this were server-side mods, which gave server owners more control over their "Minecraft" environments. In May 2015, Mojang announced on social media that they were "still working" on this API, despite announcing it over three years ago.
+
+Concern arose following Microsoft's acquisition of Mojang in late 2014. Members of the modding community feared that "Minecraft"s new American owners would put an end to Mojang's established practice of giving free rein to mod developers. Despite the concerns, Microsoft has not announced any changes to Mojang's policies. Microsoft released the new pack open source and free of charge, amidst a drive to push towards more open source software.
+
+A new Windows 10 version of "Minecraft" was announced shortly after which, unlike the previous versions, was to be programmed in C++. This announcement sparked concern amongst the game's fanbase that the Java-based versions would end up being phased out entirely, which would severely hamper the production of mods as C++ is not as "reverse engineerable" as Java is known to be. However, Mojang developer Tommaso Checchi reassured fans on Reddit that modding was "too important" to "Minecraft" for the Java-based versions to be discontinued. and with this update the company promised that the creation and updating of mods would be significantly simplified.
+
+===Controversies===
+Over the course of the years, there have been mod-related controversies with "Minecraft". One surrounded a mod called GregTech, which was aimed at increasing "Minecraft"s difficulty. In 2013, its developer, Greg, noticed that some of GregTech's added recipes had been overwritten by another mod named Tinkers' Construct. Greg, in retaliation, deliberately inserted code into GregTech which would crash the game client if it detected any other mods (such as Tinkers' Construct). The authors of both mods later settled their dispute.
+
+Another surrounded the mod Bukkit, an API which enabled others to install server-side mods. Due to the project frequently switching hands, several developers past and present had begun to argue about who presided over the rights to the project. Mojang stepped in to save the project.
+
+==Mod content==
+The mod "Tinkers Construct" adds foundries to the game, which can be used to smelt raw metals into parts for custom-made tools and weapons.
+The total number of Minecraft mods is officially very hard to calculate because of the sheer number of them, both old and new ones, but one of the repository websites, Curse, featured over 1,500 mods as of 2014. there's the "Twilight Forest" mod, which creates a dimension that enables players to go a fantasy-style forest and hunt for treasures;
+
+Some mods mainly focus on technology, and add an assortment of machines that can help the player to automate the production of certain in-game materials. Examples of technology-oriented mods include "Extra Utilities", a mod that introduces various machines that can be used to generate power, and a random assortment of other blocks and items; "BuildCraft", a classic mod known for its many variants of machines, pumps, and pipes  (also most likely named for the fact that, according to the developer, the mod's machines can build (and destroy) in the world); "IndustrialCraft", a mod which adds metals electric tools and generators, including nuclear reactors., jetpacks, powered armor, and nuclear items.
+
+In addition to "IndustrialCraft"s metal weapons, other projects allow for an even wider range of available weaponry: "Flan's Mod" has modern-style warfare including guns, tanks and grenades, while "Pixelmon" (since said to be shut down on the official site) supplements the game with monsters and mechanics from the "Pokémon" franchise. "Fossils & Archaeology" provides for dinosaurs, while "CustomNPCs" and "Millenaire" upgrade the game's NPC's.
+
+Not all mods will add gameplay elements, however. Others merely tweak the GUI, for example by adding a minimap, Content creators use that to their advantage in order to allow mods to interact so that a particular experience can be delivered, sometimes aided by throwing configuration files and custom textures into the mix. The most popular modpacks can be downloaded and installed through launchers, like the "Twitch Desktop App", "Feed the Beast", "Technic Launcher" and "ATLauncher". Their help website lists video tutorials that teach the player how to install and play "Minecraft" mods. Persson says he came around, as he claims to have realized that mods are "a huge reason of what "Minecraft" is".
+
+In 2016, Mojang announced their official support for mods on the mobile and console versions of Minecraft (the Bedrock Edition), in the form of add-ons.
+
+==Influence==
+
+==="Minecraft" itself===
+Mods have influenced the main "Minecraft" game on three occasions. Mod developer Dr. Zhark added horses to the game through the "Mo' Creatures" mod. Later on he helped Mojang adapt horses for use in standard issue "Minecraft". Pistons were also originally a part of a mod too, but impressed "Minecraft"s creators so much that they added the feature to the main game.
+
+Mojang also admitted that they admired all of the work done on server side modding API Bukkit. In 2012, the Swedish company ended up hiring the lead developers of the project. Several educational projects have been created to further encourage students to learn coding through "Minecraft", including LearnToMod, and Minecraft: Pi Edition, all of which are offered free to teachers. Programming classes utilizing "Minecraft" were also started by the University of California, which aims to teach children aged 8–18 how to program applications.
+
+In 2011, "MinecraftEdu" formed to sell a version of Minecraft to schools that enabled the teaching of a wider variety of subjects including language, history and art. In January 2016, Microsoft announced a new tool, "Minecraft: Education Edition", which would be designed specifically for classroom use and which would continue on the legacy of "MinecraftEdu" to teach a wide variety of subjects using Minecraft.
+
+The idea of introducing Minecraft into school curriculums was resisted by Tom Bennett, who serves as an adviser to the British government. According to Bennett, Minecraft was a gimmick, and schools would do well to "drain the swamp of gimmicks" and resort to just books for teaching. Bennett's condemnation was rebutted by a number of journalists for The Guardian, who did indeed think Minecraft in school was a worthwhile innovation.
+
+==Critical reception==
+"PC World"s Nate Ralph calls installing mods for "Minecraft" "a somewhat convoluted process", but does admit it could serve the player who desires "a little more out of the experience" of playing the game. Eddy does nevertheless mention that he feels Mojang's fast development pace regarding the main game has slowed down the progress of the most popular mods.
+
+Similarly, Benjamin Abbott of "Metro" agrees that adding mods to "Minecraft" is "a thorough pain in the backside", though he concedes that "the result is usually worth it".
+
+Matt Smith of "MakeUseOf" says he is disappointed with most of the "Minecraft" mods available, claiming they don't modify the game "in a way most people would care to enjoy", or have "bugs that grind the experience to a halt".
+
+At "San Jose Mercury News", George Avalos claims that mods are definitely suited for "mainstream enthusiasts", but does warn that precaution must be taken in order to avoid downloading "dangerous and spammy software" when looking for "Minecraft" mods. Avalos also remarks that installing mods will probably require adult attention, even though "Minecraft" typically appeals to children.

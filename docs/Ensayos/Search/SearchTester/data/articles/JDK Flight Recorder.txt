@@ -1,0 +1,27 @@
+"JDK Flight Recorder" is an event recorder built into the Java virtual machine. It can be though of as the software equivalent of a Data Flight Recorder (Black Box) in a commercial aircraft. It captures information about the JVM itself, and the application running in the JVM. There is a wide variety of data captured, for example method profiling, allocation profiling and garbage collection related events. The "JDK Flight Recorder" was designed to minimize the Observer Effect in the profiled system, and is meant to be always on in production systems. The technology was open sourced in 2018.
+
+Analysis and visualization of flight recordings are normally done using JDK Mission Control.
+
+==Technology==
+A recording file consists of binary chunks of data. Each chunk is self describing and self contained. In other words, the metadata (such as the datatype and the content type of each attribute) needed to make use of the data (not only parse the events, but actually use them) is included in the chunk. Also all the values required to be resolved through e.g. constant pools are also included in the chunk.
+
+There is a wide variety of technologies employed to make the JFR efficient, for example:
+* Binary representations, no translations back and forth to strings, the buffers are efficiently emitted to disk
+* Most events are recorded into thread local native buffers
+* On some platforms invariant TSC is employed for efficient time stamping
+* Integer compression scheme, to keep in-memory and on-file size down
+* Since implemented in the JVM, much data is readily available, or emitted at a time when the data is readily available, keeping cost down
+
+If converting a binary recording to JSon, it can easily blow up by two orders of magnitude or more, depending on length and content recorded.
+
+The expected performance overhead of JFR using the default template is less than a percent, and for the profiling template, less than two percent.
+
+==History==
+JDK Flight Recorder started out as JRockit Flight Recorder, and was originally used as a means to collect data to be used to improve the JVM itself. After Oracle acquired Sun Microsystems, JRockit Flight Recorder was rebranded Java Flight Recorder. In 2018 Java Flight Recorder was open sourced and released as part of OpenJDK 11. When open sourced it was rebranded JDK Flight Recorder, due to Java trademark issues. 
+
+==See also==
+
+* Java platform
+* JDK Mission Control
+* Java version history
+* JRockit

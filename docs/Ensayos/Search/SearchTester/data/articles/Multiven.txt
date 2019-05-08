@@ -1,0 +1,36 @@
+"Multiven Group BV" is a Netherlands-based provider of independent and decentralised software integrity maintenance and cyber-defence services for multivendor Internet Protocol network hardware and blockchain nodes. Its customers include large enterprises, Internet service providers, small, medium businesses, Telecommunications companies, Fortune 500, Academia and government agencies.
+
+== History ==
+
+=== Origins ===
+Multiven was founded in 2005 in Palo Alto, California by British-Nigerian technology entrepreneur Peter Alfred-Adekeye. His aim was to build a company able to maintain the integrity of the world's Internet infrastructure without a hardware, software or political agenda.
+
+Headquartered in Rotterdam, Netherlands, Multiven is today the world's first and only independent provider of software management, maintenance and cyber-defence services for Internet networks. Multiven has regional sales offices in Paris, France, London, UK, Dubai, UAE.
+
+=== History of Market ===
+The Internet, a short form of the word Internetwork, is an international ubiquitous network of networks. Given the amount of data traversing it, its criticality to personal, corporate and national security cannot be over-emphasized.
+
+The Internet infrastructure comprises software-driven networked switches, routers, firewalls, servers and storage hardware that switch, route, protect and store all  voice, video and text data intelligently across the world.
+
+Internet equipment manufacturers like Cisco Systems, Hewlett-Packard, etc.. have a quasi monopoly on the multi-Billion dollar software maintenance services market for networking equipment through their own maintenance contracts and authorized third party maintenance. Multiven is the only provider offering a one-stop alternative for businesses of all sizes.
+
+=== The Multiven Open Marketplace ===
+In March 2018, Multiven launched the development of the Multiven Open Marketplace, a blockchain project aiming to transition its existing business into a decentralized organisation. Multiven is developing a blockchain-based open Marketplace to allow customers to buy and sell new and pre-owned Information Technology hardware, software and services, on a peer-to-peer basis, without intermediaries, solely powered by smart contracts and one global Cryptocurrency, the Multicoin. Multiven's maintenance and cybersecurity services will be accessible on the platform and can be bound to any hardware device.
+
+A portion of the Multicoin transaction fees from the Multiven Open Marketplace, funds Multiven B-Fence, a program that proactively defends Bitcoin nodes and the routers that connect them to other nodes, against centralisation cyberattacks.
+
+== Controversies ==
+
+===Antitrust lawsuit against Cisco Systems===
+On December 1, 2008, Multiven filed a United States Federal antitrust lawsuit<sup>[3][4][5][6][7][8][9]</sup> against Cisco Systems, Inc. in an effort to open up the network maintenance services marketplace for Cisco equipment, promote competition and ensure consumer choice and value. Multiven's complaint alleges that Cisco harmed Multiven and consumers by bundling and tying bug fixes/patches and updates for its operating system software to its maintenance services (“SMARTnet”) and through a series of other illegal exclusionary and anticompetitive acts designed to maintain Cisco's alleged monopoly in the network maintenance services market for Cisco networking equipment.<sup>[10]</sup> In April 2009 during a Cisco-initiated mediation, Cisco offered Multiven a few million dollars as settlement and limited software updates for its customers but insisted that Multiven couldn't advertise its access to Cisco software updates. Multiven declined this offer as it still limited free and fair competition. The following month in May 2009, Cisco filed a set of false counterclaims against Multiven and alleged that in 2006 "“Multiven’s CEO or someone under his control”" viewed Cisco's ‘protected’ public website 99 times and downloaded Cisco IOS five times with a total value of $14,000, using a Cisco-employee provided credentials.
+
+=== Cisco Fabricated Criminal Charges against Multiven CEO ===
+Cisco went on to communicate exactly the same false allegations in its civil counterclaims to a local US prosecutor in San Jose and after several months in which US authorities prevented Peter Alfred-Adekeye's re-entry into the country for participation in Multiven v. Cisco, a special hearing in the case took place at a Canadian hotel from 18–20 May 2010, involving a US special master and four Cisco lawyers. On 20 May 2010, Cisco accused the person who filed the antitrust suit of hacking and orchestrated his arrest  from the court session by Canadian police based on a misleading US arrest warrant while in the middle of testifying against Cisco in Multiven's antitrust hearing.
+
+Alfred-Adekeye was released after 28 days in custody but was forced to remain in Canada for another year before he was allowed to return to his home in Zurich, Switzerland. On May 31, 2011, Mr Justice Ronald McKinnon of the Supreme Court of British Columbia stayed the extradition, ruling that the strict standard of "extraordinary misconduct" was met by the circumstances and speaking of the "audacity of it all", of "Cisco's duplicity", and the "shocking" act of preventing someone's participation in a judicial proceeding by arresting them. False material in the US attorney's letter had misled the judge who signed the Canadian arrest warrant. "Grotesquely inflated" charges and the unjustified portrayal of Alfred-Adekeye as a Nigerian-born scam artist and flight risk had misled the Canadian judicial system further. The underlying civil case by Multiven against Cisco had been withheld from them.
+
+=== Cisco Settles Multiven v. Cisco ===
+On July 19, 2010, Cisco settled Multiven's antitrust lawsuit by making its operating system and application software updates, bug fixes and patches available to all Multiven customers worldwide. This settlement agreement transformed Multiven into Cisco's first and only independent competitor in the multi-Billion dollars per year software maintenance services business.
+
+=== Libel Lawsuit Against Cisco ===
+On July 20, 2015, Multiven CEO, Peter Alfred-Adekeye initiated a libel lawsuit against Cisco for (1) falsely claiming that "‘he or someone under his control at Multiven’" downloaded and ‘stole’ Cisco software five times in 2006 from cisco.com (2) used this lie (a) to orchestrate his illegal arrest in Vancouver, Canada in 2010 during Multiven v. Cisco and (b) to fabricate an ‘indictment’ in August 2011 after the Canadian Supreme Court threw out Cisco/US Government's extradition request and (3) continuing to knowingly propagate this falsehood till today, with the core purpose of defaming Mr Alfred-Adekeye's character and that of Multiven's - Cisco's only competitor in the global multi-Billion dollar per year services business.

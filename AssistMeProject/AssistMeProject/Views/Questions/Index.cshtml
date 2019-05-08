@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<AssistMeProject.Models.Question>
 
+
 @{
     string title = "Questions";
     //Example of how to get data of user
@@ -28,6 +29,7 @@
                                 int counter = 0;
                                 foreach (var item in Model)
                                 {
+
                                     <article class="question question-type-normal">
                                         <h2>
                                             <a asp-action="Details" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
@@ -36,7 +38,7 @@
                                         <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
 
                                         <div class="question-author">
-                                            <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+                                            <a href="/Users/Profile?viewingToUser=@Html.DisplayFor(modelItem => item.User.USERNAME)" original-title=@Html.DisplayFor(modelItem => item.User.USERNAME) class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
                                         </div>
                                         <div class="question-inner">
                                             <div class="clearfix"></div>
@@ -67,7 +69,7 @@
                                                 <span class="question-favorite"><i class="icon-star"></i>5</span>
                                             </div>
 
-                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i></a></span>
+                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i>@Html.DisplayFor(modelItem => item.Studio.Name)</a></span>
                                             <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
                                             <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>@item.Answers.Count</a></span>
                                             <p>

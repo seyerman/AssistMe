@@ -1,0 +1,22 @@
+The "Data Transfer Project" ("DTP") is an open-source initiative which features data portability between multiple online platforms. The project was launched and introduced by Google in July 20, 2018, and has currently partnered with Facebook, Microsoft, and Twitter.
+
+== Background ==
+The project was formed by the Google Data Liberation Front in 2017, hoping to provide a platform that could allow individuals to move their online data between different platforms, without the need of downloading and re-uploading data.
+
+In July 20, 2018, the joint project was announced. The source code, which has been uploaded to GitHub, was mainly written by Google and Microsoft's engineers.
+
+== See more ==
+* Data portability
+* Google Takeout
+
+== Reference ==
+== External links ==
+* 
+* 
+Category:Google
+Category:Microsoft
+Category:Facebook
+Category:Twitter
+Category:Computer-related introductions in 2018
+Category:Free network-related software
+Category:Interoperability

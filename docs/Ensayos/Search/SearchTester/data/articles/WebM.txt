@@ -1,0 +1,56 @@
+"WebM" is an audiovisual media file format.
+It is primarily intended to offer a royalty-free alternative to use in the HTML5 video and the HTML5 audio elements. It has a sister project WebP for images. The development of the format is sponsored by Google, and the corresponding software is distributed under a BSD license.
+
+The WebM container is based on a profile of Matroska. WebM initially supported VP8 video and Vorbis audio streams. In 2013, it was updated to accommodate VP9 video and Opus audio.
+An example of a WebM video
+
+== Vendor support ==
+=== Software ===
+Native WebM support by Mozilla Firefox, Opera, and Google Chrome was announced at the 2010 Google I/O conference. Internet Explorer 9 requires third-party WebM software. Safari for macOS which relied on QuickTime to play web media until Safari 12, still does not have native support for WebM.  QuickTime does not natively support WebM, but does with a suitable third-party plug-in. In 2011, the Google WebM Project Team released plugins for Internet Explorer and Safari to allow playback of WebM files through the standard HTML5 <code><video></code> tag. , Internet Explorer 9 and later supported the plugin for Windows Vista and later.
+
+VLC media player, MPlayer, K-Multimedia Player and JRiver Media Center have native support for playing WebM files. FFmpeg can encode and decode VP8 videos when built with support for libvpx, the VP8/VP9 codec library of the WebM project, as well as mux/demux WebM-compliant files. On July 23, 2010 Fiona Glaser, Ronald Bultje, and David Conrad of the FFmpeg team announced the ffvp8 decoder. Their testing found that ffvp8 was faster than Google's own libvpx decoder. MKVToolNix, the popular Matroska creation tools, implemented support for multiplexing/demultiplexing WebM-compliant files out of the box. Haali Media Splitter also announced support for muxing/demuxing of WebM. The full decoding support for WebM is available in MPC-HC since version 1 April 2499.0.
+
+Android is WebM-enabled since version 2.3 Gingerbread, which was first made available via the Nexus S smartphone and streamable since Android 4.0 Ice Cream Sandwich.
+
+In September 2015, Microsoft announced that the Edge browser in Windows 10 would add support for WebM (Opus, Vorbis, VP9).
+
+iOS does not natively play WebM.
+
+=== Hardware ===
+WebM Project licenses VP8 hardware accelerators (RTL IP) to semiconductor companies for 1080p encoding and decoding at zero cost. AMD, ARM and Broadcom have announced support for hardware acceleration of the WebM format. Intel is also considering hardware-based acceleration for WebM in its Atom-based TV chips if the format gains popularity. Qualcomm and Texas Instruments have announced support, with native support coming to the TI OMAP processor. Chips&Media have announced a fully hardware decoder for VP8 that can decode full HD resolution (1080p) VP8 streams at 60 frames per second.
+
+Nvidia is supporting VP8 and provides both hardware decoding and encoding in the Tegra&nbsp;4 and Tegra&nbsp;4i SoCs. Nvidia announced 3D video support for WebM through HTML5 and their Nvidia 3D Vision technology.
+
+On January 7, 2011, Rockchip released the world's first chip to host a full hardware implementation of 1080p VP8 decoding. The video acceleration in the RK29xx chip is handled by the WebM Project's G-Series 1 hardware decoder IP.
+
+In June 2011, ZiiLABS demonstrated their 1080p VP8 decoder implementation running on the ZMS-20 processor. The chip's programmable media processing array is used to provide the VP8 acceleration.
+
+Also ST-Ericsson and Huawei had hardware implementations in their computer chips.
+
+== Licensing ==
+The original WebM license terminated both patent grants and copyright redistribution terms if a patent infringement lawsuit was filed, causing concerns around GPL compatibility.
+In response to those concerns, the WebM Project decoupled the patent grant from the copyright grant, offering the code under a standard BSD license and patents under a separate grant. The Free Software Foundation, which maintains The Free Software Definition, has given its endorsement for WebM and VP8 and considers the software's license to be compatible with the GNU General Public License. On January 19, 2011, the Free Software Foundation announced its official support for the WebM project. In February 2011, Microsoft's Vice President of Internet Explorer called upon Google to provide indemnification against patent suits.
+
+Although Google has irrevocably released all of its patents on VP8 as a royalty-free format, the MPEG LA, licensors of the H.264 patent pool, have expressed interest in creating a patent pool for VP8. Conversely, other researchers cite evidence that On2 made a particular effort to avoid any MPEG LA patents. As a result of the threat, the United States Department of Justice (DOJ) started an investigation in March 2011 into the MPEG LA for its role in possibly attempting to stifle competition. In March 2013, MPEG LA announced that it had reached an agreement with Google to license patents that "may be essential" for the implementation of the VP8 codec, and give Google the right to sub-license these patents to any third-party user of VP8 or VP9.
+
+In March 2013, Nokia filed an objection to the Internet Engineering Task Force concerning Google's proposal for the VP8 codec to be a core part of WebM, saying it holds essential patents to VP8's implementation. Nokia listed 64 patents and 22 pending applications, adding it was not prepared to license any of them for VP8. On August 5, 2013, a court in Mannheim, Germany, ruled that VP8 does not infringe a patent owned and asserted by Nokia.
+
+== See also ==
+
+* Comparison of container formats
+* EBML
+* Theora
+
+== References ==
+== External links ==
+
+* 
+* [https://www.webmproject.org/docs/container/ WebM Container Guidelines]
+* [http://webm.html5.org/test.webm WebM test video] HTML5.org
+* 
+Category:Articles containing video clips
+Category:Free digital container formats
+Category:Google
+Category:Open formats
+Category:Videotelephony
+Category:Computer-related introductions in 2010

@@ -8,7 +8,7 @@
     <div class="col-md-9">
 
         <div class="page-content ask-question">
-            <div class="boxedtitle page-title"><h2>Ask Question</h2></div>
+            <div class="boxedtitle page-title"><h2>Ask Question : @ViewBag.username</h2></div>
 
             <p>To ask a question you must fill this form.</p>
 
@@ -34,6 +34,18 @@
                             <input class="input" name="question_tags" id="question_tags" data-seperator=",">
                             <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
                         </p>
+                        <p>
+                            <div class="form-group">
+                                <label class="required">Studio<span>*</span></label>
+
+                                <span class="styled-select">
+
+                                    <select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
+                                </span>
+
+                            </div>
+                        </p>
+
                         <label>File</label>
                         <div class="fileinputs">
                             <input type="file" class="file">

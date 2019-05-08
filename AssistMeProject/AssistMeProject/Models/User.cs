@@ -70,6 +70,8 @@ namespace AssistMeProject.Models
         public String COUNTRY { get; set; }
         public String CITY { get; set; }
 
+        public ICollection<Question> Questions { get; set; }
+
 
         public String[] getStringData()
         {

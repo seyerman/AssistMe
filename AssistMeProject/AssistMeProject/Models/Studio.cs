@@ -35,10 +35,11 @@ namespace AssistMeProject.Models
             Unit = unit;
             Description = description;
         }
-        
 
       
 
-       
+        public ICollection<Question> Questions { get; set; }
+
+
     }
 }

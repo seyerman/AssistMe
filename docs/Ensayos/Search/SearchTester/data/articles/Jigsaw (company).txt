@@ -1,0 +1,39 @@
+"Jigsaw" (formerly "Google Ideas") is a technology incubator created by Google, and currently operated as a subsidiary of Alphabet Inc. Based in New York City, Jigsaw is dedicated to understanding global challenges and applying technological solutions, from "countering extremism", online censorship and cyber-attacks, to protecting access to information. Jared Cohen, formerly with the Policy Planning Committee at the US State Department, is the CEO of Jigsaw, and was formerly co-founder and director of Google Ideas.
+
+==History==
+===Google Ideas===
+In 2010, Eric Schmidt approached Jared Cohen to lead Google Ideas, as a "think/do tank" to research issues at the intersection of technology and geopolitics, and has worked on projects intended to protect activists and independent media from cyber-attacks. Ideas brought together a team of Google engineers, research scientists, product managers, and policy experts to address these issues. The team also hosted a number of conferences, the most recent of which was the Conflict in a Connected World Roundtable Series, in partnership with the Council on Foreign Relations’ Center of Preventative Action. 
+
+Ideas came under scrutiny for its links with the US State Department and its regime change activities.
+
+===Jigsaw===
+In February 2016, Eric Schmidt announced in a Medium post 
+
+==Projects==
+===Perspective===
+In February 2017, Jigsaw and Google launched the free Perspective API, "a new tool for web publishers to identify toxic comments that can undermine a civil exchange of ideas." Using machine learning technology, Perspective offers a score from zero to 100 on how similar new comments are to others previously identified as toxic, defined as how likely a comment is to make someone leave a conversation. Publishers can use Perspective in a number of ways, from offering readers instant feedback on the toxicity of their comments to giving readers the power to filter conversations based on the level of toxicity they'd like to see. Perspective's launch partners included "The New York Times, The Guardian, The Economist" and Wikipedia. The research on Wikipedia started discussion about Artificial intelligence in Wikimedia projects. 
+
+In June 2017, "The New York Times" announced that as a result of the partnership with Jigsaw, the "Times" will offer comments on all top stories and scale comments to 80% of its articles by the end of the year.
+
+===Project Shield===
+Project Shield is a free anti-distributed denial-of-service (anti-DDoS) service that is offered by Jigsaw to websites that have "media, elections, and human rights related content." The main goal of the project is to serve "small, under-resourced news sites that are vulnerable to the web’s growing epidemic of DDoS attacks", according to team lead George Conard. It is similar to services offered by companies like Cloudflare. Google initially announced Project Shield at their Ideas Conference on October 21, 2013. The service works by having the website use Google's IP's, and traffic is routed through a Google-owned reverse proxy that identifies and filters malicious traffic.
+
+Project Shield provides news, human rights, and election monitoring sites with protection from DDoS cyber-attacks by a system of caching (storing the data from the protected website to reduce load on the site). It also filters traffic to thwart DDoS attacks. Project Shield is built on Google Cloud Platform. It is provided free of charge to the qualifying websites of independent journalists, human rights, and elections monitoring websites to protect them regardless of their location and Project Shield as of 2016 October has users in Europe, Asia, North America, and Africa. Project Shield rescued Brian Krebs's security blog from a then-unprecedented DDoS attack that knocked the website entirely offline.
+
+In March 2017, Jigsaw launched a campaign called "Protect Your Election," a suite of free tools to help protect access to information during elections. These tools include Shield, Password Alert, and two-step verification.
+
+===Redirect Method===
+The Redirect Method is an open source methodology developed by Jigsaw that leverages Google's AdWords platform and YouTube to target potential ISIS recruits and dissuade them from joining the group. Redirect, which was based off interviews with ISIS defectors and jailed recruits, "places advertising alongside results for any keywords and phrases that Jigsaw has determined people attracted to ISIS commonly search for. Those ads link to Arabic- and English-language YouTube channels that pull together preexisting videos Jigsaw believes it can effectively undo ISIS’s [influence]—clips like testimonials from former extremists, imams denouncing ISIS’s corruption of Islam, and surreptitiously filmed clips inside the group’s dysfunctional caliphate in Northern Syria and Iraq."powered by Shadowsocks.
+
+===Other projects===
+Other Jigsaw projects include Sideways Dictionary, Password Alert, Unfiltered.news, Digital Attack Map, and Montage (graduated to Storyful). 
+
+In March 2017, Jigsaw partnered with "The Washington Post" to launch Sideways Dictionary, a community-driven collection of analogies to explain complex tech jargon. Sideways Dictionary is available as a Chrome extension and on "The Washington Post." 
+
+Password Alert helps protect against phishing attacks; according to "WIRED," "the company developed it for Syrian activists targeted by government-friendly hackers, but when it proved effective, it was rolled out to all of Google’s users." and the Digital Attack Map displays the top digital attacks in the world in real time.
+
+Jigsaw also helped develop CopCast, an open source project that can turn any Android phone into a body-worn camera system for law enforcement. In June 2017, "USA Today" reported that the Jersey City Police Department will scale this technology to more than 250 officers.
+
+==See also==
+* uProxy
+* Project Shield

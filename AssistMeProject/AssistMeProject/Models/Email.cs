@@ -37,19 +37,23 @@ namespace AssistMeProject.Models
                                     .AddXmlFile("Configuration.xml");
             Configuration = builder.Build();
         }
-        public void EnviarCorreo(string to, string tittle, string message, bool esHtlm = false)
+
+        public void EnviarCorreo(string to, string tittle, string message, bool esHtml = false)
         {
             Msg = new MailMessage(Configuration["user"], to, tittle, message);
-            Msg.IsBodyHtml = esHtlm;
+            Msg.IsBodyHtml = esHtml;
             Server.Send(Msg);
         }
+
         public void EnviarCorreo(MailMessage message)
         {
             Server.Send(message);
         }
+
         public async Task EnviarCorreoAsync(MailMessage message)
         {
             await Server.SendMailAsync(message);
         }
+
     }
 }

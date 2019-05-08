@@ -1,0 +1,28 @@
+"Shotbow" is a "Minecraft" game server, founded in February, 2012, by Matt Sundberg and Austin Smith. , the server has had a total of 1 million unique registered users.
+
+== History ==
+Shotbow was formed in February 2012. After an already lengthy and initial success of Hardcore Factions, the first gamemode created by HCGaming LLC, owner/operator Matt Sundberg and Lead Developer Austin Smith contacted close friends and staff of Hardcore Factions to take on creating a unique spin on the popular mod DayZ, which was later aptly named MineZ. After the game's great success and rapid explosion into the Minecraft world the team came together to be the first server to link together a series of games with a centralized hub that didn’t require a disconnect or loading screens. Shotbow was born as the first major server network, forever changing the landscape of the Minecraft multiplayer network.
+
+== Gamemodes ==
+Shotbow hosts a variety of gamemodes including Annihilation, MineZ, Smash and GhostCraft.
+
+=== MineZ ===
+MineZ (Shotbow Network's signature gamemode), initially inspired by the popular DayZ mod, quickly went on to become a unique, and extremely popular medieval/fantasy zombie apocalypse modification of the sandbox indie game Minecraft.
+
+MineZ entered alpha testing in February 2012 with the base ai being completely coded in three days. The game initially had a paid entrance fee of $20 to enter the alpha test to keep feedback limited. By January 12th 2013 MineZ had reached 1 million unique players and went on to be the most popular game on Shotbow.
+
+Features of MineZ include:
+*A custom hand-painted map spanning 32,807,286 blocks (7146 x 4591).
+*Advanced custom mob artificial intelligence and randomized loot.
+*A spanning world backstory ingrained into the landscape and literature found in the world (lore).
+*Graverobbing, thirst, hunger, bleeding, infection and advanced healing systems.
+*An encapsulating, thriving world with hundreds of players with persistent player inventories
+
+== References ==
+== External links ==
+* [https://shotbow.net Official website]
+* [https://shotbow.net/presskit/index.php Presskit]
+Category:Minecraft
+Category:Minigames
+Category:Servers (computing)
+Category:Independent video game developers
