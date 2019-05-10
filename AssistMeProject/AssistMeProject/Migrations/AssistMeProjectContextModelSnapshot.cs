@@ -96,13 +96,15 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(150);
 
-                    b.Property<string>("Username");
+                    b.Property<int?>("UserId");
 
                     b.Property<bool>("isArchived");
 
                     b.HasKey("Id");
 
                     b.HasIndex("StudioId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Question");
                 });
@@ -171,9 +173,13 @@ namespace AssistMeProject.Migrations
 
                     b.Property<int>("QUESTIONS_ASKED");
 
+                    b.Property<int>("StudioId");
+
                     b.Property<string>("USERNAME");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("StudioId");
 
                     b.ToTable("User");
                 });
@@ -199,6 +205,10 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Studio", "Studio")
                         .WithMany("Questions")
                         .HasForeignKey("StudioId");
+
+                    b.HasOne("AssistMeProject.Models.User", "User")
+                        .WithMany("Questions")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
@@ -211,6 +221,14 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Question", "Question")
                         .WithMany("QuestionLabels")
                         .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.User", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Studio", "Studio")
+                        .WithMany("Users")
+                        .HasForeignKey("StudioId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
