@@ -34,7 +34,7 @@ namespace AssistMeProject.Models
         [Display(Name = "Description")]
         public String Description { get; set; }
 
-        public ICollection<Question> Questions { get; set; }
+       public ICollection<Question> Questions { get; set; }
 
 
     }

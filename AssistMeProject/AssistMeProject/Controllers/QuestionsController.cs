@@ -36,7 +36,7 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            var questions = await _context.Question.Where(q => q.isArchived == false)
+           var questions = await _context.Question.Where(q => q.isArchived == false)
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
