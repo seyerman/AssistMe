@@ -72,6 +72,9 @@ namespace AssistMeProject.Models
 
         public ICollection<Question> Questions { get; set; }
 
+        public int StudioId { get; set; }
+
+        public Studio Studio { get; set; }
 
         public String[] getStringData()
         {

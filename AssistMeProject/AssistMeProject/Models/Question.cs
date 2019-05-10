@@ -19,6 +19,8 @@ namespace AssistMeProject.Models
 
         public bool AskAgain { get; set; }
 
+        public bool isArchived { get; set; }
+
 
         public Studio Studio { get; set; }
 

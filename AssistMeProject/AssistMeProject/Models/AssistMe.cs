@@ -7,8 +7,10 @@ namespace AssistMeProject.Models
 {
     public class AssistMe
     {
-        
+        public const string DOMINIO = "http://localhost:50144";
+
         private readonly AssistMeProjectContext _context;
+        
         public const string NORMAL_LOGIN = "N";
         public const string GOOGLE_LOGIN = "G";
 
