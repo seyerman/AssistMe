@@ -1,4 +1,4 @@
-
+AssistMeProject/.vs/AssistMeProject/v15/Server/sqlite3/
 AssistMeProject/.vs/AssistMeProject/v15/.suo
 
 ## Ignore Visual Studio temporary files, build results, and
@@ -346,3 +346,4 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+AssistMeProject/.vs/AssistMeProject/v15/Server/sqlite3/storage.ide-wal
