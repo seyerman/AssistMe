@@ -409,38 +409,59 @@ namespace AssistMeProject.Controllers
         }
 
 
-        // GET: Questions/Details/5
-        public async Task<IActionResult> ArchivedQuestionDetails(int? id)
-        {
+		// GET: Questions/Details/5
+		public async Task<IActionResult> ArchivedQuestionDetails(int? id)
+		{
 
-            var question = await _context.Question
-                .Include(q => q.Answers)
-                .Include(q => q.QuestionLabels)
-                    .ThenInclude(ql => ql.Label)
-                .Include(q => q.User)
-                .Include(q => q.Studio)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (question == null)
-            {
-                return NotFound();
-            }
+			var question = await _context.Question
+				.Include(q => q.Answers)
+				.Include(q => q.QuestionLabels)
+					.ThenInclude(ql => ql.Label)
+				.Include(q => q.User)
+				.Include(q => q.Studio)
+				.FirstOrDefaultAsync(m => m.Id == id);
+			if (question == null)
+			{
+				return NotFound();
+			}
 
-            initSearcher();
+			initSearcher();
 
-            var relatedQuestions = new List<Question>();
-            List<ISearchable> searchables = _searcher.Search(question.Title);
+			var relatedQuestions = new List<Question>();
+			List<ISearchable> searchables = _searcher.Search(question.Title);
 
-            foreach (ISearchable s in searchables)
-            {
-                Question q = (Question)s;
-                if (q.Id != question.Id)
-                    relatedQuestions.Add(q);
-                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
-            }
+			foreach (ISearchable s in searchables)
+			{
+				Question q = (Question)s;
+				if (q.Id != question.Id)
+					relatedQuestions.Add(q);
+				if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+			}
 
 
-            ViewBag.Related = relatedQuestions;
-            return View(question);
-        }
-    }
+			ViewBag.Related = relatedQuestions;
+			return View(question);
+		}
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Suggest(string query)
+		{ 
+			if (BM25Searcher.IsValidString(query))
+			{
+				initSearcher();
+				List<Question> questions = new List<Question>();
+				List<ISearchable> searchables = _searcher.Search(query);
+				foreach (ISearchable s in searchables)
+				{
+					questions.Add((Question)s);
+				}
+				List<ISearchable> relatedQuestions = new List<Question>;
+				foreach (ISearchable s in searchables)
+					{
+					Question q = (Question)s;
+					relatedQuestions.Add(q);
+					if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+					}
+			}
+	}
 }
