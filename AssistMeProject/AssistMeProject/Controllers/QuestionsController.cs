@@ -444,8 +444,17 @@ namespace AssistMeProject.Controllers
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Suggest(string query)
-		{ 
+		public async Task<IActionResult> Suggestions(String title, String description)
+		{
+			String query = title + " " + description;
+			List<String> lb = SuggestLabels(query);
+			ViewData["Sugerencias"] = lb;
+			return View();
+		}
+		public List<String> SuggestLabels(string query)
+		{
+			
+			List<String> suggestion = new List<String>();
 			if (BM25Searcher.IsValidString(query))
 			{
 				initSearcher();
@@ -455,13 +464,38 @@ namespace AssistMeProject.Controllers
 				{
 					questions.Add((Question)s);
 				}
-				List<ISearchable> relatedQuestions = new List<Question>;
+				var relatedQuestions = new List<Question>();
 				foreach (ISearchable s in searchables)
-					{
+				{
 					Question q = (Question)s;
 					relatedQuestions.Add(q);
 					if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
-					}
+				}
+				suggestion = SuggestedLabels(relatedQuestions);
+				
 			}
+			return suggestion;
+		}
+		private List<String> SuggestedLabels(List<Question> suggestions)
+		{
+			var totalLabels = new List<Label>();
+
+			for(int i = 0; i < suggestions.Count; i++)
+			{
+				Question q = suggestions.ElementAt(1);
+				for(int j = 0; j < q.QuestionLabels.Count; j++)
+				{
+					totalLabels.Add(q.QuestionLabels.ElementAt(j).Label);
+				}
+
+			}
+			var l = totalLabels.GroupBy(x => x).Select(x => new { label = x, Count = x.Count()}).OrderByDescending(x => x.Count);
+			var labels = new List<String>();
+			for(int i=0;i<l.Count() && i < 5; i++)
+			{
+				labels.Add(l.ElementAt(i).label.Key.Tag);
+			}
+			return labels;
+		}
 	}
 }
