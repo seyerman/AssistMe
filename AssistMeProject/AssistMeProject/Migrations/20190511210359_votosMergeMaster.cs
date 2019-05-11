@@ -2,7 +2,7 @@
 
 namespace AssistMeProject.Migrations
 {
-    public partial class label : Migration
+    public partial class votosMergeMaster : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

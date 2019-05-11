@@ -34,7 +34,6 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.View> View { get; set; }//
 
 
-        public DbSet<AssistMeProject.Models.Label> Label { get; set; }
         public DbSet<AssistMeProject.Models.QuestionLabel> QuestionLabels { get; set; }
 
     }
