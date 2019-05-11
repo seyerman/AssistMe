@@ -2,13 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\AssistMeProject",
-    "\\AssistMeProject\\AssistMeProject",
-    "\\AssistMeProject\\AssistMeProject\\Views",
-    "\\AssistMeProject\\AssistMeProject\\Views\\Comments",
-    "\\AssistMeProject\\AssistMeProject\\Views\\Questions",
-    "\\docs",
-    "\\docs\\Hito 3"
+    "\\AssistMeProject\\AssistMeProject"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\AssistMeProject\\AssistMeProject\\Views",
   "PreviewInSolutionExplorer": false
 }
