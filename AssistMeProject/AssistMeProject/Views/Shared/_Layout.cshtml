@@ -75,11 +75,11 @@
                                 <li class="user-no-active"><a href="/Users/">Iniciar Sesión</a></li>
                                 <li class="user-active"><a href="/Users/Profile">Perfil del Usuario</a></li>
                                 <!--
-                                <li><a href="user_questions.html">User Questions</a></li>
-                                <li><a href="user_answers.html">User Answers</a></li>
-                                <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
-                                <li><a href="user_points.html">User Points</a></li>
-                                -->
+                            <li><a href="user_questions.html">User Questions</a></li>
+                            <li><a href="user_answers.html">User Answers</a></li>
+                            <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
+                            <li><a href="user_points.html">User Points</a></li>
+                            -->
                                 <li class="user-active"><a href="/Users/Edit">Editar Perfil</a></li>
                                 <li class="user-active"><a href="/Users/Logout">Cerrar Sesión</a></li>
                             </ul>
@@ -114,22 +114,26 @@
             </section><!-- End container -->
         </header><!-- End header -->
 
-        <aside class="col-md-3 sidebar">
-            @await Component.InvokeAsync("Stats")
-            @await Component.InvokeAsync("TagWidget")
-            @await Component.InvokeAsync("TopUsers")
-        </aside><!--End Sidebar-->
+        
+        <div class="container main-content"><!--Contenido principal de la pagina--><!--Respetar el nivel de las paginas para que no se superpongan-->
+            <div class="row">
+                <div class="col-md-9">
+                    @RenderBody()
+                    <hr />
+                </div>
+                <aside class="col-md-3 sidebar">
+                    @await Component.InvokeAsync("Stats")
+                    @await Component.InvokeAsync("TagWidget")
+                    @await Component.InvokeAsync("TopUsers")
+                </aside><!--End Sidebar-->
+            </div>
+        </div><!--Fin contenido principal -->
 
     </div> <!--End wrap-->
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container main-content">
-
-        @RenderBody()
-        <hr />
-
-    </div>
+    
 
     <footer id="footer-bottom">
         <section class="container">
