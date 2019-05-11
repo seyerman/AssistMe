@@ -66,12 +66,12 @@ namespace AssistMeProject.Controllers
                 return RedirectToAction("Index", "Users", new { message = "Please Log In" });
             }
             Question question= _context.Question.Find(QuestionID);
-            ViewData["Questioner"] = question.Username;
+            ViewData["Questioner"] = question.User.USERNAME;
             ViewData["TitleQ"] = question.Title;
             ViewData["DescriptionQ"] = question.Description;
 
-            int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
-            ViewData["UserId"] = activeUserId;
+            //int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
+            ViewData["UserId"] = question.User.ID;//activeUserId;
             return View();
         }
 
