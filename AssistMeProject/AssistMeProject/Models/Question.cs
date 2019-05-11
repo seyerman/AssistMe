@@ -22,7 +22,7 @@ namespace AssistMeProject.Models
         public bool isArchived { get; set; }
 
 
-        public Studio Studio { get; set; }
+       public Studio Studio { get; set; }
 
         public int? StudioId { get; set; }
 
