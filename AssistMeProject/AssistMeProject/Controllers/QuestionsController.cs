@@ -36,11 +36,12 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            var questions = await _context.Question.Where(q => q.isArchived == false)
+           var questions = await _context.Question.Where(q => q.isArchived == false)
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.Studio)
+                .Include(q => q.User)
                 .ToListAsync();
             questions.Sort();
 
@@ -59,8 +60,8 @@ namespace AssistMeProject.Controllers
             }
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
             if (actualUser != null)
             {
@@ -78,7 +79,9 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.Studio)
+                .Include(q => q.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (question == null)
             {
                 return NotFound();
@@ -114,6 +117,8 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
+                .Include(q => q.User)
+                .Include(q => q.Studio)
                 .ToList();
             foreach (var question in questions)
             {
@@ -125,15 +130,18 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Search(string query)
         {
-            initSearcher();
-            List<Question> questions = new List<Question>();
-            List<ISearchable> searchables = _searcher.Search(query);
-            foreach (ISearchable s in searchables)
-            {
-                questions.Add((Question)s);
+            if(BM25Searcher.IsValidString(query)){
+                initSearcher();
+                List<Question> questions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(query);
+                foreach (ISearchable s in searchables)
+                {
+                    questions.Add((Question)s);
+                }
+                return View("Index", questions);
             }
-            return View("Index", questions);
-            //return View(await _context.Question.ToListAsync());
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Questions/Create
@@ -176,57 +184,78 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
-            question.Username = HttpContext.Session.GetString("USERNAME");
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+            {
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+                question.UserId = actualUser.ID;
+            }
+               
             if (ModelState.IsValid)
             {
                 _context.Add(question);
                 if (!string.IsNullOrEmpty(studio))
                 {
                     var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
-                    question.StudioId = st.Id;
-                }
-                if (!string.IsNullOrEmpty(question_tags))
-                {
-                    string[] tagsStr = question_tags.Split(",");
-                    foreach (string t in tagsStr)
+
+                    if (!string.IsNullOrEmpty(question_tags))
                     {
-                        var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
-                        if (tag == null)
+                        string[] tagsStr = question_tags.Split(",");
+                        foreach (string t in tagsStr)
                         {
-                            tag = new Label();
-                            tag.Tag = t;
-                            _context.Add(tag);
+                            var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
+                            if (tag == null)
+                            {
+                                tag = new Label();
+                                tag.Tag = t;
+                                _context.Add(tag);
+                            }
+                            tag.NumberOfTimes++;
+                            var questionLabel = new QuestionLabel
+                            {
+                                LabelId = tag.Id,
+                                QuestionId = question.Id
+                            };
+                            _context.Add(questionLabel);
                         }
-                        tag.NumberOfTimes++;
-                        var questionLabel = new QuestionLabel
-                        {
-                            LabelId = tag.Id,
-                            QuestionId = question.Id
-                        };
-                        _context.Add(questionLabel);
                     }
+
+                    question.StudioId = st.Id;
+                    question.Studio = st;
+                    await _context.SaveChangesAsync();
+                    SendEmailStudio(question, st);
                 }
-
-                await _context.SaveChangesAsync();
-
-
-
-                try
-                {
-                    Email manager = new Email();
-                    MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n" + question.Description);
-                    manager.EnviarCorreo(email);
-
-                }
-                catch (System.Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-
+ 
                 return RedirectToAction(nameof(Index));
             }
             return View(question);
+        }
+
+
+        public void SendEmailStudio(Question question, Studio studio)
+        {
+            var users = _context.User.Where(p => p.StudioId == studio.Id);
+
+            foreach (var user in users)
+            {
+                SendEmail(question, user.EMAIL);
+            }
+
+        }
+
+        public void SendEmail (Question question, string name)
+        {
+
+            try
+            {
+                Email manager = new Email();
+                string mail = "Tienes una nueva pregunta \n "+ AssistMe.DOMINIO+"/Questions/Details/"+question.Id;
+                manager.EnviarCorreo(name, question.Title, mail);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // GET: Questions/Edit/5
@@ -388,6 +417,8 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
+                .Include(q => q.User)
+                .Include(q => q.Studio)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
