@@ -6,6 +6,7 @@ namespace AssistMeProject.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            
             migrationBuilder.DropForeignKey(
                 name: "FK_Answer_User_UserId",
                 table: "Answer");

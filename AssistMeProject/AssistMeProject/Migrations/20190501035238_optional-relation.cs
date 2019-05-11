@@ -6,6 +6,7 @@ namespace AssistMeProject.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            /*
             migrationBuilder.DropForeignKey(
                 name: "FK_Question_Studio_StudioId",
                 table: "Question");
@@ -23,10 +24,12 @@ namespace AssistMeProject.Migrations
                 principalTable: "Studio",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
+                */
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            /*
             migrationBuilder.DropForeignKey(
                 name: "FK_Question_Studio_StudioId",
                 table: "Question");
@@ -45,6 +48,7 @@ namespace AssistMeProject.Migrations
                 principalTable: "Studio",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
+                */
         }
     }
 }
