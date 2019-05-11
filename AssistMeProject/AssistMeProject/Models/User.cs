@@ -81,9 +81,13 @@ namespace AssistMeProject.Models
         public String COUNTRY { get; set; }
         public String CITY { get; set; }
 
+
         public virtual ICollection<Question> Questions { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
         public virtual ICollection<Comment> Comments { get; set;}
+        public int StudioId { get; set; }
+        public Studio Studio { get; set; }
+
 
         public String[] getStringData()
         {

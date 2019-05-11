@@ -9,20 +9,6 @@ namespace AssistMeProject.Models
     public class Studio
     {
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Studio()
-        {
-
-        }
-
-        public Studio( int id, String name, String unit, String description)
-        {
-            Id = id;
-            Name = name;
-            Unit = unit;
-            Description = description;
-        }
-
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Digite el nombre del Studio"), MaxLength(50)]
@@ -33,6 +19,24 @@ namespace AssistMeProject.Models
 
         [Display(Name = "Description")]
         public String Description { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Studio()
+        {
+            Users = new HashSet<User>();
+        }
+
+        public Studio( int id, String name, String unit, String description)
+        {
+            Id = id;
+            Name = name;
+            Unit = unit;
+            Description = description;
+        }
+
+      
 
        public ICollection<Question> Questions { get; set; }
 
