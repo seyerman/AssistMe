@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<AssistMeProject.Models.Question>
 
+
 @{
     string title = "Questions";
     //Example of how to get data of user
@@ -28,32 +29,68 @@
                                 int counter = 0;
                                 foreach (var item in Model)
                                 {
-                                    <!--
-            <article class="question question-type-normal">
-                <h2>
-                    <a asp-action="Details" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
-                </h2>
-                <a class="question-report" href="#">Report</a>
-                <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
-                <div class="question-author">
-                    <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
-                </div>
-                <div class="question-inner">
-                    <div class="clearfix"></div>
-                    <p class="question-desc">@Html.DisplayFor(modelItem => item.Description)</p>
-                    <div class="question-details">
-                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>solved</span>
-                        <span class="question-favorite"><i class="icon-star"></i>5</span>
-                    </div>
-                    <span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span>
-                    <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
-                    <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>5 Answer</a></span>
-                    <span class="question-view"><i class="icon-user"></i>70 views</span>
-                    <div class="clearfix"></div>
-                </div>
-            </article>
-                -->
-                                    <Partial name="_QuestionPartial" model="item" view-data="ViewData" />
+
+                                    <article class="question question-type-normal">
+                                        <h2>
+                                            <a asp-action="Details" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
+                                        </h2>
+                                        <a class="question-report" href="#">Report</a>
+                                        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+
+                                        <div class="question-author">
+                                            <a href="/Users/Profile?viewingToUser=@Html.DisplayFor(modelItem => item.Username)" original-title=@Html.DisplayFor(modelItem => item.Username) class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+                                        </div>
+                                        <div class="question-inner">
+                                            <div class="clearfix"></div>
+                                            <p class="question-desc">@Html.DisplayFor(modelItem => item.Description)</p>
+                                            <div class="question-details">
+                                                @{
+                                                    if (item.AskAgain)
+                                                    {
+                                                        <span class="question-answered"><i class="icon-star"></i>UP</span>
+
+                                                    }
+
+                                                }
+                                                @{ var n = DateTime.Now;
+                                                    if (item.Answers.Count > 0)
+                                                    {
+                                                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+                                                    }
+                                                    else if (n >= item.Date.AddDays(1))
+                                                    {
+                                                        <span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@item.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="question-answered"><i class="icon-ok"></i>in progress</span>
+                                                    }
+                                                }
+                                                <span class="question-favorite"><i class="icon-star"></i>5</span>
+                                            </div>
+
+                                            <span class="question-category"><a href="#"><i class="icon-folder-close"></i>@Html.DisplayFor(modelItem => item.Studio.Name)</a></span>
+                                            <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
+                                            <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>@item.Answers.Count</a></span>
+                                            <p>
+                                                <div class="question-tags">
+                                                    <i class="icon-tags"></i>
+                                                    @{
+                                                        foreach (QuestionLabel ql in item.QuestionLabels)
+                                                        {
+                                                            string text = ql.Label.Tag;
+                                                            if (item.QuestionLabels.Last() != ql)
+                                                            {
+                                                                text += ", ";
+                                                            }
+                                                            <a href="#">@text</a>
+                                                        }
+                                                    }
+                                                </div>
+                                            </p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </article>
                                     counter++;
                                 }
                             }
@@ -64,7 +101,7 @@
                 </div>
 
             </div><!-- End page-content -->
-            
+
 
 
         </div><!-- End row -->

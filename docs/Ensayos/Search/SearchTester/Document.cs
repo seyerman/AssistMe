@@ -9,6 +9,7 @@ namespace AssistMeProject.Models
     public class Document : ISearchable
     {
 
+        public string Title { get; set; }
         private string _text;
 
         public Document(string text)
@@ -18,12 +19,12 @@ namespace AssistMeProject.Models
 
         public string GetDocumentText()
         {
-            return _text;
+            return Title +" "+ _text;
         }
 
         public override string ToString()
         {
-            return _text;
+            return Title;
         }
     }
 }

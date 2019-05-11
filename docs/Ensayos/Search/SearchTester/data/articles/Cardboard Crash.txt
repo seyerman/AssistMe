@@ -1,0 +1,3 @@
+"Cardboard Crash" is a 2015 National Film Board of Canada (NFB) mobile app and virtual reality work developed by Vincent McCurley, exploring the ethical issues of autonomous cars. 
+
+Produced for the NFB in Vancouver by Loc Dao, "Cardboard Crash" explores the ethical consequences of self-driving car algorithms and how should they be chosen. It presents users in a scenario where they are driving with a child in the vehicle and a road incident presents them with three alternative actions: veering left and colliding with a family, driving into a truck, or turning right, off a cliff. The accident-in-progress is slowed down to bullet time, as users are forced to make the choices a computer might have to make, with no ideal solution.

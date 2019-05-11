@@ -22,16 +22,20 @@ namespace AssistMeProject.Models
             Unit = unit;
             Description = description;
         }
-        
 
         public int Id { get; set; }
+
         [Required(ErrorMessage = "Digite el nombre del Studio"), MaxLength(50)]
         public String Name { get; set; }
+
         [Display(Name = "Unidad")]
         public String Unit { get; set; }
-        [Display(Name = "Descripción")]
-        public String Description;
 
-       
+        [Display(Name = "Description")]
+        public String Description { get; set; }
+
+        public ICollection<Question> Questions { get; set; }
+
+
     }
 }

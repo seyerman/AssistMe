@@ -28,10 +28,14 @@ namespace AssistMeProject.Controllers
 
         public async Task<IActionResult> CommentList(int? AnswerId)
         {
-            var assistMeProjectContext = _context.Comment.Where(c => c.AnswerId == AnswerId).Include(s=>s.Answer);
+            var assistMeProjectContext = _context.Comment.Where(c => c.AnswerId == AnswerId).Include(s=>s.Answer).Include(c=>c.User);
             return PartialView(await assistMeProjectContext.ToListAsync());
         }
-
+        public IActionResult lista(int? AnswerId)
+        {
+            var assistMeProjectContext = _context.Comment.Where(c => c.AnswerId == AnswerId).Include(s => s.Answer).Include(c => c.User);
+            return PartialView( assistMeProjectContext.ToListAsync());
+        }
 
         // GET: Comments/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -42,7 +46,7 @@ namespace AssistMeProject.Controllers
             }
 
             var comment = await _context.Comment
-                .Include(c => c.Answer)
+                .Include(c => c.Answer ).Include(c=>c.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
@@ -51,11 +55,18 @@ namespace AssistMeProject.Controllers
 
             return View(comment);
         }
-
+       
         // GET: Comments/Create
         public IActionResult Create(int? AnswerId)
         {
-            ViewData["AnswerId"] = new SelectList(_context.Answer, "Id", "Description");
+            string Activeuser = HttpContext.Session.GetString("USERNAME");
+            if (string.IsNullOrEmpty(Activeuser))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+            }
+
+            
+           // ViewData["UserId"] = Int32.Parse(Activeuser);
             return View();
         }
 
@@ -71,7 +82,8 @@ namespace AssistMeProject.Controllers
                 comment.Date = DateTime.Now;
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var QuestionID = _context.Answer.Find(AnswerId).QuestionID;
+                return RedirectToAction("Details", "Questions", new { id = QuestionID });
             }
            // ViewData["AnswerId"] = new SelectList(_context.Answer, "Id", "Description", comment.AnswerId);
             return View(comment);

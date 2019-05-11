@@ -1,0 +1,39 @@
+"Visual computing" is a generic term for all computer science disciplines handling with images and 3D models, i.e. computer graphics, image processing, visualization, computer vision, virtual and augmented reality, video processing, but also includes aspects of pattern recognition, human computer interaction, machine learning and digital libraries. The core challenges are the acquisition, processing, analysis and rendering of visual information (mainly images and video). Application areas include industrial quality control, medical image processing and visualization, surveying, robotics, multimedia systems, virtual heritage, special effects in movies and television, and computer games.
+
+==History and overview==
+Visual computing is a relatively newly coined term, which got its current meaning around 2005, when the established computer science disciplines computer graphics, image processing, computer vision and others noticed that their methods and applications overlapped more and more, so that a new generic term was needed. Many of the used mathematical and algorithmic methods are the same in all areas dealing with images: image formats, filtering methods, color models, image metrics and others. And also the programming methods on graphics hardware, the manipulation tricks to handle huge data, textbooks and conferences, the scientific communities of these disciplines and working groups at companies intermixed more and more.
+
+Furthermore, applications increasingly needed techniques from more than one of these fields concurrently. To generate very detailed models of complex objects you need image recognition, 3D sensors and reconstruction algorithms, and to display these models believably you need realistic rendering techniques with complex lighting simulation. Real-time graphics is the basis for usable virtual and augmented reality software. A good segmentation of the organs is the basis for interactive manipulation of 3D visualizations of medical scans. Robot control needs the recognition of objects just as a model of its environment. And all devices (computers) need ergonomic graphical user interfaces.
+
+Although many problems are considered solved within the scientific communities of the sub-disciplines making up visual computing (mostly under idealistic assumptions), one major challenge of visual computing as a whole is the integration of these partial solutions into applicable products. This includes dealing with many practical problems like addressing a multitude of hardware, the use of real data (that is often erroneous and/or gigantic in size), and the operation by untrained users. In this respect, "Visual computing is more than just the sum of its sub-disciplines", it is the next step towards systems fit for real use in all areas using images or 3D objects on the computer.
+
+== Visual computing disciplines ==
+At least the following disciplines are sub-fields of visual computing. More detailed descriptions of each of these fields can be found on the linked special pages.
+* Computer graphics and computer animation
+Computer graphics is a general term for all techniques that produce images as result with the help of a computer. To transform the description of objects to nice images is called rendering which is always a compromise between image quality and run-time.
+* Image analysis and computer vision
+Techniques that can extract content information from images are called image analysis techniques. Computer vision is the ability of computers (or of robots) to recognize their environment and to interpret it correctly.
+* Visualization and visual analytics
+Visualization is used to produce images that shall communicate messages. Data may be abstract or concrete, often with no a priori geometrical components. Visual analytics describes the discipline of interactive visual analysis of data, also described as “the science of analytical reasoning supported by the interactive visual interface”.
+* Geometric modeling and 3D-printing
+To represent objects for rendering it needs special methods and data structures, which subsumed with the term geometric modeling. In addition to describing and interactive geometric techniques, sensor data are more and more used to reconstruct geometrical models. Algorithms for the efficient control of 3D printers also belong to the field of visual computing.
+* Image processing and image editing
+In contrast to image analysis image processing manipulates images to produce better images. “Better” can have very different meanings subject to the respective application. Also, it has to be discriminated from image editing which describes interactive manipulation of images based on human validation.
+* Virtual and augmented reality
+Techniques that produce the feeling of immersion into a fictive world are called virtual reality (VR). Requirements for VR include head-mounted displays, real-time tracking, and high-quality real-time rendering. Augmented reality enables the user to see the real environment in addition to the virtual objects, which augment this reality. Accuracy requirements on rendering speed and tracking precision are significantly higher here.
+* Human computer interaction
+The planning, design and uses of interfaces between people and computers is not only part of every system involving images. Due to the high bandwidth of the human visual channel (eye), images are also a preferred part of ergonomic user interfaces in any system, so that human-computer interaction is also an integral part of visual computing.
+
+== Footnotes ==
+== External links ==
+* [http://research.microsoft.com/en-us/groups/vc/ Microsoft Research Group Visual Computing]
+* [http://www.nvidia.de/object/visual-computing-de.html Visual Computing at NVidia]
+* [http://vcg.seas.harvard.edu/ Visual Computing Group at Harvard University]
+* [http://vcc.kaust.edu.sa/Pages/Home.aspx Visual Computing Center at KAUST]
+* [http://www.igd.fraunhofer.de/ Applied Research in Visual Computing] (Fraunhofer IGD)
+* [http://www.ivc.h-brs.de/ Institute of Visual Computing] (Hochschule Bonn-Rhein-Sieg, Sankt Augustin)
+* [http://www.vrvis.at  VRVis Research Center for Virtual Reality and Visualisation] (Vienna, Austria)
+* [http://www.visual-computing.com Visual Computing Group @ HTW Berlin] (Germany)
+Category:Computer science
+Category:Image processing
+Category:Computer graphics

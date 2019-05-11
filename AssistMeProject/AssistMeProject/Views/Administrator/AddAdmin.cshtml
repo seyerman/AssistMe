@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AssistMeProject.Models.User>
+
+@{
+    string title = "Questions";
+    //Example of how to get data of user
+    if (ViewBag.User != null)
+    {
+        title = ViewBag.User.USERNAME;
+    }
+    //End of example
+    ViewData["Title"] = title;
+}
+
+<section class="container main-content" id="main" style="display:none">
+    <div class="row">
+        <!--Espacios-->
+        <div>
+            <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p>
+        </div>
+        <div class="col-md-9">
+            <div id="commentlist" class="page-content">
+                <div class="boxedtitle page-title"><h2>Usuarios</h2></div>
+
+                <ol class="commentlist clearfix">
+                    @foreach (var item in Model)
+                    {
+                        <li class="user">
+                            <div class="comment-body comment-body-answered clearfix">
+                                <div class="avatar"><img alt="" src="~/images/women.png"></div>
+                                <div class="comment-text">
+                                    <div class="author clearfix">
+                                        <div class="comment-author"><a href="#">@Html.DisplayFor(modelItem => item.USERNAME)</a></div>
+
+                                        <div class="text">
+                                            <p> @Html.DisplayFor(modelItem => item.EMAIL)</p>
+                                        </div>
+                                        <a asp-action="AsignRole" asp-route-id="@item.ID" class="comment-reply"><i class="icon-reply"></i>Asignar rol de Administrador</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+
+                    }
+                </ol><!-- End commentlist -->
+            </div><!-- End page-content -->
+
+
+
+            <div class="post-next-prev clearfix">
+                <p class="prev-post">
+                    <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Prev</a>
+                </p>
+                <p class="next-post">
+                    <a href="#">Next&nbsp;<i class="icon-double-angle-right"></i></a>
+                </p>
+            </div><!-- End post-next-prev -->
+        </div><!-- End main -->
+    </div><!-- End row -->
+</section>
+
+<script>
+     var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('main').style.display = 'block';
+        } else {
+            foo();
+        }
+    }
+
+    function foo() {
+    window.location.href = 'NotAdmin';
+}
+
+
+</script>
+
+
+
+

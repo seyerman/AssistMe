@@ -1,0 +1,17 @@
+"Google Santa Tracker" is an annual Christmas-themed entertainment program first launched in 2004 by Google, Inc. that allows users to track Santa on Christmas Eve. The game also allows users to play, watch, and learn through little activities that are added daily from the start of December. This game is inspired by NORAD Tracks Santa, which has operated since 1955.
+
+==History==
+
+In early 2004, Google saw the NORAD Tracks Santa service and said they "felt like it could be better for users to 'visualize' where Santa is currently at". So, in 2004, after Keyhole, Inc. was acquired by Google, they followed Santa in the "Keyhole Earth Viewer" (Google Earth's original name) and they called it the "Keyhole Santa Radar". The audience was small due to Keyhole being a "pay-for".
+
+In 2018, the Santa Tracker added several features for students and educators. On December 4, 2018, the website fully launched a suite of games and lesson plans about coding basics and Christmas traditions around the world. The site also features information about nonprofit organizations Khan Academy and Code.org. The 2018 Google Santa Tracker page also allows users to use the Google Assistant to call Santa or hear a Christmas story. A Santa Tracker Android app is available for download in the Google Play Store.
+
+==How the website works==
+
+Every Christmas Eve, the Google Santa Tracker began to track Santa at about midnight in the furthest east time zone. The map showed Santa alternating between traveling and handing out presents in cities. Santa traveled approximately one time zone west per hour. Counters showed viewers how far Santa has traveled, how long until he reaches the viewer's city, the distance from the viewer's city, and the total number of presents delivered. Santa had helpers with him, including the standard reindeer and elves, along with penguins and a snowman.
+
+For each city that Santa visited, the first few paragraphs of the corresponding Wikipedia article were shown, giving an overview of the city. The website also showed photos with the city in the background and Santa or his helpers in the foreground. The temperature of the city was accurately given using data from The Weather Channel. Not every large city was visited; some large cities close to other large cities were skipped, while smaller cities that are far from any other populated place were occasionally featured. Even when Santa was traveling, the counter showing the total presents delivered increased, but at a slower rate than when Santa was in a city.
+
+The 2016 site also featured other pictures that labeled "This Just In". These resembled photos taken on social media websites, and the photos were usually of Santa and his helpers doing various things, including Santa and his helpers imitating the cover of "Abbey Road", Santa delivering presents, and Santa and an elf taking a selfie. Users can also watch videos and play games.
+
+The Santa Tracker is locked until December 24. However, site visitors can interact with the games and lesson plans in Santa's Village beginning from the start of December.

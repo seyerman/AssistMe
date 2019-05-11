@@ -11,6 +11,10 @@ namespace AssistMeProject.Models
         public int AnswerId { get; set; }
         public virtual Answer Answer { get; set; }
 
+        public Comment()
+        {
+
+        }
 
     }
 }

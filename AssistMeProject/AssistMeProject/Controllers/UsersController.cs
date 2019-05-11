@@ -16,6 +16,7 @@ namespace AssistMeProject.Controllers
     public class UsersController : Controller
     {
         private readonly AssistMeProjectContext _context;
+        public const String ACTIVE_USERNAME = "USERNAME";
         public AssistMe model;
 
         public UsersController(AssistMeProjectContext context)
@@ -27,6 +28,7 @@ namespace AssistMeProject.Controllers
         // GET: Users
         public IActionResult Index(string message)
         {
+            setActiveUser();
             ViewBag.MESSAGE = message;
             return View();
         }
@@ -34,6 +36,7 @@ namespace AssistMeProject.Controllers
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            setActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -49,12 +52,6 @@ namespace AssistMeProject.Controllers
             return View(user);
         }
 
-        // GET: Users/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         // POST: Users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -64,42 +61,52 @@ namespace AssistMeProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                bool exist = UserExists(user.USERNAME);
+                string message = "";
+                if (exist)
+                {
+                    message = "El usuario ya existe, digite uno nuevo";
+                } else
+                {
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
+                    message = "Cuenta creada, inicie sesión";
+                }
+                return RedirectToAction("Index","Users",new { message});
             }
             return View(user);
         }
 
         // GET: Users/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit()
         {
-            if (id == null)
+            setActiveUser();
+            string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
+
+            if (currentlyActiveUsername == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             }
 
-            var user = await _context.User.FindAsync(id);
+            User user = model.GetUser(currentlyActiveUsername);
+
             if (user == null)
             {
                 return NotFound();
             }
+
             return View(user);
         }
 
-        // POST: Users/Edit/5
+        // POST: Users/Edit
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
+        public async Task<IActionResult> Edit([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
         {
-            if (id != user.ID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
+            setActiveUser();
+            if (ModelState.IsValid && _context.User.Count(p => p.USERNAME.Equals(user.USERNAME))==1)
             {
                 try
                 {
@@ -117,7 +124,8 @@ namespace AssistMeProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction("Index", "Users", new { message = user.PASSWORD });
+                return RedirectToAction(nameof(Profile));
             }
             return View(user);
         }
@@ -125,6 +133,7 @@ namespace AssistMeProject.Controllers
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            setActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -145,10 +154,18 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            setActiveUser();
             var user = await _context.User.FindAsync(id);
             _context.User.Remove(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        private void setActiveUser()
+        {
+            //To pass the username active
+            ViewBag.ACTIVE_USER = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            //End To pass the username active
         }
 
         private bool UserExists(int id)
@@ -156,35 +173,48 @@ namespace AssistMeProject.Controllers
             return _context.User.Any(e => e.ID == id);
         }
 
+        private bool UserExists(string username)
+        {
+            return _context.User.Any(e => e.USERNAME.Equals(username));
+        }
+
         [HttpGet]
         public IActionResult Profile(string viewingToUser)
         {
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                return View(model.GetUser(HttpContext.Session.GetString("USERNAME")));
-            if (string.IsNullOrEmpty(viewingToUser))
-                return Index("Inicie sesión");
-            return View(model.GetUser(viewingToUser));
+            setActiveUser();
+            string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
+
+            if (!string.IsNullOrEmpty(currentlyActiveUsername) ) {
+                if (string.IsNullOrEmpty(viewingToUser))
+                    return View(model.GetUser(currentlyActiveUsername));
+                ViewData["ACTIVE_USER"] = currentlyActiveUsername;
+                return View(model.GetUser(viewingToUser));
+            } else
+            {
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            }
         }
 
         [HttpPost]
         public IActionResult Profile(string username, string password, string method)
         {
+            setActiveUser();
             User found = model.FindUser(username,password,method);
             if (found == null)
             {
-                return RedirectToAction("Index","Users",new { message = "Error, intente de nuevo"});
+                return RedirectToAction("Index","Users",new { message = "Error, prueba de nuevo"});
             } else
             {
-                //Only username it's saved for have a better security but this might be slower because have to search user every time
-                HttpContext.Session.SetString("USERNAME",found.USERNAME);
-                HttpContext.Items["User"] = found;
+                //Only username it's saved for have a better security but this might be slower because have to search user every time it's needed
+                HttpContext.Session.SetString(ACTIVE_USERNAME, found.USERNAME);
+                ViewData["ACTIVE_USER"] = username;
                 return View(found);
             }
         }
 
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("USERNAME");
+            HttpContext.Session.Remove(ACTIVE_USERNAME);
             return RedirectToAction("Index","Users");
         }
 

@@ -5,14 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190317192326_cuatro.cs" />
-    <Compile Remove="Migrations\20190317192326_cuatro.Designer.cs" />
+    <Compile Remove="Views\Questions\NewFolder\**" />
+    <Content Remove="Views\Questions\NewFolder\**" />
+    <EmbeddedResource Remove="Views\Questions\NewFolder\**" />
+    <None Remove="Views\Questions\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Admin\AddAdminList.cshtml" />
-    <None Include="Views\Admin\CreateStudio.cshtml" />
-    <None Include="Views\Admin\Index.cshtml" />
+    <Compile Remove="Migrations\20190317192326_cuatro.cs" />
+    <Compile Remove="Migrations\20190317192326_cuatro.Designer.cs" />
+    <Compile Remove="Migrations\20190501003843_userQuestion.cs" />
+    <Compile Remove="Migrations\20190501003843_userQuestion.Designer.cs" />
+    <Compile Remove="Migrations\20190501011842_UserConnections.cs" />
+    <Compile Remove="Migrations\20190501011842_UserConnections.Designer.cs" />
+    <Compile Remove="Migrations\20190501012047_UserConnections.cs" />
+    <Compile Remove="Migrations\20190501012047_UserConnections.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Administrator\CreateStudio.cshtml" />
+    <None Include="Views\Administrator\Index.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
@@ -26,11 +38,32 @@
     <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="wwwroot\images\StudiosImages\Agile Delivery.svg" />
+    <None Include="wwwroot\images\StudiosImages\Artificial Intelligence.svg" />
+    <None Include="wwwroot\images\StudiosImages\Big Data.svg" />
+    <None Include="wwwroot\images\StudiosImages\Cloud Opps.svg" />
+    <None Include="wwwroot\images\StudiosImages\Consulting.svg" />
+    <None Include="wwwroot\images\StudiosImages\Continous Evolution.svg" />
+    <None Include="wwwroot\images\StudiosImages\CyberSecurity.svg" />
+    <None Include="wwwroot\images\StudiosImages\Digital Content.svg" />
+    <None Include="wwwroot\images\StudiosImages\FOO.svg" />
+    <None Include="wwwroot\images\StudiosImages\Gaming.svg" />
+    <None Include="wwwroot\images\StudiosImages\IOT.svg" />
+    <None Include="wwwroot\images\StudiosImages\Media OTT.svg" />
+    <None Include="wwwroot\images\StudiosImages\Mobile.svg" />
+    <None Include="wwwroot\images\StudiosImages\Proccess Automation.svg" />
+    <None Include="wwwroot\images\StudiosImages\Product Acceleration.svg" />
+    <None Include="wwwroot\images\StudiosImages\Quality Engineering.svg" />
+    <None Include="wwwroot\images\StudiosImages\Scalable Platafomts.svg" />
+    <None Include="wwwroot\images\StudiosImages\UI Engineering.svg" />
+    <None Include="wwwroot\images\StudiosImages\UX Desing.svg" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="4.3.1" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="IKVM" Version="8.1.5717" />
+    <PackageReference Include="MailKit" Version="2.1.3" />
     <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -80,9 +113,16 @@
     <PackageReference Include="Microsoft.Extensions.WebEncoders" Version="2.2.0" />
     <PackageReference Include="Microsoft.Net.Http.Headers" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="MimeKit" Version="2.1.3" />
+    <PackageReference Include="slf4j-api" Version="1.7.5.4" />
+    <PackageReference Include="Stanford.NLP.CoreNLP" Version="3.9.1" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Administrator\Index.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Update="Views\Questions\AdvancedSearch.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -91,5 +131,7 @@
   <ItemGroup>
     <Folder Include="Views\Shared\Components\Stats\" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

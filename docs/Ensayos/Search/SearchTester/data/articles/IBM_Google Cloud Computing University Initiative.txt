@@ -1,0 +1,5 @@
+"IBM" was a 2009 project using the resources developed in 2007's IBM/Google Cloud Computing partnership. This initiative was to provide access to cloud computing for the universities of all countries.
+
+This initiative was funded by the National Science Foundation awarding $5 million in grants to 14 universities, including Kyushu University, University of Washington, Carnegie Mellon University, and Massachusetts Institute of Technology.
+
+By 2011, Google and IBM were completing the program since high-performance cloud computing clusters had become widely available to researchers at reasonable costs.

@@ -1,0 +1,11 @@
+"SolarWinds Loggly" is a cloud-based log management and analytics service provider based in San Francisco, California. Jon Gifford, Raffael Marty and Kord Campbell founded the company in 2009, and Charlie Oppenheimer was the CEO of Loggly until its announced acquisition by SolarWinds (as part of the SolarWinds Cloud division of brands) on January 8th, 2018.  Trinity Ventures, True Ventures and Matrix Partners also participated in the round. Matrix Partners, Trinity Ventures, Cisco, Data Collective and True Ventures also participated.
+
+==Operations==
+Loggly is headquartered in San Francisco, California. 
+Loggly records log data from any device and reports it in a real-time management platform with trend data.
+
+==See also==
+
+* Splunk
+* Sumo Logic
+* LogDNA

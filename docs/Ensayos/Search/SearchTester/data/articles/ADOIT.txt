@@ -1,0 +1,22 @@
+"ADOIT" is an Enterprise Architecture Management tool, providing functionalities and methods for enterprise analysis, design, planning, and implementation. The platform supports alignment and improvement of dependencies between business and IT, as well as helps manage and analyse the dependencies between different organizational assets. The EA suite ADOIT is based on various international standards, such as TOGAF, ArchiMate, ITIL and COBIT, and is TOGAF®-9 certified. ADOIT is developed by BOC Group, and represents their second flagship product, along with their Business Process Management and Analysis tool,  ADONIS NP.
+
+__TOC__
+== History ==
+The first version of ADOIT was introduced in 2003, by the company BOC Group. Ever since, ADOIT has been continuously developed and advanced. The latest release of ADOIT is 9.1, released in April 2019. Apart from the commercial, enterprise edition of the tool, since 2013 ADOIT is also available as ADOIT Community Edition freeware.
+* Listed in the 2019 Gartner Peer Insights 'Voice of the Customer': Enterprise Architecture Tools report 
+* Ranked first and second across all use cases in the 2018 Gartner Critical Capabilities report
+* Positioned in the "Visionaries" quadrant in the 2018 Gartner Magic Quadrant for Enterprise Architecture Tools 
+* Featured in the 2018 Forrester Now Tech report 
+* Recognized as “top of class” in the Market Study by Fraunhofer
+
+== References ==
+== External links ==
+
+* [https://www.boc-group.com/adoit/ ADOIT]
+* [https://www.adoit-community.com/ ADOIT Community Edition]
+* [https://www.boc-group.com BOC Group]
+* [https://www.gartner.com/reviews/market/enterprise-architecture-tools/vendor/boc-group ADOIT Gartner Peer Insights Reviews]
+Category:Enterprise architecture
+Category:Enterprise modelling
+Category:Software
+Category:Enterprise architecture frameworks

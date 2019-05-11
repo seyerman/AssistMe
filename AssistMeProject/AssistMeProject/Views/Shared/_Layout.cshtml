@@ -1,20 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
-
     <meta charset="utf-8" />
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@ViewData["Title"] - AssistMeProject</title>
 
     <environment include="Development">
-      <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
     <environment exclude="Development">
         <<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-                asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 
@@ -32,19 +30,17 @@
     <link rel="shortcut icon" href="~/images/favicon.png">
 </head>
 <body>
-
-   
     <div class="loader"><div class="loader_html"></div></div>
     <div id="wrap" class="grid_1200">
         <div id="header-top">
             <section class="container clearfix">
                 <!--nav class="header-top-nav">
-                    <ul>
-                        <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                    </ul>
-                </nav -->
+                <ul>
+                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                </ul>
+            </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -74,24 +70,28 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="user_profile.html">User</a><!--Faltan estas funcionalidades-->
+                            <a href="user_profile.html">Usuario</a>
                             <ul>
-                                <li><a href="/Users/">Iniciar sesión</a></li>
-                                <li><a href="/Users/Profile">Perfil de Usuario</a></li>
+                                <li class="user-no-active"><a href="/Users/">Iniciar Sesión</a></li>
+                                <li class="user-active"><a href="/Users/Profile">Perfil del Usuario</a></li>
+                                <!--
                                 <li><a href="user_questions.html">User Questions</a></li>
                                 <li><a href="user_answers.html">User Answers</a></li>
                                 <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
                                 <li><a href="user_points.html">User Points</a></li>
-                                <li><a href="edit_profile.html">Edit Profile</a></li>
-                                <li><a href="/Users/Logout">Cerrar Sesión</a></li>
+                                -->
+                                <li class="user-active"><a href="/Users/Edit">Editar Perfil</a></li>
+                                <li class="user-active"><a href="/Users/Logout">Cerrar Sesión</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="admin.html">Administrador</a><!--Faltan estas funcionalidades-->
+                        <li id="admin">
+                            <a href="admin.html">Administrador</a>
                             <ul>
-                                <li><a href="/Admin/">Página Administrador</a></li>
-                                <li><a href="/Admin/AddAdminList">Asignar Rol Administrador</a></li>
-                                <li><a href="/Admin/CreateStudio">Crear Nuevo Studio</a></li>
+                                <li><a href="/Administrator/Index">Página Administrador</a></li>
+                                <li><a href="/Administrator/AddAdmin">Asignar Rol Administrador</a></li>
+                                <li><a href="/Administrator/CreateStudio">Crear Nuevo Studio</a></li>
+                                <li><a href="/Administrator/ArchivedQuestions">Preguntas Archivadas</a></li>
+
                             </ul>
                         </li>
 
@@ -169,27 +169,32 @@
     <script src="~/js/tags.js"></script>
     <script src="~/js/jquery.bxslider.min.js"></script>
     <script src="~/js/custom.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/questions.js"></script>
     <!-- End js -->
+
+
+
+
     @*<environment include="Development">
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-            </script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>*@
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>*@
 
     @RenderSection("Scripts", required: false)
 </body>

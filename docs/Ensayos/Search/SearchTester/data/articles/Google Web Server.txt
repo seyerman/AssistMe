@@ -1,0 +1,8 @@
+"Google Web Server (GWS)" is a proprietary web server software that Google uses for its web infrastructure. GWS is used exclusively inside Google's ecosystem for website hosting. Little information has been released over the years, however it is believed to be originally based on the Apache web server software and run on a heavily modified version of Debian Linux.
+
+In May, 2015, GWS was ranked as the fourth most popular web server on the internet after Apache, nginx and Microsoft IIS, powering an estimated 7.95% of active websites. Web page requests on most Google pages provide "gws" (without a version number) in the HTTP header as an indication of the web server software being used.
+
+Information regarding GWS is scarce. In a blog post from Google's Chicago office in 2011, Google provided some details on GWS:
+==See Also==
+* gLinux
+* Apache HTTP Server

@@ -1,25 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Iniciar sesión";
+    ViewData["Title"] = "Iniciar Sesión";
+    if (!string.IsNullOrEmpty(ViewBag.ACTIVE_USER)) //There's active user
+    {
+        <meta http-equiv="Refresh" content="0 ; url=/Users/Profile">
+    }
 }
+<style type="text/css">
+    .sidebar, widget_highest_points {
+        display: none;
+    }
 
+    .login {
+        padding-top: 11%;
+        padding-bottom: 11.6%;
+    }
+</style>
 <div id="wrap" class="grid_1200">
-
-    <div class="breadcrumbs">
-        <section class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>@ViewData["Title"]</h1>
-                </div>
-                <div class="col-md-12">
-                    <div class="crumbs">
-                        <a href="#">Home</a>
-                        <span class="crumbs-span">/</span>
-                        <span class="current">Index</span>
-                    </div>
-                </div>
-            </div><!-- End row -->
-        </section><!-- End container -->
-    </div><!-- End breadcrumbs -->
 
     <section class="container main-content">
         <div class="login">
@@ -27,12 +23,12 @@
                 <div class="col-md-6">
                     <div class="page-content">
                         <h2>@ViewData["Title"]</h2>
-                    @{ 
-                        if (ViewBag.MESSAGE!=null)
-                        {
-                            <h3 style="color:red;">@ViewBag.MESSAGE.ToString()</h3>
+                        @{
+                            if (ViewBag.MESSAGE != null)
+                            {
+                                <h3 style="color:red;">@ViewBag.MESSAGE.ToString()</h3>
+                            }
                         }
-                    }
                         <div class="form-style form-style-3">
                             <form method="post" asp-action="Profile">
                                 <div class="form-inputs clearfix">
@@ -50,11 +46,11 @@
                                     </p>
                                 </div>
                                 <p class="form-submit login-submit">
-                                    <input type="submit" value="Entrar" class="button color small login-submit submit">
+                                    <input type="submit" value="IR!" class="button color small login-submit submit">
                                 </p>
-                                <div class="rememberme">
-                                    <label><input type="checkbox" checked="checked"> Recuerdame</label>
-                                </div>
+                                <!--div class="rememberme">
+                                    <label><input type="checkbox" checked="checked"> Remember me</label>
+                                </div-->
                                 <div class="text-right">
                                     <a class="button small orange-button signup">Crear cuenta</a>
                                 </div>
@@ -64,7 +60,7 @@
                 </div><!-- End col-md-6 -->
                 <div class="col-md-6 text-center">
                     <div class="page-content">
-                        <h2 class="text-center">Todo en un solo lugar, inicia con tu cuenta de: </h2>
+                        <h2 class="text-center">Todo en un sitio, inicia con: </h2>
                         <a class="button small color singinByGoogle login-submit submit"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" width="150" /></a>
                     </div><!-- End page-content -->
                 </div><!-- End col-md-6 -->
@@ -75,30 +71,55 @@
 </div><!-- End wrap -->
 <div class="go-up"><i class="icon-chevron-up"></i></div>
 <div class="panel-pop" id="signup">
-    <h2>Register Now<i class="icon-remove"></i></h2>
+    <h2>Registarse<i class="icon-remove"></i></h2>
     <div class="form-style form-style-3">
-        <form>
-            <div class="form-inputs clearfix">
-                <p>
-                    <label class="required">Usuario<span>*</span></label>
-                    <input type="text">
-                </p>
-                <p>
-                    <label class="required">E-Mail<span>*</span></label>
-                    <input type="email">
-                </p>
-                <p>
-                    <label class="required">Contraseña<span>*</span></label>
-                    <input type="password" value="">
-                </p>
-                <p>
-                    <label class="required">Vuelve a escribir tu contraseña<span>*</span></label>
-                    <input type="password" value="">
-                </p>
+        <form asp-action="Create">
+            <div class="form-group">
+                <input name="LEVEL" class="form-control" value="2" min="1" max="3" type="hidden" />
             </div>
-            <p class="form-submit">
-                <input type="submit" value="Signup" class="button color small submit">
-            </p>
+            <div class="form-group">
+                <label name="USERNAME" class="control-label">Nombre de usuario: </label>
+                <input name="USERNAME" class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label name="PASSWORD" class="control-label">Contraseña: </label>
+                <input name="PASSWORD" class="form-control" type="password" />
+            </div>
+            <div class="form-group">
+                <label name="EMAIL" class="control-label">Correo: </label>
+                <input name="EMAIL" class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <input name="PHOTO" class="form-control" type="hidden" value="http://placehold.it/60x60/FFF/444" />
+            </div>
+            <div class="form-group">
+                <input name="QUESTIONS_ANSWERED" class="form-control" type="hidden" value="0" />
+            </div>
+            <div class="form-group">
+                <input name="POSITIVE_VOTES_RECEIVED" class="form-control" type="hidden" value="0" />
+            </div>
+            <div class="form-group">
+                <input name="QUESTIONS_ASKED" class="form-control" type="hidden" value="0" />
+            </div>
+            <div class="form-group">
+                <input name="INTERESTING_VOTES_RECEIVED" class="form-control" type="hidden" value="0" />
+            </div>
+            <div class="form-group">
+                <input name="DESCRIPTION" class="form-control" type="hidden" value="" />
+            </div>
+            <div class="form-group">
+                <input namer="INTERESTS_OR_KNOWLEDGE" class="form-control" type="hidden" value="" />
+            </div>
+            <div class="form-group">
+                <input name="COUNTRY" class="form-control" type="hidden" value="" />
+            </div>
+            <div class="form-group">
+                <input name="CITY" class="form-control" type="hidden" value="" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Crear!" class="btn btn-default orange-button" />
+            </div>
         </form>
     </div>
 </div><!-- End signup -->

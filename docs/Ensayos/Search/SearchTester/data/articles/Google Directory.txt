@@ -1,0 +1,45 @@
+The "Google Directory" was a web directory hosted by Google. It was discontinued on July 20, 2011. However, the Google business places and recommended businesses is now commonly referred to as the Google directory.
+
+==Information==
+The Google Directory was organized into 14 main categories:
+*Arts
+*Business
+*Computers
+*Games
+*Health
+*Home
+*News
+*Recreation
+*Reference
+*Regional
+*Science
+*Shopping
+*Society
+*Sports
+There were also two other links on the page: World and Kids and Teens. The Kids and Teens link was a separate web archive for kids and teens.
+
+All of the Google Directory was based on the Open Directory Project.
+
+==Structure==
+
+===Main page===
+The main page had links to the 14 main categories, along with the World and Kids and Teens links. There was a big search box on top that allowed users to search the Google Directory. On top of that was the slogan in green letters: "The web organized by topic into categories." On top of that were links to other Google services.
+
+===Main category pages===
+Each main category page had links to sub-main category pages, as well as a search box on top of it. For example, the Games main category would have sub-main categories such as Board Games or Video Games.
+
+===Hierarchy===
+Each category took the user to the category page, which would have websites that belong to it, or further subcategories that dealt with more detailed areas of that category. Eventually, the user would get to a page with no more subcategories. Every page had a search box at the top, allowing the user to search that page or the whole directory. Each page might have links to related categories. Some links were redirects to other pages.
+
+===World link===
+The World link had the names of languages. If the user clicked on one, they would be taken to a version of the directory in that language. But they had no appearance to the main page.
+
+===Kids and Teens===
+As the name states, it had pages for kids and teens. It was completely disconnected from the rest of the directory, so if you clicked it by accident, you would have to press the back button on your web browser.
+
+==Connection with the Open Directory Project==
+The Google Directory was completely built upon the Open Directory Project. Google integrated its PageRank system and its search system into it. Everything was green. There were links on the bottom so that the user could contribute to it.
+
+==Trivia==
+*If a search result was also in the directory, Google included a link to the respecting category.
+*If someone wanted to have a listing in the Google Directory, they would have to be listed in the Open Directory Project.

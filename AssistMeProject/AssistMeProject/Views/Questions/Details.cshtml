@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
-    ViewData["IsQuestionMin"] = false;
+    ViewData["IsQuestionMin"] = true;
 }
 
 
@@ -15,8 +15,14 @@
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
-        <div class="col-md-9">
-      
+    <p>
+
+    </p>    
+    <p>
+
+    </p>
+    <div class="col-md-9">
+
             <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
 
             <div class="page-content clearfix">
@@ -24,12 +30,23 @@
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
 
+
+
             <div class="share-tags page-content">
                 <div class="question-tags">
                     <i class="icon-tags"></i>
-                    <a href="#">wordpress</a>, <a href="#">question</a>, <a href="#">developer</a>
+                    @{
+                        foreach (QuestionLabel ql in Model.QuestionLabels)
+                        {
+                            string text = ql.Label.Tag;
+                            if (Model.QuestionLabels.Last() != ql)
+                            {
+                                text += ", ";
+                            }
+                            <a href="#">@text</a>
+                        }
+                    }
                 </div>
-
                 <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
                 <div class="clearfix"></div>
 
@@ -37,10 +54,10 @@
 
             <div class="about-author clearfix">
                 <div class="author-image">
-                    <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+                    <a href="#" original-title="@Model.Username" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
                 </div>
                 <div class="author-bio">
-                    <h4>About the Author</h4>
+                    <h4>About the Author - Username: "@Model.Username"</h4>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
                 </div>
             </div><!-- End about-author -->
@@ -48,10 +65,21 @@
             <div id="related-posts">
                 <h2>Related questions</h2>
                 <ul class="related-posts">
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This Is My Second Poll Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my third Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fourth Question</a></h3></li>
-                    <li class="related-item"><h3><a href="#"><i class="icon-double-angle-right"></i>This is my fifth Question</a></h3></li>
+                    @{
+                        if (ViewBag.Related.Count == 0)
+                        {
+                            <li class="related-item"><h3>There are no related questions</h3></li>
+                        }
+                        else
+                        {
+                            foreach (var q in ViewBag.Related)
+                            {
+                                <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
+                            }
+                        }
+
+                    }
+
                 </ul>
             </div><!-- End related-posts -->
 
@@ -60,34 +88,29 @@
 
             </div>
 
-            <div id="respond" class="comment-respond page-content clearfix">
-                <div class="boxedtitle page-title"><h2>Leave a reply</h2></div>
-                <form action="" method="post" id="commentform" class="comment-form">
-                    <div id="respond-inputs" class="clearfix">
-                        <p>
-                            <label class="required" for="comment_name">Name<span>*</span></label>
-                            <input name="author" type="text" value="" id="comment_name" aria-required="true">
-                        </p>
-                        <p>
-                            <label class="required" for="comment_email">E-Mail<span>*</span></label>
-                            <input name="email" type="text" value="" id="comment_email" aria-required="true">
-                        </p>
-                        <p class="last">
-                            <label class="required" for="comment_url">Website<span>*</span></label>
-                            <input name="url" type="text" value="" id="comment_url">
-                        </p>
-                    </div>
-                    <div id="respond-textarea">
-                        <p>
-                            <label class="required" for="comment">Comment<span>*</span></label>
-                            <textarea id="comment" name="comment" aria-required="true" cols="58" rows="8"></textarea>
-                        </p>
-                    </div>
-                    <p class="form-submit">
-                        <input name="submit" type="submit" id="submit" value="Post your answer" class="button small color">
-                    </p>
-                </form>
-            </div>
+           
+
+
+            <p>
+
+            </p>
+
+            <p>
+
+            </p>
+
+            <div id="related-posts">
+                <h2>Opciones avanzadas</h2>
+
+
+
+                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none" class="load-questions">Eliminar pregunta  </a>
+
+                <p></p>
+                <p></p>
+                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button" class="load-questions">Archivar pregunta </a>
+                <h1 id="lab" style="display:none"> Opciones no disponibles para este usuario </h1>
+            </div><!-- End related-posts -->
 
             <div class="post-next-prev clearfix">
                 <p class="prev-post">
@@ -97,14 +120,37 @@
                     <a href="#">Next question&nbsp;<i class="icon-double-angle-right"></i></a>
                 </p>
             </div><!-- End post-next-prev -->
+
+
         </div><!-- End main -->
-        
+
+
     </div><!-- End row -->
+
 </section><!-- End container -->
+
+
 
 @section scripts{
 
     <script>
+
+    var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('but1').style.display = 'block';
+            document.getElementById('but2').style.display = 'block';
+        }else {
+                        document.getElementById('lab').style.display = 'block';
+
+        }
+    }
+
+
         $(function () {
             $.ajax({
                 url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
@@ -119,6 +165,6 @@
 
 
 
-   
-    
+
+
 }

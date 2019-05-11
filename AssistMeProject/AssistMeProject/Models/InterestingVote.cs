@@ -14,11 +14,11 @@ namespace AssistMeProject.Models
         public int QuestionID { get; set; }
         public Question Question { get; set; }
 
-        
 
-        public InterestingVote( ) 
+
+        public InterestingVote()
         {
-            
+
         }
     }
 }

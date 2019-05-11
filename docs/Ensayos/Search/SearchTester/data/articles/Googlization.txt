@@ -1,0 +1,44 @@
+thumb
+"Googlization" is a neologism that describes the expansion of Google's search technologies and aesthetics into more markets, web applications, and contexts, including traditional institutions such as the library (see Google Books Library Project). The rapid rise of search media, particularly Google, is part of new media history and draws attention to issues of access and to relationships between commercial interests and media.
+
+==History of term==
+
+In 2003, John Battelle and Alex Salkever first introduced the term "googlization" to mean the dominance of Google over nearly all forms of informational commerce on the web. Initially specializing in text-based Internet searching, Google has expanded its services to include image searching, web-based email, online mapping, video sharing, news delivery, instant messaging, mobile phones, and services aimed at the academic community. Google has entered partnerships with established media interests such as Time Warner AOL, News Corporation, "The New York Times", and various news agencies such as Associated Press, Agence France-Presse, and the UK Press Association. Google has therefore become a giant with complex entanglements with traditional and new media.
+
+Many information professionals would define the term as ‘digitizing a library or making something into a Google product.’. However, the definition is constantly and rapidly changing. Googlization can also mean that ever "increasing amounts of accessible information [are] available on the Internet; Google makes it easy and convenient to find in one place", however, Google only makes information which already exists more accessible, rather than creating new information.
+
+==Development==
+
+Since 2000, media scholars have analyzed and are aware of the impact of Googlization to modern human society. Geert Lovink argues against the society's growing dependency on Google search retrieval.Richard A. Rogers points out that Googlization connotes media concentration—an important political economy style critique of Google's taking over of one service after another online;
+
+[http://www.googlizationofeverything.com "The Googlization of Everything"], a book published in March 2011 by Siva Vaidhyanathan, provides a critical interpretation of how Google is disrupting culture, commerce, and community. In Vaidhyanathan's own words "the book will answer three key questions: What does the world look like through the lens of Google?; How is Google's ubiquity affecting the production and dissemination of knowledge?; and how has the corporation altered the rules and practices that govern other companies, institutions, and states?" The author, Siva Vaidhyanathan, also has a blog where he documented the development of the book and any developments or news about Googlization and Google in general. His basic argument is that we may approve of Google today, but the company very easily could use our information against us in ways that are beneficial to its business, not society. Both the book and the blog are subtitled "How One Company is Disrupting Culture, Commerce, and Community… and Why we Should Worry."
+
+==Criticisms of googlization==
+
+The founders of Google have encountered hostility to their enterprise almost since its inception, both in the form of general press criticism and actual legal action. Various lawsuits have included infringement of copyright law; its dealings with advertising companies and in the volume of advertising that its users encounter.
+
+Google has been notorious for its use of PageRank, an algorithm used by Google Search to rank websites in their search engine results. PageRank is a way of measuring the importance of website pages. According to Google:
+"PageRank works by counting the number and quality of links to a page to determine a rough estimate of how important the website is. The underlying assumption is that more important websites are likely to receive more links from other websites." 
+
+"Despite the pragmatic devotion to the technological virtues of speed, precision, comprehensiveness, and honesty in computer-generated results" Google has on occasion imposed human intervention and judgement, "from within the system, rather than rely on the slow-changing collective judgement of the users." A prominent example of this occurred in April 2004, when the first search result, Wikipedia's entry for "Jew", was replaced with the homepage of an anti-semitic website called Jew Watch. Google also intervened with the PageRank algorithm when pages denying that the slaughter of 6million Jews occurred during World War II were high first-page results for the Google search "Holocaust" or "Jew".
+
+Despite Google's general market dominance, some of its offshoots and additional projects have been less than successful. Nexus One (direct-to-customer sales) and Google Buzz (social networking site) all encountered problems when they were first established, problems which they are still struggling with.
+
+==Defense of googlization==
+
+Google's corporate mission is "to organize the world’s information and make it universally accessible and useful".
+
+Amongst ordinary internet users, Google is viewed fairly favorably as a search tool and as a company in general. About 82percent of Americans expressed a favorable opinion of Google overall, according to one national survey.
+
+In late March 2010, Google discontinued its local domain for China while continuing to offer their uncensored Hong Kong-based domain. Google had initially offered a censored version of their search engine in China. They reversed this decision when they decided that it was in conflict with their mission and their ideals. Speaking for Google, one of its founders, Sergey Brin, said "One of the reasons I am glad we are making this move in China is that the China situation was really emboldening other countries to try and implement their own firewalls." In another interview, Brin said "For us it has always been a discussion about how we can best fight for openness on the Internet. We believe that this is the best thing that we can do for preserving the principles of the openness and freedom of information on the Internet." 
+
+When Google went public in 2004, founders Larry Page and Sergey Brin promised Google would commit to philanthropy by dedicating 1% of its profit, 1% of its  equity, and its employees' time to charitable effort, including Google.org. Page wrote investors that Google's philanthropy could someday "eclipse Google itself in terms of overall world impact."
+
+==See also==
+* Cocacolonization
+* Criticism of Google
+* Don't be evil
+* McDonaldization
+* New media
+* Surveillance capitalism
+* Uberisation

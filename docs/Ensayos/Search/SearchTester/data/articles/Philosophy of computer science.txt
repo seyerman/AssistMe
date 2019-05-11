@@ -1,0 +1,12 @@
+__NOTOC__
+The "philosophy of computer science" is concerned with the philosophical questions that arise with the study of computer science, which is understood to mean not just programming but the whole study of concepts and methods that assist in the development and maintenance of computer systems. There is still no common understanding of the content, aim, focus, or topic of the philosophy of computer science, despite some attempts to develop a philosophy of computer science like the philosophy of physics or the philosophy of mathematics.
+
+The philosophy of computer science as such deals with the meta-activity that is associated with the development of the concepts and methodologies that implement and analyze the computational systems.
+
+==See also==
+* Computer-assisted proof: Philosophical objections
+* Philosophy of artificial intelligence
+* Philosophy of information
+* Philosophy of mathematics
+* Philosophy of science
+* Philosophy of technology

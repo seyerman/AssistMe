@@ -61,28 +61,9 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Comment");
                 });
 
-            modelBuilder.Entity("AssistMeProject.Models.InterestingVote", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("QuestionID");
-
-                    b.Property<int>("UserID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("QuestionID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("InterestingVote");
-                });
-
             modelBuilder.Entity("AssistMeProject.Models.Label", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -90,28 +71,9 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Tag");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Label");
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AnswerID");
-
-                    b.Property<int>("UserID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("AnswerID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("PositiveVote");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Question", b =>
@@ -120,19 +82,42 @@ namespace AssistMeProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("AskAgain");
+
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(30000);
 
+                    b.Property<int?>("StudioId");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150);
 
+                    b.Property<string>("Username");
+
+                    b.Property<bool>("isArchived");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("StudioId");
+
                     b.ToTable("Question");
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
+                {
+                    b.Property<int>("QuestionId");
+
+                    b.Property<int>("LabelId");
+
+                    b.HasKey("QuestionId", "LabelId");
+
+                    b.HasIndex("LabelId");
+
+                    b.ToTable("QuestionLabels");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
@@ -140,6 +125,8 @@ namespace AssistMeProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -157,8 +144,6 @@ namespace AssistMeProject.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("ADMIN");
 
                     b.Property<string>("CITY");
 
@@ -228,8 +213,9 @@ namespace AssistMeProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("AssistMeProject.Models.InterestingVote", b =>
+            modelBuilder.Entity("AssistMeProject.Models.Question", b =>
                 {
+
                     b.HasOne("AssistMeProject.Models.Question", "Question")
                         .WithMany("InterestingVotes")
                         .HasForeignKey("QuestionID")
@@ -239,18 +225,30 @@ namespace AssistMeProject.Migrations
                         .WithMany("InterestingVotes")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.Studio", "Studio")
+                        .WithMany("Questions")
+                        .HasForeignKey("StudioId");
+
                 });
 
-            modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
+            modelBuilder.Entity("AssistMeProject.Models.QuestionLabel", b =>
                 {
+
                     b.HasOne("AssistMeProject.Models.Answer", "Answer")
                         .WithMany("PositiveVotes")
                         .HasForeignKey("AnswerID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("AssistMeProject.Models.User", "User")
-                        .WithMany("PositiveVotes")
-                        .HasForeignKey("UserID")
+                    b.HasOne("AssistMeProject.Models.Label", "Label")
+                        .WithMany("QuestionLabels")
+                        .HasForeignKey("LabelId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+
+                    b.HasOne("AssistMeProject.Models.Question", "Question")
+                        .WithMany("QuestionLabels")
+                        .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

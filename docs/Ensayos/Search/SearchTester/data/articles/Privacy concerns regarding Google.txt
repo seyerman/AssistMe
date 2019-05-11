@@ -1,0 +1,161 @@
+Regarding privacy concerns with the technology corporation Google, Google's privacy change (March 1, 2012) enables the company to share data across a wide variety of services. These embedded services include millions of third-party websites that use Adsense and Analytics.  The policy was widely criticized for creating an environment that discourages Internet-innovation by making Internet users more fearful and wary of what they put online.
+
+Around December 2009, after privacy concerns were raised, Google's CEO Eric Schmidt declared: "If you have something that you don't want anyone to know, maybe you shouldn't be doing it in the first place. If you really need that kind of privacy, the reality is that search engines—including Google—do retain this information for some time and it's important, for example, that we are all subject in the United States to the Patriot Act and it is possible that all that information could be made available to the authorities."
+
+Privacy International has raised concerns regarding the dangers and privacy implications of having a centrally located, widely popular data warehouse of millions of Internet users' searches, and how under controversial existing U.S. law, Google can be forced to hand over all such information to the U.S. government. In its 2007 Consultation Report, Privacy International ranked Google as "Hostile to Privacy", its lowest rating on their report, making Google the only company in the list to receive that ranking.
+
+At the Techonomy conference in 2010, Eric Schmidt predicted that "true transparency and no anonymity" is the path to take for the internet: "In a world of asynchronous threats it is too dangerous for there not to be some way to identify you. We need a [verified] name service for people. Governments will demand it." He also said that, "If I look at enough of your messaging and your location, and use artificial intelligence, we can predict where you are going to go. Show us 14 photos of yourself and we can identify who you are. You think you don't have 14 photos of yourself on the internet? You've got Facebook photos!"
+
+In the summer of 2016, Google quietly dropped its ban on personally-identifiable info in its DoubleClick ad service. Google's privacy policy was changed to state it "may" combine web-browsing records obtained through DoubleClick with what the company learns from the use of other Google services. While new users were automatically opted-in, existing users were asked if they wanted to opt-in, and it remains possible to opt-out by going to the "Activity controls" in the "My Account" page of a Google account. "ProPublica" states that "The practical result of the change is that the DoubleClick ads that follow people around on the web may now be customized to them based on your name and other information Google knows about you. It also means that Google could now, if it wished to, build a complete portrait of a user by name, based on everything they write in email, every website they visit and the searches they conduct." Google contacted "ProPublica" to correct the fact that it doesn't "currently" use Gmail keywords to target web ads.
+
+===Cookies===
+Google places one or more cookies on each user's computer, which is used to track a person's web browsing on a large number of unrelated websites, and track their search history.  If you are logged into a Google service, Google also uses the cookies to record which Google Account is accessing each website and doing each search. Originally the cookie did not expire until 2038, although it could be manually deleted by the user or refused by setting a browser preference. As of 2007, Google's cookie expired in two years, but renewed itself whenever a Google service is used.  As of 2016, Google's privacy policy does not promise anything about whether or when its records about your web browsing or searching are deleted from its records. The site raised questions relating to Google's storage of cookies, which in 2007 had a life span of more than 32 years and incorporated a unique ID that enabled creation of a user data log.
+
+Google shares this information with law enforcement and other government agencies upon receiving a request.  The majority of these requests do not involve review or approval by any court or judge.
+
+===Tracking===
+Google is suspected of collecting and aggregating data about Internet users through the various tools it provides to developers, such as Google Analytics, Google Fonts, and Google APIs. This could enable Google to determine a user's route through the Internet by tracking the IP address being used through successive sites (cross-domain web tracking). Linked to other information made available through Google APIs, which are widely used, Google might be able to provide a quite complete web user profile linked to an IP address or user. This kind of data is invaluable for marketing agencies, and for Google itself to increase the efficiency of its own marketing and advertising activities.
+
+Google encourages developers to use their tools and to communicate end-user IP addresses to Google: "Developers are also encouraged to make use of the userip parameter to supply the IP address of the end-user on whose behalf you are making the API request. Doing so will help distinguish this legitimate server-side traffic from traffic which doesn't come from an end-user."
+
+===Gmail===
+Steve Ballmer, Liz Figueroa, Mark Rasch, and the editors of Google Watch believe the processing of email message content by Google's Gmail service goes beyond proper use.
+
+Google Inc. claims that mail sent to or from Gmail is never read by a human being other than the account holder, and content that is read by computers is only used to improve the relevance of advertisements and block spam emails. The privacy policies of other popular email services, like Outlook.com and Yahoo, allow users' personal information to be collected and utilized for advertising purposes.
+
+In 2004, thirty-one privacy and civil liberties organizations wrote a letter calling upon Google to suspend its Gmail service until the privacy issues were adequately addressed. The letter also called upon Google to clarify its written information policies regarding data retention and data sharing among its business units. The organizations voiced their concerns about Google's plan to scan the text of all incoming messages for the purposes of ad placement, noting that the scanning of confidential email for inserting third party ad content violates the implicit trust of an email service provider.
+
+In 2013, Microsoft launched an advertising campaign to attack Google for scanning email messages, arguing that most consumers are not aware that Google monitors their personal messages to deliver targeted ads. Microsoft claims that its email service Outlook does not scan the contents of messages and a Microsoft spokesperson called the issue of privacy "Google's kryptonite."
+
+A court filing uncovered by advocacy group Consumer Watchdog in August 2013 revealed that Google stated in a court filing that no "reasonable expectation" exists among Gmail users in regard to the assured confidentiality of their emails. According to the British Newspaper, The Guardian, "Google's court filing was referring to users of other email providers who email Gmail users and not to the Gmail users themselves".
+
+===CIA and NSA ties===
+In February 2010, Google was reported to be working on an agreement with the National Security Agency (NSA) to investigate recent attacks against its network. And, while the deal did not give NSA access to Google's data on users' searches or e-mail communications and accounts and Google was not sharing proprietary data with the agency, privacy and civil rights advocates were concerned.
+
+In October 2004, Google acquired Keyhole, a 3D mapping company. In February 2004, before its acquisition by Google, Keyhole received an investment from In-Q-Tel, the CIA's investment arm. And in July 2010 it was reported that the investment arms of both the CIA (In-Q-Tel) and Google (Google Ventures) were investing in Recorded Future, a company specializing in predictive analytics—monitoring the web in real time and using that information to predict the future. And, while private corporations have been using similar systems since the 1990s, the involvement of Google and the CIA with their large data stores raised privacy concerns.
+
+In 2011, a federal district court judge in the United States turned down a Freedom of Information Act request, submitted by the Electronic Privacy Information Center. In May 2012, a Court of Appeals upheld the ruling. The request attempted to disclose NSA records regarding the 2010 cyber-attack on Google users in China. The NSA stated that revealing such information would make the US Government information systems vulnerable to attack. The NSA refused to confirm or deny the existence of the records, or the existence of any relationship between the NSA and Google.
+
+Leaked NSA documents obtained by "The Guardian" and "The Washington Post" in June 2013 included Google on the list of companies that cooperate with the NSA's PRISM surveillance program, which authorizes the government to secretly access data of non-US citizens hosted by American companies without a warrant. Following the leak, government officials acknowledged the existence of the program. According to the leaked documents, the NSA has direct access to servers of those companies, and the amount of data collected through the program had been growing fast in years prior to the leak. Google has denied the existence of any "government backdoor".
+
+===Government requests===
+Google has been criticized both for disclosing too much information to governments too quickly and for not disclosing information that governments need to enforce their laws. In April 2010, Google, for the first time, released details about how often countries around the world ask it to hand over user data or to censor information. Online tools make the updated data available to everyone.
+
+Between July and December 2009, Brazil topped the list for user data requests with 3,663, while the US made 3,580, the UK 1,166, and India 1,061. Brazil also made the largest number of requests to remove content with 291, followed by Germany with 188, India with 142, and the US with 123. Google, who stopped offering search services in China a month before the data was released, said it could not release information on requests from the Chinese government because such information is regarded as a state secret.
+
+===Incognito browsing mode===
+Google Chrome includes a private browsing feature called "incognito browsing mode" that prevents the browser from permanently storing any browsing or download history information or cookies. Using incognito mode prevents tracking by the browser. However, the individual websites visited can still track and store information about visits. In particular any searches performed while signed into a Google account will be saved as part of the account's web history. In addition, other programs such as those used to stream media files, which are invoked from within Chrome, may still record history information, even when incognito mode is being used. Furthermore, a limitation of Apple's iOS 7 platform allows some information from incognito browser windows to leak to regular Chrome browser windows. There are concerns that these limitations may have led Chrome users to believe that incognito mode provides more privacy protection than it actually does.
+
+==Street View==
+Google's online map service, "Street View", has been accused of taking pictures and viewing too far into people's private homes and/or too close to people on the street when they do not know they are being photographed.
+
+==WiFi networks information collection==
+During 2006–10, Google Streetview camera cars collected about 600 gigabytes of data from users of unencrypted public and private Wi-Fi networks in more than 30 countries. No disclosures nor privacy policy was given to those affected, nor to the owners of the Wi-Fi stations.
+
+Google apologized and said that they were "acutely aware that we failed badly here" in terms of privacy protection, that they were not aware of the problem until an inquiry from German regulators was received, that the private data was collected inadvertently, and that none of the private data was used in Google's search engine or other services. A representative of Consumer Watchdog replied, "Once again, Google has demonstrated a lack of concern for privacy. Its computer engineers run amok, push the envelope and gather whatever data they can until their fingers are caught in the cookie jar." In a sign that legal penalties may result, Google said it will not destroy the data until permitted by regulators.
+
+The Streetview data collection prompted several lawsuits in the United States. The suits were consolidated into one case before a California federal court. Google's motion to have the case dismissed, saying the Wi-Fi communications it captured were "readily accessible to the general public" and therefore not a violation of federal wiretapping laws, was rejected in June 2011 by the U.S. District Court for the Northern District of California and upon appeal in September 2013 by the U.S. Court of Appeals for the Ninth Circuit. The ruling is viewed as a major legal setback for Google and allows the case to move back to the lower court for trial.
+
+Currently Google no longer collects WiFi data via streetview, and currently use the Android device's Wi-Fi positioning system; however they have suggested the creation of a unified approach for opting-out from taking part in Wi-Fi-based positioning systems, suggesting the usage of the word "nomap" append to a wireless access point's SSID to exclude it from Google's WPS database.
+
+==Google Buzz==
+On February 9, 2010, Google launched Google Buzz, Google's microblogging service. Anyone with a Gmail account was automatically added as a contact to pre-existing Gmail contacts, and had to opt out if they did not wish to participate.
+
+The launch of Google Buzz as an "opt-out" social network immediately drew criticism for violating user privacy because it automatically allowed Gmail users' contacts to view their other contacts. In 2011, the United States Federal Trade Commission initiated a Commission proceeding against respondent Google, Inc., alleging that certain personal information of Gmail users was shared without consumers' permission through the Google Buzz social network. At the time of launch, the site's user content and conduct policy stated, "To help fight spam and prevent fake profiles, use the name your friends, family or co-workers usually call you." Starting in July 2011, Google began enforcing this policy by suspending the accounts of those who used pseudonyms.  Starting in August 2011, Google provided a four-day grace period before enforcing the real name policy and suspending accounts. The four days allowed members time to change their pen name to their real name. The policy extends to new accounts for all of Google services, including Gmail and YouTube, although accounts existing before the new policy are not required to be updated. In late January 2012 Google began allowing members to use nicknames, maiden names, and other "established" names in addition to their common or real names.
+
+According to Google, the real name policy makes Google more like the real world. People can find each other more easily, like a phone book. The real name policy protects children and young adults from cyber-bullying, as those bullies hide behind pen names. There is considerable use of search engines for people searching
+
+A number of high-profile commentators have publicly criticized Google's policies, including technologists Jamie Zawinski, Kevin Marks, and Robert Scoble and organizations such as the Electronic Frontier Foundation.
+
+Criticisms have been wide-ranging, for example:
+
+* The policy is not like the real world, because real names and personal information are not known to everyone in the off-line world.
+* The policy fails to acknowledge long-standing Internet culture and conventions.
+* Using a pseudonym is different from anonymity, and a pseudonym used consistently denotes an "authentic personality".
+* Google's arguments fail to address the financial gain represented by connecting personal data to real-world identities.
+* Google has inconsistently enforced their policy, especially by making exceptions for celebrities using pseudonyms and mononyms.
+* The policy as stated is insufficient for preventing spam.
+* The policy may run afoul of legal constraints such as the German "Telemediengesetz" federal law, which makes anonymous access to online services a legal requirement.
+* The policy does not prevent trolls. It is up to social media to encourage the growth of healthy social norms, and forcefully telling people how they must behave cannot be efficient.
+
+==YouTube and Viacom==
+On July 14, 2008, Viacom compromised to protect YouTube users' personal data in their $1&nbsp;billion copyright lawsuit. Google agreed it will anonymize user information and internet protocol addresses from its YouTube subsidiary before handing the data over to Viacom. The privacy deal also applied to other litigants including the FA Premier League, the Rodgers & Hammerstein organization and the Scottish Premier League. The deal however did not extend the anonymity to employees, because Viacom wishes to prove that Google staff are aware of the uploading of illegal material to the site. The parties therefore will further meet on the matter lest the data be made available to the court.
+
+==Do Not Track==
+In April 2011, Google was criticized for not signing onto the Do Not Track feature for Chrome that was being incorporated in most other modern web browsers, including Firefox, Internet Explorer, Safari, and Opera. Critics pointed out that a new patent Google was granted in April 2011, for greatly enhanced user tracking through web advertising, will provide much more detailed information on user behavior and that "do not track" would hurt Google's ability to exploit this. Software reviewer Kurt Bakke of "Conceivably Tech" wrote:
+Mozilla developer Asa Dotzler noted: "It seems pretty obvious to me that the Chrome team is bowing to pressure from Google's advertising business and that's a real shame. I had hoped they'd demonstrate a bit more independence than that."
+
+At the time of the criticisms, Google argued that the technology is useless, as advertisers are not required to obey the user's tracking preferences and it remains unclear as to what constitutes tracking (as opposed to storing statistical data or user preferences). As an alternative, Google continues to offer an extension called "Keep My Opt-Outs" that permanently prevents advertising companies from installing cookies on the user's computer.
+
+The reaction to this extension was mixed. Paul Thurrott of "Windows IT Pro" called the extension "much, much closer to what I've been asking for—i.e. something that just works and doesn't require the user to figure anything out—than the IE or Firefox solutions" while lamenting the fact that the extension is not included as part of the browser itself.
+
+In February 2012, Google announced that Chrome will incorporate a "Do Not Track" feature by the end of 2012, and it was implemented in early November 2012.
+
+Moreover, Pól Mac and Douglas J. (2016) in their study “Don’t Let Google Know I’m Lonely”, presented strong evidence that the two giant techs have very high accuracy while providing results based on user's sensitive entries.  Pól Mac and Douglas J. (2016) specifically focused on user's financial and sexual preferences and they have concluded that "For Google, 100% of user sessions on a sensitive topic reject the hypothesis that no learning of the sensitive topic by the search engine has taken place and so are identified as sensitive. For Bing, the corresponding detection rate is 91%."
+
+==Scroogle==
+2008 screenshot of Scroogle.org.
+
+Scroogle, named after the fictional character Ebenezer Scrooge, was a web service that allowed users to perform Google searches anonymously. It focused heavily on searcher privacy by blocking Google cookies and not saving log files. The service was launched in 2003 by Google critic Daniel Brandt, who was concerned about Google collecting personal information on its users.
+
+Scroogle offered a web interface and browser plugins for Firefox, Google Chrome, and Internet Explorer that allowed users to run Google searches anonymously.  The service scraped Google search results, removing ads and sponsored links.  Only the raw search results were returned, meaning features such as page preview were not available.  For added security, Scroogle gave users the option of having all communication between their computer and the search page be SSL encrypted.
+
+Although Scroogle's activities technically violated Google's terms of service, Google generally tolerated its existence, whitelisting the site on multiple occasions. After 2005, the service encountered rapid growth before running into a series of problems starting in 2010. In February 2012, the service was permanently shut down by its creator due to a combination of throttling of search requests by Google and a denial-of-service attack by an unknown person or group.
+
+Before its demise, Scroogle handled around 350,000 queries daily, ranked among the top 4,000 sites worldwide and in the top 2500 for the United States, Canada, the United Kingdom, Australia, and other countries in web traffic.
+
+==Children's Online Privacy Protection Act (COPPA) compliance==
+Google has been criticized by some for the way it implements support for the requirements of the Children's Online Privacy Protection Act (COPPA) because of its "biased" terms of service on YouTube and its "heavy-handed" ways of enforcing the law. According to Google's Privacy Policy, children under 13 aren't allowed to use any Google services, including Gmail.
+
+==Privacy and data protection cases and issues by country==
+
+===European Union===
+European Union (EU) data protection officials (the Article 29 working party who advise the EU on privacy policy) have written to Google asking the company to justify its policy of keeping information on individuals' internet searches for up to two years. The letter questioned whether Google has "fulfilled all the necessary requirements" on the EU laws concerning data protection.  the probe by the EU into the data protection issue is continuing. On May 31, 2007, Google agreed that its privacy policy is vague, and that they are constantly working at making it clearer to users.
+
+After Google merged its different privacy policies into a single one in March 2012, the working group of all European Union Data Protection Authorities assessed that it failed to comply with the EU legal framework. Several countries then opened cases to investigate possible breach of their privacy rules.
+
+Google has also been implicated in "Google Spain v AEPD and Mario Costeja González", a Spanish Audiencia Nacional and European Court of Justice case that decided Google must comply with the European privacy laws (i.e., the Data Protection Directive) and allow users to be forgotten when operating in the European Union.
+
+===Czech Republic===
+Starting in 2010, after more than five months of unsuccessful negotiations with Google, the Czech Office for Personal Data Protection has prevented Street View from taking pictures of new locations. The Office described Google's program as taking pictures "beyond the extent of the ordinary sight from a street", and claimed that it "disproportionately invaded citizens' privacy." Google resumed Street View in Czech Republic in 2012 after having agreed to a number of limitations similar to concessions Google has made in other countries.
+
+===France===
+In January 2014, the French authority, CNIL, sanctioned Google to pay its highest fee and to display on its search engine web site a banner referring to the decision. Google complied, yet will appeal to the supreme court of administrative justice, the Conseil d'Etat.
+
+===Germany===
+In May 2010, Google was unable to meet a deadline set by Hamburg's data protection supervisor to hand over data illegally collected from unsecured home wireless networks. Google added, "We hope, given more time, to be able to resolve this difficult issue." The data was turned over to German, French, and Spanish authorities in early June 2010.
+
+In November 2010, vandals in Germany targeted houses that had opted out of Google's Street View.
+
+In April 2011, Google announced that it will not expand its Street View program in Germany, but what has already been shot—around 20 cities' worth of pictures—will remain available. This decision came in spite of an earlier Berlin State Supreme Court ruling that Google's Street View program was legal.
+
+In September 2014, A top official in Germany called for Google to be broken up as publishers were fighting in court over compensation for the snippets of text that appear with Google News updates. The chief executive of Axel Springer, a German publishing giant, expressed fears over Google's growing influence in the country. In December 2012, these convictions and sentences were overturned on appeal.
+
+===Norway===
+The Data Inspectorate of Norway (Norway is not a member of the EU) investigated Google (and others) and stated that the 18- to 24-month period for retaining data proposed by Google was too long.
+
+===United Kingdom===
+On 27 March 2015, the Court of Appeal ruled that British consumers have the right to sue Google in the UK for misuse of private information.
+
+===United States===
+In early 2005, the United States Department of Justice filed a motion in federal court to force Google to comply with a subpoena for "the text of each search string entered onto Google's search engine over a two-month period (absent any information identifying the person who entered such query)." Google fought the subpoena, due to concerns about users' privacy. In March 2006, the court ruled partially in Google's favor, recognizing the privacy implications of turning over search terms and refusing to grant access.
+
+In April 2008, a Pittsburgh couple, Aaron and Christine Boring, sued Google for "invasion of privacy". They claimed that Street View made a photo of their home available online, and it diminished the value of their house, which was purchased for its privacy. They lost their case in a Pennsylvania court. "While it is easy to imagine that many whose property appears on Google's virtual maps resent the privacy implications, it is hard to believe that any other than the most exquisitely sensitive would suffer shame or humiliation," Judge Hay ruled; the Boring family was paid one dollar by Google for the incident.
+
+In May 2010, a U.S. District Court in Portland, Oregon ordered Google to hand over two copies of wireless data that the company's Street View program collected as it photographed neighborhoods.
+
+In 2012 and 2013, Google reached two settlements over tracking consumers online without their knowledge after bypassing privacy settings in Apple’s Safari browser. The first was settlement in August 2012 for $22.5 million with the Federal Trade Commission—the largest civil penalty the F.T.C. has ever obtained for a violation of a Commission order. The second was a November 2013 settlement for $17 million with 37 states and the District of Columbia. In addition to the fines, Google agreed to avoid using software that overrides a browser's cookie-blocking settings, to avoid omitting or misrepresenting information to consumers about how they use Google products or control the ads they see, to maintain for five years a web page explaining what cookies are and how to control them, and to ensure that the cookies tied to Safari browsers expire. In both settlements Google denied any wrongdoing, but said it discontinued circumventing the settings early in 2012, after the practice was publicly reported, and stopped tracking Safari users and showing them personalized ads.
+
+== DoubleClick ads combined with other Google services ==
+In the summer of 2016, Google quietly dropped its ban on personally-identifiable info in its DoubleClick ad service. Google's privacy policy was changed to state it "may" combine web-browsing records obtained through DoubleClick with what the company learns from the use of other Google services. While new users were automatically opted-in, existing users were asked if they wanted to opt-in, and it remains possible to opt-out by going to the Activity controls in the My Account page of a Google account. "ProPublica" states that "The practical result of the change is that the DoubleClick ads that follow people around on the web may now be customized to them based on your name and other information Google knows about you. It also means that Google could now, if it wished to, build a complete portrait of a user by name, based on everything they write in email, every website they visit and the searches they conduct." Google contacted "ProPublica" to correct the fact that it doesn't "currently" use Gmail keywords to target web ads.
+
+==See also==
+
+* Don't be evil
+* Google litigation
+* Googlization
+* History of Google
+* Criticism of Facebook
+* Criticism of Microsoft
+* Criticism of Yahoo!
+* Distributed search engine

@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
+using System.Net.Mail;
 
 namespace AssistMeProject.Controllers
 {
     //
     public class QuestionsController : Controller
     {
+
+        private const int MAX_RELATED_QUESTIONS = 5;
+
         private readonly AssistMeProjectContext _context;
         public AssistMe model;
         private BM25Searcher _searcher;
@@ -26,15 +30,29 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> Index()
         {
+
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            var questions = (await _context.Question.Include(q => q.Answers).Include(q => q.InterestingVotes).Include(q=> q.Views).ToListAsync());
+
+            var questions = await _context.Question.Where(q => q.isArchived == false)
+                .Include(q => q.Answers)
+                .Include(q => q.InterestingVotes)
+                .Include(q => q.InterestingVotes)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .Include(q => q.Studio)
+                .ToListAsync();
+
             questions.Sort();
+
+
+
             return View(questions);
+
         }
 
         // GET: Questions/Details/5
@@ -44,8 +62,34 @@ namespace AssistMeProject.Controllers
             {
                 return NotFound();
             }
+            //Example of how to get the actual user that logged into the application
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
 
-            var question = await _context.Question.Include(q => q.Answers).ThenInclude(x => x.PositiveVotes).Include(q => q.InterestingVotes).Include(q => q.Views)
+
+           
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
+
+            var question = await _context.Question
+                .Include(q => q.Answers)
+                    .ThenInclude(x => x.PositiveVotes)
+                .Include(q => q.InterestingVotes)
+                .Include(q => q.Views)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .Include(q => q.Studio)
+
                 .FirstOrDefaultAsync(m => m.Id == id);
             
             if (question == null)
@@ -59,6 +103,21 @@ namespace AssistMeProject.Controllers
                 _context.SaveChanges();
             }
 
+            initSearcher();
+
+            var relatedQuestions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(question.Title);
+
+            foreach (ISearchable s in searchables)
+            {
+                Question q = (Question)s;
+                if (q.Id != question.Id)
+                    relatedQuestions.Add(q);
+                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+            }
+
+
+            ViewBag.Related = relatedQuestions;
             return View(question);
         }
 
@@ -70,7 +129,11 @@ namespace AssistMeProject.Controllers
 
         private void LoadSearcher()
         {
-            var questions = _context.Question.ToList();
+            var questions = _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .ToList();
             foreach (var question in questions)
             {
                 _searcher.AddDocument(question);
@@ -88,13 +151,35 @@ namespace AssistMeProject.Controllers
             {
                 questions.Add((Question)s);
             }
-            return View(questions);
+            return View("Index", questions);
             //return View(await _context.Question.ToListAsync());
         }
 
         // GET: Questions/Create
         public IActionResult Create()
         {
+            string Activeuser = HttpContext.Session.GetString("USERNAME");
+            if (string.IsNullOrEmpty(Activeuser))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+            }
+
+            ViewBag.username = Activeuser;
+
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            //list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
+
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
+
+
+            ViewData["Studios"] = new SelectList(list, "Value", "Text");
+
+
             return View();
         }
 
@@ -108,12 +193,56 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        public async Task<IActionResult> Create(string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
+            question.Username = HttpContext.Session.GetString("USERNAME");
             if (ModelState.IsValid)
             {
                 _context.Add(question);
+                if (!string.IsNullOrEmpty(studio))
+                {
+                    var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+                    question.StudioId = st.Id;
+                }
+                if (!string.IsNullOrEmpty(question_tags))
+                {
+                    string[] tagsStr = question_tags.Split(",");
+                    foreach (string t in tagsStr)
+                    {
+                        var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
+                        if (tag == null)
+                        {
+                            tag = new Label();
+                            tag.Tag = t;
+                            _context.Add(tag);
+                        }
+                        tag.NumberOfTimes++;
+                        var questionLabel = new QuestionLabel
+                        {
+                            LabelId = tag.Id,
+                            QuestionId = question.Id
+                        };
+                        _context.Add(questionLabel);
+                    }
+                }
+
                 await _context.SaveChangesAsync();
+
+
+
+                try
+                {
+                    Email manager = new Email();
+                    MailMessage email = new MailMessage("proyectofinalinge@gmail.com", "proyectofinalinge@gmail.com", question.Title, "Tienes una nueva pregunta \n" + question.Description);
+                    manager.EnviarCorreo(email);
+
+                }
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
                 return RedirectToAction(nameof(Index));
             }
             return View(question);
@@ -202,6 +331,104 @@ namespace AssistMeProject.Controllers
         private bool QuestionExists(int id)
         {
             return _context.Question.Any(e => e.Id == id);
+        }
+        public async Task<IActionResult> UpdateDate(int? id)
+        {
+            var question = await _context.Question.FindAsync(id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+            question.Date = DateTime.Now;
+            question.AskAgain = true;
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(question);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!QuestionExists(question.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Details), new { id = question.Id });
+        }
+
+
+        // GET: Questions/Delete/5
+        public async Task<IActionResult> Archive(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var question = await _context.Question
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            return View(question);
+        }
+
+        // GET: Questions/Delete/5
+        public async Task<IActionResult> Desarchivar(int? id)
+        {
+            var question = await _context.Question.FindAsync(id);
+            question.isArchived = false;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> ArchiveQuestion(int? id)
+        {
+            var question = await _context.Question.FindAsync(id);
+            question.isArchived = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        // GET: Questions/Details/5
+        public async Task<IActionResult> ArchivedQuestionDetails(int? id)
+        {
+
+            var question = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            initSearcher();
+
+            var relatedQuestions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(question.Title);
+
+            foreach (ISearchable s in searchables)
+            {
+                Question q = (Question)s;
+                if (q.Id != question.Id)
+                    relatedQuestions.Add(q);
+                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+            }
+
+
+            ViewBag.Related = relatedQuestions;
+            return View(question);
         }
     }
 }

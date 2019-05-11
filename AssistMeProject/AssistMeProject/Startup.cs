@@ -74,40 +74,11 @@ namespace AssistMeProject
                     template: "{controller=Questions}/{action=Index}/{id?}");
             });
 
-            addData(app.ApplicationServices);
 
         }
 
-        private void addData(IServiceProvider applicationServices)
-        {
-            using (var serviceScope = applicationServices.CreateScope())
-            {
-                var ctx = serviceScope.ServiceProvider.GetService<AssistMeProjectContext>();
-                if (ctx.User.Any())
-                {
-                    return;   // La base de datos ya tiene datos               
-                }
-
-                var users = new List<User> {
-                new User
-                    {
-                        EMAIL = "lauhincapie97@gmail.com", PHOTO="pic", QUESTIONS_ANSWERED = 2, POSITIVE_VOTES_RECEIVED = 3,
-                        QUESTIONS_ASKED = 4, INTERESTING_VOTES_RECEIVED =5, DESCRIPTION ="Hola", COUNTRY="Colombia", CITY="Cali"
-                    },
-                    new User
-                    {
-                        EMAIL = "lauhincapie97@gmail.com", PHOTO="pic", QUESTIONS_ANSWERED = 2, POSITIVE_VOTES_RECEIVED = 3,
-                        QUESTIONS_ASKED = 4, INTERESTING_VOTES_RECEIVED =5, DESCRIPTION ="Hola", COUNTRY="Colombia", CITY="Cali"
-                    },
-                    new User
-                    {
-                        EMAIL = "lauhincapie97@gmail.com", PHOTO="pic", QUESTIONS_ANSWERED = 2, POSITIVE_VOTES_RECEIVED = 3,
-                        QUESTIONS_ASKED = 4, INTERESTING_VOTES_RECEIVED =5, DESCRIPTION ="Hola", COUNTRY="Colombia", CITY="Cali"
-                    }};
-                users.ForEach(e => ctx.User.Add(e));
-                ctx.SaveChanges();
-            }
-        }
+        
+       
 
     }
 }

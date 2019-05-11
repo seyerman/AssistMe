@@ -4,7 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h4>Answer</h4>
+<h4>Question by @ViewData["Questioner"]</h4>
+<h4>Title Question: @ViewData["TitleQ"]</h4>
+<h4>Question Description : @ViewData["DescriptionQ"]</h4>
 
 <div class="row">
     <div class="col-md-9">
@@ -13,7 +15,7 @@
             <div class="boxedtitle page-title"><h2>Reply Question</h2></div>
 
             <div class="form-style form-style-3" id="question-submit">
-                <form asp-action="Create">
+                <form asp-action="Create" >
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-inputs clearfix">
 
@@ -25,6 +27,7 @@
                     </div>
 
                     <input type="hidden" asp-for="QuestionID" />
+                    
                     <div class="form-group">
                         <input type="submit" value="Reply" class="button color small submit" />
                     </div>

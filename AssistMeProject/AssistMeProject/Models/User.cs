@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class User : ICloneable
+    public class User : ICloneable 
     {
 
         public const int LEVEL_ROOT = 1;
         public const int LEVEL_ADMIN = 2;
         public const int LEVEL_NORMAL = 3;
-        private bool administrador;
 
         public User(int iD, string gOOGLE_KEY, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
         {
@@ -31,11 +31,17 @@ namespace AssistMeProject.Models
             INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE ?? throw new ArgumentNullException(nameof(iNTERESTS_OR_KNOWLEDGE));
             COUNTRY = cOUNTRY ?? throw new ArgumentNullException(nameof(cOUNTRY));
             CITY = cITY ?? throw new ArgumentNullException(nameof(cITY));
-            this.ADMIN = false;
+
+            this.Comments = new HashSet<Comment>();
+            this.Answers = new HashSet<Answer>();
+            this.Questions = new HashSet<Question>();
         }
 
         public User()
         {
+            this.Comments = new HashSet<Comment>();
+            this.Answers = new HashSet<Answer>();
+            this.Questions = new HashSet<Question>();
         }
 
         public User(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
@@ -51,19 +57,19 @@ namespace AssistMeProject.Models
             INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE;
             COUNTRY = cOUNTRY;
             CITY = cITY;
-            this.ADMIN = false;
-        }
 
-        public User(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY, bool administrador) : this(iD, eMAIL, pHOTO, qUESTIONS_ANSWERED, pOSITIVE_VOTES_RECEIVED, qUESTIONS_ASKED, iNTERESTING_VOTES_RECEIVED, dESCRIPTION, iNTERESTS_OR_KNOWLEDGE, cOUNTRY, cITY)
-        {
-            this.administrador = administrador;
+            this.Comments = new HashSet<Comment>();
+            this.Answers = new HashSet<Answer>();
+            this.Questions = new HashSet<Question>();
         }
 
         public int ID { get; set; }
         public string GOOGLE_KEY { get; set; }
         public int LEVEL { get; set; }
+        [Display(Name = "USERNAME")]
         public String USERNAME { get; set; }
         public String PASSWORD { get; set; }
+        [Display(Name = "EMAIL")]
         public String EMAIL { get; set; }
         public String PHOTO { get; set; }
         public int QUESTIONS_ANSWERED { get; set; }
@@ -74,10 +80,10 @@ namespace AssistMeProject.Models
         public String INTERESTS_OR_KNOWLEDGE { get; set; }
         public String COUNTRY { get; set; }
         public String CITY { get; set; }
-        public bool ADMIN { get; set; }
 
-        public List<PositiveVote> PositiveVotes { get; set; }
-        public List<InterestingVote> InterestingVotes { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
+        public virtual ICollection<Comment> Comments { get; set;}
 
         public String[] getStringData()
         {
@@ -90,5 +96,7 @@ namespace AssistMeProject.Models
         {
             return this.MemberwiseClone();
         }
+
+       
     }
 }

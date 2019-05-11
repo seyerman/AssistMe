@@ -1,0 +1,45 @@
+"Internet Research" (INTR) is a peer-reviewed academic journal, published by Emerald Publishing. It aims to describe, assess and foster understanding of the role of wide-area, multi-purpose computer networks such as the Internet.
+
+== History ==
+The journal was founded as "Electronic Networks" in 1990, with the first articles published in 1991. Articles from 1991 onward are available online at the journal's website. In 1993 the journal was renamed Internet Research. Emerald acquired the journal from Mecklermedia in 1995.
+
+The journal received its first ever Impact Factor of 0.356 in 1997. 
+
+== Editors-in-chief ==
+The current editor is Christy M. K. Cheung, Department of Finance and Decision Sciences, Hong Kong Baptist University, Hong Kong
+
+Editors-in-chief of the journal have included:
+* 2016 – 2011: Bernard J. Jansen, The Pennsylvania State University, Qatar Computing Research Institute
+* 2011 – 1998: David G. Schwartz, Bar-Ilan University, Israel
+* 1998 – 1995: John Peters, Emerald
+
+== Notable articles ==
+There have been several highly cited articles published in Internet Research, including the 1992 article, "World-wide web: the information universe", which is one of the first academic articles where Sir Tim Berners-Lee mentions the phrase "World-wide web".
+
+== Impact factor ==
+
+The journal has a 2017 impact factor of 3.838.
+
+According to the "Journal Citation Reports", the journal has a 2016 impact factor of 2.931, ranking it 34th out of 146 journals in the category "COMPUTER SCIENCE, INFORMATION SYSTEMS". 
+
+The 2015 impact factor was 3.017, which was the highest impact factor of any Emerald journal that year.
+
+== Indexing ==
+IntR is indexed in, among others, the following indexing and abstracting services:
+
+* EBSCOhost
+* Elsevier BV
+* OCLC
+* Ovid
+* ProQuest
+* Scopus
+* Social Science Citation Index
+* Thomson Reuters
+* VINITI RAN
+
+== References ==
+== External links ==
+* 
+Category:Library science journals
+Category:Information science
+Category:Computer science
