@@ -40,7 +40,7 @@ namespace AssistMeProject.Models
             return InterestingVotes.Any(x => x.UserID == userId); 
         }
 
-
+        //
         public bool UserView(int userId)
         {
 

@@ -23,6 +23,7 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.Label>Label { get; set; }
         public DbSet<AssistMeProject.Models.PositiveVote> PositiveVote { get; set; }
         public DbSet<AssistMeProject.Models.InterestingVote> InterestingVote { get; set; }
-        public DbSet<AssistMeProject.Models.View> View { get; set; }
+        public DbSet<AssistMeProject.Models.View> View { get; set; }//
+
     }
 }
