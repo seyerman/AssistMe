@@ -66,10 +66,10 @@
                                                         <span class="question-answered"><i class="icon-ok"></i>in progress</span>
                                                     }
                                                 }
-                                            <span id="question_vote_@item.Id" onclick="interaction('iv', 14,@item.Id,'question_vote_@item.Id' )" class="question-favorite">
-                                                <i class="@Html.DisplayName(item.UserVote(14)?"icon-star":"icon-star-empty")"></i>
-                                                <span>@Html.DisplayFor(model => item.InterestingVotes.Count)</span>
-                                            </span>
+                                                <span id="question_vote_@item.Id" onclick="interaction('iv', @ViewBag.User.ID,@item.Id,'question_vote_@item.Id' )" class="question-favorite">
+                                                    <i class="@Html.DisplayName(item.UserVote(@ViewBag.User.ID)?"icon-star":"icon-star-empty")"></i>
+                                                    <span>@Html.DisplayFor(model => item.InterestingVotes.Count)</span>
+                                                </span>
                                             </div>
 
                                             <span class="question-category"><a href="#"><i class="icon-folder-close"></i>@Html.DisplayFor(modelItem => item.Studio.Name)</a></span>
