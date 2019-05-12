@@ -13,7 +13,7 @@
             <p>To ask a question you must fill this form.</p>
 
             <div class="form-style form-style-3" id="question-submit">
-                <form asp-action="Create">
+                <form asp-action="Create" method="post" enctype="multipart/form-data" >
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-inputs clearfix">
                         <p>
@@ -46,15 +46,18 @@
                             </div>
                         </p>
 
-                        <label>File</label>
+                        <label for="file">File</label>
+                        <input type="file" name="files" multiple><br><br>
+                        <br><br>
+
+                         @*<label>File</label>
                         <div class="fileinputs">
                             <input type="file" class="file">
                             <div class="fakefile">
                                 <button type="button" class="button small margin_0">Select file</button>
                                 <span><i class="icon-arrow-up"></i>Browse</span>
                             </div>
-                            @*</div>*@
-                        </div>
+                        </div>*@
                     </div>
                     
                     <p class="form-submit">

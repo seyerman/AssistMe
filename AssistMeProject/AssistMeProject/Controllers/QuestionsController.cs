@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
 using System.Net.Mail;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AssistMeProject.Controllers
 {
@@ -17,11 +19,13 @@ namespace AssistMeProject.Controllers
         private const int MAX_RELATED_QUESTIONS = 5;
 
         private readonly AssistMeProjectContext _context;
+        private IHostingEnvironment _hostingEnvironment;
         public AssistMe model;
         private BM25Searcher _searcher;
 
-        public QuestionsController(AssistMeProjectContext context)
+        public QuestionsController(IHostingEnvironment environment, AssistMeProjectContext context)
         {
+            _hostingEnvironment = environment;
             _context = context;
             model = new AssistMe(context);
         }
@@ -182,7 +186,7 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        public async Task<IActionResult> Create(List<IFormFile> files, string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
@@ -217,6 +221,21 @@ namespace AssistMeProject.Controllers
                                 QuestionId = question.Id
                             };
                             _context.Add(questionLabel);
+                        }
+                    }
+
+                    var filePath = Path.GetTempFileName();
+
+                    foreach (var formFile in files)
+                    {
+                        filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads",
+                                       Path.GetFileName(formFile.FileName));
+                        if (formFile.Length > 0)
+                        {
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await formFile.CopyToAsync(stream);
+                            }
                         }
                     }
 

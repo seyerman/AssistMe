@@ -6,9 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Views\Questions\NewFolder\**" />
+    <Compile Remove="wwwroot\files\**" />
     <Content Remove="Views\Questions\NewFolder\**" />
+    <Content Remove="wwwroot\files\**" />
     <EmbeddedResource Remove="Views\Questions\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\files\**" />
     <None Remove="Views\Questions\NewFolder\**" />
+    <None Remove="wwwroot\files\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -123,7 +127,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Files\" />
     <Folder Include="Views\Shared\Components\Stats\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
