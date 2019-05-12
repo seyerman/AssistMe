@@ -31,10 +31,17 @@ namespace AssistMeProject.Models
             INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE ?? throw new ArgumentNullException(nameof(iNTERESTS_OR_KNOWLEDGE));
             COUNTRY = cOUNTRY ?? throw new ArgumentNullException(nameof(cOUNTRY));
             CITY = cITY ?? throw new ArgumentNullException(nameof(cITY));
+
+            this.Comments = new HashSet<Comment>();
+            this.Answers = new HashSet<Answer>();
+            this.Questions = new HashSet<Question>();
         }
 
         public User()
         {
+            this.Comments = new HashSet<Comment>();
+            this.Answers = new HashSet<Answer>();
+            this.Questions = new HashSet<Question>();
         }
 
         public User(int iD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
@@ -50,6 +57,10 @@ namespace AssistMeProject.Models
             INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE;
             COUNTRY = cOUNTRY;
             CITY = cITY;
+
+            this.Comments = new HashSet<Comment>();
+            this.Answers = new HashSet<Answer>();
+            this.Questions = new HashSet<Question>();
         }
 
         public int ID { get; set; }
@@ -70,11 +81,13 @@ namespace AssistMeProject.Models
         public String COUNTRY { get; set; }
         public String CITY { get; set; }
 
-        public ICollection<Question> Questions { get; set; }
 
+        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
+        public virtual ICollection<Comment> Comments { get; set;}
         public int StudioId { get; set; }
-
         public Studio Studio { get; set; }
+
 
         public String[] getStringData()
         {

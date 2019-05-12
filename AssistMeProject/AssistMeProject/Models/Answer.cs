@@ -13,6 +13,7 @@ namespace AssistMeProject.Models
         public int QuestionID { get; set; }
 
         public virtual Question Question { get; set; }
+        public Boolean correctAnswer { get; set; }
 
         public Answer()
         {

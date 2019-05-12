@@ -38,7 +38,7 @@ namespace AssistMeProject.Models
 
       
 
-        public ICollection<Question> Questions { get; set; }
+       public ICollection<Question> Questions { get; set; }
 
 
     }

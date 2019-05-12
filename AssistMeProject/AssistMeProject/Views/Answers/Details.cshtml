@@ -6,22 +6,24 @@
 
 
 <div class="page-content">
-<ol class="commentlist clearfix">
-    <Partial name="_AnswerPartial" model="Model" view-data="ViewData" />
-</ol>
+    <ol class="commentlist clearfix">
+        <Partial name="_AnswerPartial" model="Model" view-data="ViewData" />
+    </ol>
 </div>
-    @section scripts{
-        <script>
+
+@section scripts{
+    <script>
         $(function () {
             $.ajax({
                 url: "@Url.Content("~/Comments/CommentList?AnswerId="+Model.Id)"
             }).done(function (data) {
-                $('#commentlist_@Model.Id').html(data);
+                $('#commentlist').html(data);
             }).fail(function () {
                 alert("error");
             });
         }
         );
-        </script>
-    }
+    </script>
+}
+
 

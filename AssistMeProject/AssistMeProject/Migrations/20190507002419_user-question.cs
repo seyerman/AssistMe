@@ -6,7 +6,7 @@ namespace AssistMeProject.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
+            /*migrationBuilder.AddColumn<int>(
                 name: "UserId",
                 table: "Question",
                 nullable: true);
@@ -23,10 +23,12 @@ namespace AssistMeProject.Migrations
                 principalTable: "User",
                 principalColumn: "ID",
                 onDelete: ReferentialAction.Restrict);
+                */
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            /*
             migrationBuilder.DropForeignKey(
                 name: "FK_Question_User_UserId",
                 table: "Question");
@@ -38,6 +40,7 @@ namespace AssistMeProject.Migrations
             migrationBuilder.DropColumn(
                 name: "UserId",
                 table: "Question");
+                */
         }
     }
 }
