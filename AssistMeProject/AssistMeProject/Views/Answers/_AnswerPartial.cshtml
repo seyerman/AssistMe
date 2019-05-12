@@ -15,7 +15,7 @@
                             <!--<a href="#" class="question-vote-up" title="Like"></a>-->
 
 
-                            <span id="answer_vote_@Model.Id" onclick="interaction('pv', 1,@Model.Id,'answer_vote_@Model.Id' )" class="answer-favorite">
+                            <span id="answer_vote_@Model.Id" onclick="interaction('pv', ViewData["actualUserID"] ,@Model.Id,'answer_vote_@Model.Id' )" class="answer-favorite">
                                 <i class="@Html.DisplayName(Model.UserVote(1)?"question-vote-up":"question-vote-down")"></i>
                                 +<span style="display:initial">@Html.DisplayFor(model => model.PositiveVotes.Count)</span>
                             </span>

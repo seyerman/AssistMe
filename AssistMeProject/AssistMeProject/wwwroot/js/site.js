@@ -28,13 +28,13 @@ function interaction(interactionType = "v", userID, elementID, btnID) {
 
                 switch (data) {
                     case -1:
-                       
+                        console.log("entro -1");
                         contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) - 1);
                         icon.addClass(iconNoSelectedClass);
                         icon.removeClass(iconSelectedClass);
                         break;
                     case 1:
-                        
+                        console.log("entro 1");
                         contador[0].innerHTML = (Number.parseInt(contador[0].innerHTML) + 1);
                     
                         icon.addClass(iconSelectedClass);

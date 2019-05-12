@@ -60,6 +60,9 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
+        
+
             if (id == null) 
             {
                 return NotFound();
@@ -69,12 +72,12 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
-
-           
+            ViewData["actualUserID"] = actualUser.ID;
 
             if (actualUser != null)
             {
                 ViewData["Admin"] = actualUser.LEVEL;
+
             }
             else
             {
@@ -101,8 +104,12 @@ namespace AssistMeProject.Controllers
                 return NotFound(); 
             }
 
-            if (question.Views.All(x => x.UserID != 1)) {
-                var view = new View { UserID = 1, QuestionID = question.Id};
+
+
+
+            if ( question.Views.All(x => x.UserID != actualUser.ID))
+            {
+                var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
                 _context.View.Add(view);
                 _context.SaveChanges();
             }

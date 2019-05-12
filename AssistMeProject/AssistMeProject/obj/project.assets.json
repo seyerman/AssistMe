@@ -14131,11 +14131,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alber\\source\\repos\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "projectUniqueName": "C:\\Users\\alber\\Source\\Repos\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
       "projectName": "AssistMeProject",
-      "projectPath": "C:\\Users\\alber\\source\\repos\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "projectPath": "C:\\Users\\alber\\Source\\Repos\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
       "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alber\\source\\repos\\AssistMe\\AssistMeProject\\AssistMeProject\\obj\\",
+      "outputPath": "C:\\Users\\alber\\Source\\Repos\\AssistMe\\AssistMeProject\\AssistMeProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
