@@ -4,16 +4,14 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190510144103_StudioId en User")]
-    partial class StudioIdenUser
+    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,9 +33,15 @@ namespace AssistMeProject.Migrations
 
                     b.Property<int>("QuestionID");
 
+                    b.Property<int>("UserId");
+
+                    b.Property<bool>("correctAnswer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("QuestionID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Answer");
                 });
@@ -56,11 +60,34 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
+                    b.Property<int>("UserId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AnswerId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Comment");
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.InterestingVote", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("QuestionID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("QuestionID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("InterestingVote");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Label", b =>
@@ -76,6 +103,25 @@ namespace AssistMeProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Label");
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AnswerID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AnswerID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("PositiveVote");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.Question", b =>
@@ -186,11 +232,37 @@ namespace AssistMeProject.Migrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.View", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<int>("QuestionID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("QuestionID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("View");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.Answer", b =>
                 {
                     b.HasOne("AssistMeProject.Models.Question", "Question")
                         .WithMany("Answers")
                         .HasForeignKey("QuestionID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.User", "User")
+                        .WithMany("Answers")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -199,6 +271,37 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Answer", "Answer")
                         .WithMany("Comments")
                         .HasForeignKey("AnswerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.User", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.InterestingVote", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Question", "Question")
+                        .WithMany("InterestingVotes")
+                        .HasForeignKey("QuestionID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Answer", "Answer")
+                        .WithMany("PositiveVotes")
+                        .HasForeignKey("AnswerID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -231,6 +334,19 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Studio", "Studio")
                         .WithMany("Users")
                         .HasForeignKey("StudioId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.View", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Question", "Question")
+                        .WithMany("Views")
+                        .HasForeignKey("QuestionID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

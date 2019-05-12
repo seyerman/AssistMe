@@ -11,9 +11,11 @@ using System.Globalization;
 
 namespace AssistMeProject.Controllers
 {
+    //
     public class AnswersController : Controller
     {
         private readonly AssistMeProjectContext _context;
+        public AssistMe model;
 
         public AnswersController(AssistMeProjectContext context)
         {
@@ -23,13 +25,15 @@ namespace AssistMeProject.Controllers
         // GET: Answers
         public async Task<IActionResult> Index()
         {
+
             var assistMeProjectContext = _context.Answer.Include(a => a.Question);
-            return View(await assistMeProjectContext.ToListAsync());
+            return View(await assistMeProjectContext.Include(a => a.PositiveVotes).ToListAsync());
         }
 
         public async Task<IActionResult> AnswerList(int? QuestionID)
         {
-            var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(a=> a.Question).Include(a => a.Comments).Include(a=>a.User);
+
+            var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(a=> a.Question).Include(a=>a.PositiveVotes).Include(a => a.Comments).Include(a=>a.User);
             return PartialView(await asssitMeProjectContext.ToListAsync());
 
         }
@@ -45,6 +49,7 @@ namespace AssistMeProject.Controllers
             var answer = await _context.Answer
                 .Include(a => a.Question)
                 .Include(a => a.Comments)
+                .Include(a => a.PositiveVotes)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {
@@ -57,13 +62,13 @@ namespace AssistMeProject.Controllers
         // GET: Answers/Create
         public IActionResult Create(int? QuestionID)
         {
-
             string Activeuser = HttpContext.Session.GetString("USERNAME");
             if (string.IsNullOrEmpty(Activeuser))
             {
                 return RedirectToAction("Index", "Users", new { message = "Please Log In" });
             }
-            Question question= _context.Question.Find(QuestionID);
+            Question question = _context.Question.Include(q => q.User).First(q => q.Id == QuestionID);
+
             ViewData["Questioner"] = question.User.USERNAME;
             ViewData["TitleQ"] = question.Title;
             ViewData["DescriptionQ"] = question.Description;

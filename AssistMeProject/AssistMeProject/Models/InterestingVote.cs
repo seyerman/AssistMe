@@ -5,28 +5,19 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-
-
-
-
-
-
-    public class View : IComparable
+    public class InterestingVote
     {
 
         public int ID { get; set; }
-    
-        public virtual User User{get;set;}
-
+        public User User { get; set; }
         public int UserID { get; set; }
         public int QuestionID { get; set; }
-        public virtual Question Question { get; set; }
-        public DateTime Date { get; set; }
+        public Question Question { get; set; }
 
 
-        public int CompareTo(object obj)
+
+        public InterestingVote()
         {
-            throw new NotImplementedException();
 
         }
     }
