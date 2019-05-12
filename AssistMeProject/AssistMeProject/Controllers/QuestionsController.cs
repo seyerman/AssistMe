@@ -224,11 +224,22 @@ namespace AssistMeProject.Controllers
                         }
                     }
 
-                    var filePath = Path.GetTempFileName();
+                  
+
+                    question.StudioId = st.Id;
+                    question.Studio = st;
+                    await _context.SaveChangesAsync();
+                    var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+                    if (Directory.Exists(filePath))
+                    {
+                        Directory.Delete(filePath, true);
+                    }
+                    Directory.CreateDirectory(filePath);
 
                     foreach (var formFile in files)
                     {
-                        filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads",
+                        filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "",
                                        Path.GetFileName(formFile.FileName));
                         if (formFile.Length > 0)
                         {
@@ -238,10 +249,6 @@ namespace AssistMeProject.Controllers
                             }
                         }
                     }
-
-                    question.StudioId = st.Id;
-                    question.Studio = st;
-                    await _context.SaveChangesAsync();
                     SendEmailStudio(question, st);
                 }
  
