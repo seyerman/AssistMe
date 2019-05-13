@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace AssistMeProject.Controllers
 {
+    //
     public class QuestionsController : Controller
     {
 
@@ -40,13 +41,18 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
             //End of the example
-            var questions = await _context.Question.Where(q => q.isArchived == false)
+
+
+        var questions = await _context.Question.Where(q => q.isArchived == false)
+
                 .Include(q => q.Answers)
+                .Include(q => q.InterestingVotes)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.Studio)
                 .Include(q => q.User)
                 .ToListAsync();
+
             questions.Sort();
 
 
@@ -58,7 +64,10 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+
+        
+
+            if (id == null) 
             {
                 return NotFound();
             }
@@ -67,9 +76,12 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
+            ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
+
             if (actualUser != null)
             {
                 ViewData["Admin"] = actualUser.LEVEL;
+
             }
             else
             {
@@ -80,15 +92,30 @@ namespace AssistMeProject.Controllers
 
             var question = await _context.Question
                 .Include(q => q.Answers)
+                    .ThenInclude(x => x.PositiveVotes)
+                .Include(q => q.InterestingVotes)
+                .Include(q => q.Views)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.Studio)
+
                 .Include(q => q.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
+
             if (question == null)
             {
-                return NotFound();
+                return NotFound(); 
+            }
+
+
+
+
+            if ( question.Views.All(x => x.UserID != actualUser.ID))
+            {
+                var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
+                _context.View.Add(view);
+                _context.SaveChanges();
             }
 
             initSearcher();

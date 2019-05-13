@@ -18,6 +18,7 @@ namespace AssistMeProject.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<QuestionLabel>().HasKey(x => new { x.QuestionId, x.LabelId });
+            
             base.OnModelCreating(modelBuilder);
         }
 
@@ -26,7 +27,14 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.Comment> Comment { get; set; }
         public DbSet<AssistMeProject.Models.User> User { get; set; }
         public DbSet<AssistMeProject.Models.Studio> Studio { get; set; }
-        public DbSet<AssistMeProject.Models.Label> Label { get; set; }
+
+        public DbSet<AssistMeProject.Models.Label>Label { get; set; }
+        public DbSet<AssistMeProject.Models.PositiveVote> PositiveVote { get; set; }
+        public DbSet<AssistMeProject.Models.InterestingVote> InterestingVote { get; set; }
+        public DbSet<AssistMeProject.Models.View> View { get; set; }//
+
+
         public DbSet<AssistMeProject.Models.QuestionLabel> QuestionLabels { get; set; }
+
     }
 }

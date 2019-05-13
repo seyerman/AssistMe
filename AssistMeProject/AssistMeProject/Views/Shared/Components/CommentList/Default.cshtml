@@ -1,0 +1,15 @@
+﻿@model IEnumerable<AssistMeProject.Models.Comment>
+    @{
+        ViewData["Title"] = "List";
+
+    }
+
+<div id="commentlist" class="page-content">
+    <ol class="commentlist clearfix">
+        @foreach (var item in Model)
+        {
+            @await Html.PartialAsync("_CommentPartial", item)
+        }
+    </ol>
+
+</div>
