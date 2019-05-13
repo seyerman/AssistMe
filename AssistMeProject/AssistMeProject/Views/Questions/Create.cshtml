@@ -22,8 +22,8 @@
                             <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </p>
-                        @*<div id="form-textarea">
-                            *@
+                        <div id="form-textarea">
+                            
                             <p>
                                 <label asp-for="Description" class="required">Details<span>*</span></label>
                                 <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
@@ -54,7 +54,6 @@
 
                                         <select name="studio2" class="form-control" asp-items="ViewBag.Studios"></select>
                                     </span>
-                                    <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
                                     <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
                                 </div>
                             </p>

@@ -14132,11 +14132,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\javie\\OneDrive\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "projectUniqueName": "D:\\Usuario\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
       "projectName": "AssistMeProject",
-      "projectPath": "C:\\Users\\javie\\OneDrive\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "projectPath": "D:\\Usuario\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
       "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\javie\\OneDrive\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\obj\\",
+      "outputPath": "D:\\Usuario\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

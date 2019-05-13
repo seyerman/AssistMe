@@ -28,10 +28,7 @@ namespace AssistMeProject.Models
 
         public bool isArchived { get; set; }
 
-
-       public Studio Studio { get; set; }
-
-        public int? StudioId { get; set; }
+        public virtual ICollection<QuestionStudio> QuestionStudios { get; set; }
 
         public User User { get; set; }
 
