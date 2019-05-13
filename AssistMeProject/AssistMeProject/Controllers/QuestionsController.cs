@@ -182,53 +182,62 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        public async Task<IActionResult> Create(string action, string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
-            User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
-            {
-                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
-                question.UserId = actualUser.ID;
-            }
-               
-            if (ModelState.IsValid)
-            {
-                _context.Add(question);
-                if (!string.IsNullOrEmpty(studio))
-                {
-                    var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+			if (action == "Suggestions")
+			{
+				String query = question.Title + " " + question.Description;
+				List<String> lb = SuggestLabels(query);
+				ViewData["Sugerencias"] = lb;
+			}
+			else if (action == "Ask now")
+			{
+				User actualUser = null;
+				if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+				{
+					actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+					question.UserId = actualUser.ID;
+				}
 
-                    if (!string.IsNullOrEmpty(question_tags))
-                    {
-                        string[] tagsStr = question_tags.Split(",");
-                        foreach (string t in tagsStr)
-                        {
-                            var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
-                            if (tag == null)
-                            {
-                                tag = new Label();
-                                tag.Tag = t;
-                                _context.Add(tag);
-                            }
-                            tag.NumberOfTimes++;
-                            var questionLabel = new QuestionLabel
-                            {
-                                LabelId = tag.Id,
-                                QuestionId = question.Id
-                            };
-                            _context.Add(questionLabel);
-                        }
-                    }
+				if (ModelState.IsValid)
+				{
+					_context.Add(question);
+					if (!string.IsNullOrEmpty(studio))
+					{
+						var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
 
-                    question.StudioId = st.Id;
-                    question.Studio = st;
-                    await _context.SaveChangesAsync();
-                    SendEmailStudio(question, st);
-                }
- 
-                return RedirectToAction(nameof(Index));
-            }
-            return View(question);
+						if (!string.IsNullOrEmpty(question_tags))
+						{
+							string[] tagsStr = question_tags.Split(",");
+							foreach (string t in tagsStr)
+							{
+								var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
+								if (tag == null)
+								{
+									tag = new Label();
+									tag.Tag = t;
+									_context.Add(tag);
+								}
+								tag.NumberOfTimes++;
+								var questionLabel = new QuestionLabel
+								{
+									LabelId = tag.Id,
+									QuestionId = question.Id
+								};
+								_context.Add(questionLabel);
+							}
+						}
+
+						question.StudioId = st.Id;
+						question.Studio = st;
+						await _context.SaveChangesAsync();
+						SendEmailStudio(question, st);
+					}
+
+					return RedirectToAction(nameof(Index));
+				}
+			}
+			return View(question);
         }
 
 
@@ -444,7 +453,7 @@ namespace AssistMeProject.Controllers
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Suggestions(String title, String description)
+		public async Task<IActionResult> Suggestion(String title, String description)
 		{
 			String query = title + " " + description;
 			List<String> lb = SuggestLabels(query);
