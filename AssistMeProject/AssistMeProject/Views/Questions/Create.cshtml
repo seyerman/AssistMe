@@ -13,7 +13,7 @@
             <p>To ask a question you must fill this form.</p>
 
             <div class="form-style form-style-3" id="question-submit">
-                <form asp-action="Create" method="post" enctype="multipart/form-data" >
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-inputs clearfix">
                         <p>
@@ -22,35 +22,61 @@
                             <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </p>
-                        @*<div id="form-textarea">*@
-                        <p>
-                            <label asp-for="Description" class="required">Details<span>*</span></label>
-                            <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
-                            <span class="form-description">Type the description thoroughly and in detail .</span>
-                            <span asp-validation-for="Description" class="text-danger"></span>
-                        </p>
-                        <p>
-                            <label class="required">Tags<span>*</span></label>
-                            <input class="input" name="question_tags" id="question_tags" data-seperator=",">
-                            <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
-                        </p>
-                        <p>
-                            <div class="form-group">
-                                <label class="required">Studio<span>*</span></label>
+                        @*<div id="form-textarea">
+                            *@
+                            <p>
+                                <label asp-for="Description" class="required">Details<span>*</span></label>
+                                <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+                                <span class="form-description">Type the description thoroughly and in detail .</span>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </p>
+                            <p>
+                                <label class="required">Tags<span>*</span></label>
+                                <input class="input" name="question_tags" id="question_tags" data-seperator=",">
+                                <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
+                            </p>
+                            <p>
+                                <div class="form-group">
+                                    <label class="required">Studio 1<span>*</span></label>
 
-                                <span class="styled-select">
+                                    <span class="styled-select">
 
-                                    <select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
-                                </span>
+                                        <select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="form-group">
 
-                            </div>
-                        </p>
+                                    <label>Studio 2</label>
+
+                                    <span class="styled-select">
+
+                                        <select name="studio2" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                    <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
+                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="form-group">
+                                    <label>Studio 3</label>
+
+                                    <span class="styled-select">
+
+                                        <select name="studio3" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+
+                                </div>
+                            </p>
+                        </div>
 
                         <label for="file">File</label>
                         <input type="file" name="files" multiple><br><br>
                         <br><br>
 
-                         @*<label>File</label>
+                        @*<label>File</label>
                         <div class="fileinputs">
                             <input type="file" class="file">
                             <div class="fakefile">
@@ -59,7 +85,7 @@
                             </div>
                         </div>*@
                     </div>
-                    
+
                     <p class="form-submit">
                         <input type="submit" id="publish-question" value="Ask now" class="button color small submit">
                     </p>
@@ -68,8 +94,6 @@
         </div><!-- End page-content -->
     </div><!-- End main -->
 </div><!-- End row -->
-
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
