@@ -21,6 +21,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 	overflow-x: hidden;
 }
+
+.pt {
+    cursor: pointer;
+}
 #warp {
 	background-color: #f3f3f3;
 	display: none;
@@ -1124,7 +1128,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	color: #ff2700;
 }
 .question-answered-done {
-	color: #318e08;
+	color: #318e08 !important;
 }
 .question .question-answered-done,.user-question .question-answered-done i {
 	color: #318e08;
@@ -1680,8 +1684,9 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	position: relative;
 }
 .comment-text .question-answered {
-	margin-top: 10px;
-	margin-bottom: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #cccccc;
 }
 .commentlist li .author {
 	margin-top: 5px;

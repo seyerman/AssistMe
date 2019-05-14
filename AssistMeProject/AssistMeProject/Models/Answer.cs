@@ -14,10 +14,24 @@ namespace AssistMeProject.Models
 
         public virtual Question Question { get; set; }
 
+        public virtual ICollection<PositiveVote> PositiveVotes { get; set; }
+
+        public Boolean correctAnswer { get; set; }
+
+
         public Answer()
         {
             this.Comments = new HashSet<Comment>();
+            this.PositiveVotes = new HashSet<PositiveVote>();
+
         }
+
+        
+        public bool UserVote(int userId)
+        {
+            return PositiveVotes.Any(x => x.UserID == userId);
+        }
+
 
 
     }
