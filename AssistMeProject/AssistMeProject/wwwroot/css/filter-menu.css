@@ -1,0 +1,94 @@
+﻿.filteranswerlist {
+}
+
+.filter-menu {
+    display: flex;
+}
+
+    .filter-menu a {
+        display: block;
+    }
+
+.selector-container {
+    padding-bottom: 1.5em;
+}
+
+.filter-menu .filter-option {
+    flex: 1 1;
+}
+
+    .filter-menu .filter-option.active {
+        flex-grow: 2;
+    }
+
+    .filter-menu .filter-option.open {
+    }
+
+.filter-container a {
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+.filter-container .collapse {
+    background-color: white;
+    padding: 16px;
+    border-bottom: 1px solid #dedede;
+}
+
+.filter-container .order-selector {
+    display: flex;
+}
+
+    .filter-container .order-selector .order-tiem {
+        flex: 1;
+        text-align: center;
+    }
+
+.flex {
+    display: flex;
+}
+
+.flex11 {
+    flex: 1 1;
+}
+
+.filter-section .flex .opt {
+    flex: 1 1;
+}
+
+.filter-section .opt input[type=number] {
+    width: 3em;
+}
+
+.filter-section .flex .opt.date-opt {
+    display: flex;
+    align-items: center;
+}
+
+    .filter-section .flex .opt.date-opt .date-item {
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+
+    .filter-section .flex .opt.date-opt input[type=date].date-item {
+        flex-grow: 1;
+        margin: 16px;
+    }
+
+.filter-container input[type=text] {
+    width: 100%;
+}
+
+.btn-filter {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.2em;
+    padding: 8px;
+    background-color: #2f3239;
+    color: white !important;
+    display: block;
+}
+
+    .btn-filter:hover {
+        background-color: #ff7361;
+    }

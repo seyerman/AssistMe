@@ -24,81 +24,70 @@
     </p>
     <div class="col-md-9">
 
-            <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
+        <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
 
-            <div class="page-content clearfix">
-                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
-                <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
-            </div>
+        <div class="page-content clearfix">
+            <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+            <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
+        </div>
 
 
 
-            <div class="share-tags page-content">
-                <div class="question-tags">
-                    <i class="icon-tags"></i>
-                    @{
-                        foreach (QuestionLabel ql in Model.QuestionLabels)
+        <div class="share-tags page-content">
+            <div class="question-tags">
+                <i class="icon-tags"></i>
+                @{
+                    foreach (QuestionLabel ql in Model.QuestionLabels)
+                    {
+                        string text = ql.Label.Tag;
+                        if (Model.QuestionLabels.Last() != ql)
                         {
-                            string text = ql.Label.Tag;
-                            if (Model.QuestionLabels.Last() != ql)
-                            {
-                                text += ", ";
-                            }
-                            <a href="#">@text</a>
+                            text += ", ";
+                        }
+                        <a href="#">@text</a>
+                    }
+                }
+            </div>
+            <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
+            <div class="clearfix"></div>
+
+        </div><!-- End share-tags -->
+
+        <div class="about-author clearfix">
+            <div class="author-image">
+                <a href="#" original-title="@Model.User.USERNAME" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+            </div>
+            <div class="author-bio">
+                <h4>About the Author - Username: "@Model.User.USERNAME"</h4>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
+            </div>
+        </div><!-- End about-author -->
+
+        <div id="related-posts">
+            <h2>Related questions</h2>
+            <ul class="related-posts">
+                @{
+                    if (ViewBag.Related.Count == 0)
+                    {
+                        <li class="related-item"><h3>There are no related questions</h3></li>
+                    }
+                    else
+                    {
+                        foreach (var q in ViewBag.Related)
+                        {
+                            <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
                         }
                     }
-                </div>
-                <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
-                <div class="clearfix"></div>
 
-            </div><!-- End share-tags -->
+                }
 
-            <div class="about-author clearfix">
-                <div class="author-image">
-                    <a href="#" original-title="@Model.User.USERNAME" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
-                </div>
-                <div class="author-bio">
-                    <h4>About the Author - Username: "@Model.User.USERNAME"</h4>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
-                </div>
-            </div><!-- End about-author -->
+            </ul>
+        </div><!-- End related-posts -->
+        
+        <div id="filteranswerlist" class="filter-container">
+        </div>
 
-            <div id="related-posts">
-                <h2>Related questions</h2>
-                <ul class="related-posts">
-                    @{
-                        if (ViewBag.Related.Count == 0)
-                        {
-                            <li class="related-item"><h3>There are no related questions</h3></li>
-                        }
-                        else
-                        {
-                            foreach (var q in ViewBag.Related)
-                            {
-                                <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
-                            }
-                        }
-
-                    }
-
-                </ul>
-            </div><!-- End related-posts -->
-
-            <div id="answerlist">
-
-
-            </div>
-
-           
-
-
-            <p>
-
-            </p>
-
-            <p>
-
-            </p>
+            <div id="answerlist"></div>
 
             <div id="related-posts">
                 <h2>Opciones avanzadas</h2>

@@ -257,7 +257,16 @@ namespace AssistMeProject.Controllers
                     answers = answers.Where(a => a.votes == 0);
                 else
                     answers = answers.Where(a => a.votes >= int.Parse(opt));
-            
+
+            opt = urlParams["reply"];
+            if (opt != null && !"".Equals(opt))
+                if ("any".Equals(opt))
+                    answers = answers.Where(a => a.comments.Count() > 0);
+                else if ("no".Equals(opt))
+                    answers = answers.Where(a => a.comments.Count() == 0);
+                else
+                    answers = answers.Where(a => a.comments.Count() >= int.Parse(opt));
+
 
             var json = new JsonResult(answers.ToList());
             return json;
