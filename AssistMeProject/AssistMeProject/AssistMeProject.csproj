@@ -6,14 +6,48 @@
 
   <ItemGroup>
     <Compile Remove="Views\Questions\NewFolder\**" />
+    <Compile Remove="wwwroot\files\**" />
     <Content Remove="Views\Questions\NewFolder\**" />
+    <Content Remove="wwwroot\files\**" />
     <EmbeddedResource Remove="Views\Questions\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\files\**" />
     <None Remove="Views\Questions\NewFolder\**" />
+    <None Remove="wwwroot\files\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Migrations\20190317192326_cuatro.cs" />
     <Compile Remove="Migrations\20190317192326_cuatro.Designer.cs" />
+    <Compile Remove="Migrations\20190501003843_userQuestion.cs" />
+    <Compile Remove="Migrations\20190501003843_userQuestion.Designer.cs" />
+    <Compile Remove="Migrations\20190501011842_UserConnections.cs" />
+    <Compile Remove="Migrations\20190501011842_UserConnections.Designer.cs" />
+    <Compile Remove="Migrations\20190501012047_UserConnections.cs" />
+    <Compile Remove="Migrations\20190501012047_UserConnections.Designer.cs" />
+    <Compile Remove="Migrations\20190501034942_question-studio-single.cs" />
+    <Compile Remove="Migrations\20190501034942_question-studio-single.Designer.cs" />
+    <Compile Remove="Migrations\20190501035238_optional-relation.cs" />
+    <Compile Remove="Migrations\20190501035238_optional-relation.Designer.cs" />
+    <Compile Remove="Migrations\20190501201249_newUpdate.cs" />
+    <Compile Remove="Migrations\20190501201249_newUpdate.Designer.cs" />
+    <Compile Remove="Migrations\20190501201949_thisis.cs" />
+    <Compile Remove="Migrations\20190501201949_thisis.Designer.cs" />
+    <Compile Remove="Migrations\20190502010432_pull33.cs" />
+    <Compile Remove="Migrations\20190502010432_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190502011129_pull33.cs" />
+    <Compile Remove="Migrations\20190502011129_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190502011546_pull33.cs" />
+    <Compile Remove="Migrations\20190502011546_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190502012044_pull33.cs" />
+    <Compile Remove="Migrations\20190502012044_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190502012702_pull33.cs" />
+    <Compile Remove="Migrations\20190502012702_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190502013151_pull33.cs" />
+    <Compile Remove="Migrations\20190502013151_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190502013415_pull33.cs" />
+    <Compile Remove="Migrations\20190502013415_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190502013550_pull33.cs" />
+    <Compile Remove="Migrations\20190502013550_pull33.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -124,6 +158,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Shared\Components\Stats\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
