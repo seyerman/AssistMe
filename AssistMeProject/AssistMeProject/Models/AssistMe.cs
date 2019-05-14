@@ -28,7 +28,7 @@ namespace AssistMeProject.Models
             {
                 string username = "Test" + i;
                 string email = i % 2 == 0 ? username + ".gaming@globant.com" : username + ".consulting@globant.com";
-                User user = new User(i, "",User.LEVEL_NORMAL, username, username, email, "../data/photos/" + username, i % 6, i % 10, i % 30, i % 20, "I like to help people", "Play guitar, play piano, food lover", "Colombia", "Medellin");
+                User user = new User(i, "",User.LEVEL_NORMAL, username, username, email, "../data/photos/" + username, i % 6, i % 10, i % 30, i % 20, "I like to help people", "Play guitar, play piano, food lover", "Colombia", "Medellin",1);
                 _context.User.Add(user);
             }
             _context.SaveChanges();
