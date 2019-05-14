@@ -134,6 +134,23 @@ namespace AssistMeProject.Controllers
 
 
             ViewBag.Related = relatedQuestions;
+
+            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+            List<string> files = new List<string>();
+
+            if (Directory.Exists(filePath))
+            {
+                string[] rawFiles = Directory.GetFiles(filePath);
+                foreach(string rf in rawFiles)
+                {
+                    files.Add(Path.GetFileName(rf));
+                }
+            }
+
+            ViewBag.FileNames = files;
+
+
             return View(question);
         }
 
@@ -201,6 +218,8 @@ namespace AssistMeProject.Controllers
 
 
             ViewData["Studios"] = new SelectList(list, "Value", "Text");
+
+
 
 
             return View();
