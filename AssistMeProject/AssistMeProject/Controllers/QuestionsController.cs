@@ -250,7 +250,10 @@ namespace AssistMeProject.Controllers
                 _context.Add(question);
                 if (!string.IsNullOrEmpty(studio))
                 {
+                    List<Studio> liststudio = new List<Studio>();
+
                     var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+                    liststudio.Add(st);
 
                     if (!string.IsNullOrEmpty(question_tags))
                     {
@@ -285,6 +288,7 @@ namespace AssistMeProject.Controllers
                     if(studio2 != studio)
                     {
                         var st2 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio2);
+                        liststudio.Add(st2);
                         var questionStudio2 = new QuestionStudio
                         {
                             StudioId = st2.Id,
@@ -296,6 +300,7 @@ namespace AssistMeProject.Controllers
                     if (studio3 != studio && studio3 != studio2)
                     {
                         var st3 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio3);
+                        liststudio.Add(st3);
                         var questionStudio3 = new QuestionStudio
                         {
                             StudioId = st3.Id,
@@ -306,6 +311,7 @@ namespace AssistMeProject.Controllers
 
 
                     await _context.SaveChangesAsync();
+
                     var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
 
                     if (Directory.Exists(filePath))
@@ -326,7 +332,7 @@ namespace AssistMeProject.Controllers
                             }
                         }
                     }
-                    SendEmailStudio(question, st);
+                    SendEmailStudio(question, liststudio);
                 }
 
                 return RedirectToAction(nameof(Index));
@@ -335,13 +341,16 @@ namespace AssistMeProject.Controllers
         }
 
 
-        public void SendEmailStudio(Question question, Studio studio)
+        public void SendEmailStudio(Question question, List<Studio> studios)
         {
-            var users = _context.User.Where(p => p.StudioId == studio.Id);
-
-            foreach (var user in users)
+            foreach (Studio st in studios)
             {
-                SendEmail(question, user.EMAIL);
+                var users = _context.User.Where(p => p.StudioId == st.Id);
+
+                foreach (var user in users)
+                {
+                    SendEmail(question, user.EMAIL);
+                }
             }
 
         }
