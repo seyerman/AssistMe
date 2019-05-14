@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Details";
     ViewData["IsQuestionMin"] = true;
-    
+
 }
 
 
@@ -16,22 +16,31 @@
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
-    <p>
+        <p>
 
-    </p>    
-    <p>
+        </p>
+        <p>
 
-    </p>
-    <div class="col-md-9">
+        </p>
+        <div class="col-md-9">
 
             <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
+            <p>
+                <div class="page-content clearfix">
+                    <h3>Attached files</h3>
+                    @{
+                        foreach (var f in ViewBag.FileNames)
+                        {
+                            <a href='~/uploads/@(Model.Id+"/"+f)' download="@f"><i class="icon-paper-clip"></i>@(" " + f)</a><br />
+                        }
+                    }
 
+                </div>
+            </p>
             <div class="page-content clearfix">
                 <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
-
-
 
             <div class="share-tags page-content">
                 <div class="question-tags">
@@ -89,7 +98,7 @@
 
             </div>
 
-           
+
 
 
             <p>
