@@ -12,23 +12,33 @@ namespace AssistMeProject.Models
         [Required(ErrorMessage = "Agregue un Titulo a su pregunta"), MaxLength(150), Display(Name = "Titulo")]
         public string Title { get; set; }
 
-        public Boolean isArchived { get; set; }
-
         public virtual ICollection<Answer> Answers { get; set; }
+
+
+        public virtual ICollection<InterestingVote> InterestingVotes { get; set; }
+        public virtual ICollection<View> Views { get; set; }
+       
+     
+ 
+
         [Display(Name = "Nombre")]
         public virtual List<QuestionLabel> QuestionLabels { get; set; }
 
         public bool AskAgain { get; set; }
 
-        public string Username { get; set; }
+        public bool isArchived { get; set; }
 
-        public Studio Studio { get; set; }
+        public virtual ICollection<QuestionStudio> QuestionStudios { get; set; }
 
-        public int? StudioId { get; set; }
+        public User User { get; set; }
+
+        public int? UserId { get; set; }
 
         public Question()
         {
             Answers = new HashSet<Answer>();
+            InterestingVotes = new HashSet<InterestingVote>();
+            Views = new HashSet<View>();
             AskAgain = false;
             isArchived = false;
         }
@@ -40,6 +50,15 @@ namespace AssistMeProject.Models
             sb.Append(" ");
             sb.Append(Description);
             return sb.ToString();
+        }
+
+
+
+
+        //Method to know if the user already vote interesting
+         public bool UserVote(int userId) {
+
+            return InterestingVotes.Any(x => x.UserID == userId); 
         }
 
         public override int CompareTo(object obj)
@@ -54,7 +73,14 @@ namespace AssistMeProject.Models
                 return 1;
             }
             return base.CompareTo(obj);
+
         }
 
+        //
+        public bool UserView(int userId)
+        {
+
+            return Views.Any(x => x.UserID == userId);
+        }
     }
 }

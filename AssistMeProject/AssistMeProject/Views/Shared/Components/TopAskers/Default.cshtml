@@ -1,0 +1,20 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Top Askers";
+}
+
+<div class="widget widget_highest_points">
+    <h3 class="widget_title">Top Askers</h3>
+    <ul>
+        @foreach (var user in Model)
+        {
+            <li>
+                <div class="author-img">
+                    <a href="#"><img width="60" height="60" src="http://placehold.it/60x60/FFF/444" alt=""></a>
+                </div>
+                <h6><a href="#">@user.USERNAME</a></h6>
+                <span class="comment">@user.Questions.Count Questions</span>
+            </li>
+        }
+    </ul>
+</div><!--End Highgest Point-->

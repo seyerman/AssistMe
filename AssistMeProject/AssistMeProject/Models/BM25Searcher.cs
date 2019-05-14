@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using jio = java.io;
 using ling = edu.stanford.nlp.ling;
+using System.Text.RegularExpressions;
 
 
 namespace AssistMeProject.Models
@@ -127,6 +128,12 @@ namespace AssistMeProject.Models
                 tokens.Add(w);
             }
             return tokens;
+        }
+
+        public static bool IsValidString(string s)
+        {
+            bool valid = !string.IsNullOrWhiteSpace(s);
+            return valid;
         }
     }
 }
