@@ -46,10 +46,22 @@
             <i class="@Html.DisplayName(Model.UserVote((int)@ViewData["actualUserID"])?"icon-star":"icon-star-empty")"></i>
             <span>@Html.DisplayFor(model => model.InterestingVotes.Count)</span>
             </span>
-            @if (true)
-            {
-                <span class="question-category"><a href="#"><i class="icon-folder-close"></i>wordpress</a></span>
-            }
+            <span class="question-category">
+                <a href="#">
+                    <i class="icon-folder-close"></i>
+                    @{
+                        foreach (QuestionStudio qs in Model.QuestionStudios)
+                        {
+                            string text = qs.Studio.Name;
+                            if (Model.QuestionStudios.Last() != qs)
+                            {
+                                text += ", ";
+                            }
+                            <a href="#">@text</a>
+                        }
+                    }
+                </a>
+            </span>
             <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => Model.Date)</span>
             <span class="question-view"><i class="icon-user"></i>@Model.Views.Count views</span>
             <span class="question-comment"><a asp-action="Details" asp-route-id="@Model.Id"><i class="icon-comment"></i>@Html.DisplayFor(model => model.Answers.Count) Answer</a></span>
