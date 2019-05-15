@@ -72,17 +72,17 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
-            ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
 
             if (actualUser != null)
             {
+                ViewData["actualUserID"] = actualUser.ID;
                 ViewData["Admin"] = actualUser.LEVEL;
 
             }
             else
             {
                 ViewData["Admin"] = 4;
-
+                ViewData["actualUserID"] = -1;
             }
 
 
@@ -106,13 +106,16 @@ namespace AssistMeProject.Controllers
 
 
 
+            if (actualUser != null) {
+                if (question.Views.All(x => x.UserID != actualUser.ID))
+                {
+                    var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
+                    _context.View.Add(view);
+                    _context.SaveChanges();
+                }
 
-            if ( question.Views.All(x => x.UserID != actualUser.ID))
-            {
-                var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
-                _context.View.Add(view);
-                _context.SaveChanges();
             }
+            
 
             initSearcher();
 
