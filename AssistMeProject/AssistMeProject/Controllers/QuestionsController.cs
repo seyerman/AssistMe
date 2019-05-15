@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
 using System.Net.Mail;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AssistMeProject.Controllers
 {
@@ -18,11 +20,13 @@ namespace AssistMeProject.Controllers
         private const int MAX_RELATED_QUESTIONS = 5;
 
         private readonly AssistMeProjectContext _context;
+        private IHostingEnvironment _hostingEnvironment;
         public AssistMe model;
         private BM25Searcher _searcher;
 
-        public QuestionsController(AssistMeProjectContext context)
+        public QuestionsController(IHostingEnvironment environment, AssistMeProjectContext context)
         {
+            _hostingEnvironment = environment;
             _context = context;
             model = new AssistMe(context);
         }
@@ -36,18 +40,19 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
             ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
-            //End of the example
+                                       //End of the example
 
 
-        var questions = await _context.Question.Where(q => q.isArchived == false)
+            var questions = await _context.Question.Where(q => q.isArchived == false)
 
-                .Include(q => q.Answers)
-                .Include(q => q.InterestingVotes)
-                .Include(q => q.QuestionLabels)
-                    .ThenInclude(ql => ql.Label)
-                .Include(q => q.Studio)
-                .Include(q => q.User)
-                .ToListAsync();
+                    .Include(q => q.Answers)
+                    .Include(q => q.InterestingVotes)
+                    .Include(q => q.QuestionLabels)
+                        .ThenInclude(ql => ql.Label)
+                    .Include(q => q.QuestionStudios)
+                        .ThenInclude(qs => qs.Studio)
+                    .Include(q => q.User)
+                    .ToListAsync();
 
             questions.Sort();
 
@@ -61,9 +66,9 @@ namespace AssistMeProject.Controllers
         public async Task<IActionResult> Details(int? id)
         {
 
-        
 
-            if (id == null) 
+
+            if (id == null)
             {
                 return NotFound();
             }
@@ -93,21 +98,21 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.Views)
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
-                .Include(q => q.Studio)
-
+                .Include(q => q.QuestionStudios)
+                    .ThenInclude(qs => qs.Studio)
                 .Include(q => q.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
 
             if (question == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
 
 
 
 
-            if ( question.Views.All(x => x.UserID != actualUser.ID))
+            if (question.Views.All(x => x.UserID != actualUser.ID))
             {
                 var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
                 _context.View.Add(view);
@@ -129,6 +134,23 @@ namespace AssistMeProject.Controllers
 
 
             ViewBag.Related = relatedQuestions;
+
+            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+            List<string> files = new List<string>();
+
+            if (Directory.Exists(filePath))
+            {
+                string[] rawFiles = Directory.GetFiles(filePath);
+                foreach(string rf in rawFiles)
+                {
+                    files.Add(Path.GetFileName(rf));
+                }
+            }
+
+            ViewBag.FileNames = files;
+
+
             return View(question);
         }
 
@@ -145,7 +167,8 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.User)
-                .Include(q => q.Studio)
+                .Include(q => q.QuestionStudios)
+                    .ThenInclude(qs => qs.Studio)
                 .ToList();
             foreach (var question in questions)
             {
@@ -157,7 +180,8 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Search(string query)
         {
-            if(BM25Searcher.IsValidString(query)){
+            if (BM25Searcher.IsValidString(query))
+            {
                 initSearcher();
                 List<Question> questions = new List<Question>();
                 List<ISearchable> searchables = _searcher.Search(query);
@@ -196,6 +220,8 @@ namespace AssistMeProject.Controllers
             ViewData["Studios"] = new SelectList(list, "Value", "Text");
 
 
+
+
             return View();
         }
 
@@ -209,7 +235,8 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string studio, string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        public async Task<IActionResult> Create(List<IFormFile> files, string studio, string studio2, string studio3, 
+            string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
@@ -217,7 +244,7 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
                 question.UserId = actualUser.ID;
             }
-               
+
             if (ModelState.IsValid)
             {
                 _context.Add(question);
@@ -247,12 +274,61 @@ namespace AssistMeProject.Controllers
                         }
                     }
 
-                    question.StudioId = st.Id;
-                    question.Studio = st;
+                    var st1 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+                    var questionStudio = new QuestionStudio
+                    {
+                        StudioId = st1.Id,
+                        QuestionId = question.Id
+                    };
+                    _context.Add(questionStudio);
+
+                    if(studio2 != studio)
+                    {
+                        var st2 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio2);
+                        var questionStudio2 = new QuestionStudio
+                        {
+                            StudioId = st2.Id,
+                            QuestionId = question.Id
+                        };
+                        _context.Add(questionStudio2);
+                    }
+
+                    if (studio3 != studio && studio3 != studio2)
+                    {
+                        var st3 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio3);
+                        var questionStudio3 = new QuestionStudio
+                        {
+                            StudioId = st3.Id,
+                            QuestionId = question.Id
+                        };
+                        _context.Add(questionStudio3);
+                    }
+
+
                     await _context.SaveChangesAsync();
+                    var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+                    if (Directory.Exists(filePath))
+                    {
+                        Directory.Delete(filePath, true);
+                    }
+                    Directory.CreateDirectory(filePath);
+
+                    foreach (var formFile in files)
+                    {
+                        filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "",
+                                       Path.GetFileName(formFile.FileName));
+                        if (formFile.Length > 0)
+                        {
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await formFile.CopyToAsync(stream);
+                            }
+                        }
+                    }
                     SendEmailStudio(question, st);
                 }
- 
+
                 return RedirectToAction(nameof(Index));
             }
             return View(question);
@@ -270,13 +346,13 @@ namespace AssistMeProject.Controllers
 
         }
 
-        public void SendEmail (Question question, string name)
+        public void SendEmail(Question question, string name)
         {
 
             try
             {
                 Email manager = new Email();
-                string mail = "Tienes una nueva pregunta \n "+ AssistMe.DOMINIO+"/Questions/Details/"+question.Id;
+                string mail = "Tienes una nueva pregunta \n " + AssistMe.DOMINIO + "/Questions/Details/" + question.Id;
                 manager.EnviarCorreo(name, question.Title, mail);
             }
             catch (System.Exception ex)
@@ -445,7 +521,8 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.User)
-                .Include(q => q.Studio)
+                .Include(q => q.QuestionStudios)
+                    .ThenInclude(qs => qs.Studio)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (question == null)
             {
