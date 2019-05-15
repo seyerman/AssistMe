@@ -189,6 +189,7 @@ namespace AssistMeProject.Controllers
 				String query = question.Title + " " + question.Description;
 				List<String> lb = SuggestLabels(query);
 				ViewData["Sugerencias"] = lb;
+				System.IO.File.WriteAllLines(@"..\\..\\TestWriteLines.txt", lb);
 			}
 			else if (action == "Ask now")
 			{
