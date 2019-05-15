@@ -99,33 +99,6 @@ namespace AssistMeProject.Controllers
             return View(user);
         }
 
-        /*
-        // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY,StudioId")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                bool exist = UserExists(user.USERNAME);
-                string message = "";
-                if (exist)
-                {
-                    message = "El usuario ya existe, digite uno nuevo";
-                } else
-                {
-                    _context.Add(user);
-                    await _context.SaveChangesAsync();
-                    message = "Cuenta creada, inicie sesión";
-                }
-                return RedirectToAction("Index","Users",new { message});
-            }
-            return View(user);
-        }
-        */
-
         // GET: Users/Edit/5
         public IActionResult Edit()
         {
