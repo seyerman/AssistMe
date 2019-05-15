@@ -14,6 +14,10 @@
  */
 function interaction(interactionType = "v", userID, elementID, btnID) {
 
+    if (userID == -1) {
+        alert("Iniciar Sesion");
+        return;
+    } 
     url = "";
     if (interactionType == "iv") {
         url = "/InterestingV/Create?UserID=" + userID + "&QuestionID=" + elementID

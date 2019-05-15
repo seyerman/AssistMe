@@ -65,9 +65,6 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-
-
-
             if (id == null)
             {
                 return NotFound();
@@ -77,17 +74,17 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
-            ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
 
             if (actualUser != null)
             {
+                ViewData["actualUserID"] = actualUser.ID;
                 ViewData["Admin"] = actualUser.LEVEL;
 
             }
             else
             {
                 ViewData["Admin"] = 4;
-
+                ViewData["actualUserID"] = -1;
             }
 
 
@@ -109,50 +106,51 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-
-
-
-            if (question.Views.All(x => x.UserID != actualUser.ID))
+            if (actualUser != null)
             {
-                var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
-                _context.View.Add(view);
-                _context.SaveChanges();
-            }
-
-            initSearcher();
-
-            var relatedQuestions = new List<Question>();
-            List<ISearchable> searchables = _searcher.Search(question.Title);
-
-            foreach (ISearchable s in searchables)
-            {
-                Question q = (Question)s;
-                if (q.Id != question.Id)
-                    relatedQuestions.Add(q);
-                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
-            }
-
-
-            ViewBag.Related = relatedQuestions;
-
-            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
-
-            List<string> files = new List<string>();
-
-            if (Directory.Exists(filePath))
-            {
-                string[] rawFiles = Directory.GetFiles(filePath);
-                foreach(string rf in rawFiles)
+                if (question.Views.All(x => x.UserID != actualUser.ID))
                 {
-                    files.Add(Path.GetFileName(rf));
+                    var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
+                    _context.View.Add(view);
+                    _context.SaveChanges();
                 }
             }
 
-            ViewBag.FileNames = files;
+                 initSearcher();
+
+                var relatedQuestions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(question.Title);
+
+                foreach (ISearchable s in searchables)
+                {
+                    Question q = (Question)s;
+                    if (q.Id != question.Id)
+                        relatedQuestions.Add(q);
+                    if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+                }
 
 
-            return View(question);
+                ViewBag.Related = relatedQuestions;
+
+                var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+                List<string> files = new List<string>();
+
+                if (Directory.Exists(filePath))
+                {
+                    string[] rawFiles = Directory.GetFiles(filePath);
+                    foreach (string rf in rawFiles)
+                    {
+                        files.Add(Path.GetFileName(rf));
+                    }
+                }
+
+                ViewBag.FileNames = files;
+
+
+                return View(question);
         }
+
 
         private void initSearcher()
         {
@@ -160,7 +158,7 @@ namespace AssistMeProject.Controllers
             LoadSearcher();
         }
 
-        private void LoadSearcher()
+        private  void LoadSearcher()
         {
             var questions = _context.Question
                 .Include(q => q.Answers)
