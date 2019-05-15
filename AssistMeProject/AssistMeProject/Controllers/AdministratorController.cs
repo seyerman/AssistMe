@@ -179,9 +179,130 @@ namespace AssistMeProject.Controllers
 
         }
 
+        // GET: Questions
+        public async Task<IActionResult> ShowSummary()
+        {
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
+            var questions = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.Studio)
+                .ToListAsync();
 
 
 
+            return View(questions);
+
+        }
+
+
+        // GET: Questions/Create
+        public IActionResult Show()
+        {
+
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
+            List<SelectListItem> listStudios = new List<SelectListItem>();
+
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                listStudios.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
+
+
+            ViewData["Studios"] = new SelectList(listStudios, "Value", "Text");
+
+            List<SelectListItem> listUsers = new List<SelectListItem>();
+
+            var users = _context.User.ToList();
+            foreach (User u in users)
+            {
+                listUsers.Add(new SelectListItem() { Text = u.USERNAME, Value = u.USERNAME });
+            }
+            ViewData["Users"] = new SelectList(listUsers, "Value", "Text");
+
+
+            return View();
+        }
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowStudioTable(string studio)
+        {
+            var questions = await _context.Question.Where(q => q.Studio.Name == studio)
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.Studio)
+                .ToListAsync();
+
+
+
+            return View(questions);
+        }
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowUserTable(string user)
+        {
+            var questions = await _context.Question.Where(u => u.User.USERNAME == user)
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.Studio)
+                .ToListAsync();
+
+            return View(questions);
+        }
+
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowTable()
+        {
+            var questions = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.Studio).Include(q => q.User)
+                .ToListAsync();
+
+
+
+            return View(questions);
+        }
 
 
 
