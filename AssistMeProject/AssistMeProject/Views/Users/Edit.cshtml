@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="PASSWORD" class="control-label">Contraseña: </label>
-                                    <input asp-for="PASSWORD" class="form-control"/>
+                                    <input asp-for="PASSWORD" class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="EMAIL" class="control-label">Correo electronico: </label>
@@ -71,6 +71,9 @@
                                     <label asp-for="CITY" class="control-label">Ciudad: </label>
                                     <input asp-for="CITY" class="form-control" />
                                 </div>
+                                <div class="form-group">
+                                    <input asp-for="StudioId" class="form-control" type="hidden" value="@Model.StudioId" />
+                                </div>
                                 <div class="form-group form-submit">
                                     <input type="submit" value="Actualizar!" class="btn btn-default button color small login-submit submit" />
                                 </div>
@@ -80,9 +83,8 @@
                     </div>
                 </div><!-- End page-content -->
             </div><!-- End main -->
-            
+
         </div><!-- End row -->
     </section><!-- End container -->
 
 </div><!-- End wrap -->
-
