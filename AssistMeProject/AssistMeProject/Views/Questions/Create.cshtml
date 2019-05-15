@@ -22,54 +22,59 @@
                             <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </p>
-                        <div id="form-textarea">
-                            
-                            <p>
-                                <label asp-for="Description" class="required">Details<span>*</span></label>
-                                <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
-                                <span class="form-description">Type the description thoroughly and in detail .</span>
-                                <span asp-validation-for="Description" class="text-danger"></span>
-                            </p>
-                            <p>
-                                <label class="required">Tags<span>*</span></label>
-                                <input class="input" name="question_tags" id="question_tags" data-seperator=",">
-                                <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
-                            </p>
-                            <p>
-                                <div class="form-group">
-                                    <label class="required">Studio 1<span>*</span></label>
+						<div id="form-textarea">
 
-                                    <span class="styled-select">
+							<p>
+								<label asp-for="Description" class="required">Details<span>*</span></label>
+								<textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+								<span class="form-description">Type the description thoroughly and in detail .</span>
+								<span asp-validation-for="Description" class="text-danger"></span>
+							</p>
+							<p class="submit">
+								<input type="submit"
+									   name="action"
+									   value="Suggestions" class="button color small submit" />
+							</p>
+							<p>
+								<label class="required">Tags<span>*</span></label>
+								<input class="input" name="question_tags" id="question_tags" data-seperator=",">
+								<span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
+							</p>
+							<p>
+								<div class="form-group">
+									<label class="required">Studio 1<span>*</span></label>
 
-                                        <select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
-                                    </span>
-                                </div>
-                            </p>
-                            <p>
-                                <div class="form-group">
+									<span class="styled-select">
 
-                                    <label>Studio 2</label>
+										<select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
+									</span>
+								</div>
+							</p>
+							<p>
+								<div class="form-group">
 
-                                    <span class="styled-select">
+									<label>Studio 2</label>
 
-                                        <select name="studio2" class="form-control" asp-items="ViewBag.Studios"></select>
-                                    </span>
-                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
-                                </div>
-                            </p>
-                            <p>
-                                <div class="form-group">
-                                    <label>Studio 3</label>
+									<span class="styled-select">
 
-                                    <span class="styled-select">
+										<select name="studio2" class="form-control" asp-items="ViewBag.Studios"></select>
+									</span>
+									<span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+								</div>
+							</p>
+							<p>
+								<div class="form-group">
+									<label>Studio 3</label>
 
-                                        <select name="studio3" class="form-control" asp-items="ViewBag.Studios"></select>
-                                    </span>
-                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+									<span class="styled-select">
 
-                                </div>
-                            </p>
-                        </div>
+										<select name="studio3" class="form-control" asp-items="ViewBag.Studios"></select>
+									</span>
+									<span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+
+								</div>
+							</p>
+						</div>
 
                         <label for="file">File</label>
                         <input type="file" name="files" multiple><br><br>
@@ -84,9 +89,8 @@
                             </div>
                         </div>*@
                     </div>
-
                     <p class="form-submit">
-                        <input type="submit" id="publish-question" value="Ask now" class="button color small submit">
+                        <input type="submit" name="action" id="publish-question" value="Ask now" class="button color small submit">
                     </p>
                 </form>
             </div>
