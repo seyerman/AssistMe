@@ -59,6 +59,47 @@ namespace AssistMeProject.Controllers
             return View(user);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(int LEVEL, string USERNAME, string PASSWORD, string EMAIL,
+            string PHOTO, int QUESTIONS_ANSWERED, int POSITIVE_VOTES_RECEIVED, int QUESTIONS_ASKED, int INTERESTING_VOTES_RECEIVED,
+            string DESCRIPTION, string INTERESTS_OR_KNOWLEDGE, string COUNTRY, string CITY, string StudioName)
+        {
+            User user = new User();
+            user.LEVEL = LEVEL;
+            user.USERNAME = USERNAME;
+            user.PASSWORD = PASSWORD;
+            user.EMAIL = EMAIL;
+            user.PHOTO = PHOTO;
+            user.QUESTIONS_ASKED = QUESTIONS_ASKED;
+            user.QUESTIONS_ANSWERED = QUESTIONS_ANSWERED;
+            user.POSITIVE_VOTES_RECEIVED = POSITIVE_VOTES_RECEIVED;
+            user.INTERESTING_VOTES_RECEIVED = INTERESTING_VOTES_RECEIVED;
+            user.DESCRIPTION = DESCRIPTION;
+            user.INTERESTS_OR_KNOWLEDGE = INTERESTS_OR_KNOWLEDGE;
+            user.COUNTRY = COUNTRY;
+            user.CITY = CITY;
+            user.StudioId = _context.Studio.FirstOrDefault(a => a.Name.Equals(StudioName)).Id;
+            if (ModelState.IsValid)
+            {
+                bool exist = UserExists(user.USERNAME);
+                string message = "";
+                if (exist)
+                {
+                    message = "El usuario ya existe, digite uno nuevo";
+                }
+                else
+                {
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
+                    message = "Cuenta creada, inicie sesión";
+                }
+                return RedirectToAction("Index", "Users", new { message });
+            }
+            return View(user);
+        }
+
+        /*
         // POST: Users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -83,6 +124,7 @@ namespace AssistMeProject.Controllers
             }
             return View(user);
         }
+        */
 
         // GET: Users/Edit/5
         public IActionResult Edit()
