@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AssistMeProject.Models.Question>
+
+
+@{
+    string title = "Questions";
+    //Example of how to get data of user
+    if (ViewBag.User != null)
+    {
+        title = ViewBag.User.USERNAME;
+    }
+    //End of example
+    ViewData["Title"] = title;
+}
+
+
+
+<section class="container main-content page-left-sidebar" id="main">
+    <div class="row">
+        <div class="col-md-9">
+
+
+            <div id="tableEtiqueta" class="row">
+                <div class="col-md-12">
+
+                    <div>
+                        <p></p><p></p><p></p><p></p><p></p>
+                    </div>
+                    <div class="boxedtitle page-title"><h2>Tabla Preguntas</h2></div>
+
+                    <table class="table table-striped table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+
+                                <th align="left">
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th align="left">
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th align="left">
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </th>
+                                <th align="left">
+                                    @Html.DisplayNameFor(model => model.User)
+                                </th>
+                                <th align="left">
+                                    @Html.DisplayNameFor(model => model.QuestionStudios)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.User.USERNAME)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.QuestionStudios.First())
+                                </td>
+
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div><!-- End # etiqueta Table-->
+        </div><!-- End page-content -->
+
+
+
+    </div><!-- End row -->
+</section><!-- End container -->
