@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AssistMeProject.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AssistMeProject.Models;
-using System.Security.Claims;
-using System.Threading;
-using System.Web;
 
 namespace AssistMeProject.Controllers
 {
@@ -243,5 +238,9 @@ namespace AssistMeProject.Controllers
             return RedirectToAction("Index", "Users");
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

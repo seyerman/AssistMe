@@ -65,6 +65,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -74,17 +75,17 @@ namespace AssistMeProject.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
+            ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
 
             if (actualUser != null)
             {
-                ViewData["actualUserID"] = actualUser.ID;
                 ViewData["Admin"] = actualUser.LEVEL;
 
             }
             else
             {
                 ViewData["Admin"] = 4;
-                ViewData["actualUserID"] = -1;
+
             }
 
 
@@ -106,51 +107,50 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-            if (actualUser != null)
+
+
+
+            if (question.Views.All(x => x.UserID != actualUser.ID))
             {
-                if (question.Views.All(x => x.UserID != actualUser.ID))
+                var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
+                _context.View.Add(view);
+                _context.SaveChanges();
+            }
+
+            initSearcher();
+
+            var relatedQuestions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(question.Title);
+
+            foreach (ISearchable s in searchables)
+            {
+                Question q = (Question)s;
+                if (q.Id != question.Id)
+                    relatedQuestions.Add(q);
+                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+            }
+
+
+            ViewBag.Related = relatedQuestions;
+
+            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+            List<string> files = new List<string>();
+
+            if (Directory.Exists(filePath))
+            {
+                string[] rawFiles = Directory.GetFiles(filePath);
+                foreach(string rf in rawFiles)
                 {
-                    var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
-                    _context.View.Add(view);
-                    _context.SaveChanges();
+                    files.Add(Path.GetFileName(rf));
                 }
             }
 
-                 initSearcher();
-
-                var relatedQuestions = new List<Question>();
-                List<ISearchable> searchables = _searcher.Search(question.Title);
-
-                foreach (ISearchable s in searchables)
-                {
-                    Question q = (Question)s;
-                    if (q.Id != question.Id)
-                        relatedQuestions.Add(q);
-                    if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
-                }
+            ViewBag.FileNames = files;
 
 
-                ViewBag.Related = relatedQuestions;
-
-                var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
-
-                List<string> files = new List<string>();
-
-                if (Directory.Exists(filePath))
-                {
-                    string[] rawFiles = Directory.GetFiles(filePath);
-                    foreach (string rf in rawFiles)
-                    {
-                        files.Add(Path.GetFileName(rf));
-                    }
-                }
-
-                ViewBag.FileNames = files;
-
-
-                return View(question);
+            return View(question);
         }
-
 
         private void initSearcher()
         {
@@ -158,7 +158,7 @@ namespace AssistMeProject.Controllers
             LoadSearcher();
         }
 
-        private  void LoadSearcher()
+        private void LoadSearcher()
         {
             var questions = _context.Question
                 .Include(q => q.Answers)
@@ -511,7 +511,7 @@ namespace AssistMeProject.Controllers
 
 
         // GET: Questions/Details/5
-        public async Task<IActionResult> ArchivedQuestionDetails(int? id)
+        public async Task<IActionResult> OLDARCHIVE(int? id)
         {
 
             var question = await _context.Question
@@ -544,5 +544,99 @@ namespace AssistMeProject.Controllers
             ViewBag.Related = relatedQuestions;
             return View(question);
         }
+
+
+        // GET: Questions/Details/5
+        public async Task<IActionResult> ArchivedQuestionDetails(int? id)
+        {
+
+
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            //Example of how to get the actual user that logged into the application
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+
+            ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
+
+            var question = await _context.Question
+                .Include(q => q.Answers)
+                    .ThenInclude(x => x.PositiveVotes)
+                .Include(q => q.InterestingVotes)
+                .Include(q => q.Views)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label)
+                .Include(q => q.QuestionStudios)
+                    .ThenInclude(qs => qs.Studio)
+                .Include(q => q.User)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+
+
+
+            if (question.Views.All(x => x.UserID != actualUser.ID))
+            {
+                var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
+                _context.View.Add(view);
+                _context.SaveChanges();
+            }
+
+            initSearcher();
+
+            var relatedQuestions = new List<Question>();
+            List<ISearchable> searchables = _searcher.Search(question.Title);
+
+            foreach (ISearchable s in searchables)
+            {
+                Question q = (Question)s;
+                if (q.Id != question.Id)
+                    relatedQuestions.Add(q);
+                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+            }
+
+
+            ViewBag.Related = relatedQuestions;
+
+            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+            List<string> files = new List<string>();
+
+            if (Directory.Exists(filePath))
+            {
+                string[] rawFiles = Directory.GetFiles(filePath);
+                foreach (string rf in rawFiles)
+                {
+                    files.Add(Path.GetFileName(rf));
+                }
+            }
+
+            ViewBag.FileNames = files;
+
+
+            return View(question);
+        }
+
     }
 }
