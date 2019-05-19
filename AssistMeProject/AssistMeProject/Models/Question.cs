@@ -58,15 +58,6 @@ namespace AssistMeProject.Models
         //Method to know if the user already vote interesting
          public bool UserVote(int userId) {
 
-            Console.WriteLine("____________");
-            Console.WriteLine("____________");
-            Console.WriteLine("____________");
-            Console.WriteLine("____________");
-            Console.WriteLine("____________");
-            Console.WriteLine("____________");
-            Console.WriteLine("____________");
-            Console.WriteLine("____________");
-            Console.WriteLine(userId);
             return InterestingVotes.Any(x => x.UserID == userId); 
         }
 

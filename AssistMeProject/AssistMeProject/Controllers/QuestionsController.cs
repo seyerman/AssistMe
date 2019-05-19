@@ -104,7 +104,6 @@ namespace AssistMeProject.Controllers
 
             if (actualUser != null)
             {
-
                 if (question.Views.All(x => x.UserID != actualUser.ID))
                 {
                     var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
@@ -115,10 +114,8 @@ namespace AssistMeProject.Controllers
 
                  initSearcher();
 
-
                 var relatedQuestions = new List<Question>();
                 List<ISearchable> searchables = _searcher.Search(question.Title);
-
 
                 foreach (ISearchable s in searchables)
                 {
@@ -145,7 +142,6 @@ namespace AssistMeProject.Controllers
 
                 ViewBag.FileNames = files;
 
-
                 return View(question);
         }
 
@@ -155,40 +151,41 @@ namespace AssistMeProject.Controllers
             _searcher = new BM25Searcher();
             LoadSearcher();
         }
-        private  void LoadSearcher()
-        {
-            var questions = _context.Question
-                .Include(q => q.Answers)
-                .Include(q => q.QuestionLabels)
-                    .ThenInclude(ql => ql.Label)
-                .Include(q => q.User)
-                .Include(q => q.QuestionStudios)
-                    .ThenInclude(qs => qs.Studio)
-                .ToList();
-            foreach (var question in questions)
-            {
-                _searcher.AddDocument(question);
-            }
 
-        }
+		private void LoadSearcher()
+		{
+			var questions = _context.Question
+				.Include(q => q.Answers)
+				.Include(q => q.QuestionLabels)
+					.ThenInclude(ql => ql.Label)
+				.Include(q => q.User)
+				.Include(q => q.QuestionStudios)
+					.ThenInclude(qs => qs.Studio)
+				.ToList();
+			foreach (var question in questions)
+			{
+				_searcher.AddDocument(question);
+			}
 
-        [HttpPost]
-        public async Task<IActionResult> Search(string query)
-        {
-            if (BM25Searcher.IsValidString(query))
-            {
-                initSearcher();
-                List<Question> questions = new List<Question>();
-                List<ISearchable> searchables = _searcher.Search(query);
-                foreach (ISearchable s in searchables)
-                {
-                    questions.Add((Question)s);
-                }
-                return View("Index", questions);
-            }
+		}
 
-            return RedirectToAction(nameof(Index));
-        }
+		[HttpPost]
+		public async Task<IActionResult> Search(string query)
+		{
+			if (BM25Searcher.IsValidString(query))
+			{
+				initSearcher();
+				List<Question> questions = new List<Question>();
+				List<ISearchable> searchables = _searcher.Search(query);
+				foreach (ISearchable s in searchables)
+				{
+					questions.Add((Question)s);
+				}
+				return View("Index", questions);
+			}
+
+			return RedirectToAction(nameof(Index));
+		}
 
 		// GET: Questions/Create
 		public IActionResult Create()
