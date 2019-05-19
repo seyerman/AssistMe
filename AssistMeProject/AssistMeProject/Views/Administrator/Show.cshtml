@@ -13,18 +13,17 @@
 }
 
 
+    <section class="container main-content" id="main" style="display:none">
+        <div class="row">
+            <!--Espacios-->
+            <div>
+                <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p>
+            </div>
 
-<section class="container main-content page-left-sidebar" id="main">
-    <div class="row">
-        <div class="col-md-9">
 
-
-            <div class="row">
-                <div class="col-md-9">
-                <p></p>
-                <p>
-
-                </p>
+            <div class="col-md-9">
+                <div id="commentlist" class="page-content">
+                    <div class="boxedtitle page-title"><h2>Tablas Resumenes de preguntas</h2></div>
                     <div class="page-content ask-question">
                         <div class="boxedtitle page-title"><h2>Filtrar preguntas por Studio</h2></div>
 
@@ -81,6 +80,37 @@
 
                     <p></p><p></p><p></p>
 
+
+                    <p></p><p></p>
+                    <p></p>
+
+                    <div class="page-content ask-question">
+                        <div class="boxedtitle page-title"><h2>Escoja el tag del cual desea ver las preguntas relacionadas.</h2></div>
+
+                        <p>Filtro por Tags.</p>
+
+                        <div class="form-style form-style-3" id="question-submit">
+
+                            <form asp-action="ShowTagTable">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-inputs clearfix">
+                                    <div class="form-group">
+                                        <label class="required"> Tag<span>*</span></label>
+                                        <span class="styled-select">
+                                            <select name="tag" class="form-control" asp-items="ViewBag.Labels"></select>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="form-submit">
+                                    <input type="submit" id="publish-question" value="Ver tabla" class="button color small submit">
+                                </p>
+                            </form>
+
+                        </div>
+
+                    </div><!-- End page-content -->
+
+                    <p></p><p></p><p></p>
                     <div class="page-content ask-question">
                         <div class="boxedtitle page-title"><h2>Mostrar tabla de preguntas sin filtrado</h2></div>
 
@@ -100,16 +130,16 @@
 
                     </div><!-- End page-content -->
 
-                </div><!-- End main -->
-            </div><!-- End row -->
+
+                </div><!-- End page-content -->
 
 
 
-        </div><!-- End page-content -->
-     </div><!-- End row -->
-</section><!-- End container -->
+            </div><!-- End main -->
 
 
+        </div>
+    </section>
 
 
             <script>
