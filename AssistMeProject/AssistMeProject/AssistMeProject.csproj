@@ -48,6 +48,12 @@
     <Compile Remove="Migrations\20190502013415_pull33.Designer.cs" />
     <Compile Remove="Migrations\20190502013550_pull33.cs" />
     <Compile Remove="Migrations\20190502013550_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190513142517_migracionsota.cs" />
+    <Compile Remove="Migrations\20190513142517_migracionsota.Designer.cs" />
+    <Compile Remove="Migrations\20190513223434_questionStudio.cs" />
+    <Compile Remove="Migrations\20190513223434_questionStudio.Designer.cs" />
+    <Compile Remove="Migrations\20190515145942_mm.cs" />
+    <Compile Remove="Migrations\20190515145942_mm.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

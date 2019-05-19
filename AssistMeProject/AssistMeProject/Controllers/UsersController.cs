@@ -24,6 +24,13 @@ namespace AssistMeProject.Controllers
         public IActionResult Index(string message)
         {
             setActiveUser();
+            List<SelectListItem> list = new List<SelectListItem>();
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
+            ViewBag.Studios = new SelectList(list, "Value", "Text");
             ViewBag.MESSAGE = message;
             return View();
         }
@@ -47,13 +54,27 @@ namespace AssistMeProject.Controllers
             return View(user);
         }
 
-        // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
+        public async Task<IActionResult> Create(int LEVEL, string USERNAME, string PASSWORD, string EMAIL,
+            string PHOTO, int QUESTIONS_ANSWERED, int POSITIVE_VOTES_RECEIVED, int QUESTIONS_ASKED, int INTERESTING_VOTES_RECEIVED,
+            string DESCRIPTION, string INTERESTS_OR_KNOWLEDGE, string COUNTRY, string CITY, string StudioName)
         {
+            User user = new User();
+            user.LEVEL = LEVEL;
+            user.USERNAME = USERNAME;
+            user.PASSWORD = PASSWORD;
+            user.EMAIL = EMAIL;
+            user.PHOTO = PHOTO;
+            user.QUESTIONS_ASKED = QUESTIONS_ASKED;
+            user.QUESTIONS_ANSWERED = QUESTIONS_ANSWERED;
+            user.POSITIVE_VOTES_RECEIVED = POSITIVE_VOTES_RECEIVED;
+            user.INTERESTING_VOTES_RECEIVED = INTERESTING_VOTES_RECEIVED;
+            user.DESCRIPTION = DESCRIPTION;
+            user.INTERESTS_OR_KNOWLEDGE = INTERESTS_OR_KNOWLEDGE;
+            user.COUNTRY = COUNTRY;
+            user.CITY = CITY;
+            user.StudioId = _context.Studio.FirstOrDefault(a => a.Name.Equals(StudioName)).Id;
             if (ModelState.IsValid)
             {
                 bool exist = UserExists(user.USERNAME);
@@ -61,13 +82,14 @@ namespace AssistMeProject.Controllers
                 if (exist)
                 {
                     message = "El usuario ya existe, digite uno nuevo";
-                } else
+                }
+                else
                 {
                     _context.Add(user);
                     await _context.SaveChangesAsync();
                     message = "Cuenta creada, inicie sesión";
                 }
-                return RedirectToAction("Index","Users",new { message});
+                return RedirectToAction("Index", "Users", new { message });
             }
             return View(user);
         }
@@ -98,10 +120,10 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY")] User user)
+        public async Task<IActionResult> Edit([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY,StudioId")] User user)
         {
             setActiveUser();
-            if (ModelState.IsValid && _context.User.Count(p => p.USERNAME.Equals(user.USERNAME))==1)
+            if (ModelState.IsValid && _context.User.Count(p => p.USERNAME.Equals(user.USERNAME)) == 1)
             {
                 try
                 {
@@ -179,12 +201,14 @@ namespace AssistMeProject.Controllers
             setActiveUser();
             string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
 
-            if (!string.IsNullOrEmpty(currentlyActiveUsername) ) {
+            if (!string.IsNullOrEmpty(currentlyActiveUsername))
+            {
                 if (string.IsNullOrEmpty(viewingToUser))
                     return View(model.GetUser(currentlyActiveUsername));
                 ViewData["ACTIVE_USER"] = currentlyActiveUsername;
                 return View(model.GetUser(viewingToUser));
-            } else
+            }
+            else
             {
                 return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             }
@@ -194,11 +218,12 @@ namespace AssistMeProject.Controllers
         public IActionResult Profile(string username, string password, string method)
         {
             setActiveUser();
-            User found = model.FindUser(username,password,method);
+            User found = model.FindUser(username, password, method);
             if (found == null)
             {
-                return RedirectToAction("Index","Users",new { message = "Error, prueba de nuevo"});
-            } else
+                return RedirectToAction("Index", "Users", new { message = "Error, prueba de nuevo" });
+            }
+            else
             {
                 //Only username it's saved for have a better security but this might be slower because have to search user every time it's needed
                 HttpContext.Session.SetString(ACTIVE_USERNAME, found.USERNAME);
@@ -210,7 +235,7 @@ namespace AssistMeProject.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove(ACTIVE_USERNAME);
-            return RedirectToAction("Index","Users");
+            return RedirectToAction("Index", "Users");
         }
 
         public IActionResult Create()
