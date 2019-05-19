@@ -1,19 +1,19 @@
 ﻿@model AssistMeProject.Models.Question
 
 @{
-    ViewData["Title"] = "Advanced Search";
+    ViewData["Title"] = "AdvancedSearch";
 }
 
 <div class="row">
     <div class="col-md-9">
 
         <div class="page-content ask-question">
-            <div class="boxedtitle page-title"><h2>Advanced Search</h2></div>
+            <div class="boxedtitle page-title"><h2>Búsqueda avanzada</h2></div>
 
             <p>Para realizar una búsqueda avanzada especifique los parámetros de búsqueda ya sea por añadiendo etiquetas, studios o Glober creador.</p>
 
             <div class="form-style form-style-3" id="question-submit">
-                <form asp-action="Advanced Search">
+                <form asp-action="AdvancedSearch">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div id="form-textarea">
                         <p>
@@ -23,7 +23,7 @@
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </p>
                     </div>
-
+                    @*
                     <p>
                         <label>Tags</label>
                         <input type="text" class="input" name="question_tags" id="question_tags" data-seperator=",">
@@ -40,11 +40,11 @@
                         </span>
                         <span class="form-description">Please choose the appropriate section so easily search for your question .</span>
                     </p>
-
+                    *@
 
 
                     <p class="form-submit">
-                        <input type="submit" id="publish-question" value="Search" class="button color small submit">
+                        <input type="submit" id="publish-question" value="Buscar" class="button color small submit">
                     </p>
                 </form>
             </div>

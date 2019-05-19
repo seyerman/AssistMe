@@ -190,8 +190,58 @@ namespace AssistMeProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-		// GET: Questions/Create
-		public IActionResult Create()
+        public IActionResult AdvancedSearch()
+        {
+            string Activeuser = HttpContext.Session.GetString("USERNAME");
+            if (string.IsNullOrEmpty(Activeuser))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+            }
+
+            ViewBag.username = Activeuser;
+
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            //list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
+
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
+            ViewData["Studios"] = new SelectList(list, "Value", "Text");
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdvancedSearch(bool IsArchived, int Id, string Title, string Description, int IdUser, DateTime Date)
+        {
+            if (BM25Searcher.IsValidString(Description))
+            {
+                initSearcher();
+                List<Question> questions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(Description);
+                foreach (ISearchable s in searchables)
+                {
+                    questions.Add((Question)s);
+                }
+                return View("Index", questions);
+            }
+
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        private IQueryable FilterGlober(User user)
+        {
+            return _context.Question.Where(p => p.UserId == user.ID);
+        }
+        
+    
+        // GET: Questions/Create
+        public IActionResult Create()
 		{
 			string Activeuser = HttpContext.Session.GetString("USERNAME");
 			if (string.IsNullOrEmpty(Activeuser))
@@ -216,10 +266,7 @@ namespace AssistMeProject.Controllers
 			return View();
 		}
 
-		public IActionResult AdvancedSearch()
-		{
-			return View();
-		}
+		
 
 		// POST: Questions/Create
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -467,6 +514,7 @@ namespace AssistMeProject.Controllers
         {
             return _context.Question.Any(e => e.Id == id);
         }
+
         public async Task<IActionResult> UpdateDate(int? id)
         {
             var question = await _context.Question.FindAsync(id);
@@ -498,7 +546,7 @@ namespace AssistMeProject.Controllers
             return RedirectToAction(nameof(Details), new { id = question.Id });
         }
 
-
+   
         // GET: Questions/Delete/5
         public async Task<IActionResult> Archive(int? id)
         {
