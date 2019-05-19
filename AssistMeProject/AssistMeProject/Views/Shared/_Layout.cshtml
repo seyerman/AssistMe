@@ -1,4 +1,20 @@
 ﻿<!DOCTYPE html>
+
+
+
+@{ 
+    if (ViewBag.User != null)
+    {
+        ViewBag.userID = ViewBag.User.ID;
+        ViewData["userID"] = ViewBag.User.ID; 
+    }
+    else {
+        ViewBag.userID = -1;
+        ViewData["userID"] = -1;
+    }
+    //End of example
+   
+}
 <html>
 <head>
     <meta charset="utf-8" />
@@ -35,12 +51,12 @@
         <div id="header-top">
             <section class="container clearfix">
                 <!--nav class="header-top-nav">
-                <ul>
-                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                </ul>
-            </nav -->
+                    <ul>
+                        <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                    </ul>
+                </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -75,11 +91,11 @@
                                 <li class="user-no-active"><a href="/Users/">Iniciar Sesión</a></li>
                                 <li class="user-active"><a href="/Users/Profile">Perfil del Usuario</a></li>
                                 <!--
-                            <li><a href="user_questions.html">User Questions</a></li>
-                            <li><a href="user_answers.html">User Answers</a></li>
-                            <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
-                            <li><a href="user_points.html">User Points</a></li>
-                            -->
+                                <li><a href="user_questions.html">User Questions</a></li>
+                                <li><a href="user_answers.html">User Answers</a></li>
+                                <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
+                                <li><a href="user_points.html">User Points</a></li>
+                                -->
                                 <li class="user-active"><a href="/Users/Edit">Editar Perfil</a></li>
                                 <li class="user-active"><a href="/Users/Logout">Cerrar Sesión</a></li>
                             </ul>
@@ -91,6 +107,8 @@
                                 <li><a href="/Administrator/AddAdmin">Asignar Rol Administrador</a></li>
                                 <li><a href="/Administrator/CreateStudio">Crear Nuevo Studio</a></li>
                                 <li><a href="/Administrator/ArchivedQuestions">Preguntas Archivadas</a></li>
+                                <li><a href="/Administrator/Show">Tablas Resumenes</a></li>
+
 
                             </ul>
                         </li>
@@ -114,8 +132,9 @@
             </section><!-- End container -->
         </header><!-- End header -->
 
-        
-        <div class="container main-content"><!--Contenido principal de la pagina--><!--Respetar el nivel de las paginas para que no se superpongan-->
+
+        <div class="container main-content">
+            <!--Contenido principal de la pagina--><!--Respetar el nivel de las paginas para que no se superpongan-->
             <div class="row">
                 <div class="col-md-9">
                     @RenderBody()
@@ -134,7 +153,7 @@
 
     <partial name="_CookieConsentPartial" />
 
-    
+
 
     <footer id="footer-bottom">
         <section class="container">
@@ -156,6 +175,14 @@
 
     <div class="go-up"><i class="icon-chevron-up"></i></div>
 
+
+
+    <script>
+
+    function getUserID() {
+        return @ViewBag.userID;
+    }
+    </script>
     <!-- js -->
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/jquery-ui-1.10.3.custom.min.js"></script>
@@ -177,30 +204,26 @@
     <script src="~/js/questions.js"></script>
     <script src="~/js/site.js"></script>
     <!-- End js -->
-
-
-
-
     @*<environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>*@
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>*@
 
     @RenderSection("Scripts", required: false)
 </body>

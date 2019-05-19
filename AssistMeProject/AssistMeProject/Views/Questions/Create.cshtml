@@ -1,7 +1,7 @@
 ﻿@model AssistMeProject.Models.Question
 
 @{
-    ViewData["Title"] = "Create";
+	ViewData["Title"] = "Create";
 }
 
 <div class="row">
@@ -18,15 +18,42 @@
                     <div class="form-inputs clearfix">
                         <p>
                             <label asp-for="Title" class="required">Question Title<span>*</span></label>
-                            <input asp-for="Title" type="text" id="question-title">
+							@{
+								string[] q = new string[2];
+								if (TempData.ContainsKey("question"))
+								{
+									q = (string[])TempData["question"];
+								}
+								if (q != null)
+								{
+
+									<input asp-for="Title" type="text" id="question-title" value="@q[0]"> 
+								}
+								else
+								{
+									<input asp-for="Title" type="text" id="question-title">
+								}
+								}
                             <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
                             <span asp-validation-for="Title" class="text-danger"></span>
+							
                         </p>
 						<div id="form-textarea">
 
 							<p>
 								<label asp-for="Description" class="required">Details<span>*</span></label>
+								@{
+
+									if (q != null)
+									{
+										string description = q[1];
 								<textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+									}
+									else
+									{
+										<textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8" >"Hola me haces caso porfavor"</textarea>
+									}
+								}
 								<span class="form-description">Type the description thoroughly and in detail .</span>
 								<span asp-validation-for="Description" class="text-danger"></span>
 							</p>
@@ -34,19 +61,61 @@
 								<input type="submit"
 									   name="action"
 									   value="Suggestions" class="button color small submit" />
+								<span class="form-description"> Please fill the title and description section to use Suggestions</span>
 							</p>
 							<p>
+								@{
+									string[] lb = (string[])TempData["suggestLb"];
+									if (lb != null)
+									{
+										<i class="icon-tags"></i>
+										<a href="#"> Suggestions for Labels:  </a>
+										for (int i = 0; i < lb.Length; i++)
+										{
+											string text = lb[i];
+											if (i != lb.Length - 1)
+											{
+												text += ", ";
+											}
+											<a href="#">@text</a>
+										}
+									}
+								}
 								<label class="required">Tags<span>*</span></label>
 								<input class="input" name="question_tags" id="question_tags" data-seperator=",">
 								<span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
 							</p>
 							<p>
+								@{
+									if (TempData.ContainsKey("suggestSt"))
+									{
+										string[] st = (string[])TempData["suggestSt"];
+										if (st != null)
+										{
+											<span class="question-category">
+												<i class="icon-folder-close"></i>
+												<a href="#"> Suggestions For Studios:</a>
+												@{
+													for (int i = 0; i < st.Length; i++)
+													{
+														string text = st[i];
+														if (i != st.Length - 1)
+														{
+															text += ", ";
+														}
+														<a href="#">@text</a>
+													}
+												}
+											</span>
+										}
+									}
+								}
 								<div class="form-group">
 									<label class="required">Studio 1<span>*</span></label>
 
 									<span class="styled-select">
-
 										<select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
+
 									</span>
 								</div>
 							</p>

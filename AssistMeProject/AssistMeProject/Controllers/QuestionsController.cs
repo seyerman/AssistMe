@@ -13,146 +13,138 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace AssistMeProject.Controllers
 {
-    //
-    public class QuestionsController : Controller
-    {
+	//
+	public class QuestionsController : Controller
+	{
 
-        private const int MAX_RELATED_QUESTIONS = 5;
+		private const int MAX_RELATED_QUESTIONS = 5;
 
-        private readonly AssistMeProjectContext _context;
-        private IHostingEnvironment _hostingEnvironment;
-        public AssistMe model;
-        private BM25Searcher _searcher;
+		private readonly AssistMeProjectContext _context;
+		private IHostingEnvironment _hostingEnvironment;
+		public AssistMe model;
+		private BM25Searcher _searcher;
 
-        public QuestionsController(IHostingEnvironment environment, AssistMeProjectContext context)
-        {
-            _hostingEnvironment = environment;
-            _context = context;
-            model = new AssistMe(context);
-        }
+		public QuestionsController(IHostingEnvironment environment, AssistMeProjectContext context)
+		{
+			_hostingEnvironment = environment;
+			_context = context;
+			model = new AssistMe(context);
+		}
 
-        // GET: Questions
-        public async Task<IActionResult> Index()
-        {
+		// GET: Questions
+		public async Task<IActionResult> Index()
+		{
 
-            //Example of how to get the actual user that logged into the application
-            User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
-                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
-            ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
-                                       //End of the example
-
-
-            var questions = await _context.Question.Where(q => q.isArchived == false)
-
-                    .Include(q => q.Answers)
-                    .Include(q => q.InterestingVotes)
-                    .Include(q => q.QuestionLabels)
-                        .ThenInclude(ql => ql.Label)
-                    .Include(q => q.QuestionStudios)
-                        .ThenInclude(qs => qs.Studio)
-                    .Include(q => q.User)
-                    .ToListAsync();
-
-            questions.Sort();
+			//Example of how to get the actual user that logged into the application
+			User actualUser = null;
+			if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+				actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+			ViewBag.User = actualUser; //You just put at view (in C# code) ViewBag.User and get the user logged
+									   //End of the example
 
 
+			var questions = await _context.Question.Where(q => q.isArchived == false)
 
-            return View(questions);
+					.Include(q => q.Answers)
+					.Include(q => q.InterestingVotes)
+					.Include(q => q.QuestionLabels)
+						.ThenInclude(ql => ql.Label)
+					.Include(q => q.QuestionStudios)
+						.ThenInclude(qs => qs.Studio)
+					.Include(q => q.User)
+					.ToListAsync();
 
-        }
+			questions.Sort();
 
-        // GET: Questions/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
+			return View(questions);
+
+		}
+
+		// GET: Questions/Details/5
+		public async Task<IActionResult> Details(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
+			//Example of how to get the actual user that logged into the application
+			User actualUser = null;
+			if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+				actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
 
+			if (actualUser != null)
+			{
+				ViewData["actualUserID"] = actualUser.ID;
+				ViewData["Admin"] = actualUser.LEVEL;
 
-            if (id == null)
-            {
-                return NotFound();
-            }
-            //Example of how to get the actual user that logged into the application
-            User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
-                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+			}
+			else
+			{
+				ViewData["Admin"] = 4;
+				ViewData["actualUserID"] = -1;
+			}
 
-            ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
+			var question = await _context.Question
+				.Include(q => q.Answers)
+					.ThenInclude(x => x.PositiveVotes)
+				.Include(q => q.InterestingVotes)
+				.Include(q => q.Views)
+				.Include(q => q.QuestionLabels)
+					.ThenInclude(ql => ql.Label)
+				.Include(q => q.QuestionStudios)
+					.ThenInclude(qs => qs.Studio)
+				.Include(q => q.User)
+				.FirstOrDefaultAsync(m => m.Id == id);
+
+			if (question == null)
+			{
+				return NotFound();
+			}
 
             if (actualUser != null)
             {
-                ViewData["Admin"] = actualUser.LEVEL;
-
-            }
-            else
-            {
-                ViewData["Admin"] = 4;
-
-            }
-
-
-            var question = await _context.Question
-                .Include(q => q.Answers)
-                    .ThenInclude(x => x.PositiveVotes)
-                .Include(q => q.InterestingVotes)
-                .Include(q => q.Views)
-                .Include(q => q.QuestionLabels)
-                    .ThenInclude(ql => ql.Label)
-                .Include(q => q.QuestionStudios)
-                    .ThenInclude(qs => qs.Studio)
-                .Include(q => q.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-
-            if (question == null)
-            {
-                return NotFound();
-            }
-
-
-
-
-            if (question.Views.All(x => x.UserID != actualUser.ID))
-            {
-                var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
-                _context.View.Add(view);
-                _context.SaveChanges();
-            }
-
-            initSearcher();
-
-            var relatedQuestions = new List<Question>();
-            List<ISearchable> searchables = _searcher.Search(question.Title);
-
-            foreach (ISearchable s in searchables)
-            {
-                Question q = (Question)s;
-                if (q.Id != question.Id)
-                    relatedQuestions.Add(q);
-                if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
-            }
-
-
-            ViewBag.Related = relatedQuestions;
-
-            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
-
-            List<string> files = new List<string>();
-
-            if (Directory.Exists(filePath))
-            {
-                string[] rawFiles = Directory.GetFiles(filePath);
-                foreach(string rf in rawFiles)
+                if (question.Views.All(x => x.UserID != actualUser.ID))
                 {
-                    files.Add(Path.GetFileName(rf));
+                    var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
+                    _context.View.Add(view);
+                    _context.SaveChanges();
                 }
             }
 
-            ViewBag.FileNames = files;
+                 initSearcher();
 
+                var relatedQuestions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(question.Title);
 
-            return View(question);
+                foreach (ISearchable s in searchables)
+                {
+                    Question q = (Question)s;
+                    if (q.Id != question.Id)
+                        relatedQuestions.Add(q);
+                    if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+                }
+
+                ViewBag.Related = relatedQuestions;
+
+                var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+                List<string> files = new List<string>();
+
+                if (Directory.Exists(filePath))
+                {
+                    string[] rawFiles = Directory.GetFiles(filePath);
+                    foreach (string rf in rawFiles)
+                    {
+                        files.Add(Path.GetFileName(rf));
+                    }
+                }
+
+                ViewBag.FileNames = files;
+
+                return View(question);
         }
+
 
         private void initSearcher()
         {
@@ -160,94 +152,101 @@ namespace AssistMeProject.Controllers
             LoadSearcher();
         }
 
-        private void LoadSearcher()
-        {
-            var questions = _context.Question
-                .Include(q => q.Answers)
-                .Include(q => q.QuestionLabels)
-                    .ThenInclude(ql => ql.Label)
-                .Include(q => q.User)
-                .Include(q => q.QuestionStudios)
-                    .ThenInclude(qs => qs.Studio)
-                .ToList();
-            foreach (var question in questions)
-            {
-                _searcher.AddDocument(question);
-            }
+		private void LoadSearcher()
+		{
+			var questions = _context.Question
+				.Include(q => q.Answers)
+				.Include(q => q.QuestionLabels)
+					.ThenInclude(ql => ql.Label)
+				.Include(q => q.User)
+				.Include(q => q.QuestionStudios)
+					.ThenInclude(qs => qs.Studio)
+				.ToList();
+			foreach (var question in questions)
+			{
+				_searcher.AddDocument(question);
+			}
 
-        }
+		}
 
-        [HttpPost]
-        public async Task<IActionResult> Search(string query)
-        {
-            if (BM25Searcher.IsValidString(query))
-            {
-                initSearcher();
-                List<Question> questions = new List<Question>();
-                List<ISearchable> searchables = _searcher.Search(query);
-                foreach (ISearchable s in searchables)
-                {
-                    questions.Add((Question)s);
-                }
-                return View("Index", questions);
-            }
+		[HttpPost]
+		public async Task<IActionResult> Search(string query)
+		{
+			if (BM25Searcher.IsValidString(query))
+			{
+				initSearcher();
+				List<Question> questions = new List<Question>();
+				List<ISearchable> searchables = _searcher.Search(query);
+				foreach (ISearchable s in searchables)
+				{
+					questions.Add((Question)s);
+				}
+				return View("Index", questions);
+			}
 
-            return RedirectToAction(nameof(Index));
-        }
+			return RedirectToAction(nameof(Index));
+		}
 
-        // GET: Questions/Create
-        public IActionResult Create()
-        {
-            string Activeuser = HttpContext.Session.GetString("USERNAME");
-            if (string.IsNullOrEmpty(Activeuser))
-            {
-                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
-            }
+		// GET: Questions/Create
+		public IActionResult Create()
+		{
+			string Activeuser = HttpContext.Session.GetString("USERNAME");
+			if (string.IsNullOrEmpty(Activeuser))
+			{
+				return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+			}
 
-            ViewBag.username = Activeuser;
+			ViewBag.username = Activeuser;
 
-            List<SelectListItem> list = new List<SelectListItem>();
+			List<SelectListItem> list = new List<SelectListItem>();
 
-            //list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
+			//list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
 
-            var studios = _context.Studio.ToList();
-            foreach (Studio s in studios)
-            {
-                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
-            }
-
-
-            ViewData["Studios"] = new SelectList(list, "Value", "Text");
+			var studios = _context.Studio.ToList();
+			foreach (Studio s in studios)
+			{
+				list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+			}
+			ViewData["Studios"] = new SelectList(list, "Value", "Text");
 
 
+			return View();
+		}
 
+		public IActionResult AdvancedSearch()
+		{
+			return View();
+		}
 
-            return View();
-        }
+		// POST: Questions/Create
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
 
-        public IActionResult AdvancedSearch()
-        {
-            return View();
-        }
-
-        // POST: Questions/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Create(string action, List<IFormFile> files, string studio, string studio2, string studio3, 
-            string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
-        {
+		public async Task<IActionResult> Create(string action, List<IFormFile> files, string studio, string studio2, string studio3,
+			string question_tags, bool IsArchived, int Id, string Title, string Description, int IdUser, DateTime Date)
+		{ 
+			//Chambonazo recomendado por cristian 
+			Question question = new Question();
+			question.isArchived = IsArchived;
+			question.Id = Id;
+			question.Title = Title;
+			question.Description = Description;
+			question.UserId = IdUser;
+			question.Date = DateTime.Now;
 			if (action == "Suggestions")
 			{
-				String query = question.Title + " " + question.Description;
-				List<String> lb = SuggestLabels(query);
-				ViewData["Sugerencias"] = lb;
-				System.IO.File.WriteAllLines(@"..\\..\\TestWriteLines.txt", lb);
+				Suggestion(Title,Description);
+				List<string> q = new List<string>();
+				q.Add(Title);
+				q.Add(Description);
+
+				TempData["question"] = q;
 			}
 			else if (action == "Ask now")
 			{
+				
 				User actualUser = null;
 				if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
 				{
@@ -348,7 +347,7 @@ namespace AssistMeProject.Controllers
 					return RedirectToAction(nameof(Index));
 				}
 			}
-            return View(question);
+            return RedirectToAction(nameof(Create));
         }
 
 
@@ -429,7 +428,7 @@ namespace AssistMeProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(question);
+            return View(question.Title,question.Description);
         }
 
         // GET: Questions/Delete/5
@@ -570,12 +569,14 @@ namespace AssistMeProject.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Suggestion(String title, String description)
+		public void Suggestion(String title, String description)
 		{
 			String query = title + " " + description;
 			List<String> lb = SuggestLabels(query);
-			ViewData["Sugerencias"] = lb;
-			return View();
+			List<String> st = SuggestStudios(query);
+			TempData["suggestLb"] = lb;
+			TempData["suggestSt"] = st;
+			
 		}
 		public List<String> SuggestLabels(string query)
 		{
@@ -622,6 +623,51 @@ namespace AssistMeProject.Controllers
 				labels.Add(l.ElementAt(i).label.Key.Tag);
 			}
 			return labels;
+		}
+		public List<String> SuggestStudios(String query)
+		{
+			List<String> suggestion = new List<String>();
+			if (BM25Searcher.IsValidString(query))
+			{
+				initSearcher();
+				List<Question> questions = new List<Question>();
+				List<ISearchable> searchables = _searcher.Search(query);
+				foreach (ISearchable s in searchables)
+				{
+					questions.Add((Question)s);
+				}
+				var relatedQuestions = new List<Question>();
+				foreach (ISearchable s in searchables)
+				{
+					Question q = (Question)s;
+					relatedQuestions.Add(q);
+					if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+				}
+				suggestion = SuggestedStudios(relatedQuestions);
+
+			}
+			return suggestion;
+		}
+		public List<String> SuggestedStudios(List<Question> sug)
+		{
+			var totalStudios = new List<Studio>();
+
+			for (int i = 0; i < sug.Count; i++)
+			{
+				Question q = sug.ElementAt(1);
+				for (int j = 0; j < q.QuestionStudios.Count; j++)
+				{
+					totalStudios.Add(q.QuestionStudios.ElementAt(j).Studio);
+				}
+
+			}
+			var s = totalStudios.GroupBy(x => x).Select(x => new { Studio = x, Count = x.Count() }).OrderByDescending(x => x.Count);
+			var stud = new List<String>();
+			for (int i = 0; i < s.Count() && i < 3; i++)
+			{
+				stud.Add(s.ElementAt(i).Studio.Key.Name);
+			}
+			return stud;
 		}
 	}
 }
