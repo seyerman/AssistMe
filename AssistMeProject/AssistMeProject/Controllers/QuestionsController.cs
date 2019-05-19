@@ -152,8 +152,7 @@ namespace AssistMeProject.Controllers
 
         private void initSearcher()
         {
-            _searcher = new BM25Searcher();
-            LoadSearcher();
+            _searcher = new BM25Searcher();    
         }
         private  void LoadSearcher()
         {
@@ -172,12 +171,21 @@ namespace AssistMeProject.Controllers
 
         }
 
+        private void LoadAdvancedSearcher(List<Question> questions)
+        {
+            foreach (var question in questions)
+            {
+                _searcher.AddDocument(question);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Search(string query)
         {
             if (BM25Searcher.IsValidString(query))
             {
                 initSearcher();
+                LoadSearcher();
                 List<Question> questions = new List<Question>();
                 List<ISearchable> searchables = _searcher.Search(query);
                 foreach (ISearchable s in searchables)
@@ -216,12 +224,16 @@ namespace AssistMeProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdvancedSearch(bool IsArchived, int Id, string Title, string Description, int IdUser, DateTime Date)
+        public async Task<IActionResult> AdvancedSearch(bool IsArchived, int Id, string Title, string Description, int IdUser, DateTime Date, string username)
         {
             if (BM25Searcher.IsValidString(Description))
             {
                 initSearcher();
+                //User user = _context.User.Take(p => p.USERNAME == username);
+
                 List<Question> questions = new List<Question>();
+
+
                 List<ISearchable> searchables = _searcher.Search(Description);
                 foreach (ISearchable s in searchables)
                 {
@@ -265,8 +277,6 @@ namespace AssistMeProject.Controllers
 
 			return View();
 		}
-
-		
 
 		// POST: Questions/Create
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
