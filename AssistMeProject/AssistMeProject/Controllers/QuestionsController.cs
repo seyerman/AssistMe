@@ -193,180 +193,153 @@ namespace AssistMeProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-		// GET: Questions/Create
-		public IActionResult Create()
-		{
-			string Activeuser = HttpContext.Session.GetString("USERNAME");
-			if (string.IsNullOrEmpty(Activeuser))
-			{
-				return RedirectToAction("Index", "Users", new { message = "Please Log In" });
-			}
+        // GET: Questions/Create
+        public IActionResult Create()
+        {
+            string Activeuser = HttpContext.Session.GetString("USERNAME");
+            if (string.IsNullOrEmpty(Activeuser))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+            }
 
-			ViewBag.username = Activeuser;
+            ViewBag.username = Activeuser;
 
-			List<SelectListItem> list = new List<SelectListItem>();
+            List<SelectListItem> list = new List<SelectListItem>();
 
-			//list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
+            //list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
 
-			var studios = _context.Studio.ToList();
-			foreach (Studio s in studios)
-			{
-				list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
-			}
-			ViewData["Studios"] = new SelectList(list, "Value", "Text");
-
-
-			return View();
-		}
-
-		public IActionResult AdvancedSearch()
-		{
-			return View();
-		}
-
-		// POST: Questions/Create
-		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-
-		public async Task<IActionResult> Create(string action, List<IFormFile> files, string studio, string studio2, string studio3,
-			string question_tags, bool IsArchived, int Id, string Title, string Description, int IdUser, DateTime Date)
-		{ 
-			//Chambonazo recomendado por cristian 
-			Question question = new Question();
-			question.isArchived = IsArchived;
-			question.Id = Id;
-			question.Title = Title;
-			question.Description = Description;
-			question.UserId = IdUser;
-			question.Date = DateTime.Now;
-			if (action == "Suggestions")
-			{
-				Suggestion(Title,Description);
-				List<string> q = new List<string>();
-				q.Add(Title);
-				q.Add(Description);
-
-				TempData["question"] = q;
-			}
-			else if (action == "Ask now")
-			{
-				
-				User actualUser = null;
-				if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
-				{
-					actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
-					question.UserId = actualUser.ID;
-				}
-
-				if (ModelState.IsValid)
-				{
-					_context.Add(question);
-					if (!string.IsNullOrEmpty(studio))
-					{
-						List<Studio> liststudio = new List<Studio>();
-
-						var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
-						liststudio.Add(st);
-
-						if (!string.IsNullOrEmpty(question_tags))
-						{
-							string[] tagsStr = question_tags.Split(",");
-							foreach (string t in tagsStr)
-							{
-								var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
-								if (tag == null)
-								{
-									tag = new Label();
-									tag.Tag = t;
-									_context.Add(tag);
-								}
-								tag.NumberOfTimes++;
-								var questionLabel = new QuestionLabel
-								{
-									LabelId = tag.Id,
-									QuestionId = question.Id
-								};
-								_context.Add(questionLabel);
-							}
-						}
-
-						var st1 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
-						var questionStudio = new QuestionStudio
-						{
-							StudioId = st1.Id,
-							QuestionId = question.Id
-						};
-						_context.Add(questionStudio);
-
-						if (studio2 != studio)
-						{
-							var st2 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio2);
-							liststudio.Add(st2);
-							var questionStudio2 = new QuestionStudio
-							{
-								StudioId = st2.Id,
-								QuestionId = question.Id
-							};
-							_context.Add(questionStudio2);
-						}
-
-						if (studio3 != studio && studio3 != studio2)
-						{
-							var st3 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio3);
-							liststudio.Add(st3);
-							var questionStudio3 = new QuestionStudio
-							{
-								StudioId = st3.Id,
-								QuestionId = question.Id
-							};
-							_context.Add(questionStudio3);
-						}
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
 
 
-						await _context.SaveChangesAsync();
+            ViewData["Studios"] = new SelectList(list, "Value", "Text");
 
-						var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
 
-						if (Directory.Exists(filePath))
-						{
-							Directory.Delete(filePath, true);
-						}
-						Directory.CreateDirectory(filePath);
 
-						foreach (var formFile in files)
-						{
-							filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "",
-										   Path.GetFileName(formFile.FileName));
-							if (formFile.Length > 0)
-							{
-								using (var stream = new FileStream(filePath, FileMode.Create))
-								{
-									await formFile.CopyToAsync(stream);
-								}
-							}
-						}
-						SendEmailStudio(question, liststudio);
-					}
 
-					return RedirectToAction(nameof(Index));
-				}
-			}
-            return RedirectToAction(nameof(Create));
+            return View();
+        }
+
+        public IActionResult AdvancedSearch()
+        {
+            return View();
+        }
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(List<IFormFile> files, string studio, string studio2, string studio3, 
+            string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+        {
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+            {
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+                question.UserId = actualUser.ID;
+            }
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(question);
+                if (!string.IsNullOrEmpty(studio))
+                {
+                    var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+
+                    if (!string.IsNullOrEmpty(question_tags))
+                    {
+                        string[] tagsStr = question_tags.Split(",");
+                        foreach (string t in tagsStr)
+                        {
+                            var tag = await _context.Label.FirstOrDefaultAsync(m => m.Tag == t);
+                            if (tag == null)
+                            {
+                                tag = new Label();
+                                tag.Tag = t;
+                                _context.Add(tag);
+                            }
+                            tag.NumberOfTimes++;
+                            var questionLabel = new QuestionLabel
+                            {
+                                LabelId = tag.Id,
+                                QuestionId = question.Id
+                            };
+                            _context.Add(questionLabel);
+                        }
+                    }
+
+                    var st1 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+                    var questionStudio = new QuestionStudio
+                    {
+                        StudioId = st1.Id,
+                        QuestionId = question.Id
+                    };
+                    _context.Add(questionStudio);
+
+                    if(studio2 != studio)
+                    {
+                        var st2 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio2);
+                        var questionStudio2 = new QuestionStudio
+                        {
+                            StudioId = st2.Id,
+                            QuestionId = question.Id
+                        };
+                        _context.Add(questionStudio2);
+                    }
+
+                    if (studio3 != studio && studio3 != studio2)
+                    {
+                        var st3 = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio3);
+                        var questionStudio3 = new QuestionStudio
+                        {
+                            StudioId = st3.Id,
+                            QuestionId = question.Id
+                        };
+                        _context.Add(questionStudio3);
+                    }
+
+
+                    await _context.SaveChangesAsync();
+                    var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
+
+                    if (Directory.Exists(filePath))
+                    {
+                        Directory.Delete(filePath, true);
+                    }
+                    Directory.CreateDirectory(filePath);
+
+                    foreach (var formFile in files)
+                    {
+                        filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "",
+                                       Path.GetFileName(formFile.FileName));
+                        if (formFile.Length > 0)
+                        {
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await formFile.CopyToAsync(stream);
+                            }
+                        }
+                    }
+                    SendEmailStudio(question, st);
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(question);
         }
 
 
-        public void SendEmailStudio(Question question, List<Studio> studios)
+        public void SendEmailStudio(Question question, Studio studio)
         {
-            foreach (Studio st in studios)
-            {
-                var users = _context.User.Where(p => p.StudioId == st.Id);
+            var users = _context.User.Where(p => p.StudioId == studio.Id);
 
-                foreach (var user in users)
-                {
-                    SendEmail(question, user.EMAIL);
-                }
+            foreach (var user in users)
+            {
+                SendEmail(question, user.EMAIL);
             }
 
         }
@@ -434,7 +407,7 @@ namespace AssistMeProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(question.Title,question.Description);
+            return View(question);
         }
 
         // GET: Questions/Delete/5
@@ -570,111 +543,8 @@ namespace AssistMeProject.Controllers
 
             ViewBag.Related = relatedQuestions;
             return View(question);
-        }  
+        }
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public void Suggestion(String title, String description)
-		{
-			String query = title + " " + description;
-			List<String> lb = SuggestLabels(query);
-			List<String> st = SuggestStudios(query);
-			TempData["suggestLb"] = lb;
-			TempData["suggestSt"] = st;
-			
-		}
-		public List<String> SuggestLabels(string query)
-		{
-			
-			List<String> suggestion = new List<String>();
-			if (BM25Searcher.IsValidString(query))
-			{
-				initSearcher();
-				List<Question> questions = new List<Question>();
-				List<ISearchable> searchables = _searcher.Search(query);
-				foreach (ISearchable s in searchables)
-				{
-					questions.Add((Question)s);
-				}
-				var relatedQuestions = new List<Question>();
-				foreach (ISearchable s in searchables)
-				{
-					Question q = (Question)s;
-					relatedQuestions.Add(q);
-					if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
-				}
-				suggestion = SuggestedLabels(relatedQuestions);
-				
-			}
-			return suggestion;
-		}
-		private List<String> SuggestedLabels(List<Question> suggestions)
-		{
-			var totalLabels = new List<Label>();
-
-			for(int i = 0; i < suggestions.Count; i++)
-			{
-				Question q = suggestions.ElementAt(1);
-				for(int j = 0; j < q.QuestionLabels.Count; j++)
-				{
-					totalLabels.Add(q.QuestionLabels.ElementAt(j).Label);
-				}
-
-			}
-			var l = totalLabels.GroupBy(x => x).Select(x => new { label = x, Count = x.Count()}).OrderByDescending(x => x.Count);
-			var labels = new List<String>();
-			for(int i=0;i<l.Count() && i < 5; i++)
-			{
-				labels.Add(l.ElementAt(i).label.Key.Tag);
-			}
-			return labels;
-		}
-		public List<String> SuggestStudios(String query)
-		{
-			List<String> suggestion = new List<String>();
-			if (BM25Searcher.IsValidString(query))
-			{
-				initSearcher();
-				List<Question> questions = new List<Question>();
-				List<ISearchable> searchables = _searcher.Search(query);
-				foreach (ISearchable s in searchables)
-				{
-					questions.Add((Question)s);
-				}
-				var relatedQuestions = new List<Question>();
-				foreach (ISearchable s in searchables)
-				{
-					Question q = (Question)s;
-					relatedQuestions.Add(q);
-					if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
-				}
-				suggestion = SuggestedStudios(relatedQuestions);
-
-			}
-			return suggestion;
-		}
-		public List<String> SuggestedStudios(List<Question> sug)
-		{
-			var totalStudios = new List<Studio>();
-
-			for (int i = 0; i < sug.Count; i++)
-			{
-				Question q = sug.ElementAt(1);
-				for (int j = 0; j < q.QuestionStudios.Count; j++)
-				{
-					totalStudios.Add(q.QuestionStudios.ElementAt(j).Studio);
-				}
-
-			}
-			var s = totalStudios.GroupBy(x => x).Select(x => new { Studio = x, Count = x.Count() }).OrderByDescending(x => x.Count);
-			var stud = new List<String>();
-			for (int i = 0; i < s.Count() && i < 3; i++)
-			{
-				stud.Add(s.ElementAt(i).Studio.Key.Name);
-			}
-			return stud;
-		}
-	}
 
         // GET: Questions/Details/5
         public async Task<IActionResult> ArchivedQuestionDetails(int? id)
@@ -769,5 +639,4 @@ namespace AssistMeProject.Controllers
         }
 
     }
-
 }
