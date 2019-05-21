@@ -15,44 +15,68 @@
             <div class="form-style form-style-3" id="question-submit">
                 <form asp-action="AdvancedSearch">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div id="form-textarea">
+                    <div class="form-inputs clearfix">
                         <p>
-                            <label asp-for="Description" class="required">Details<span>*</span></label>
-                            <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
-                            <span class="form-description">Type the description thoroughly and in detail .</span>
-                            <span asp-validation-for="Description" class="text-danger"></span>
+                            <label asp-for="Title" class="required">Search query<span>*</span></label>
+                            <input asp-for="Title" name="query" type="text" id="question-title">
+                            <span class="form-description">Please enter the terms to be searched.</span>
+                            <span asp-validation-for="Title" class="text-danger"></span>
+
                         </p>
-                        <p>
-                            <label>Glober</label>
-                            <input type="text" class="input" name="username" id="question_tags" data-seperator=", ">
-                        </p>
+                        <div id="form-textarea">
+                                                    
+                            <p>
+                                <label for="glober">Glober</label>
+                                <input name="glober" type="text" id="question-title">
+                            </p>
+
+                            <p>
+                                <label for="question_tags">Tags</label>
+                                <input class="input" name="question_tags" id="question_tags" data-seperator=",">
+                                <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
+                            </p>
+                            <p>
+                                <div class="form-group">
+                                    <label>Studio 1</label>
+
+                                    <span class="styled-select">
+                                        <select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
+
+                                    </span>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="form-group">
+
+                                    <label>Studio 2</label>
+
+                                    <span class="styled-select">
+
+                                        <select name="studio2" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="form-group">
+                                    <label>Studio 3</label>
+
+                                    <span class="styled-select">
+
+                                        <select name="studio3" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+
+                                </div>
+                            </p>
+
+                        </div>
                     </div>
-                    
-
-                    @*
-                    <p>
-                        <label>Tags</label>
-                        <input type="text" class="input" name="question_tags" id="question_tags" data-seperator=",">
-                        <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
-                    </p>
-                    <p>
-                        <label class="required">Category<span>*</span></label>
-                        <span class="styled-select">
-                            <select>
-                                <option value="">Select a Category</option>
-                                <option value="1">Category 1</option>
-                                <option value="2">Category 2</option>
-                            </select>
-                        </span>
-                        <span class="form-description">Please choose the appropriate section so easily search for your question .</span>
-                    </p>
-                    *@
-
-
                     <p class="form-submit">
                         <input type="submit" id="publish-question" value="Buscar" class="button color small submit">
                     </p>
                 </form>
+
             </div>
         </div><!-- End page-content -->
     </div><!-- End main -->
