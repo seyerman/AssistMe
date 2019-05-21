@@ -24,11 +24,11 @@
 
         <div class="col-md-9">
             <div id="commentlist" class="page-content">
-                <div class="boxedtitle page-title"><h2>Tabla Preguntas por Usuarios</h2></div>
+                <div class="boxedtitle page-title"><h2>Tabla Preguntas relacionadas con Tag</h2></div>
                 <div class="page-content ask-question">
 
-                    <h3 align="center">Preguntas relacionadas con el Studio: @ViewData["Studio"]</h3>
-                    <h4 align="center" onclick="exportTableToExcel('tblData', 'Preguntas del Studio  @ViewData["Studio"]')"><span align="center" class="icons-archive-download"></span> Exportar datos a archivo en Excel </h4>
+                    <h3 align="center">Preguntas relacionadas con el Tag: @ViewData["Tag"]</h3>
+                    <h4 align="center" onclick="exportTableToExcel('tblData', 'Preguntas relacionadas con @ViewData["Tag"]')"><span align="center" class="icons-archive-download"></span> Exportar datos a archivo en Excel </h4>
 
                     <div class="form-style form-style-3" id="question-submit">
 
@@ -50,6 +50,9 @@
                             <th align="left">
                                 <h4>@Html.DisplayNameFor(model => model.Date)</h4>
                             </th>
+                            <th align="left">
+                                <h4>Usuario</h4>
+                            </th>
                             <th>
                                 <h4>Studios</h4>
                             </th>
@@ -58,18 +61,22 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
-                                    <a asp-controller="Questions" asp-action="Details" asp-route-id="@item.Id">    @Html.DisplayFor(modelItem => item.Title)</a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Date)
-                                </td>
-                                <td>
-                                    @{
+                        <tr>
+                            <td>
+                                <a asp-controller="Questions" asp-action="Details" asp-route-id="@item.Id">    @Html.DisplayFor(modelItem => item.Title)</a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.USERNAME)
+
+                            </td>
+                            <td>
+                                @{
                                         foreach (QuestionStudio qs in item.QuestionStudios)
                                         {
                                             string text = qs.Studio.Name;
@@ -77,12 +84,12 @@
                                             {
                                                 text += ", ";
                                             }
-                                            @text
+                                    @text
                                         }
-                                    }
-                                </td>
+                                }
+                            </td>
 
-                            </tr>
+                        </tr>
                         }
                     </tbody>
                 </table>
