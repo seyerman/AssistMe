@@ -91,5 +91,27 @@ namespace AssistMeProject.Models
 
             return Views.Any(x => x.UserID == userId);
         }
+
+        public bool HasTag(string tag)
+        {
+            if (String.IsNullOrWhiteSpace(tag)) return true;
+            foreach(QuestionLabel ql in QuestionLabels)
+            {
+                if (ql.Label.Tag == tag)
+                    return true;
+            }
+            return false;
+        }
+
+        public bool HasStudio(string studio)
+        {
+            if (String.IsNullOrWhiteSpace(studio)) return true;
+            foreach (QuestionStudio qs in QuestionStudios)
+            {
+                if (qs.Studio.Name == studio)
+                    return true;
+            }
+            return false;
+        }
     }
 }

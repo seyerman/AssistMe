@@ -223,22 +223,19 @@ namespace AssistMeProject.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdvancedSearch(bool IsArchived, int Id, string Title, string Description, int IdUser, DateTime Date, string username)
+        public async Task<IActionResult> AdvancedSearch(string query)
         {
-            if (BM25Searcher.IsValidString(Description))
+            if (BM25Searcher.IsValidString(query))
             {
                 initSearcher();
-                //User user = _context.User.Take(p => p.USERNAME == username);
-
+                LoadSearcher();
                 List<Question> questions = new List<Question>();
-
-
-                List<ISearchable> searchables = _searcher.Search(Description);
+                List<ISearchable> searchables = _searcher.Search(query);
                 foreach (ISearchable s in searchables)
                 {
                     questions.Add((Question)s);
                 }
+                
                 return View("Index", questions);
             }
 
