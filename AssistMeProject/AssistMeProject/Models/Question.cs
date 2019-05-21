@@ -113,5 +113,10 @@ namespace AssistMeProject.Models
             }
             return false;
         }
+
+        public bool IsUser(string username)
+        {
+            return User.USERNAME.ToLower() == username.ToLower() || String.IsNullOrWhiteSpace(username);
+        }
     }
 }

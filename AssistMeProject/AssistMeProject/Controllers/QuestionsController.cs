@@ -213,6 +213,7 @@ namespace AssistMeProject.Controllers
             //list.Add(new SelectListItem() { Text = "Choose a Studio", Value = "NULL" });
 
             var studios = _context.Studio.ToList();
+            list.Add(new SelectListItem() { Text = "", Value = "" });
             foreach (Studio s in studios)
             {
                 list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
@@ -223,24 +224,48 @@ namespace AssistMeProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdvancedSearch(string query)
+        public async Task<IActionResult> AdvancedSearch(string query, string studio, string studio2, string studio3, string glober,
+            string question_tags)
         {
+            List<Question> questions = new List<Question>();
+
             if (BM25Searcher.IsValidString(query))
             {
                 initSearcher();
                 LoadSearcher();
-                List<Question> questions = new List<Question>();
+                
                 List<ISearchable> searchables = _searcher.Search(query);
                 foreach (ISearchable s in searchables)
                 {
                     questions.Add((Question)s);
                 }
-                
-                return View("Index", questions);
+
             }
-
-            return RedirectToAction(nameof(Index));
-
+            else
+            {
+                questions = await _context.Question.Where(q => q.isArchived == false)
+                    .Include(q => q.Answers)
+                    .Include(q => q.InterestingVotes)
+                    .Include(q => q.QuestionLabels)
+                        .ThenInclude(ql => ql.Label)
+                    .Include(q => q.QuestionStudios)
+                        .ThenInclude(qs => qs.Studio)
+                    .Include(q => q.User)
+                    .ToListAsync();
+            }
+            questions.RemoveAll(q => !q.IsUser(glober));
+            if (!string.IsNullOrEmpty(question_tags))
+            {
+                string[] tagsStr = question_tags.Split(",");
+                foreach (string t in tagsStr)
+                {
+                    questions.RemoveAll(q => !q.HasTag(t));
+                }
+            }
+            questions.RemoveAll(q => !q.HasStudio(studio));
+            questions.RemoveAll(q => !q.HasStudio(studio2));
+            questions.RemoveAll(q => !q.HasStudio(studio3));
+            return View("Index", questions);
         }
 
         private IQueryable FilterGlober(User user)

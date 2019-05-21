@@ -17,10 +17,9 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-inputs clearfix">
                         <p>
-                            <label asp-for="Title" class="required">Search query<span>*</span></label>
-                            <input asp-for="Title" name="query" type="text" id="question-title">
+                            <label for="query">Search query</label>
+                            <input name="query" type="text" id="question-title">
                             <span class="form-description">Please enter the terms to be searched.</span>
-                            <span asp-validation-for="Title" class="text-danger"></span>
 
                         </p>
                         <div id="form-textarea">
