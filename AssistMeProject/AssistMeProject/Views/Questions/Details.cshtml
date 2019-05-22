@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Details";
     ViewData["IsQuestionMin"] = true;
-    
+
 }
 
 
@@ -16,38 +16,48 @@
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
-    <p>
+        <p>
 
-    </p>    
-    <p>
+        </p>
+        <p>
 
-    </p>
-    <div class="col-md-9">
+        </p>
+        <div class="col-md-9">
 
-        <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
-
-        <div class="page-content clearfix">
-            <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
-            <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
-        </div>
-
-
-
-        <div class="share-tags page-content">
-            <div class="question-tags">
-                <i class="icon-tags"></i>
-                @{
-                    foreach (QuestionLabel ql in Model.QuestionLabels)
-                    {
-                        string text = ql.Label.Tag;
-                        if (Model.QuestionLabels.Last() != ql)
+            <Partial name="_QuestionPartial" model="Model" view-data="ViewData" />
+            <p>
+                <div class="page-content clearfix">
+                    <h3>Attached files</h3>
+                    @{
+                        foreach (var f in ViewBag.FileNames)
                         {
-                            text += ", ";
+                            <a href='~/uploads/@(Model.Id+"/"+f)' download="@f"><i class="icon-paper-clip"></i>@(" " + f)</a><br />
                         }
-                        <a href="#">@text</a>
                     }
-                }
+
+                </div>
+            </p>
+            <div class="page-content clearfix">
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
+
+            <div class="share-tags page-content">
+                <div class="question-tags">
+                    <i class="icon-tags"></i>
+                    @{
+                        foreach (QuestionLabel ql in Model.QuestionLabels)
+                        {
+                            string text = ql.Label.Tag;
+                            if (Model.QuestionLabels.Last() != ql)
+                            {
+                                text += ", ";
+                            }
+                            <a href="#">@text</a>
+                        }
+                    }
+                    }
+                </div>
             <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
             <div class="clearfix"></div>
 
@@ -79,7 +89,24 @@
                         }
                     }
 
+
                 }
+
+                </ul>
+            </div><!-- End related-posts -->
+
+            <div id="answerlist">
+
+
+            </div>
+
+
+
+
+            <p>
+
+            </p>
+
 
             </ul>
         </div><!-- End related-posts -->
@@ -93,12 +120,14 @@
                 <h2>Opciones avanzadas</h2>
 
 
-
-                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none" class="load-questions">Eliminar pregunta  </a>
-
+                <div>
+                    <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none">
+                        <span class="icons-trash-full"></span>  Eliminar pregunta
+                    </a>
+                </div>
                 <p></p>
                 <p></p>
-                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button" class="load-questions">Archivar pregunta </a>
+                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button"><span class="icons-folder-smart"></span> Archivar pregunta </a>
                 <h1 id="lab" style="display:none"> Opciones no disponibles para este usuario </h1>
             </div><!-- End related-posts -->
 
