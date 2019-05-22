@@ -54,6 +54,8 @@
     <Compile Remove="Migrations\20190513223434_questionStudio.Designer.cs" />
     <Compile Remove="Migrations\20190515145942_mm.cs" />
     <Compile Remove="Migrations\20190515145942_mm.Designer.cs" />
+    <Compile Remove="Migrations\20190522230206_pull47.cs" />
+    <Compile Remove="Migrations\20190522230206_pull47.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
