@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AssistMeProject.Models.Studio>
+
+
+@{
+    string title = "Questions";
+    //Example of how to get data of user
+    if (ViewBag.User != null)
+    {
+        title = ViewBag.User.USERNAME;
+    }
+    //End of example
+    ViewData["Title"] = title;
+}
+
+<p>
+
+</p>
+
+<p></p>
+<section class="container main-content" id="main">
+    <div class="row">
+        <div class="col-md-4">
+        
+                <div class="page-content ask-question">
+
+                    <h3 align="center"><span align="center" class="icons-new"></span><a asp-action="CreateStudio"> Crear nuevo Studio </a></h3>
+
+                </div><!-- End page-content -->
+        </div>
+        <p>
+
+        </p>
+        <p></p>
+        <div class="col-md-9">
+        <p></p>
+            @{
+                foreach (var item in Model)
+                {
+                    <article class="post blog_2 clearfix">
+                                    <div class="post-inner">
+
+                                        <h2 class="post-title"><span class="post-type"><i class="icon-search"></i></span><a href="single_post.html">
+                                            <a asp-action="StudioDetails" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Name)</a>
+                                        </h2>
+                                        
+                                        <div class="post-content">
+                                            <p> @Html.DisplayFor(modelItem => item.Unit)</p>
+                                        </div><!-- End post-content -->
+                                    </div><!-- End post-inner -->
+                    </article><!-- End article.post -->
+                }
+            }
+
+
+        </div><!-- End main -->
+        </div>
+</section>
+
+
+
+        <script>
+     var level = @ViewData["Admin"];
+
+        window.onload = ocultar();
+
+    function ocultar() {
+        if (level == 2) {
+            console.log('Este usuario es un administrador');
+            document.getElementById('main').style.display = 'block';
+        } else {
+            foo();
+        }
+    }
+
+    function foo() {
+    window.location.href = 'NotAdmin';
+}
+
+
+        </script>
