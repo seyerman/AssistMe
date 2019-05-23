@@ -1,4 +1,20 @@
 ﻿<!DOCTYPE html>
+
+
+
+@{ 
+    if (ViewBag.User != null)
+    {
+        ViewBag.userID = ViewBag.User.ID;
+        ViewData["userID"] = ViewBag.User.ID; 
+    }
+    else {
+        ViewBag.userID = -1;
+        ViewData["userID"] = -1;
+    }
+    //End of example
+   
+}
 <html>
 <head>
     <meta charset="utf-8" />
@@ -164,20 +180,9 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="right_sidebar.html">Pages</a> <!--Faltan estos links-->
-                            <ul>
-                                <li><a href="">Login</a></li>
-                                <li><a href="contact_us.html">Contact Us</a></li>
-                                <li><a href="ask_question.html">Ask Question</a></li>
-                                <li><a href="right_sidebar.html">Right Sidebar</a></li>
-                                <li><a href="left_sidebar.html">Left Sidebar</a></li>
-                                <li><a href="full_width.html">Full Width</a></li>
-                                <li><a href="404.html">404</a></li>
-                            </ul>
-                        </li>
+                    
 
-              
+                        <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
                     </ul>
                 </nav>
             </section><!-- End container -->
@@ -225,6 +230,14 @@
 
     <div class="go-up"><i class="icon-chevron-up"></i></div>
 
+
+
+    <script>
+
+    function getUserID() {
+        return @ViewBag.userID;
+    }
+    </script>
     <!-- js -->
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/jquery-ui-1.10.3.custom.min.js"></script>
@@ -246,30 +259,26 @@
     <script src="~/js/questions.js"></script>
     <script src="~/js/site.js"></script>
     <!-- End js -->
-
-
-
-
     @*<environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>*@
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>*@
 
     @RenderSection("Scripts", required: false)
 </body>

@@ -208,7 +208,6 @@ namespace AssistMeProject.Controllers
                 if (string.IsNullOrEmpty(viewingToUser))
                     return View(model.GetUser(currentlyActiveUsername));
                 ViewData["ACTIVE_USER"] = currentlyActiveUsername;
-                getNotificationsOfUser();
                 return View(model.GetUser(viewingToUser));
             }
             else
@@ -231,7 +230,6 @@ namespace AssistMeProject.Controllers
                 //Only username it's saved for have a better security but this might be slower because have to search user every time it's needed
                 HttpContext.Session.SetString(ACTIVE_USERNAME, found.USERNAME);
                 ViewData["ACTIVE_USER"] = username;
-                getNotificationsOfUser();
                 return View(found);
             }
         }
