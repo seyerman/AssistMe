@@ -6,9 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Views\Questions\NewFolder\**" />
+    <Compile Remove="wwwroot\files\**" />
     <Content Remove="Views\Questions\NewFolder\**" />
+    <Content Remove="wwwroot\files\**" />
     <EmbeddedResource Remove="Views\Questions\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\files\**" />
     <None Remove="Views\Questions\NewFolder\**" />
+    <None Remove="wwwroot\files\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,30 +48,24 @@
     <Compile Remove="Migrations\20190502013415_pull33.Designer.cs" />
     <Compile Remove="Migrations\20190502013550_pull33.cs" />
     <Compile Remove="Migrations\20190502013550_pull33.Designer.cs" />
-    <Compile Remove="Migrations\20190511233258_devWithVotos.cs" />
-    <Compile Remove="Migrations\20190511233258_devWithVotos.Designer.cs" />
-    <Compile Remove="Migrations\20190512070807_q.cs" />
-    <Compile Remove="Migrations\20190512070807_q.Designer.cs" />
-    <Compile Remove="Migrations\20190512175721_ee.cs" />
-    <Compile Remove="Migrations\20190512175721_ee.Designer.cs" />
-    <Compile Remove="Migrations\20190513212217_ttg.cs" />
-    <Compile Remove="Migrations\20190513212217_ttg.Designer.cs" />
-    <Compile Remove="Migrations\20190515023144_other.cs" />
-    <Compile Remove="Migrations\20190515023144_other.Designer.cs" />
-    <Compile Remove="Migrations\20190523033816_notification.cs" />
-    <Compile Remove="Migrations\20190523033816_notification.Designer.cs" />
+    <Compile Remove="Migrations\20190513142517_migracionsota.cs" />
+    <Compile Remove="Migrations\20190513142517_migracionsota.Designer.cs" />
+    <Compile Remove="Migrations\20190513223434_questionStudio.cs" />
+    <Compile Remove="Migrations\20190513223434_questionStudio.Designer.cs" />
+    <Compile Remove="Migrations\20190515145942_mm.cs" />
+    <Compile Remove="Migrations\20190515145942_mm.Designer.cs" />
+    <Compile Remove="Migrations\20190522230206_pull47.cs" />
+    <Compile Remove="Migrations\20190522230206_pull47.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Administrator\CreateStudio.cshtml" />
-    <None Include="Views\Administrator\Index.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\Privacy.cshtml" />
     <None Include="Views\Questions\Create.cshtml" />
     <None Include="Views\Questions\Delete.cshtml" />
-    <None Include="Views\Questions\Details.cshtml" />
+    <None Include="Views\Administrator\StudioDetails.cshtml" />
     <None Include="Views\Questions\Edit.cshtml" />
     <None Include="Views\Questions\Index.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
@@ -151,14 +149,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="MimeKit" Version="2.1.3" />
     <PackageReference Include="slf4j-api" Version="1.7.5.4" />
+    <PackageReference Include="SpreadsheetLight" Version="3.4.9" />
     <PackageReference Include="Stanford.NLP.CoreNLP" Version="3.9.1" />
     <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Administrator\Index.cshtml">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Update="Views\Questions\AdvancedSearch.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -166,6 +162,13 @@
 
   <ItemGroup>
     <Folder Include="Views\Shared\Components\Stats\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ExcelLibrary">
+      <HintPath>..\..\..\..\..\Downloads\ExcelLibrary_20110730\ExcelLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

@@ -18,8 +18,34 @@ namespace AssistMeProject.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<QuestionLabel>().HasKey(x => new { x.QuestionId, x.LabelId });
-            
+            modelBuilder.Entity<QuestionStudio>().HasKey(x => new { x.QuestionId, x.StudioId });
+
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Comment>()
+                .HasOne<User>(c => c.User)
+                        .WithMany(a => a.Comments)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Answer>()
+                .HasOne<User>(c => c.User)
+                        .WithMany(a => a.Answers)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<InterestingVote>()
+                .HasOne<User>(c => c.User)
+                        .WithMany()
+                .HasForeignKey(c => c.UserID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PositiveVote>()
+               .HasOne<User>(c => c.User)
+                       .WithMany()
+               .HasForeignKey(c => c.UserID)
+               .OnDelete(DeleteBehavior.Restrict);
+
         }
 
         public DbSet<AssistMeProject.Models.Question> Question { get; set; }
@@ -29,7 +55,7 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.Studio> Studio { get; set; }
         public DbSet<AssistMeProject.Models.Notification> Notification { get; set; }
 
-        public DbSet<AssistMeProject.Models.Label>Label { get; set; }
+        public DbSet<AssistMeProject.Models.Label> Label { get; set; }
         public DbSet<AssistMeProject.Models.PositiveVote> PositiveVote { get; set; }
         public DbSet<AssistMeProject.Models.InterestingVote> InterestingVote { get; set; }
         public DbSet<AssistMeProject.Models.View> View { get; set; }//

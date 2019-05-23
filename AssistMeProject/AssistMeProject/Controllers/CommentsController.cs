@@ -79,6 +79,9 @@ namespace AssistMeProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                string Activeuser = HttpContext.Session.GetString("USERNAME");
+                int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
+                comment.UserId = activeUserId;
                 comment.Date = DateTime.Now;
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
