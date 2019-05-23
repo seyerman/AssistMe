@@ -20,6 +20,10 @@ namespace AssistMeProject.Models
         [Display(Name = "Description")]
         public String Description { get; set; }
 
+        [Display(Name = "Email")]
+        public String Email { get; set; }
+
+
         public virtual ICollection<User> Users { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,17 +32,18 @@ namespace AssistMeProject.Models
             Users = new HashSet<User>();
         }
 
-        public Studio( int id, String name, String unit, String description)
+        public Studio( int id, String name, String unit, String description, String email)
         {
             Id = id;
             Name = name;
             Unit = unit;
             Description = description;
+            Email = email;
         }
 
       
 
-       public ICollection<Question> Questions { get; set; }
+       public virtual ICollection<QuestionStudio> QuestionStudios { get; set; }
 
 
     }
