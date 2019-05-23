@@ -92,6 +92,12 @@ namespace AssistMeProject.Controllers
                 answer.Date = DateTime.Now;
                 answer.UserId = activeUserId;
                 _context.Add(answer);
+                
+                Notification notification = new Notification {  Read = false,UserID= activeUserId,
+                TimeAnswer=answer.Date,QuestionId=QuestionID,
+                    Description = "R. tu pregunta No: "
+                };
+                _context.Add(notification);
                 await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Details","Questions",new { id = QuestionID });

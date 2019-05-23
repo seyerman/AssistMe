@@ -188,6 +188,7 @@ namespace AssistMeProject.Controllers
                 if (string.IsNullOrEmpty(viewingToUser))
                     return View(model.GetUser(currentlyActiveUsername));
                 ViewData["ACTIVE_USER"] = currentlyActiveUsername;
+                getNotificationsOfUser();
                 return View(model.GetUser(viewingToUser));
             } else
             {
@@ -208,6 +209,7 @@ namespace AssistMeProject.Controllers
                 //Only username it's saved for have a better security but this might be slower because have to search user every time it's needed
                 HttpContext.Session.SetString(ACTIVE_USERNAME, found.USERNAME);
                 ViewData["ACTIVE_USER"] = username;
+                getNotificationsOfUser();
                 return View(found);
             }
         }
@@ -216,6 +218,30 @@ namespace AssistMeProject.Controllers
         {
             HttpContext.Session.Remove(ACTIVE_USERNAME);
             return RedirectToAction("Index","Users");
+        }
+
+        public IActionResult AllNotifications()
+        {
+            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            if (string.IsNullOrEmpty(userActive))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Error, inicia sesión" });
+            }
+            else {
+                int id = model.GetUser(userActive).ID;
+                var notifications = _context.Notification.Where(p => p.UserID==id).ToList();
+                getNotificationsOfUser();
+                return View(notifications);
+            }
+
+         
+        }
+
+        private void getNotificationsOfUser()
+        {
+            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            User user = model.GetUser(userActive);
+            ViewBag.Notifications = _context.Notification.Where(p =>p.UserID == user.ID).ToList();
         }
 
     }

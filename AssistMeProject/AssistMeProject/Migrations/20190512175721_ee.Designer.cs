@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190512175721_ee")]
+    partial class ee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,13 +115,9 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int>("QuestionId");
-
                     b.Property<bool>("Read");
 
-                    b.Property<DateTime>("TimeAnswer");
-
-                    b.Property<int>("UserID");
+                    b.Property<int?>("UserID");
 
                     b.HasKey("Id");
 
@@ -317,10 +315,9 @@ namespace AssistMeProject.Migrations
 
             modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
                 {
-                    b.HasOne("AssistMeProject.Models.User")
+                    b.HasOne("AssistMeProject.Models.User", "User")
                         .WithMany("Notifications")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserID");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
