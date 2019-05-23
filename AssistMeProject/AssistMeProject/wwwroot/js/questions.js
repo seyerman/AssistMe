@@ -6,10 +6,7 @@
     tempInfo = { uid: undefined, type: undefined, qid: undefined },
     filterOptions = {};
 
-/* BORRAR */
-function getUserID() {
-    return 1;
-}
+
 
 /**
  * Función de site.js
@@ -231,7 +228,7 @@ function objectToUrlParams(obj = {}) {
 function sortList(attr, order = undefined) {
     if (list == undefined) {
         defaultOrder = { attr: attr, order: order };
-        getList(1);
+        getList(getUserID());
         return;
     } else if (list.length == 0) {
         updateElementList();

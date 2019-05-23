@@ -212,26 +212,29 @@ namespace AssistMeProject.Controllers
         public async Task<JsonResult> GetAnswersList(int quid, int uid)
         {
             var urlParams = Request.Query;
-            var answers = _context.Answer
+            var ans = await _context.Answer
                 .Where(a => a.QuestionID == quid)
                 .Include(a => a.Comments)
-                .ToList().Select(an => {
-                var data = new
+                .Include(a => a.User)
+                .ThenInclude(u => u.Studio)
+                .ToListAsync();
+                var answers=ans.Select(an =>
                 {
-                    id = an.Id,
-                    questionID = an.QuestionID,
-                    description = an.Description,
-                    date = an.Date,
-                    comments = an.Comments.ToList(),
-                    userVote = false,//an.HasUserVote
-                    votes = 0 // an.Votes.COunt
-                };
-                data.comments.ForEach(c => c.Answer = null);
-                return data;
-            });
-
-
-
+                   // var autor = new { name = an.User.USERNAME, img = (an.User.PHOTO != null) ? an.User.PHOTO : "http://placehold.it/60x60/FFF/444", studio = an.User.Studio.Name };
+                    var data = new
+                    {
+                        id = an.Id,
+                        questionID = an.QuestionID,
+                        description = an.Description,
+                        date = an.Date,
+                        comments = an.Comments.ToList(),
+                        userVote = an.UserVote(uid),
+                        votes = an.PositiveVotes.Count(),
+                        autor = new { name = an.User.USERNAME, img = (an.User.PHOTO != null) ? an.User.PHOTO : "http://placehold.it/60x60/FFF/444", studio = an.User.Studio.Name }
+                    };
+                    data.comments.ForEach(c => c.Answer = null);
+                    return data;
+                });
             string opt = urlParams["since"] + "";
             if (opt != null && !"".Equals(opt))
             {
@@ -245,28 +248,31 @@ namespace AssistMeProject.Controllers
                 answers = answers.Where(a => a.date <= dt);
             }
             opt = urlParams["studios"];
-            if (opt != null && !"".Equals(opt)) {
-                string[] studios = opt.Contains(",")?opt.Split(","):new string[1]{ opt};
-                //answers = answers.Where(a => studios.Contains(answers.Autor.Studio));
+            if (opt != null && !"".Equals(opt))
+            {
+                string[] studios = opt.Contains(",") ? opt.Split(",") : new string[1] { opt };
+                answers = answers.Where(a => studios.Contains(a.autor.studio));
             }
             opt = urlParams["votes"];
             if (opt != null && !"".Equals(opt))
+            {
                 if ("any".Equals(opt))
                     answers = answers.Where(a => a.votes > 0);
                 else if ("no".Equals(opt))
                     answers = answers.Where(a => a.votes == 0);
                 else
                     answers = answers.Where(a => a.votes >= int.Parse(opt));
-
+            }
             opt = urlParams["reply"];
             if (opt != null && !"".Equals(opt))
+            {
                 if ("any".Equals(opt))
                     answers = answers.Where(a => a.comments.Count() > 0);
                 else if ("no".Equals(opt))
                     answers = answers.Where(a => a.comments.Count() == 0);
                 else
                     answers = answers.Where(a => a.comments.Count() >= int.Parse(opt));
-
+            }
 
             var json = new JsonResult(answers.ToList());
             return json;
