@@ -44,6 +44,18 @@
     <Compile Remove="Migrations\20190502013415_pull33.Designer.cs" />
     <Compile Remove="Migrations\20190502013550_pull33.cs" />
     <Compile Remove="Migrations\20190502013550_pull33.Designer.cs" />
+    <Compile Remove="Migrations\20190511233258_devWithVotos.cs" />
+    <Compile Remove="Migrations\20190511233258_devWithVotos.Designer.cs" />
+    <Compile Remove="Migrations\20190512070807_q.cs" />
+    <Compile Remove="Migrations\20190512070807_q.Designer.cs" />
+    <Compile Remove="Migrations\20190512175721_ee.cs" />
+    <Compile Remove="Migrations\20190512175721_ee.Designer.cs" />
+    <Compile Remove="Migrations\20190513212217_ttg.cs" />
+    <Compile Remove="Migrations\20190513212217_ttg.Designer.cs" />
+    <Compile Remove="Migrations\20190515023144_other.cs" />
+    <Compile Remove="Migrations\20190515023144_other.Designer.cs" />
+    <Compile Remove="Migrations\20190523033816_notification.cs" />
+    <Compile Remove="Migrations\20190523033816_notification.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
