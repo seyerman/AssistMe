@@ -265,35 +265,9 @@ namespace AssistMeProject.Controllers
             User user = model.GetUser(userActive);
             ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID).ToList();
         }
-        private void getNotificationsOfUser()
-        {
-            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
-            User user = model.GetUser(userActive);
-            ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID).ToList();
-        }
-        public IActionResult AllNotifications()
-        {
-            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
-            if (string.IsNullOrEmpty(userActive))
-            {
-                return RedirectToAction("Index", "Users", new { message = "Error, inicia sesión" });
-            }
-            else {
-                int id = model.GetUser(userActive).ID;
-                var notifications = _context.Notification.Where(p => p.UserID==id).ToList();
-                getNotificationsOfUser();
-                return View(notifications);
-            }
+       
+       
 
-         
-        }
-
-        private void getNotificationsOfUser()
-        {
-            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
-            User user = model.GetUser(userActive);
-            ViewBag.Notifications = _context.Notification.Where(p =>p.UserID == user.ID).ToList();
-        }
 
    }
 }
