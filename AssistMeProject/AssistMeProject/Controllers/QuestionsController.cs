@@ -107,9 +107,6 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-
-
-
             if (question.Views.All(x => x.UserID != actualUser.ID))
             {
                 var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
@@ -117,6 +114,7 @@ namespace AssistMeProject.Controllers
                 _context.SaveChanges();
             }
 
+            //Empieza busqueda de preguntas relacionadas
             initSearcher();
 
             var relatedQuestions = new List<Question>();
@@ -129,9 +127,10 @@ namespace AssistMeProject.Controllers
                     relatedQuestions.Add(q);
                 if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
             }
-
-
+            
             ViewBag.Related = relatedQuestions;
+            //Termina busqueda de preguntas relacionadas 
+
 
             var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
 
@@ -438,6 +437,33 @@ namespace AssistMeProject.Controllers
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public async Task<ActionResult> RelatedQuestions(string Title, string Description)
+        {
+            var relatedQuestions = new List<Question>();
+            string query = Title + " " + Description;
+            if (BM25Searcher.IsValidString(query))
+            {
+                initSearcher();
+                List<Question> questions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(query);
+                foreach (ISearchable s in searchables)
+                {
+                    questions.Add((Question)s);
+                }
+                
+                foreach (ISearchable s in searchables)
+                {
+                    Question q = (Question)s;
+                    relatedQuestions.Add(q);
+                    if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+                }
+
+            }
+            return PartialView(relatedQuestions);
+        }
+
+
 
         // GET: Questions/Edit/5
         public async Task<IActionResult> Edit(int? id)
