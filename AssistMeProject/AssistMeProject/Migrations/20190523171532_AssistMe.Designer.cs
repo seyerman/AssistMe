@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190515031234_tablemig")]
-    partial class tablemig
+    [Migration("20190523171532_AssistMe")]
+    partial class AssistMe
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -188,6 +188,8 @@ namespace AssistMeProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("Email");
 
                     b.Property<string>("Name")
                         .IsRequired()
