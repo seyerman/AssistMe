@@ -2,7 +2,7 @@
 
 namespace AssistMeProject.Migrations
 {
-    public partial class tablemig : Migration
+    public partial class q : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
