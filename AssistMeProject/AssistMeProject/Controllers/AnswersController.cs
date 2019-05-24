@@ -30,9 +30,9 @@ namespace AssistMeProject.Controllers
             return View(await assistMeProjectContext.Include(a => a.PositiveVotes).ToListAsync());
         }
 
-        public async Task<IActionResult> AnswerList(int? QuestionID)
+        public async Task<IActionResult> AnswerList(int? QuestionID, int? userId)
         {
-
+            ViewData["userID"] = userId;
             var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(a=> a.Question).Include(a=>a.PositiveVotes).Include(a => a.Comments).Include(a=>a.User);
             return PartialView(await asssitMeProjectContext.ToListAsync());
 

@@ -76,6 +76,8 @@ namespace AssistMeProject.Controllers
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
             ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
+            ViewBag.User = actualUser;
+
 
             if (actualUser != null)
             {

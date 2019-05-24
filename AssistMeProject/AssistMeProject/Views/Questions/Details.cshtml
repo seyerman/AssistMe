@@ -8,11 +8,6 @@
 
 
 
-
-
-
-
-
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
@@ -165,7 +160,7 @@
 
         $(function () {
             $.ajax({
-                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
+                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)" + "&userId=" + getUserID()
             }).done(function (data) {
                 $('#answerlist').html(data);
             }).fail(function () {
