@@ -313,6 +313,7 @@ namespace AssistMeProject.Controllers
 			}
 			else if (action == "Ask now")
 			{
+                List<Studio> studios = new List<Studio>();
 				User actualUser = null;
 				if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
 				{
@@ -325,7 +326,7 @@ namespace AssistMeProject.Controllers
 					_context.Add(question);
 					if (!string.IsNullOrEmpty(studio))
 					{
-						var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
+						//var st = await _context.Studio.FirstOrDefaultAsync(m => m.Name == studio);
 
 						if (!string.IsNullOrEmpty(question_tags))
 						{
@@ -355,6 +356,7 @@ namespace AssistMeProject.Controllers
 							StudioId = st1.Id,
 							QuestionId = question.Id
 						};
+                        studios.Add(st1);
 						_context.Add(questionStudio);
 
 						if (studio2 != studio)
@@ -365,6 +367,7 @@ namespace AssistMeProject.Controllers
 								StudioId = st2.Id,
 								QuestionId = question.Id
 							};
+                            studios.Add(st2);
 							_context.Add(questionStudio2);
 						}
 
@@ -376,6 +379,7 @@ namespace AssistMeProject.Controllers
 								StudioId = st3.Id,
 								QuestionId = question.Id
 							};
+                            studios.Add(st3);
 							_context.Add(questionStudio3);
 						}
 
@@ -401,7 +405,7 @@ namespace AssistMeProject.Controllers
 								}
 							}
 						}
-						SendEmailStudio(question, st);
+						SendEmailStudio(question, studios);
 					}
 
 					return RedirectToAction(nameof(Index));
@@ -411,13 +415,11 @@ namespace AssistMeProject.Controllers
         }
 
 
-        public void SendEmailStudio(Question question, Studio studio)
+        public void SendEmailStudio(Question question, List<Studio> studios)
         {
-            var users = _context.User.Where(p => p.StudioId == studio.Id);
-
-            foreach (var user in users)
+            foreach (var st in studios)
             {
-                SendEmail(question, user.EMAIL);
+                SendEmail(question, st.Email);
             }
 
         }
