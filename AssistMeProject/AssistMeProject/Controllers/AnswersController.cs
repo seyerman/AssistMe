@@ -92,6 +92,14 @@ namespace AssistMeProject.Controllers
                 answer.Date = DateTime.Now;
                 answer.UserId = activeUserId;
                 _context.Add(answer);
+
+                int questionOwner = _context.Question.Find(QuestionID).UserId.Value;// averiguo el dueño de la pregunta referencir a quien podra ver la notificacion
+                
+                Notification notification = new Notification {  Read = false,UserID= questionOwner,
+                TimeAnswer=answer.Date,QuestionId=QuestionID,
+                    Description = Activeuser +" Respondio tu pregunta "
+                };
+                _context.Add(notification);
                 await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Details","Questions",new { id = QuestionID });
