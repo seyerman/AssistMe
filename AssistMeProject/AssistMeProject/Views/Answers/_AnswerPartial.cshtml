@@ -15,8 +15,8 @@
                             <!--<a href="#" class="question-vote-up" title="Like"></a>-->
 
 
-                            <span id="answer_vote_@Model.Id" onclick="interaction('pv', ViewData["actualUserID"] ,@Model.Id,'answer_vote_@Model.Id' )" class="answer-favorite">
-                                <i class="@Html.DisplayName(Model.UserVote(1)?"question-vote-up":"question-vote-down")"></i>
+                            <span id="answer_vote_@Model.Id" onclick="interaction('pv', @ViewData["userID"]  ,@Model.Id,'answer_vote_@Model.Id' )" class="answer-favorite">
+                                <i class="icon-plus" style="color:@Html.DisplayName(Model.UserVote((int)ViewData["userID"])?"#ff7361":"#cccccc")"></i>
                                 +<span style="display:initial">@Html.DisplayFor(model => model.PositiveVotes.Count)</span>
                             </span>
 
@@ -68,3 +68,4 @@
 
     @await Component.InvokeAsync("CommentList", new { AnswerId = Model.Id })
 </li>
+
