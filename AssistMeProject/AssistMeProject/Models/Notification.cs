@@ -11,7 +11,8 @@ namespace AssistMeProject.Models
         public int Id { get; set; }
         public String Description { get; set; }
         public bool Read { get; set; }
-        public int  UserID { get; set; }
+        public int  UserID { get; set; }//dueño de la notificación, quien la ve
+      //  public string UserActorName { get; set; } // quien disparó la notificación 
         public int QuestionId { get; set; }
         public DateTime TimeAnswer { get; set; }
 
