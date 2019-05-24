@@ -4,14 +4,16 @@ using AssistMeProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    partial class AssistMeProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20190524194941_questionRepeat")]
+    partial class questionRepeat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,29 +107,6 @@ namespace AssistMeProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Label");
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<int>("QuestionId");
-
-                    b.Property<bool>("Read");
-
-                    b.Property<DateTime>("TimeAnswer");
-
-                    b.Property<int>("UserID");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Notification");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
@@ -328,14 +307,6 @@ namespace AssistMeProject.Migrations
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
-                {
-                    b.HasOne("AssistMeProject.Models.User")
-                        .WithMany("Notifications")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>

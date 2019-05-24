@@ -60,7 +60,7 @@ namespace AssistMeProject.Controllers
         }
 
         // GET: Answers/Create
-        public IActionResult Create(int? QuestionID)
+        public IActionResult Create(int? QuestionID, Boolean repeat)
         {
             string Activeuser = HttpContext.Session.GetString("USERNAME");
             if (string.IsNullOrEmpty(Activeuser))
@@ -75,6 +75,7 @@ namespace AssistMeProject.Controllers
 
             //int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
             ViewData["UserId"] = question.User.ID;//activeUserId;
+            ViewData["IsRepeat"] = repeat;
             return View();
         }
 
@@ -83,15 +84,29 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int QuestionID,[Bind("QuestionID,Id,Description,Date")] Answer answer)
+        public async Task<IActionResult> Create(int QuestionID,string UrlOriginalQuestion,[Bind("QuestionID,Id,Description,Date,UrlOriginalQuestion")] Answer answer)
         {
             if (ModelState.IsValid)
             {
+
                 string Activeuser = HttpContext.Session.GetString("USERNAME");
                 int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
                 answer.Date = DateTime.Now;
                 answer.UserId = activeUserId;
                 _context.Add(answer);
+
+                if (UrlOriginalQuestion!=null)
+                {
+                    _context.Question.Find(QuestionID).Insignia = "SEEN BEFORE";
+                }
+
+                int questionOwner = _context.Question.Find(QuestionID).UserId.Value;// averiguo el dueño de la pregunta referencir a quien podra ver la notificacion
+                
+                Notification notification = new Notification {  Read = false,UserID= questionOwner,
+                TimeAnswer=answer.Date,QuestionId=QuestionID,
+                    Description = Activeuser +" Respondio tu pregunta "
+                };
+                _context.Add(notification);
                 await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Details","Questions",new { id = QuestionID });

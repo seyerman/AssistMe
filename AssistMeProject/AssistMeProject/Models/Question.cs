@@ -17,7 +17,7 @@ namespace AssistMeProject.Models
 
         public virtual ICollection<InterestingVote> InterestingVotes { get; set; }
         public virtual ICollection<View> Views { get; set; }
-       
+        public string Insignia { get; set; }
      
  
 
