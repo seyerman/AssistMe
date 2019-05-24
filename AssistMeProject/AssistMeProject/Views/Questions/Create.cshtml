@@ -180,16 +180,17 @@
 
 
     <script>
-        $(function () {
-            $.ajax({
-                url: "@Url.Content("~/Question/RelatedQuestions?Title="+Model.Title+"&Description="+Model.Description)"
-            }).done(function (data) {
-                $('#relatedquestions').html(data);
-            }).fail(function () {
-                alert("error");
-            });
+        if (ViewData.ContainsKey("suggestSt")) {
+            $(function () {
+                $.ajax({
+                    url: "@Url.Content("~/Question/RelatedQuestions?Title="+Model.Title+"&Description="+Model.Description)"
+                }).done(function (data) {
+                    $('#relatedquestions').html(data);
+                }).fail(function () {
+                    alert("error");
+                });
+            }
+            );
         }
-        );
-
     </script>
 }
