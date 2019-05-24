@@ -38,7 +38,8 @@
                 </div>
             </p>
             <div class="page-content clearfix">
-                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="false"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-Controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="true"><i class="icon-copy"></i>Answer as Repeat</a> |
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
 

@@ -20,6 +20,7 @@ namespace AssistMeProject.Models
         public Boolean correctAnswer { get; set; }
 
         [Url(ErrorMessage ="En este campo debe insertar una url a la pregunta que cosidera original")]
+
         public string UrlOriginalQuestion { get; set; }
 
         public Answer()
