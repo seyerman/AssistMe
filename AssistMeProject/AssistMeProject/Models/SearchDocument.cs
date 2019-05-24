@@ -69,5 +69,14 @@ namespace AssistMeProject.Models
             return Value.ToString()+" - Score: "+Score;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (this.GetType() != obj.GetType()) return false;
+            SearchDocument doc2 = (SearchDocument)obj;
+            return Value.Equals(doc2.Value);
+        }
+
     }
 }

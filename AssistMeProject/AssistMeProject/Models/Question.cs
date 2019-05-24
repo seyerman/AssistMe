@@ -95,7 +95,7 @@ namespace AssistMeProject.Models
         public bool HasTag(string tag)
         {
             if (String.IsNullOrWhiteSpace(tag)) return true;
-            foreach(QuestionLabel ql in QuestionLabels)
+            foreach (QuestionLabel ql in QuestionLabels)
             {
                 if (ql.Label.Tag == tag)
                     return true;
@@ -116,7 +116,12 @@ namespace AssistMeProject.Models
 
         public bool IsUser(string username)
         {
-            return User.USERNAME.ToLower() == username.ToLower() || String.IsNullOrWhiteSpace(username);
+            return String.IsNullOrWhiteSpace(username) || User.USERNAME.ToLower() == username.ToLower();
+        }
+
+        public override string ToString()
+        {
+            return Title;
         }
     }
 }
