@@ -31,7 +31,7 @@ namespace AssistMeProject.Controllers
         }
 
         public async Task<IActionResult> AnswerList(int? QuestionID)
-        {
+        { 
 
             var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(a=> a.Question).Include(a=>a.PositiveVotes).Include(a => a.Comments).Include(a=>a.User);
             return PartialView(await asssitMeProjectContext.ToListAsync());
@@ -211,6 +211,7 @@ namespace AssistMeProject.Controllers
         [HttpGet("api/Answers/{quid}/{uid}", Name = "GetAnswersList")]
         public async Task<JsonResult> GetAnswersList(int quid, int uid)
         {
+            
             var urlParams = Request.Query;
             var ans = await _context.Answer
                 .Where(a => a.QuestionID == quid)
@@ -218,9 +219,9 @@ namespace AssistMeProject.Controllers
                 .Include(a => a.User)
                 .ThenInclude(u => u.Studio)
                 .ToListAsync();
+
                 var answers=ans.Select(an =>
                 {
-                   // var autor = new { name = an.User.USERNAME, img = (an.User.PHOTO != null) ? an.User.PHOTO : "http://placehold.it/60x60/FFF/444", studio = an.User.Studio.Name };
                     var data = new
                     {
                         id = an.Id,
@@ -228,11 +229,18 @@ namespace AssistMeProject.Controllers
                         description = an.Description,
                         date = an.Date,
                         comments = an.Comments.ToList(),
-                        userVote = an.UserVote(uid),
+                        userVote =  an.UserVote(uid),
                         votes = an.PositiveVotes.Count(),
+                        an.correctAnswer,
                         autor = new { name = an.User.USERNAME, img = (an.User.PHOTO != null) ? an.User.PHOTO : "http://placehold.it/60x60/FFF/444", studio = an.User.Studio.Name }
                     };
-                    data.comments.ForEach(c => c.Answer = null);
+                    data.comments.ForEach(c => {
+                        c.Answer = null;
+                        c.User.Comments = null;
+                        c.User.Answers = null;
+                        c.User.PHOTO = (c.User.PHOTO != null) ? c.User.PHOTO : "http://placehold.it/60x60/FFF/444";
+                        c.User.Studio.Users=null;
+                    });
                     return data;
                 });
             string opt = urlParams["since"] + "";

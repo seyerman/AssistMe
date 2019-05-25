@@ -284,40 +284,45 @@ var answerHTML = function (obj) {
 
     var commentListHTML = "";
     obj.comments.forEach(ob => commentListHTML += commentHTML(ob));
-    
+    var color = obj.userVote==true? "#ff7361" : "#cccccc";
 
     ele.innerHTML = `
     <div class="comment-body comment-body-answered clearfix">
-        <div class="avatar">
-            <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="${autor.img}"></a>
-        </div>
-        <div class="comment-text">
-            <div class="author clearfix">
-                <div class="comment-author"><a href="#">${autor.name}</a></div>
-                    <div class="comment-vote">
-                        <ul class="question-vote">
-                            <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                        </ul>
-                    </div>
-                    <span class="question-vote-result">+${obj.votes}</span>
-                        <div class="comment-meta">
-                            <div class="date"><i class="icon-time"></i>${obj.date.split("T")[0]}</div>
-                        </div>
-                        <a href="/Comments/Create?AnswerId=${obj.questionID}" class="comment-reply"><i class="icon-comment"></i>Comentar</a>
-                    </div>
-                    <div class="text">
-                        <p>${obj.description}</p>
-                    </div>
-                    <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
-                </div>
+    <div class="avatar">
+        <a href="#" original-title="${autor.name}" class="tooltip-n"><img alt="" src="${autor.img}"></a>
+    </div>
+    <div class="comment-text">
+        <div class="author clearfix">
+            <div class="comment-author"><a href="#">${autor.name}</a></div>
+            <div class="comment-vote">
+                <ul class="question-vote">
+                    <li>
+                        <span id="answer_vote_${obj.id}" onclick="interaction('pv', ${getUserID()} ,${obj.id},'answer_vote_${obj.id}' )" class="answer-favorite">
+                            <i class="icon-plus" style="color:${color}"></i>
+                            +<span style="display:initial">${obj.votes}</span>
+                        </span>
+
+
+                    </li>
+                </ul>
             </div>
-            <div>
-           </div>
-           <div id="commentlist_${obj.id}">
-           <ol class="commentlist clearfix">
-                ${commentListHTML}
-           </ol>
-        </div>`;
+            <div class="comment-meta">
+                <div class="date"><i class="icon-time"></i>${obj.date.split("T")[0]}</div>
+            </div>
+            <a asp-controller="Comments" asp-action="Create" asp-route-AnswerId="@Model.Id" class="comment-reply"><i class="icon-comment"></i>Comentar</a>
+        </div>
+        <div class="text">
+            <p>${obj.description}</p>
+        </div>
+        <div id="answer_${obj.id}" class="question-answered pt ${obj.correctAnswer == true ? "question-answered-done" : ""}" onclick="markAsCorrect(1,${obj.id})"><i class="icon-ok"></i>${obj.correctAnswer == true ? "Correct" : "Mark as Correct"}</div>
+</div>
+</div>
+<div id="commentlist_${obj.id}">
+    <ol class="commentlist clearfix">
+        ${commentListHTML}
+    </ol>
+</div>
+    `;
     return ele;
 
 
