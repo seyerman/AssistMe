@@ -73,9 +73,16 @@ namespace AssistMeProject.Controllers
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+            {
                 actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
-            ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
+                ViewData["actualUserID"] = actualUser.ID;//Si aqui es null, lanza un error al inetntar ver la descripción de una pregunta,se debe controlar este error
+            }
+            else
+            {
+                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+            }
+            
 
             if (actualUser != null)
             {
