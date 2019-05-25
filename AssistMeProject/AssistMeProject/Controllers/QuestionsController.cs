@@ -205,6 +205,9 @@ namespace AssistMeProject.Controllers
 				ViewData["suggestLb"] = TempData["suggestLb"] as String[];
 				ViewData["suggestSt"] = TempData["suggestSt"] as String[];
 				ViewData["question"] = TempData["question"] as String[];
+				string[] q = TempData["question"] as String[];
+				ViewBag.Related = RelatedQuestions(q[0], q[1]);
+				
 				TempData.Remove("suggestLb");
 				TempData.Remove("suggestSt");
 				TempData.Remove("question");
@@ -438,7 +441,7 @@ namespace AssistMeProject.Controllers
             }
         }
 
-        public async Task<ActionResult> RelatedQuestions(string Title, string Description)
+        public List<Question> RelatedQuestions(string Title, string Description)
         {
             var relatedQuestions = new List<Question>();
             string query = Title + " " + Description;
@@ -460,7 +463,7 @@ namespace AssistMeProject.Controllers
                 }
 
             }
-            return PartialView(relatedQuestions);
+			return relatedQuestions;
         }
 
 
@@ -749,6 +752,7 @@ namespace AssistMeProject.Controllers
 		public void Suggestion(String title, String description)
 		{
 			String query = title + " " + description;
+			RelatedQuestions(title, description);
 			string[] lb = SuggestLabels(query);
 			string[] st = SuggestStudios(query);
 			TempData["suggestLb"] = lb;
@@ -788,7 +792,7 @@ namespace AssistMeProject.Controllers
 
 			for (int i = 0; i < suggestions.Count; i++)
 			{
-				Question q = suggestions.ElementAt(1);
+				Question q = suggestions.ElementAt(i);
 				for (int j = 0; j < q.QuestionLabels.Count; j++)
 				{
 					totalLabels.Add(q.QuestionLabels.ElementAt(j).Label);
@@ -842,7 +846,7 @@ namespace AssistMeProject.Controllers
 
 			for (int i = 0; i < sug.Count; i++)
 			{
-				Question q = sug.ElementAt(1);
+				Question q = sug.ElementAt(i);
 				for (int j = 0; j < q.QuestionStudios.Count; j++)
 				{
 					totalStudios.Add(q.QuestionStudios.ElementAt(j).Studio);
