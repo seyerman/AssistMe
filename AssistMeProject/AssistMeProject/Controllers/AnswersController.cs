@@ -25,7 +25,7 @@ namespace AssistMeProject.Controllers
         // GET: Answers
         public async Task<IActionResult> Index()
         {
-
+            SetActiveUser();
             var assistMeProjectContext = _context.Answer.Include(a => a.Question);
             return View(await assistMeProjectContext.Include(a => a.PositiveVotes).ToListAsync());
         }
@@ -33,6 +33,7 @@ namespace AssistMeProject.Controllers
 
         public async Task<IActionResult> AnswerList(int? QuestionID, int? userId)
         {
+            SetActiveUser();
             ViewData["userID"] = userId;
             var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(a=> a.Question).Include(a=>a.PositiveVotes).Include(a => a.Comments).Include(a=>a.User);
             return PartialView(await asssitMeProjectContext.ToListAsync());
@@ -42,6 +43,7 @@ namespace AssistMeProject.Controllers
         // GET: Answers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -63,6 +65,7 @@ namespace AssistMeProject.Controllers
         // GET: Answers/Create
         public IActionResult Create(int? QuestionID, Boolean repeat)
         {
+            SetActiveUser();
             string Activeuser = HttpContext.Session.GetString("USERNAME");
             if (string.IsNullOrEmpty(Activeuser))
             {
@@ -87,6 +90,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int QuestionID,string UrlOriginalQuestion,[Bind("QuestionID,Id,Description,Date,UrlOriginalQuestion")] Answer answer)
         {
+            SetActiveUser();
             if (ModelState.IsValid)
             {
 
@@ -119,6 +123,7 @@ namespace AssistMeProject.Controllers
         // GET: Answers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -140,6 +145,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("QuestionID,Id,Description,Date")] Answer answer)
         {
+            SetActiveUser();
             if (id != answer.Id)
             {
                 return NotFound();
@@ -172,6 +178,7 @@ namespace AssistMeProject.Controllers
         // GET: Answers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -193,6 +200,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            SetActiveUser();
             var answer = await _context.Answer.FindAsync(id);
             _context.Answer.Remove(answer);
             await _context.SaveChangesAsync();
@@ -208,6 +216,7 @@ namespace AssistMeProject.Controllers
         [HttpGet("api/Answers/Correct/{aid}/{uid}", Name = "MarkAsRead")]
         public async Task<JsonResult> MarkAsRead(int aid, int uid)
         {
+            SetActiveUser();
             Answer an = _context.Answer.First(a => a.Id == aid);
             string error = "";
             int status = 0;
@@ -227,7 +236,7 @@ namespace AssistMeProject.Controllers
         [HttpGet("api/Answers/{quid}/{uid}", Name = "GetAnswersList")]
         public async Task<JsonResult> GetAnswersList(int quid, int uid)
         {
-            
+            SetActiveUser();
             var urlParams = Request.Query;
             var ans = await _context.Answer
                 .Where(a => a.QuestionID == quid)
@@ -305,7 +314,7 @@ namespace AssistMeProject.Controllers
         [HttpGet("api/Questions/{uid}", Name = "GetQuestionsList")]
         public async Task<JsonResult> GetQuestionsList(int uid)
         {
-
+            SetActiveUser();
             var urlParams = Request.Query;
             var ans = await _context.Question
                 .Include(a => a.Answers)
@@ -377,6 +386,19 @@ namespace AssistMeProject.Controllers
 
             var json = new JsonResult(questions.ToList());
             return json;
+        }
+
+        /**
+         * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
+         **/
+        private void SetActiveUser()
+        {
+            //To pass the username active
+            string USER = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
+            if (string.IsNullOrEmpty(USER))
+                ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            ViewBag.ACTIVE_USER = USER;
+            //End To pass the username active
         }
 
     }

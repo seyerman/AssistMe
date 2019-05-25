@@ -1,19 +1,24 @@
 ﻿<!DOCTYPE html>
 
-
-
 @{ 
     if (ViewBag.User != null)
     {
         ViewBag.userID = ViewBag.User.ID;
-        ViewData["userID"] = ViewBag.User.ID; 
+        ViewData["userID"] = ViewBag.User.ID;
     }
     else {
         ViewBag.userID = -1;
         ViewData["userID"] = -1;
     }
     //End of example
-   
+    ViewBag.user = string.IsNullOrEmpty(ViewBag.ACTIVE_USER) ? "Cuenta":ViewBag.ACTIVE_USER;
+
+    <style type="text/css">
+        li {
+            cursor: pointer;
+        }
+    </style>
+
 }
 <html>
 <head>
@@ -50,15 +55,76 @@
 <body>
     <div class="loader"><div class="loader_html"></div></div>
     <div id="wrap" class="grid_1200">
+
+        <!--New Login panel from everything-->
+        @{
+            if ("Cuenta".Equals(ViewBag.user))
+            {
+                <div class="login-panel">
+                    <section class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="page-content">
+                                    <h2>Iniciar Sesión</h2>
+                                    <div class="form-style form-style-3">
+                                        <form method="post" asp-controller="Users" asp-action="Profile">
+                                            <div class="form-inputs clearfix">
+                                                <p class="login-text">
+                                                    <input type="text" name="username" value="" autocomplete="off" placeholder="Nombre de usuario">
+                                                    <i class="icon-user"></i>
+                                                </p>
+                                                <p class="login-password">
+                                                    <input type="password" name="password" value="" autocomplete="off" placeholder="Contraseña">
+                                                    <i class="icon-lock"></i>
+                                                    <a href="#">La olvidé</a>
+                                                </p>
+                                                <p class="hidden">
+                                                    <input type="text" name="method" value="N" /> <!--value=> how does the person enter, nor google or normal. N=normal G = google -->
+                                                </p>
+                                            </div>
+                                            <p class="form-submit login-submit">
+                                                <input type="submit" value="IR!" class="button orange-button small login-submit submit">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div><!-- End page-content -->
+                            </div><!-- End col-md-6 -->
+                            <div class="col-md-6">
+                                <div class="page-content Register">
+                                    <h2>Crear Cuenta</h2>
+                                    <p>Bienvenido a nuestra apliación web, de click en el botón de abajo para crear su cuenta: </p>
+                                    <a class="button small orange-button signup">Registrarse</a>
+                                </div><!-- End page-content -->
+                            </div><!-- End col-md-6 -->
+                        </div>
+                    </section>
+                </div><!-- End login-panel -->
+            }
+            else
+            {
+                <div class="login-panel">
+                    <section class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="page-content">
+                                    <a href="/Users/Profile" class="button small red-button">Perfil de usuario</a>
+                                    <a href="/Users/Edit" class="button small red-button">Editar Perfil</a>
+                                    <a href="/Users/Logout" class="button small red-button">Cerrar Sesión</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div><!-- End login-panel -->
+            }
+        }
+
         <div id="header-top">
             <section class="container clearfix">
-                <!--nav class="header-top-nav">
-                <ul>
-                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                </ul>
-            </nav -->
+                <nav class="header-top-nav">
+                    <ul>
+                        <li id="login-panel"><i class="icon-user"></i>@ViewBag.user</li>
+                    </ul>
+                </nav>
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -68,6 +134,7 @@
                 </div>
             </section><!-- End container -->
         </div><!-- End header-top -->
+        <!--End New Login panel for everything-->
 
         <header id="header">
             <section class="container clearfix">
@@ -80,37 +147,24 @@
                         <li class="ask_question"><a asp-controller="Questions" asp-action="Create">Ask Question</a></li> <!--Agregado link a crear question-->
                         <li class="asearch_question"><a asp-controller="Questions" asp-action="AdvancedSearch">Advanced Search</a></li>
                         <li>
-                            <a asp-controller="Questions" asp-action="Index">Questions</a><!--Agregado link a lista de Questions-->
+                            <a href=""<!-- asp-controller="Questions" asp-action="Index" -->Questions</a><!--Agregado link a lista de Questions-->
                             <ul>
                                 <li><a asp-controller="Home" asp-action="Index">Questions Category</a></li><!--Faltan funciones-->
                                 <li><a href="single_question.html">Question Single</a></li>
                                 <li><a href="single_question_poll.html">Poll Question Single</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="user_profile.html">Usuario</a>
-                            <ul>
-                                <li class="user-no-active"><a href="/Users/">Iniciar Sesión</a></li>
-                                <li class="user-active"><a href="/Users/Profile">Perfil del Usuario</a></li>
-                                <!--
-            <li><a href="user_questions.html">User Questions</a></li>
-            <li><a href="user_answers.html">User Answers</a></li>
-            <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
-            <li><a href="user_points.html">User Points</a></li>
-            -->
-                                <li class="user-active"><a href="/Users/Edit">Editar Perfil</a></li>
-                                <li class="user-active"><a href="/Users/Logout">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
+                        
                         <li id="notificacion">
-                            @{ 
+                            @{
                                 ViewBag.bell = "icon-bell";
-                                if (ViewBag.AllReaded != null && ViewBag.AllReaded) {
+                                if (ViewBag.AllReaded != null && ViewBag.AllReaded)
+                                {
                                     ViewBag.bell = "icon-bell-alt";
                                 }
 
                             }
-                            <a href="#"><i class="@ViewBag.bell"></i></a>
+                            <a href=""><i class="@ViewBag.bell"></i></a>
                             <ul>
                                 <u>Notificaciones</u>
                                 <li></li>
@@ -150,7 +204,7 @@
                                         int con = 1;
                                         foreach (var item in lista2)
                                         {
-                                            if (@item.Read==false)
+                                            if (@item.Read == false)
                                             {
                                                 <li>
                                                     <a href="/Users/AllNotifications">
@@ -172,7 +226,7 @@
                             </ul>
                         </li>
                         <li id="admin">
-                            <a href="admin.html">Administrador</a>
+                            <a href="">Administrador</a>
                             <ul>
                                 <li><a href="/Administrator/Index">Página Administrador</a></li>
                                 <li><a href="/Administrator/AddAdmin">Asignar Rol Administrador</a></li>
@@ -182,7 +236,7 @@
                             </ul>
                         </li>
 
-                    
+
 
                         <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
                     </ul>
@@ -190,8 +244,9 @@
             </section><!-- End container -->
         </header><!-- End header -->
 
-        
-        <div class="container main-content"><!--Contenido principal de la pagina--><!--Respetar el nivel de las paginas para que no se superpongan-->
+
+        <div class="container main-content">
+            <!--Contenido principal de la pagina--><!--Respetar el nivel de las paginas para que no se superpongan-->
             <div class="row">
                 <div class="col-md-9">
                     @RenderBody()
@@ -210,7 +265,7 @@
 
     <partial name="_CookieConsentPartial" />
 
-    
+
 
     <footer id="footer-bottom">
         <section class="container">
@@ -259,7 +314,7 @@
     <script src="~/js/jquery.bxslider.min.js"></script>
     <script src="~/js/custom.js"></script>
     <script src="~/js/questions.js"></script>
-    
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- End js -->
@@ -284,6 +339,112 @@
             <script src="~/js/site.min.js" asp-append-version="true"></script>
         </environment>*@
 
+    <div class="panel-pop" id="signup">
+        <h2>Registrarse<i class="icon-remove"></i></h2>
+        <div class="form-style form-style-3">
+            <form asp-action="Create">
+                <div class="form-group">
+                    <input name="LEVEL" class="form-control" value="2" min="1" max="3" type="hidden" />
+                </div>
+                <div class="form-group">
+                    <label name="USERNAME" class="control-label">Nombre de usuario: </label>
+                    <input name="USERNAME" class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <label name="PASSWORD" class="control-label">Contraseña: </label>
+                    <input name="PASSWORD" class="form-control" type="password" />
+                </div>
+                <div class="form-group">
+                    <label name="EMAIL" class="control-label">Correo: </label>
+                    <input name="EMAIL" class="form-control" type="email" />
+                </div>
+                <div class="form-group">
+                    <input name="PHOTO" class="form-control" type="hidden" value="http://placehold.it/60x60/FFF/444" />
+                </div>
+                <div class="form-group">
+                    <input name="QUESTIONS_ANSWERED" class="form-control" type="hidden" value="0" />
+                </div>
+                <div class="form-group">
+                    <input name="POSITIVE_VOTES_RECEIVED" class="form-control" type="hidden" value="0" />
+                </div>
+                <div class="form-group">
+                    <input name="QUESTIONS_ASKED" class="form-control" type="hidden" value="0" />
+                </div>
+                <div class="form-group">
+                    <input name="INTERESTING_VOTES_RECEIVED" class="form-control" type="hidden" value="0" />
+                </div>
+                <div class="form-group">
+                    <input name="DESCRIPTION" class="form-control" type="hidden" value="" />
+                </div>
+                <div class="form-group">
+                    <input namer="INTERESTS_OR_KNOWLEDGE" class="form-control" type="hidden" value="" />
+                </div>
+                <div class="form-group">
+                    <input name="COUNTRY" class="form-control" type="hidden" value="" />
+                </div>
+                <div class="form-group">
+                    <input name="CITY" class="form-control" type="hidden" value="" />
+                </div>
+                <div class="form-group">
+                    <label name="StudioId" class="control-label">Studio: </label>
+                    <span class="styled-select" id="StudioId">
+                        <select name="StudioName" class="form-control" asp-items="ViewBag.Studios"></select>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Crear!" class="btn btn-default orange-button" />
+                </div>
+            </form>
+        </div>
+    </div><!-- End signup -->
+
+    <script>
+        /* Signup */
+        window.addEventListener("load", function (event) {
+            jQuery(".signup,.login-links-r a").click(function () {
+                jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
+                jQuery("#signup").show().animate({ "top": "50%" }, 500);
+                jQuery("body").prepend("<div class='wrap-pop'></div>");
+                wrap_pop();
+                return false;
+            });
+
+            /* Lost password */
+
+            jQuery(".login-password a").click(function () {
+                jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
+                jQuery("#lost-password").show().animate({ "top": "50%" }, 500);
+                jQuery("body").prepend("<div class='wrap-pop'></div>");
+                wrap_pop();
+                return false;
+            });
+
+            /* Panel pop */
+
+            jQuery(".panel-pop").each(function () {
+                var panel_pop = jQuery(this);
+                var panel_height = panel_pop.height();
+                panel_pop.css("margin-top", "-" + panel_height / 2 + "px");
+            });
+
+            jQuery(".panel-pop h2 i").click(function () {
+                jQuery(this).parent().parent().animate({ "top": "-100%" }, 500);
+                jQuery(".wrap-pop").remove();
+            });
+
+            function wrap_pop() {
+                jQuery(".wrap-pop").click(function () {
+                    jQuery(".panel-pop").animate({ "top": "-100%" }, 500).hide(function () {
+                        jQuery(this).animate({ "top": "-100%" }, 500);
+                    });
+                    jQuery(this).remove();
+                });
+            }
+        });
+    </script>
+
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>

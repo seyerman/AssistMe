@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> Index()
         {
-
+            SetActiveUser();
             //Example of how to get the actual user that logged into the application
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
@@ -65,7 +66,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -80,7 +81,7 @@ namespace AssistMeProject.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+                return RedirectToAction(nameof(Index), "Users", new { message = "Inice sesión" });
             }
 
 
@@ -185,6 +186,7 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Search(string query)
         {
+            SetActiveUser();
             if (BM25Searcher.IsValidString(query))
             {
                 initSearcher();
@@ -203,7 +205,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Create
         public IActionResult Create()
         {
-            string Activeuser = HttpContext.Session.GetString("USERNAME");
+            string Activeuser = SetActiveUser();
             if (string.IsNullOrEmpty(Activeuser))
             {
                 return RedirectToAction("Index", "Users", new { message = "Inice sesión" });
@@ -236,11 +238,8 @@ namespace AssistMeProject.Controllers
 
         public IActionResult AdvancedSearch()
         {
-            string Activeuser = HttpContext.Session.GetString("USERNAME");
-            if (string.IsNullOrEmpty(Activeuser))
-            {
-                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
-            }
+            SetActiveUser();
+            string Activeuser = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
 
             ViewBag.username = Activeuser;
 
@@ -263,6 +262,7 @@ namespace AssistMeProject.Controllers
         public async Task<IActionResult> AdvancedSearch(string query, string studio, string studio2, string studio3, string glober,
             string question_tags)
         {
+            SetActiveUser();
             List<Question> questions = new List<Question>();
 
             if (BM25Searcher.IsValidString(query))
@@ -312,7 +312,8 @@ namespace AssistMeProject.Controllers
         public async Task<IActionResult> Create(string action,List<IFormFile> files, string studio, string studio2, string studio3,
             string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
-			if (action == "Suggestions")
+            string user = SetActiveUser();
+            if (action == "Suggestions")
 			{
 				Suggestion(question.Title, question.Description);
 				String[] q = { question.Title, question.Description };
@@ -322,11 +323,14 @@ namespace AssistMeProject.Controllers
 			{
                 List<Studio> studios = new List<Studio>();
 				User actualUser = null;
-				if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+				if (!string.IsNullOrEmpty(user))
 				{
-					actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+					actualUser = model.GetUser(user);
 					question.UserId = actualUser.ID;
-				}
+				} else
+                {
+                    return RedirectToAction("Index","Users", new { message = "Inicie sesión"});
+                }
 
 				if (ModelState.IsValid)
 				{
@@ -449,6 +453,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -469,6 +474,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
         {
+            SetActiveUser();
             if (id != question.Id)
             {
                 return NotFound();
@@ -500,6 +506,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -520,6 +527,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            SetActiveUser();
             var question = await _context.Question.FindAsync(id);
             _context.Question.Remove(question);
             await _context.SaveChangesAsync();
@@ -532,6 +540,7 @@ namespace AssistMeProject.Controllers
         }
         public async Task<IActionResult> UpdateDate(int? id)
         {
+            SetActiveUser();
             var question = await _context.Question.FindAsync(id);
             if (question == null)
             {
@@ -565,6 +574,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Delete/5
         public async Task<IActionResult> Archive(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -583,6 +593,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Delete/5
         public async Task<IActionResult> Desarchivar(int? id)
         {
+            SetActiveUser();
             var question = await _context.Question.FindAsync(id);
             question.isArchived = false;
             await _context.SaveChangesAsync();
@@ -590,6 +601,7 @@ namespace AssistMeProject.Controllers
         }
         public async Task<IActionResult> ArchiveQuestion(int? id)
         {
+            SetActiveUser();
             var question = await _context.Question.FindAsync(id);
             question.isArchived = true;
             await _context.SaveChangesAsync();
@@ -600,7 +612,7 @@ namespace AssistMeProject.Controllers
         // GET: Questions/Details/5
         public async Task<IActionResult> OLDARCHIVE(int? id)
         {
-
+            SetActiveUser();
             var question = await _context.Question
                 .Include(q => q.Answers)
                 .Include(q => q.QuestionLabels)
@@ -638,7 +650,7 @@ namespace AssistMeProject.Controllers
         {
 
 
-
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -843,5 +855,20 @@ namespace AssistMeProject.Controllers
 			}
 			return stud;
 		}
-	}
+
+        /**
+         * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
+         **/
+        private String SetActiveUser()
+        {
+            //To pass the username active
+            string USER = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
+            if (string.IsNullOrEmpty(USER))
+                ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            ViewBag.ACTIVE_USER = USER;
+            return USER;
+            //End To pass the username active
+        }
+
+    }
 }

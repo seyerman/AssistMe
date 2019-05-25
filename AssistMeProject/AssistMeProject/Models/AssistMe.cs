@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -67,6 +68,17 @@ namespace AssistMeProject.Models
         {
             User found = (User)_context.User.FirstOrDefault(a => a.USERNAME.Equals(username)).Clone();
             return found;
+        }
+
+        public static SelectList GetSelectListStudios(AssistMeProjectContext _context)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
+            return new SelectList(list, "Value", "Text");
         }
 
     }
