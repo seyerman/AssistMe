@@ -22,17 +22,20 @@ namespace AssistMeProject.Controllers
         // GET: Comments
         public async Task<IActionResult> Index()
         {
+            SetActiveUser();
             var assistMeProjectContext = _context.Comment.Include(c => c.Answer);
             return View(await assistMeProjectContext.ToListAsync());
         }
 
         public async Task<IActionResult> CommentList(int? AnswerId)
         {
+            SetActiveUser();
             var assistMeProjectContext = _context.Comment.Where(c => c.AnswerId == AnswerId).Include(s=>s.Answer).Include(c=>c.User);
             return PartialView(await assistMeProjectContext.ToListAsync());
         }
         public IActionResult lista(int? AnswerId)
         {
+            SetActiveUser();
             var assistMeProjectContext = _context.Comment.Where(c => c.AnswerId == AnswerId).Include(s => s.Answer).Include(c => c.User);
             return PartialView( assistMeProjectContext.ToListAsync());
         }
@@ -40,6 +43,7 @@ namespace AssistMeProject.Controllers
         // GET: Comments/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -59,6 +63,7 @@ namespace AssistMeProject.Controllers
         // GET: Comments/Create
         public IActionResult Create(int? AnswerId)
         {
+            SetActiveUser();
             string Activeuser = HttpContext.Session.GetString("USERNAME");
             if (string.IsNullOrEmpty(Activeuser))
             {
@@ -77,6 +82,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int AnswerId,[Bind("AnswerId,Id,Description,Date")] Comment comment)
         {
+            SetActiveUser();
             if (ModelState.IsValid)
             {
                 string Activeuser = HttpContext.Session.GetString("USERNAME");
@@ -95,6 +101,7 @@ namespace AssistMeProject.Controllers
         // GET: Comments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -116,6 +123,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AnswerId,Id,Description,Date")] Comment comment)
         {
+            SetActiveUser();
             if (id != comment.Id)
             {
                 return NotFound();
@@ -148,6 +156,7 @@ namespace AssistMeProject.Controllers
         // GET: Comments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            SetActiveUser();
             if (id == null)
             {
                 return NotFound();
@@ -169,6 +178,7 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            SetActiveUser();
             var comment = await _context.Comment.FindAsync(id);
             _context.Comment.Remove(comment);
             await _context.SaveChangesAsync();
@@ -179,5 +189,19 @@ namespace AssistMeProject.Controllers
         {
             return _context.Comment.Any(e => e.Id == id);
         }
+
+        /**
+         * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
+         **/
+        private void SetActiveUser()
+        {
+            //To pass the username active
+            string USER = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
+            if (string.IsNullOrEmpty(USER))
+                ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            ViewBag.ACTIVE_USER = USER;
+            //End To pass the username active
+        }
+
     }
 }

@@ -26,7 +26,12 @@ namespace AssistMeProject.Models
 
         public void AddDocument(ISearchable doc)
         {
-            Documents.Add(new SearchDocument(doc));
+            SearchDocument sd = new SearchDocument(doc);
+            if (!Documents.Contains(sd))
+            {
+                Documents.Add(sd);
+            }
+            
         }
 
         public List<ISearchable> Search(string query)

@@ -8,11 +8,6 @@
 
 
 
-
-
-
-
-
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
@@ -31,14 +26,15 @@
                     @{
                         foreach (var f in ViewBag.FileNames)
                         {
-                            <a href='~/uploads/@(Model.Id+"/"+f)' download="@f"><i class="icon-paper-clip"></i>@(" " + f)</a><br />
+                        <a href='~/uploads/@(Model.Id+"/"+f)' download="@f"><i class="icon-paper-clip"></i>@(" " + f)</a><br />
                         }
                     }
 
                 </div>
             </p>
             <div class="page-content clearfix">
-                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="false"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-Controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="true"><i class="icon-copy"></i>Answer as Repeat</a> |
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
 
@@ -53,8 +49,9 @@
                             {
                                 text += ", ";
                             }
-                            <a href="#">@text</a>
+                        <a href="#">@text</a>
                         }
+                    }
                     }
                 </div>
                 <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
@@ -78,23 +75,25 @@
                     @{
                         if (ViewBag.Related.Count == 0)
                         {
-                            <li class="related-item"><h3>There are no related questions</h3></li>
+                        <li class="related-item"><h3>There are no related questions</h3></li>
                         }
                         else
                         {
                             foreach (var q in ViewBag.Related)
                             {
-                                <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
+                        <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
                             }
                         }
+
 
                     }
 
                 </ul>
             </div><!-- End related-posts -->
+            <div id="filteranswerlist" class="filter-container">
 
+            </div>
             <div id="answerlist">
-
 
             </div>
 
@@ -105,9 +104,14 @@
 
             </p>
 
-            <p>
 
-            </p>
+            
+        
+        
+        <div id="filteranswerlist" class="filter-container">
+        </div>
+
+            <div id="answerlist"></div>
 
             <div id="related-posts">
                 <h2>Opciones avanzadas</h2>
@@ -163,7 +167,7 @@
 
         $(function () {
             $.ajax({
-                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
+                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)" + "&userId=" + getUserID()
             }).done(function (data) {
                 $('#answerlist').html(data);
             }).fail(function () {

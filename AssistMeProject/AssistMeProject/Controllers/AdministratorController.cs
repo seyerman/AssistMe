@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using AssistMeProject.Models;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using Microsoft.AspNetCore.Http.Internal;
 
 namespace AssistMeProject.Controllers
 {
@@ -16,20 +19,43 @@ namespace AssistMeProject.Controllers
     {
         private readonly AssistMeProjectContext _context;
         public AssistMe model;
+        private IHostingEnvironment _hostingEnvironment;
 
-
-        public AdministratorController(AssistMeProjectContext context)
+        public AdministratorController(IHostingEnvironment environment, AssistMeProjectContext context)
         {
             _context = context;
             model = new AssistMe(context);
+            _hostingEnvironment = environment;
+
         }
 
         public IActionResult Index()
         {
-
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            else
+                return RedirectToAction("Index","Users", new { message = "Inicie sesión"});
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+            }
+
+            return View();
+        }
+
+
+        public IActionResult ManageStudios()
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
 
             if (actualUser != null)
             {
@@ -40,17 +66,25 @@ namespace AssistMeProject.Controllers
                 ViewData["Admin"] = 4;
 
             }
+            var studios = _context.Studio.ToList();
 
-            return View();
+
+
+
+            return View(studios);
         }
 
         public IActionResult NotAdmin(User user)
         {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             return View(user);
         }
 
         public async Task<IActionResult> IndexAsync()
         {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             var users = (await _context.User.ToListAsync());
 
             return View(users);
@@ -61,22 +95,46 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateStudio([Bind("Id, Name, Unit, Description")] Studio studio)
+        public async Task<IActionResult> CreateStudio(IFormFile file, [Bind("Id, Name, Unit, Description, Email")] Studio studio)
         {
-
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             if (ModelState.IsValid)
             {
                 _context.Add(studio);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", studio.Name + "");
+
+                if (Directory.Exists(filePath))
+                {
+                    Directory.Delete(filePath, true);
+                }
+                Directory.CreateDirectory(filePath);
+
+
+                filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", studio.Name + "",
+                               Path.GetFileName(file.FileName));
+                if (file.Length > 0)
+                {
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+
+
             }
-            return View(_context);
+
+
+            return RedirectToAction(nameof(ManageStudios));
         }
 
 
         // GET: Questions/Details/5
         public async Task<IActionResult> AsignRole(int? id)
         {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             if (id == null)
             {
                 return NotFound();
@@ -97,7 +155,8 @@ namespace AssistMeProject.Controllers
         // GET: /<controller>/
         public IActionResult CreateStudio()
         {
-
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             User actualUser = null;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
                 actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
@@ -130,8 +189,10 @@ namespace AssistMeProject.Controllers
         {
 
             User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+            else
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
 
             if (actualUser != null)
             {
@@ -153,8 +214,10 @@ namespace AssistMeProject.Controllers
         public async Task<IActionResult> ArchivedQuestions()
         {
             User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+            else
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
 
             if (actualUser != null)
             {
@@ -183,11 +246,247 @@ namespace AssistMeProject.Controllers
 
 
 
+        public async Task<IActionResult> ShowSummary()
+        {
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
+                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
+            else
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
+            var questions = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.QuestionStudios).ThenInclude(qs => qs.Studio)
+                .ToListAsync();
+
+
+            return View(questions);
+
+        }
+
+        // GET: Questions/Delete/5
+        public async Task<IActionResult> DeleteStudio(int? id)
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            var studio = await _context.Studio.FindAsync(id);
+            _context.Studio.Remove(studio);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(ManageStudios));
+        }
 
 
 
+        // GET: Questions/Create
+        public IActionResult Show()
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            User actualUser = null;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
+                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
+
+            if (actualUser != null)
+            {
+                ViewData["Admin"] = actualUser.LEVEL;
+            }
+            else
+            {
+                ViewData["Admin"] = 4;
+
+            }
+
+            List<SelectListItem> listStudios = new List<SelectListItem>();
+
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                listStudios.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
 
 
+            ViewData["Studios"] = new SelectList(listStudios, "Value", "Text");
+
+            List<SelectListItem> listUsers = new List<SelectListItem>();
+
+            var users = _context.User.ToList();
+            foreach (User u in users)
+            {
+                listUsers.Add(new SelectListItem() { Text = u.USERNAME, Value = u.USERNAME });
+            }
+            ViewData["Users"] = new SelectList(listUsers, "Value", "Text");
+
+
+
+            List<SelectListItem> listLabels = new List<SelectListItem>();
+
+            var labels = _context.Label.ToList();
+            foreach (Label l in labels)
+            {
+                listLabels.Add(new SelectListItem() { Text = l.Tag, Value = l.Tag });
+            }
+
+
+            ViewData["Labels"] = new SelectList(listLabels, "Value", "Text");
+
+            return View();
+        }
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowStudioTable(string studio)
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            ViewData["Studio"] = studio;
+            var questions = await _context.Question.Where(q => q.QuestionStudios.Any(i => i.Studio.Name == studio)).Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.QuestionStudios).ThenInclude(ql => ql.Studio)
+                .ToListAsync();
+
+
+
+            return View(questions);
+        }
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowTagTable(string tag)
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            ViewData["Tag"] = tag;
+            var questions = await _context.Question.Where(q => q.QuestionLabels.Any(i => i.Label.Tag == tag)).Include(q => q.Answers)
+                .Include(q => q.QuestionStudios)
+                    .ThenInclude(ql => ql.Studio).Include(q => q.User)
+                .ToListAsync();
+
+
+
+            return View(questions);
+        }
+
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowUserTable(string user)
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            ViewData["Username"] = user;
+
+            var questions = await _context.Question.Where(u => u.User.USERNAME == user)
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.QuestionStudios).ThenInclude(qs => qs.Studio)
+                .ToListAsync();
+
+            return View(questions);
+        }
+
+
+        // POST: Questions/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowTable()
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            var questions = await _context.Question
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionLabels)
+                    .ThenInclude(ql => ql.Label).Include(q => q.QuestionStudios).ThenInclude(qs => qs.Studio).Include(q => q.User)
+                .ToListAsync();
+
+
+
+            return View(questions);
+        }
+
+
+        // GET: Questions/Details/5
+        public async Task<IActionResult> StudioDetails(int? id)
+        {
+            if (string.IsNullOrEmpty(SetActiveUser()))
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+
+            var studio = await _context.Studio.FirstOrDefaultAsync(m => m.Id == id);
+
+
+            if (studio == null)
+            {
+                return NotFound();
+            }
+
+            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", studio.Name + "");
+
+            List<string> files = new List<string>();
+
+            if (Directory.Exists(filePath))
+            {
+                string[] rawFiles = Directory.GetFiles(filePath);
+                foreach (string rf in rawFiles)
+                {
+                    files.Add(Path.GetFileName(rf));
+                }
+            }
+
+            ViewBag.FileNames = files;
+
+
+           
+
+
+            return View(studio);
+        }
+
+        /**
+         * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
+         **/
+        private String SetActiveUser()
+        {
+            //To pass the username active
+            string USER = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
+            if (string.IsNullOrEmpty(USER))
+                ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            ViewBag.ACTIVE_USER = USER;
+            return USER;
+            //End To pass the username active
+        }
 
     }
+<<<<<<< HEAD
 }
+=======
+
+
+}
+>>>>>>> dev

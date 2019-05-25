@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AssistMeProject.Migrations
 {
-    public partial class migracionsota : Migration
+    public partial class Initia : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,7 +30,8 @@ namespace AssistMeProject.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     Unit = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,6 +72,29 @@ namespace AssistMeProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Notification",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(nullable: true),
+                    Read = table.Column<bool>(nullable: false),
+                    UserID = table.Column<int>(nullable: false),
+                    QuestionId = table.Column<int>(nullable: false),
+                    TimeAnswer = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notification", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notification_User_UserID",
+                        column: x => x.UserID,
+                        principalTable: "User",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Question",
                 columns: table => new
                 {
@@ -79,20 +103,14 @@ namespace AssistMeProject.Migrations
                     Description = table.Column<string>(maxLength: 30000, nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(maxLength: 150, nullable: false),
+                    Insignia = table.Column<string>(nullable: true),
                     AskAgain = table.Column<bool>(nullable: false),
                     isArchived = table.Column<bool>(nullable: false),
-                    StudioId = table.Column<int>(nullable: true),
                     UserId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Question", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Question_Studio_StudioId",
-                        column: x => x.StudioId,
-                        principalTable: "Studio",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Question_User_UserId",
                         column: x => x.UserId,
@@ -111,7 +129,8 @@ namespace AssistMeProject.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
                     QuestionID = table.Column<int>(nullable: false),
-                    correctAnswer = table.Column<bool>(nullable: false)
+                    correctAnswer = table.Column<bool>(nullable: false),
+                    UrlOriginalQuestion = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -176,6 +195,30 @@ namespace AssistMeProject.Migrations
                         name: "FK_QuestionLabels_Question_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Question",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QuestionStudio",
+                columns: table => new
+                {
+                    QuestionId = table.Column<int>(nullable: false),
+                    StudioId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuestionStudio", x => new { x.QuestionId, x.StudioId });
+                    table.ForeignKey(
+                        name: "FK_QuestionStudio_Question_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Question",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_QuestionStudio_Studio_StudioId",
+                        column: x => x.StudioId,
+                        principalTable: "Studio",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -292,6 +335,11 @@ namespace AssistMeProject.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Notification_UserID",
+                table: "Notification",
+                column: "UserID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PositiveVote_AnswerID",
                 table: "PositiveVote",
                 column: "AnswerID");
@@ -302,11 +350,6 @@ namespace AssistMeProject.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Question_StudioId",
-                table: "Question",
-                column: "StudioId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Question_UserId",
                 table: "Question",
                 column: "UserId");
@@ -315,6 +358,11 @@ namespace AssistMeProject.Migrations
                 name: "IX_QuestionLabels_LabelId",
                 table: "QuestionLabels",
                 column: "LabelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuestionStudio_StudioId",
+                table: "QuestionStudio",
+                column: "StudioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_User_StudioId",
@@ -341,10 +389,16 @@ namespace AssistMeProject.Migrations
                 name: "InterestingVote");
 
             migrationBuilder.DropTable(
+                name: "Notification");
+
+            migrationBuilder.DropTable(
                 name: "PositiveVote");
 
             migrationBuilder.DropTable(
                 name: "QuestionLabels");
+
+            migrationBuilder.DropTable(
+                name: "QuestionStudio");
 
             migrationBuilder.DropTable(
                 name: "View");

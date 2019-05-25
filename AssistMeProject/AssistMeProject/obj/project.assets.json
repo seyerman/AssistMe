@@ -3290,6 +3290,15 @@
           "lib/net35/slf4j-api.dll": {}
         }
       },
+      "SpreadsheetLight/3.4.9": {
+        "type": "package",
+        "compile": {
+          "lib/SpreadsheetLight.dll": {}
+        },
+        "runtime": {
+          "lib/SpreadsheetLight.dll": {}
+        }
+      },
       "Stanford.NLP.CoreNLP/3.9.1": {
         "type": "package",
         "dependencies": {
@@ -8872,7 +8881,6 @@
       "path": "runtime.native.system.io.compression/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -9092,6 +9100,19 @@
         "lib/net35/slf4j-api.dll",
         "slf4j-api.1.7.5.4.nupkg.sha512",
         "slf4j-api.nuspec"
+      ]
+    },
+    "SpreadsheetLight/3.4.9": {
+      "sha512": "8WXzA6WFTUuKqrX2BhVrf1CsOgQoFJVQhzEImYPeK1U7MWhZskmiuWGrBLuoK9UnpkD3Y9Lf4jiq8uFbqT7DVQ==",
+      "type": "package",
+      "path": "spreadsheetlight/3.4.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/SpreadsheetLight.dll",
+        "lib/SpreadsheetLight.xml",
+        "spreadsheetlight.3.4.9.nupkg.sha512",
+        "spreadsheetlight.nuspec"
       ]
     },
     "Stanford.NLP.CoreNLP/3.9.1": {
@@ -12364,7 +12385,6 @@
       "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12692,7 +12712,6 @@
       "path": "system.security.cryptography.csp/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12764,7 +12783,6 @@
       "path": "system.security.cryptography.openssl/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll",
@@ -14119,6 +14137,7 @@
       "Microsoft.Net.Http.Headers >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.3",
       "MimeKit >= 2.1.3",
+      "SpreadsheetLight >= 3.4.9",
       "Stanford.NLP.CoreNLP >= 3.9.1",
       "System.Runtime.Caching >= 4.5.0",
       "bootstrap >= 4.3.1",
@@ -14376,6 +14395,10 @@
           "MimeKit": {
             "target": "Package",
             "version": "[2.1.3, )"
+          },
+          "SpreadsheetLight": {
+            "target": "Package",
+            "version": "[3.4.9, )"
           },
           "Stanford.NLP.CoreNLP": {
             "target": "Package",
@@ -14937,6 +14960,19 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
+=======
+      "message": "Package 'SpreadsheetLight 3.4.9' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "SpreadsheetLight",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+>>>>>>> dev
       "message": "Package 'Stanford.NLP.CoreNLP 3.9.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "Stanford.NLP.CoreNLP",
       "targetGraphs": [

@@ -1,6 +1,6 @@
-﻿@model IEnumerable<AssistMeProject.Models.Question>
-
+﻿
 @{
+<<<<<<< HEAD
     ViewData["Title"] = "Pagina administrador";
 }
 
@@ -225,36 +225,15 @@
                     </div>
                 </div><!-- End #tabla Usuario -->
 
+=======
+   ViewData["Title"] = "Details";
+>>>>>>> dev
 
-
-            </div><!-- End main -->
-            <aside class="col-md-3 sidebar">
-                <div class="widget widget_menu widget_menu_jquery">
-                    <ul>
-                        <li class="current_page_item"><
-                        <li><a href="#progess"><i class="icon-tasks"></i>Cantidad Preguntas & Respuestas</a></li>
-                        <li><a href="#tableEtiqueta"><i class="icon-table"></i>Tabla Preguntas Por Etiqueta</a></li>
-                        <li><a href="#tableStudio"><i class="icon-table"></i>Tabla Preguntas por Studio</a></li>
-                        <li><a href="#tableUsers"><i class="icon-table"></i>Tabla Preguntas por Creadores</a></li>
-
-                    </ul>
-                </div><!-- End widget_menu -->
-            </aside><!-- End sidebar -->
-        </div><!-- End row -->
-</section><!-- End container -->
-
-<script>
-     var level = @ViewData["Admin"];
-        window.onload = ocultar();
-    function ocultar() {
-        if (level == 2) {
-            console.log('Este usuario es un administrador');
-            document.getElementById('main').style.display = 'block';
-        } else {
-            foo();
-        }
-    }
-    function foo() {
-    window.location.href = 'NotAdmin';
 }
-</script>
+
+
+<section class="container main-content">
+    
+    PAGINA DE ADMINISTRADOR
+
+</section><!-- End #alert -->

@@ -7,7 +7,14 @@
     if (ViewBag.User != null)
     {
         title = ViewBag.User.USERNAME;
+        ViewData["userID"] = ViewBag.User.ID; 
     }
+    else {
+        ViewBag.userID = -1;
+        ViewData["userID"] = -1;
+    }
+   
+    
     //End of example
     ViewData["Title"] = title;
 }
@@ -23,8 +30,12 @@
                         <li class="tab"><a href="#" class="current">Recent Questions</a></li>
                         <li class="tab"><a href="#">No answers</a></li>
                     </ul>
+                    <div id="filteranswerlist" class="filter-container">
+                    </div>
+                    <br />
                     <div class="tab-inner-warp">
-                        <div class="tab-inner">
+
+                        <div id="answerlist" class="tab-inner">
                             @{
                                 int counter = 0;
                                 foreach (var item in Model)
@@ -45,31 +56,51 @@
                                             <p class="question-desc">@Html.DisplayFor(modelItem => item.Description)</p>
                                             <div class="question-details">
                                                 @{
+                                                    var n = DateTime.Now;
                                                     if (item.AskAgain)
                                                     {
                                                         <span class="question-answered"><i class="icon-star"></i>UP</span>
 
                                                     }
+                                                    else if (n < item.Date.AddDays(1))
+                                                    {
+                                                        <span class="question-answered"><i class="icon-star"></i>NEW</span>
+                                                    }
 
-                                                }
-                                                @{ var n = DateTime.Now;
+
+                                                    if (item.Answers.Any(a => a.correctAnswer))
+                                                    {
+                                                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>Solved</span>
+                                                    }
+                                                    if (item.Insignia != null && item.Insignia.Equals("SEEN BEFORE"))
+                                                    {
+                                                        <span class="question-answered"><i class="icon-eye-open"></i>SEEN BEFORE </span>
+                                                    }
+
                                                     if (item.Answers.Count > 0)
                                                     {
-                                                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+                                                        if (item.Answers.Count > 10)
+                                                        {
+                                                            <span class="question-answered question-answered-done"><i class="icon-star"></i>ROCKSTAR </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+                                                        }
                                                     }
                                                     else if (n >= item.Date.AddDays(1))
                                                     {
                                                         <span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@item.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
                                                     }
-                                                    else
-                                                    {
-                                                        <span class="question-answered"><i class="icon-ok"></i>in progress</span>
-                                                    }
                                                 }
-                                                <span id="question_vote_@item.Id" onclick="interaction('iv', 14,@item.Id,'question_vote_@item.Id' )" class="question-favorite">
-                                                    <i class="@Html.DisplayName(item.UserVote(14)?"icon-star":"icon-star-empty")"></i>
+                                                
+
+                                                <span id="question_vote_@item.Id" onclick="interaction('iv',getUserID(),@item.Id,'question_vote_@item.Id' )" class="question-favorite">
+                                                    <i class="@Html.DisplayName((int)ViewData["userID"]>=0 && item.UserVote((int)ViewData["userID"])?"icon-star":"icon-star-empty")"></i>
                                                     <span>@Html.DisplayFor(model => item.InterestingVotes.Count)</span>
                                                 </span>
+
+
                                             </div>
 
                                             <span class="question-category">

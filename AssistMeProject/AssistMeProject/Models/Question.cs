@@ -17,7 +17,7 @@ namespace AssistMeProject.Models
 
         public virtual ICollection<InterestingVote> InterestingVotes { get; set; }
         public virtual ICollection<View> Views { get; set; }
-       
+        public string Insignia { get; set; }
      
  
 
@@ -58,6 +58,15 @@ namespace AssistMeProject.Models
         //Method to know if the user already vote interesting
          public bool UserVote(int userId) {
 
+            Console.WriteLine("____________");
+            Console.WriteLine("____________");
+            Console.WriteLine("____________");
+            Console.WriteLine("____________");
+            Console.WriteLine("____________");
+            Console.WriteLine("____________");
+            Console.WriteLine("____________");
+            Console.WriteLine("____________");
+            Console.WriteLine(userId);
             return InterestingVotes.Any(x => x.UserID == userId); 
         }
 
@@ -81,6 +90,38 @@ namespace AssistMeProject.Models
         {
 
             return Views.Any(x => x.UserID == userId);
+        }
+
+        public bool HasTag(string tag)
+        {
+            if (String.IsNullOrWhiteSpace(tag)) return true;
+            foreach (QuestionLabel ql in QuestionLabels)
+            {
+                if (ql.Label.Tag == tag)
+                    return true;
+            }
+            return false;
+        }
+
+        public bool HasStudio(string studio)
+        {
+            if (String.IsNullOrWhiteSpace(studio)) return true;
+            foreach (QuestionStudio qs in QuestionStudios)
+            {
+                if (qs.Studio.Name == studio)
+                    return true;
+            }
+            return false;
+        }
+
+        public bool IsUser(string username)
+        {
+            return String.IsNullOrWhiteSpace(username) || User.USERNAME.ToLower() == username.ToLower();
+        }
+
+        public override string ToString()
+        {
+            return Title;
         }
     }
 }

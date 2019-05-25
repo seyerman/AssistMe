@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,6 +19,9 @@ namespace AssistMeProject.Models
 
         public Boolean correctAnswer { get; set; }
 
+        [Url(ErrorMessage ="En este campo debe insertar una url a la pregunta que cosidera original")]
+
+        public string UrlOriginalQuestion { get; set; }
 
         public Answer()
         {
@@ -29,6 +33,7 @@ namespace AssistMeProject.Models
         
         public bool UserVote(int userId)
         {
+            if (userId == -1) return false;
             return PositiveVotes.Any(x => x.UserID == userId);
         }
 
