@@ -30,9 +30,10 @@ namespace AssistMeProject.Controllers
             return View(await assistMeProjectContext.Include(a => a.PositiveVotes).ToListAsync());
         }
 
-        public async Task<IActionResult> AnswerList(int? QuestionID)
-        {
 
+        public async Task<IActionResult> AnswerList(int? QuestionID, int? userId)
+        {
+            ViewData["userID"] = userId;
             var asssitMeProjectContext = _context.Answer.Where(a => a.QuestionID == QuestionID).Include(a=> a.Question).Include(a=>a.PositiveVotes).Include(a => a.Comments).Include(a=>a.User);
             return PartialView(await asssitMeProjectContext.ToListAsync());
 
@@ -60,7 +61,7 @@ namespace AssistMeProject.Controllers
         }
 
         // GET: Answers/Create
-        public IActionResult Create(int? QuestionID)
+        public IActionResult Create(int? QuestionID, Boolean repeat)
         {
             string Activeuser = HttpContext.Session.GetString("USERNAME");
             if (string.IsNullOrEmpty(Activeuser))
@@ -75,6 +76,7 @@ namespace AssistMeProject.Controllers
 
             //int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
             ViewData["UserId"] = question.User.ID;//activeUserId;
+            ViewData["IsRepeat"] = repeat;
             return View();
         }
 
@@ -83,15 +85,21 @@ namespace AssistMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int QuestionID,[Bind("QuestionID,Id,Description,Date")] Answer answer)
+        public async Task<IActionResult> Create(int QuestionID,string UrlOriginalQuestion,[Bind("QuestionID,Id,Description,Date,UrlOriginalQuestion")] Answer answer)
         {
             if (ModelState.IsValid)
             {
+
                 string Activeuser = HttpContext.Session.GetString("USERNAME");
                 int activeUserId = _context.User.First(u => u.USERNAME.Equals(Activeuser)).ID;
                 answer.Date = DateTime.Now;
                 answer.UserId = activeUserId;
                 _context.Add(answer);
+
+                if (UrlOriginalQuestion!=null)
+                {
+                    _context.Question.Find(QuestionID).Insignia = "SEEN BEFORE";
+                }
 
                 int questionOwner = _context.Question.Find(QuestionID).UserId.Value;// averiguo el dueño de la pregunta referencir a quien podra ver la notificacion
                 
@@ -219,27 +227,38 @@ namespace AssistMeProject.Controllers
         [HttpGet("api/Answers/{quid}/{uid}", Name = "GetAnswersList")]
         public async Task<JsonResult> GetAnswersList(int quid, int uid)
         {
+            
             var urlParams = Request.Query;
-            var answers = _context.Answer
+            var ans = await _context.Answer
                 .Where(a => a.QuestionID == quid)
                 .Include(a => a.Comments)
-                .ToList().Select(an => {
-                var data = new
+                .Include(a => a.User)
+                .ThenInclude(u => u.Studio)
+                .ToListAsync();
+
+                var answers=ans.Select(an =>
                 {
-                    id = an.Id,
-                    questionID = an.QuestionID,
-                    description = an.Description,
-                    date = an.Date,
-                    comments = an.Comments.ToList(),
-                    userVote = false,//an.HasUserVote
-                    votes = 0 // an.Votes.COunt
-                };
-                data.comments.ForEach(c => c.Answer = null);
-                return data;
-            });
-
-
-
+                    var data = new
+                    {
+                        id = an.Id,
+                        questionID = an.QuestionID,
+                        description = an.Description,
+                        date = an.Date,
+                        comments = an.Comments.ToList(),
+                        userVote =  an.UserVote(uid),
+                        votes = an.PositiveVotes.Count(),
+                        an.correctAnswer,
+                        autor = new { name = an.User.USERNAME, img = (an.User.PHOTO != null) ? an.User.PHOTO : "http://placehold.it/60x60/FFF/444", studio = an.User.Studio.Name }
+                    };
+                    data.comments.ForEach(c => {
+                        c.Answer = null;
+                        c.User.Comments = null;
+                        c.User.Answers = null;
+                        c.User.PHOTO = (c.User.PHOTO != null) ? c.User.PHOTO : "http://placehold.it/60x60/FFF/444";
+                        c.User.Studio.Users=null;
+                    });
+                    return data;
+                });
             string opt = urlParams["since"] + "";
             if (opt != null && !"".Equals(opt))
             {
@@ -253,22 +272,112 @@ namespace AssistMeProject.Controllers
                 answers = answers.Where(a => a.date <= dt);
             }
             opt = urlParams["studios"];
-            if (opt != null && !"".Equals(opt)) {
-                string[] studios = opt.Contains(",")?opt.Split(","):new string[1]{ opt};
-                //answers = answers.Where(a => studios.Contains(answers.Autor.Studio));
+            if (opt != null && !"".Equals(opt))
+            {
+                string[] studios = opt.Contains(",") ? opt.Split(",") : new string[1] { opt };
+                answers = answers.Where(a => studios.Contains(a.autor.studio));
             }
             opt = urlParams["votes"];
             if (opt != null && !"".Equals(opt))
+            {
                 if ("any".Equals(opt))
                     answers = answers.Where(a => a.votes > 0);
                 else if ("no".Equals(opt))
                     answers = answers.Where(a => a.votes == 0);
                 else
                     answers = answers.Where(a => a.votes >= int.Parse(opt));
-            
+            }
+            opt = urlParams["reply"];
+            if (opt != null && !"".Equals(opt))
+            {
+                if ("any".Equals(opt))
+                    answers = answers.Where(a => a.comments.Count() > 0);
+                else if ("no".Equals(opt))
+                    answers = answers.Where(a => a.comments.Count() == 0);
+                else
+                    answers = answers.Where(a => a.comments.Count() >= int.Parse(opt));
+            }
 
             var json = new JsonResult(answers.ToList());
             return json;
         }
+
+        [HttpGet("api/Questions/{uid}", Name = "GetQuestionsList")]
+        public async Task<JsonResult> GetQuestionsList(int uid)
+        {
+
+            var urlParams = Request.Query;
+            var ans = await _context.Question
+                .Include(a => a.Answers)
+                .Include(a => a.User)
+                .ThenInclude(u => u.Studio)
+                .Include(q=> q.QuestionStudios)
+                .Include(q => q.QuestionLabels)
+                .ToListAsync();
+
+            var questions = ans.Select(qu =>
+            {
+                var studios = qu.QuestionStudios.Select(st=>new {name=st.Studio.Name, id=st.StudioId });
+
+                var data = new
+                {
+                    id = qu.Id,
+                    title=qu.Title,
+                    description = qu.Description,
+                    date = qu.Date,
+                    answers = qu.Answers.Count(),
+                    userVote = qu.UserVote(uid),
+                    votes = qu.InterestingVotes.Count(),
+                    solved = qu.Answers.Any(a => a.correctAnswer),
+                    studios,
+                    askAgain=qu.AskAgain,
+                    labels=qu.QuestionLabels.Select(ql=>ql.Label).Where(l=>l!=null),
+                    autor = new { name = qu.User.USERNAME, img = (qu.User.PHOTO != null) ? qu.User.PHOTO : "http://placehold.it/60x60/FFF/444", studio = qu.User.Studio.Name }
+                };
+                return data;
+            });
+            string opt = urlParams["since"] + "";
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                questions = questions.Where(a => a.date >= dt);
+            }
+            opt = urlParams["until"];
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                questions  = questions.Where(a => a.date <= dt);
+            }
+            opt = urlParams["studios"];
+            if (opt != null && !"".Equals(opt))
+            {
+                string[] studios = opt.Contains(",") ? opt.Split(",") : new string[1] { opt };
+                questions  = questions.Where(a => a.studios.Any(stu=> studios.Contains(stu.name)));
+            }
+            opt = urlParams["votes"];
+            if (opt != null && !"".Equals(opt))
+            {
+                if ("any".Equals(opt))
+                    questions = questions.Where(a => a.votes > 0);
+                else if ("no".Equals(opt))
+                    questions = questions.Where(a => a.votes == 0);
+                else
+                    questions = questions.Where(a => a.votes >= int.Parse(opt));
+            }
+            opt = urlParams["reply"];
+            if (opt != null && !"".Equals(opt))
+            {
+                if ("any".Equals(opt))
+                    questions = questions.Where(a => a.answers > 0);
+                else if ("no".Equals(opt))
+                    questions = questions.Where(a => a.answers == 0);
+                else
+                    questions = questions.Where(a => a.answers >= int.Parse(opt));
+            }
+
+            var json = new JsonResult(questions.ToList());
+            return json;
+        }
+
     }
 }

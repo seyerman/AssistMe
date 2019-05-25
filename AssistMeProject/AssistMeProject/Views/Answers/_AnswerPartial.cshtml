@@ -15,8 +15,8 @@
                             <!--<a href="#" class="question-vote-up" title="Like"></a>-->
 
 
-                            <span id="answer_vote_@Model.Id" onclick="interaction('pv', ViewData["actualUserID"] ,@Model.Id,'answer_vote_@Model.Id' )" class="answer-favorite">
-                                <i class="@Html.DisplayName(Model.UserVote(1)?"question-vote-up":"question-vote-down")"></i>
+                            <span id="answer_vote_@Model.Id" onclick="interaction('pv', @ViewData["userID"]  ,@Model.Id,'answer_vote_@Model.Id' )" class="answer-favorite">
+                                <i class="icon-plus" style="color:@Html.DisplayName(Model.UserVote((int)ViewData["userID"])?"#ff7361":"#cccccc")"></i>
                                 +<span style="display:initial">@Html.DisplayFor(model => model.PositiveVotes.Count)</span>
                             </span>
 
@@ -32,6 +32,10 @@
             <div class="text">
                 <p>@Html.DisplayFor(m => m.Description)</p>
                 <p>Answered to: @Html.DisplayFor(m => m.Question.Title)</p>
+                @if (Model.UrlOriginalQuestion != null)
+                {
+                    <p>Revisa este enlace: @Html.DisplayFor(m=>m.UrlOriginalQuestion)</p>
+                }
             </div>
             @if (true){                
                 <div id="answer_@Model.Id" class="question-answered pt @Html.DisplayName(Model.correctAnswer?"question-answered-done":"")" onclick="markAsCorrect(1,@Model.Id)"><i class="icon-ok"></i>@Html.DisplayName(Model.correctAnswer?"Correct":"Mark as Correct")</div>
@@ -64,3 +68,4 @@
 
     @await Component.InvokeAsync("CommentList", new { AnswerId = Model.Id })
 </li>
+

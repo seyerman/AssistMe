@@ -33,6 +33,8 @@ namespace AssistMeProject.Migrations
 
                     b.Property<int>("QuestionID");
 
+                    b.Property<string>("UrlOriginalQuestion");
+
                     b.Property<int>("UserId");
 
                     b.Property<bool>("correctAnswer");
@@ -160,6 +162,8 @@ namespace AssistMeProject.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(30000);
+
+                    b.Property<string>("Insignia");
 
                     b.Property<string>("Title")
                         .IsRequired()

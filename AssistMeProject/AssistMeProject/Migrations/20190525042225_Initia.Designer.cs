@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190523171532_AssistMe")]
-    partial class AssistMe
+    [Migration("20190525042225_Initia")]
+    partial class Initia
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,8 @@ namespace AssistMeProject.Migrations
                         .HasMaxLength(30000);
 
                     b.Property<int>("QuestionID");
+
+                    b.Property<string>("UrlOriginalQuestion");
 
                     b.Property<int>("UserId");
 
@@ -107,6 +109,29 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Label");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("QuestionId");
+
+                    b.Property<bool>("Read");
+
+                    b.Property<DateTime>("TimeAnswer");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Notification");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
                 {
                     b.Property<int>("ID")
@@ -139,6 +164,8 @@ namespace AssistMeProject.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(30000);
+
+                    b.Property<string>("Insignia");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -303,6 +330,14 @@ namespace AssistMeProject.Migrations
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>

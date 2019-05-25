@@ -8,11 +8,6 @@
 
 
 
-
-
-
-
-
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
@@ -38,7 +33,8 @@
                 </div>
             </p>
             <div class="page-content clearfix">
-                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="false"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-Controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="true"><i class="icon-copy"></i>Answer as Repeat</a> |
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
 
@@ -55,6 +51,7 @@
                             }
                         <a href="#">@text</a>
                         }
+                    }
                     }
                 </div>
                 <div class="share-inside"><i class="icon-share-alt"></i>Share</div>
@@ -88,13 +85,15 @@
                             }
                         }
 
+
                     }
 
                 </ul>
             </div><!-- End related-posts -->
+            <div id="filteranswerlist" class="filter-container">
 
+            </div>
             <div id="answerlist">
-
 
             </div>
 
@@ -105,9 +104,14 @@
 
             </p>
 
-            <p>
 
-            </p>
+            
+        
+        
+        <div id="filteranswerlist" class="filter-container">
+        </div>
+
+            <div id="answerlist"></div>
 
             <div id="related-posts">
                 <h2>Opciones avanzadas</h2>
@@ -165,7 +169,7 @@
 
         $(function () {
             $.ajax({
-                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
+                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)" + "&userId=" + getUserID()
             }).done(function (data) {
                 $('#answerlist').html(data);
             }).fail(function () {
