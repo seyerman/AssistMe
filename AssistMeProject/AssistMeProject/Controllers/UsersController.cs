@@ -28,14 +28,7 @@ namespace AssistMeProject.Controllers
         // GET: Users
         public IActionResult Index(string message)
         {
-            setActiveUser();
-            List<SelectListItem> list = new List<SelectListItem>();
-            var studios = _context.Studio.ToList();
-            foreach (Studio s in studios)
-            {
-                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
-            }
-            ViewBag.Studios = new SelectList(list, "Value", "Text");
+            string userS = SetActiveUser();
             ViewBag.MESSAGE = message;
             return View();
         }
@@ -43,7 +36,9 @@ namespace AssistMeProject.Controllers
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            setActiveUser();
+            string userS = SetActiveUser();
+            if (string.IsNullOrEmpty(userS))
+                return RedirectToAction("", "", new { message = "Error, Inicie sesión" });
             if (id == null)
             {
                 return NotFound();
@@ -102,7 +97,9 @@ namespace AssistMeProject.Controllers
         // GET: Users/Edit/5
         public IActionResult Edit()
         {
-            setActiveUser();
+            string userS = SetActiveUser();
+            if (string.IsNullOrEmpty(userS))
+                return RedirectToAction("Index", "Users", new { message = "Error, Inicie sesión" });
             string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
 
             if (currentlyActiveUsername == null)
@@ -127,7 +124,9 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY,StudioId")] User user)
         {
-            setActiveUser();
+            string userS = SetActiveUser();
+            if (string.IsNullOrEmpty(userS))
+                return RedirectToAction("", "", new { message = "Error, Inicie sesión" });
             if (ModelState.IsValid && _context.User.Count(p => p.USERNAME.Equals(user.USERNAME)) == 1)
             {
                 try
@@ -155,7 +154,9 @@ namespace AssistMeProject.Controllers
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            setActiveUser();
+            string userS = SetActiveUser();
+            if (string.IsNullOrEmpty(userS))
+                return RedirectToAction("", "", new { message = "Error, Inicie sesión" });
             if (id == null)
             {
                 return NotFound();
@@ -176,18 +177,13 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            setActiveUser();
+            string userS = SetActiveUser();
+            if (string.IsNullOrEmpty(userS))
+                return RedirectToAction("", "", new { message = "Error, Inicie sesión" });
             var user = await _context.User.FindAsync(id);
             _context.User.Remove(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private void setActiveUser()
-        {
-            //To pass the username active
-            ViewBag.ACTIVE_USER = HttpContext.Session.GetString(ACTIVE_USERNAME);
-            //End To pass the username active
         }
 
         private bool UserExists(int id)
@@ -203,7 +199,9 @@ namespace AssistMeProject.Controllers
         [HttpGet]
         public IActionResult Profile(string viewingToUser)
         {
-            setActiveUser();
+            string userS = SetActiveUser();
+            if (string.IsNullOrEmpty(userS))
+                return RedirectToAction("Index", "Users", new { message = "Error, Inicie sesión" });
             string currentlyActiveUsername = HttpContext.Session.GetString(ACTIVE_USERNAME);
 
             if (!string.IsNullOrEmpty(currentlyActiveUsername))
@@ -222,7 +220,7 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public IActionResult Profile(string username, string password, string method)
         {
-            setActiveUser();
+            string userS = SetActiveUser();
             User found = model.FindUser(username, password, method);
             if (found == null)
             {
@@ -242,12 +240,13 @@ namespace AssistMeProject.Controllers
             HttpContext.Session.Remove(ACTIVE_USERNAME);
             return RedirectToAction("Index", "Users");
         }
+
         public IActionResult AllNotifications()
         {
-            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            string userActive = SetActiveUser();
             if (string.IsNullOrEmpty(userActive))
             {
-                return RedirectToAction("Index", "Users", new { message = "Error, inicia sesión" });
+                return RedirectToAction("Index", "Users", new { message = "Error, Inicie sesión" });
             }
             else
             {
@@ -266,9 +265,20 @@ namespace AssistMeProject.Controllers
             User user = model.GetUser(userActive);
             ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID).ToList();
         }
-       
-       
+        
+        /**
+         * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
+         **/
+        private String SetActiveUser()
+        {
+            //To pass the username active
+            string USER = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            if (string.IsNullOrEmpty(USER))
+                ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            ViewBag.ACTIVE_USER = USER;
+            return USER;
+            //End To pass the username active
+        }
 
-
-   }
+    }
 }

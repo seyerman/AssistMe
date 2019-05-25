@@ -1,6 +1,228 @@
 ﻿
 @{
-   ViewData["Title"] = "Details";
+    ViewData["Title"] = "Pagina administrador";
+}
+
+
+
+<section class="container main-content page-left-sidebar" id="main">
+    <div class="row">
+        <div class="col-md-9">
+            <div>
+                <p></p><p></p><p></p><p></p><p></p>
+            </div>
+
+            <div id="progess" class="row">
+                <div class="col-md-12"><div class="boxedtitle page-title"><h2>Cantidad Preguntas & Respuestas</h2></div></div>
+                <div class="col-md-6">
+
+                    <div class="progressbar-warp">
+
+                        <span class="progressbar-title">Preguntas  ( <span>@ViewData["Questions"]</span> )</span>
+                        <div class="progressbar">
+                            <div class="progressbar-percent" style="background-color: #81519c;" attr-percent="95"></div>
+                        </div>
+
+                        <span class="progressbar-title">Respuestas</span>
+                        <div class="progressbar">
+                            <div class="progressbar-percent" style="background-color: #37b8eb;" attr-percent="95"></div>
+                        </div>
+
+                    </div><!-- End progressbar-warp -->
+                </div>
+
+            </div><!-- End #progess -->
+
+            <div class="divider"><span></span></div>
+
+            @*   <div id="tableEtiqueta" class="row">
+                    <div class="col-md-12">
+                        <div class="boxedtitle page-title"><h2>Tabla Preguntas Por Etiqueta</h2></div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Id)
+                                        </th>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Title)
+                                        </th>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Date)
+                                        </th>
+                                        <th align="center" style="font-family:'Verdana Pro'">
+                                            @Html.DisplayNameFor(model => model.Description)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td style="font-family:'Verdana Pro'">
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>
+                                            <td style="font-family:'Verdana Pro'">
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Date)
+                                            </td>
+                                            <td style="font-family:'Verdana Pro'">
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td style="font-family:'Verdana Pro'">
+                                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!-- End # etiqueta Table-->
+                    <div class="divider"><span></span></div>
+            *@
+
+            <div id="tableEtiqueta" class="row">
+                <div class="col-md-12">
+                    <div class="boxedtitle page-title"><h2>Tabla Preguntas Por Estudio</h2></div>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Etiqueta</th>
+                                    <th>idPregunta</th>
+                                    <th>Titulo</th>
+                                    <th>Descripción</th>
+                                    <th>Usuario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>BasesDeDatos</td>
+                                    <td>1</td>
+                                    <td>Creación BD</td>
+                                    <td>Nose como crear</td>
+                                    <td>Juan</td>
+                                </tr>
+                                <tr>
+                                    <td>BasesDeDatos</td>
+                                    <td>2</td>
+                                    <td>Actualización BD</td>
+                                    <td>como sync base</td>
+                                    <td>Pedro</td>
+                                </tr>
+                                <tr>
+                                    <td>BasesDeDatos</td>
+                                    <td>3</td>
+                                    <td>Eliminar BD</td>
+                                    <td>quiero eliminar una base</td>
+                                    <td>Pablo</td>
+                                </tr>
+                                <tr>
+                                    <td>Testing</td>
+                                    <td>4</td>
+                                    <td>Pruebas Unitarias</td>
+                                    <td>Que cantidad de pruebas hacer?</td>
+                                    <td>Laura</td>
+                                </tr>
+                                <tr>
+                                    <td>Testing</td>
+                                    <td>5</td>
+                                    <td>Pruebas de Estres</td>
+                                    <td>como estresar las pruebas</td>
+                                    <td>Julian</td>
+                                </tr>
+                                <tr>
+                                    <td>Documentación</td>
+                                    <td>6</td>
+                                    <td>Diagramas</td>
+                                    <td>como mostrar dependecias en uml</td>
+                                    <td>alvaro</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div><!-- End # etiqueta Table-->
+
+
+            <div class="divider"><span></span></div>
+
+            <div id="tableEtiqueta" class="row">
+                <div class="col-md-12">
+                    <div class="boxedtitle page-title"><h2>Tabla Preguntas Por Estudio</h2></div>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>idPregunta</th>
+                                    <th>Titulo</th>
+                                    <th>Descripción</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Juan</td>
+                                    <td>1</td>
+                                    <td>Creación BD</td>
+                                    <td>Nose como crear</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Pedro</td>
+                                    <td>2</td>
+                                    <td>Actualización BD</td>
+                                    <td>como sync base</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Pablo</td>
+                                    <td>3</td>
+                                    <td>Eliminar BD</td>
+                                    <td>quiero eliminar una base</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Laura</td>
+                                    <td>4</td>
+                                    <td>Pruebas Unitarias</td>
+                                    <td>Que cantidad de pruebas hacer?</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Julian</td>
+                                    <td>5</td>
+                                    <td>Pruebas de Estres</td>
+                                    <td>como estresar las pruebas</td>
+
+                                </tr>
+                                <tr>
+                                    <td>alvaro</td>
+                                    <td>6</td>
+                                    <td>Diagramas</td>
+                                    <td>como mostrar dependecias en uml</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div><!-- End #tabla Usuario -->
 
 }
 

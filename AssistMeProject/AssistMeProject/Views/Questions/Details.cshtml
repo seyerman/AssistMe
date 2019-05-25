@@ -117,14 +117,12 @@
                 <h2>Opciones avanzadas</h2>
 
 
-                <div>
-                    <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none">
-                        <span class="icons-trash-full"></span>  Eliminar pregunta
-                    </a>
-                </div>
+
+                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none" class="load-questions">Eliminar pregunta  </a>
+
                 <p></p>
                 <p></p>
-                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button"><span class="icons-folder-smart"></span> Archivar pregunta </a>
+                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button" class="load-questions">Archivar pregunta </a>
                 <h1 id="lab" style="display:none"> Opciones no disponibles para este usuario </h1>
             </div><!-- End related-posts -->
 

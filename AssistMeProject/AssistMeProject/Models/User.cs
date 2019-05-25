@@ -15,7 +15,7 @@ namespace AssistMeProject.Models
         public const int LEVEL_NORMAL = 3;
        
 
-        public User(int iD, string gOOGLE_KEY, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
+        public User(int iD, string gOOGLE_KEY, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY, int studioID)
         {
             ID = iD;
             GOOGLE_KEY = gOOGLE_KEY ?? throw new ArgumentNullException(nameof(gOOGLE_KEY));
@@ -32,6 +32,7 @@ namespace AssistMeProject.Models
             INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE ?? throw new ArgumentNullException(nameof(iNTERESTS_OR_KNOWLEDGE));
             COUNTRY = cOUNTRY ?? throw new ArgumentNullException(nameof(cOUNTRY));
             CITY = cITY ?? throw new ArgumentNullException(nameof(cITY));
+            StudioId = studioID;
 
             this.Comments = new HashSet<Comment>();
             this.Answers = new HashSet<Answer>();
