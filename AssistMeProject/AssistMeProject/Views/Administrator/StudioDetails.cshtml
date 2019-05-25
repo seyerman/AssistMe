@@ -9,46 +9,51 @@
 
 
 
-
+<p></p>
+<p></p>
 <section class="container main-content">
     <div class="row">
         <div class="col-md-9">
-            <article class="post clearfix">
-                <div class="post-inner">
-                    <div class="page-content clearfix">
-                       
-                       
-                        @{
-                            foreach (var f in ViewBag.FileNames)
-                            {
-                                <div class="post-img"><a href="single_post.html"><img src='~/uploads/@(Model.Name+"/"+f)' alt=""></a></div>
-                            }
-                        }
 
-                    </div>
-                    
-                    <h2 class="post-title"><a href="single_post.html"> @Model.Name</a></h2>
-                    <div class="post-meta">
-                        <span class="meta-categories"><i class="icon-suitcase"></i><a href="#">@Model.Unit</a></span>
+
+
+            <article class="post blog_2 clearfix">
+                <div class="post-inner">
+                    <h2 class="post-title"><i class="icons-work"></i><a>@Model.Name</a></h2>
+                    @{
+                        foreach (var f in ViewBag.FileNames)
+                        {
+                            <div class="post-img"><a><img src='~/uploads/@(Model.Name+"/"+f)' alt=""></a></div>
+                        }
+                    }                    <div class="post-meta">
+                        <span class="meta-categories"><i class="icons-bookmark"></i><a href="#">@Model.Unit</a></span>
+
+                        <span class="meta-author"><i class="icons-mail"></i><a href="#">@Model.Email</a></span>
                     </div>
                     <div class="post-content">
                         <p>@Model.Description</p>
-                        <h3 align="center"> <a asp-action="EditStudio" asp-route-id="@Model.Id"><span class="icons-notebook"> </span>Editar Studio</a></h3>
-
-                        <h3 align="center"> <a asp-action="DeleteStudio" asp-route-id="@Model.Id"><span class="icons-minus-white"> </span>Eliminar Studio</a></h3>
 
                     </div><!-- End post-content -->
+
                 </div><!-- End post-inner -->
+                <p>
+
+
+
+                <h6> <a asp-action="DeleteStudio" asp-route-id="@Model.Id">Eliminar Studio</a></h6>
+
+
             </article><!-- End article.post -->
 
-       
-         
 
 
-      
+
         </div><!-- End main -->
     </div><!-- End row -->
 </section><!-- End container -->
+
+
+
 
 
 

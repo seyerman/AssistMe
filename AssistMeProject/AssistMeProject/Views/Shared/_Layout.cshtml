@@ -142,19 +142,16 @@
                 <nav class="navigation">
                     <ul>
                         <li class="current_page_item">
-                            <a asp-controller="Home" asp-action="Index">Home</a> <!--Agregado link a home -->
+                            <a asp-controller="Home" asp-action="Index">Inicio</a> <!--Agregado link a home -->
                         </li>
-                        <li class="ask_question"><a asp-controller="Questions" asp-action="Create">Ask Question</a></li> <!--Agregado link a crear question-->
-                        <li class="asearch_question"><a asp-controller="Questions" asp-action="AdvancedSearch">Advanced Search</a></li>
+                        <li class="ask_question"><a asp-controller="Questions" asp-action="Create">Preguntar</a></li> <!--Agregado link a crear question-->
+                        <li class="asearch_question"><a asp-controller="Questions" asp-action="AdvancedSearch">Búsqueda Avanzada</a></li>
                         <li>
-                            <a href=""<!-- asp-controller="Questions" asp-action="Index" -->Questions</a><!--Agregado link a lista de Questions-->
+                            <a asp-controller="Questions" asp-action="Index">Preguntas</a><!--Agregado link a lista de Questions-->
                             <ul>
-                                <li><a asp-controller="Home" asp-action="Index">Questions Category</a></li><!--Faltan funciones-->
-                                <li><a href="single_question.html">Question Single</a></li>
-                                <li><a href="single_question_poll.html">Poll Question Single</a></li>
+                                <li><a asp-controller="Home" asp-action="Index">Ver preguntas </a></li><!--Faltan funciones-->
                             </ul>
                         </li>
-                        
                         <li id="notificacion">
                             @{
                                 ViewBag.bell = "icon-bell";
@@ -166,35 +163,33 @@
                             }
                             <a href=""><i class="@ViewBag.bell"></i></a>
                             <ul>
-                                <u>Notificaciones</u>
-                                <li></li>
                                 <li>
-                                    <p style="background-color:coral;">&nbsp;Leídas</p>
-                                </li>
-                                @{
-                                    var lista = ViewBag.Notifications;
+                                    <a href="blog_1.html">Leídas</a>
+                                    <ul>
+                                        @{
+                                            var lista = ViewBag.Notifications;
 
-                                    if (lista != null)
-                                    {
-                                        int con = 1;
-                                        foreach (var item in lista)
-                                        {
-                                            if (item.Read)
+                                            if (lista != null)
                                             {
-                                                <li>
-                                                    <a href="/Users/AllNotifications">
-                                                        R. tu pregunta @con
-                                                    </a>
+                                                int con = 1;
+                                                foreach (var item in lista)
+                                                {
+                                                    if (item.Read)
+                                                    {
+                                                        <li>
 
-                                                </li>
-                                                con++;
+                                                            <a href="/Users/AllNotifications">
+                                                               <span class="icon-comment-alt"></span>  @item.Title
+                                                            </a>
+
+                                                        </li>
+                                                        con++;
+                                                    }
+
+                                                }
                                             }
-
                                         }
-                                    }
-                                }
-                                <li>
-                                    <p style="background-color: coral;">&nbsp;No leídas</p>
+                                    </ul>
                                 </li>
                                 @{
                                     var lista2 = ViewBag.Notifications;
@@ -211,13 +206,35 @@
                                                         R. tu pregunta @con
                                                     </a>
 
-                                                </li>
-                                                con++;
-                                            }
+                                <li>
+                                    <a href="blog_1.html">No leídas</a>
+                                    <ul>
+                                        @{
+                                            var lista2 = ViewBag.Notifications;
 
+                                            if (lista2 != null)
+                                            {
+                                                int con = 1;
+                                                foreach (var item in lista2)
+                                                {
+                                                    if (@item.Read == false)
+                                                    {
+                                                        <li>
+                                                            <a href="/Users/AllNotifications">
+                                                              <span class="icon-comment-alt"></span>  @item.Title
+                                                            </a>
+                                                            
+                                                        </li>
+                                                        <li></li>
+                                                        con++;
+                                                    }
+
+                                                }
+                                            }
                                         }
-                                    }
-                                }
+                                    </ul>
+                                </li>
+                    
                                 <li>
                                     <a href="/Users/AllNotifications">
                                         Ver todas las notificaciones
@@ -230,7 +247,7 @@
                             <ul>
                                 <li><a href="/Administrator/Index">Página Administrador</a></li>
                                 <li><a href="/Administrator/AddAdmin">Asignar Rol Administrador</a></li>
-                                <li><a href="/Administrator/CreateStudio">Crear Nuevo Studio</a></li>
+                                <li><a href="/Administrator/ManageStudios">Manejar Studios</a></li>
                                 <li><a href="/Administrator/ArchivedQuestions">Preguntas Archivadas</a></li>
 
                             </ul>
