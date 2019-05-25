@@ -52,25 +52,41 @@
                                             <p class="question-desc">@Html.DisplayFor(modelItem => item.Description)</p>
                                             <div class="question-details">
                                                 @{
+                                                    var n = DateTime.Now;
                                                     if (item.AskAgain)
                                                     {
                                                         <span class="question-answered"><i class="icon-star"></i>UP</span>
 
                                                     }
+                                                    else if (item.Date < item.Date.AddDays(1))
+                                                    {
+                                                        <span class="question-answered"><i class="icon-star"></i>NEW</span>
+                                                    }
 
-                                                }
-                                                @{ var n = DateTime.Now;
+
+                                                    if (item.Answers.Any(a => a.correctAnswer))
+                                                    {
+                                                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>Solved</span>
+                                                    }
+                                                    if (item.Insignia != null && item.Insignia.Equals("SEEN BEFORE"))
+                                                    {
+                                                        <span class="question-answered"><i class="icon-eye-open"></i>SEEN BEFORE </span>
+                                                    }
+
                                                     if (item.Answers.Count > 0)
                                                     {
-                                                        <span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+                                                        if (item.Answers.Count > 10)
+                                                        {
+                                                            <span class="question-answered question-answered-done"><i class="icon-star"></i>ROCKSTAR </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="question-answered question-answered-done"><i class="icon-ok"></i>Has received Answers</span>
+                                                        }
                                                     }
                                                     else if (n >= item.Date.AddDays(1))
                                                     {
                                                         <span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@item.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="question-answered"><i class="icon-ok"></i>in progress</span>
                                                     }
                                                 }
 
@@ -78,7 +94,7 @@
                                                     <i class="@Html.DisplayName((int)ViewData["userID"]>=0 && item.UserVote((int)ViewData["userID"])?"icon-star":"icon-star-empty")"></i>
                                                     <span>@Html.DisplayFor(model => item.InterestingVotes.Count)</span>
                                                 </span>
-                                                
+
 
                                             </div>
 
