@@ -33,6 +33,7 @@ namespace AssistMeProject.Models
         
         public bool UserVote(int userId)
         {
+            if (userId == -1) return false;
             return PositiveVotes.Any(x => x.UserID == userId);
         }
 
