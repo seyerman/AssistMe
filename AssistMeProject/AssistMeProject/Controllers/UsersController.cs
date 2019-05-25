@@ -246,7 +246,7 @@ namespace AssistMeProject.Controllers
             string userActive = SetActiveUser();
             if (string.IsNullOrEmpty(userActive))
             {
-                return RedirectToAction("", "", new { message = "Error, Inicie sesión" });
+                return RedirectToAction("Index", "Users", new { message = "Error, Inicie sesión" });
             }
             else
             {
