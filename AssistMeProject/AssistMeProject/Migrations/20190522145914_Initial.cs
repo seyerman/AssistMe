@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AssistMeProject.Migrations
 {
-    public partial class nuevasmig : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,8 +30,7 @@ namespace AssistMeProject.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     Unit = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -72,29 +71,6 @@ namespace AssistMeProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Notification",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Description = table.Column<string>(nullable: true),
-                    Read = table.Column<bool>(nullable: false),
-                    UserID = table.Column<int>(nullable: false),
-                    QuestionId = table.Column<int>(nullable: false),
-                    TimeAnswer = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Notification", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Notification_User_UserID",
-                        column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Question",
                 columns: table => new
                 {
@@ -103,7 +79,6 @@ namespace AssistMeProject.Migrations
                     Description = table.Column<string>(maxLength: 30000, nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(maxLength: 150, nullable: false),
-                    Insignia = table.Column<string>(nullable: true),
                     AskAgain = table.Column<bool>(nullable: false),
                     isArchived = table.Column<bool>(nullable: false),
                     UserId = table.Column<int>(nullable: true)
@@ -129,8 +104,7 @@ namespace AssistMeProject.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
                     QuestionID = table.Column<int>(nullable: false),
-                    correctAnswer = table.Column<bool>(nullable: false),
-                    UrlOriginalQuestion = table.Column<string>(nullable: true)
+                    correctAnswer = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -335,11 +309,6 @@ namespace AssistMeProject.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Notification_UserID",
-                table: "Notification",
-                column: "UserID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PositiveVote_AnswerID",
                 table: "PositiveVote",
                 column: "AnswerID");
@@ -387,9 +356,6 @@ namespace AssistMeProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "InterestingVote");
-
-            migrationBuilder.DropTable(
-                name: "Notification");
 
             migrationBuilder.DropTable(
                 name: "PositiveVote");

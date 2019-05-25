@@ -1,9 +1,11 @@
-﻿var list = [],
+﻿var list = undefined,
     typeList = undefined,
     elementID = undefined,
+    filterElement = undefined,
     defaultOrder = undefined, // {attr:string, order=1}
     tempInfo = { uid: undefined, type: undefined, qid: undefined },
     filterOptions = {};
+
 
 
 /**
@@ -12,7 +14,7 @@
  * @param {any} uid ID de usuario que marca la respuesta como correcta.
  * @param {any} aid ID de la respuesta a marcar.
  */
-function markAsCorrect(uid, aid) {
+function markAsCorrect(uid=getUserID(), aid) {
     var url = "/api/Answers/Correct/" + aid + "/" + uid;
 
     $.ajax({ url: url })
@@ -29,38 +31,168 @@ function markAsCorrect(uid, aid) {
 
 }
 
-function initializeDefault(e_id, u_id, t, q_id) {
+function initializeDefault(e_id, u_id=getUserID(), t, q_id) {
     elementID = e_id;
     tempInfo.uid = u_id;
     tempInfo.type = t;
     tempInfo.qid = q_id;
     if (typeList == undefined) typeList = t;
+    filterElement = getElementFIlter("filter" + elementID);
+}
+function getElementFIlter(ef_id) {
+    var filter = document.getElementById(ef_id);
+    filter.innerHTML = `
+ <div class="filter-menu">
+                <a class="btn-filter flex11 filter-option" data-toggle="collapse" href="#multiCollapseOrder" role="button" aria-expanded="false" aria-controls="multiCollapseOrder">
+                    Order <span class="extra"></span>
+                </a>
+                <a class="btn-filter flex11 filter-option" data-toggle="collapse" href="#multiCollapseFilter" role="button" aria-expanded="false" aria-controls="multiCollapseFilter">
+                    Filter <span class="extra"></span>                        
+                </a>
+            </div>
+            <div class="">
+                <div class="collapse multi-collapse" id="multiCollapseOrder">
+                    <span>Order by:</span>
+                    <div class="order-selector">
+                        <a class="order-tiem" href="javascript:sortList('date')">Date</a>
+                        <a class="order-tiem" href="javascript:sortList('votes')">Votes</a>
+                        <a class="order-tiem" href="javascript:sortList('description')">Content</a>
+                        <a class="order-tiem" href="javascript:sortList('replies')">Replies</a>
+                    </div>
+                </div>
+                <div class="collapse multi-collapse" id="multiCollapseFilter">
+                    <span>Filter by:</span>
+                    <div class="order-selector selector-container">
+                        <a class="order-tiem" href="#filter-section-date" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-section-date">Date</a>
+                        <a class="order-tiem" href="#filter-section-votes" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-section-votes">Votes</a>
+                        <a class="order-tiem" href="#filter-section-reply" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-section-reply">Replies</a>
+                        <a class="order-tiem" href="#filter-section-studio" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-section-studio">Studio</a>
+                    </div>
+                    <div class="filter-selector selector-container">
+                        <div class="collapse  multi-collapse filter-section " id="filter-section-date">
+                            <span>Select Dates:</span>
+                            <div class="flex">
+                                <div class="opt date-opt">
+                                    <label class="date-item" for="filter-section-date-since">Since</label>
+                                    <input class="date-item" id="filter-section-date-since" type="date" name="since" value="" />
+                                </div>
+                                <div class="opt date-opt">
+                                    <label class="date-item" for="filter-section-date-until">Until</label>
+                                    <input class="date-item" id="filter-section-date-until" type="date" name="until" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse  multi-collapse filter-section " id="filter-section-votes">
+                            <span>Votes Options:</span>
+                            <div class="flex">
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-votes-count" value="" checked> clear
+                                </div>
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-votes-count" value="any"> Any
+                                </div>
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-votes-count" value="no"> None
+                                </div>
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-votes-count" value="other"> At Least <input type="number" id="filter-section-votes-count" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse  multi-collapse filter-section " id="filter-section-reply">
+                            <span>Replies Options:</span>
+                            <div class="flex">
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-reply-count" value="" checked> clear
+                                </div>
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-reply-count" value="any"> Any
+                                </div>
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-reply-count" value="no"> None
+                                </div>
+                                <div class="opt">
+                                    <input type="radio" name="filter-section-reply-count" value="other"> At Least <input type="number" id="filter-section-reply-count" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse  multi-collapse filter-section " id="filter-section-studio">
+                            Filter by studio:
+                            <input class="" type="text" name="filter-section-studio-name" id="filter-section-studio-name" value="" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <a class="btn-filter flex11" href="javascript:filterList()">
+                            Apply Filters
+                        </a>
+                        <a class="btn-filter flex11" href="javascript:clearFilter()">
+                            Clear Filters
+                        </a>
+                    </div>
+                </div>
+            </div>
+    `;
+    return filter;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     {
-        var uid = 1;
+        var uid = getUserID();
         var path = document.location.pathname;
-        if (path.includes("/Questions/List/")) {
-            // initializeDefault("answerlist", uid, "Question", undefined);
+        if (path == "/Questions" || path == "/Questions/" || path.startsWith("/Questions/?") || path.startsWith("/Questions?")) {
+            initializeDefault("answerlist", uid, "Questions", undefined);
         } else if (path.includes("/Questions/Details/")) {
-            if (path[0] == "/") path = path.substr(1);
             path.replace("#", "?");
             path = path.split("?")[0];
             var p = path.split("/");
+            if (path[0] == "/") path = path.substr(1);
             initializeDefault("answerlist", uid, "Answers", p[p.length - 1]);
             console.log("Loaded for answers lists");
         }
         console.log("Loaded", path, path.includes("/Question/Details/"));
     }
 });
+
+function filterList() {
+    var inputs = [
+        { id: "filter-section-date-since", type: "input", name:"since" },
+        { id: "filter-section-date-until", type: "input", name:"until" },
+        { id: "filter-section-studio-name", type: "input", name:"studios" },
+        { id: "filter-section-votes-count", type: "group", name:"votes" },
+        { id: "filter-section-reply-count", type: "group", name:"reply" }
+    ];
+    inputs.forEach(i => {
+        var val = getValue(i.id, i.type);
+        if (val !== "")
+            filterOptions[i.name] = val;
+        else
+            delete filterOptions[i.name];
+    });
+    getList(getUserID());
+}
+function clearFilter() {
+    filterOptions = {};
+    getList(getUserID());
+}
+function getValue(id, type = "input") {
+    var val = "";
+    if (type == "group") {
+        val = document.querySelector('input[name="' + id + '"]:checked').value;
+    }
+    if (type == "input" || val == "other") {
+        val = document.getElementById(id).value;
+    }
+    return val;
+}
+
+
 /**
  * 
  * @param {int} uid
  * @param {string} type "Questions": lista de preguntas, "Answers": Lista de respuestas de una pregunta.
  * @param {int} qid ID de la pregunta si es una lista de respuestas
  */
-function getList(uid, type = typeList, qid = tempInfo.qid) {
+function getList(uid = getUserID(), type = typeList, qid = tempInfo.qid) {
     if (type == undefined)
         type = "Questions";
     typeList = type;
@@ -94,8 +226,17 @@ function objectToUrlParams(obj = {}) {
 }
 
 function sortList(attr, order = undefined) {
-    if (list.length == 0)
+    if (attr == "replies") {
+        attr = typeList == "Answers" ? "comments" : "answers";
+    }
+    if (list == undefined) {
+        defaultOrder = { attr: attr, order: order };
+        getList(getUserID());
         return;
+    } else if (list.length == 0) {
+        updateElementList();
+        return;
+    }
 
     if (typeList == undefined) {
         if (tempInfo.uid != undefined)
@@ -109,15 +250,16 @@ function sortList(attr, order = undefined) {
     var t = typeof list[0][attr];
     switch (t) {
         case "number":
-            if (order == undefined) order = -1;
+            if (order == undefined) order = (defaultOrder != undefined && defaultOrder.attr == attr && defaultOrder.order != undefined) ? defaultOrder.order * -1 : - 1;
             fSorter = (a, b) => order * (a[attr] - b[attr]);
             break;
         case "string":
-            if (order == undefined) order = 1;
+            if (order == undefined) order = (defaultOrder != undefined && defaultOrder.attr == attr && defaultOrder.order != undefined) ? defaultOrder.order * -1 : 1;
             fSorter = (a, b) => order * a[attr].localeCompare(b[attr]);
             break;
         case "object":
             if (list[0][attr].length !== undefined) {
+                if (order == undefined) order = (defaultOrder != undefined && defaultOrder.attr == attr && defaultOrder.order != undefined) ? defaultOrder.order * -1 : -1;
                 fSorter = (a, b) => order * (a[attr].length - b[attr].length);
             } else {
                 console.log("Error: compare type " + t);
@@ -128,13 +270,72 @@ function sortList(attr, order = undefined) {
             return;
             break;
     }
+    defaultOrder = { attr: attr, order: order };
     list.sort(fSorter);
     updateElementList();
 }
 
 
 var questionHTML = function (obj) {
-    
+    var ele = document.createElement("li");
+    ele.classList.add("comment");
+    var autor = obj.autor ? obj.autor : { name: "admin", img: "http://placehold.it/60x60/FFF/444" };
+    var again = obj.askAgain == true ? "<span class='question-answered'><i class='icon-star'></i>UP</span>" : "";
+    var progress = obj.answers > 0? "<span class='question-answered question-answered-done'><i class='icon-ok'></i>Has received Answers</span>": "<span class='question-answered'><i class='icon-ok'></i>in progress</span>";
+
+    var studios = "";
+    var sep="";
+    obj.studios.forEach(st => {
+        studios += sep + "<a href='#'>" + st.name+"</a>";
+        sep = ", ";
+    });
+    sep = "";
+    var labels = "";    
+    obj.studios.forEach(lb => {
+        labels += sep + "<a href='#'>" + lb.name + "</a>";
+        sep = ", ";
+    });
+    ele.innerHTML = `
+        <article class="question question-type-normal">
+        <h2>
+            <a href="/Questions/Details/${obj.id}"> ${obj.title}</a>
+        </h2>
+        <a class="question-report" href="#">Report</a>
+        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+
+        <div class="question-author">
+            <a href="/Users/Profile?viewingToUser=${autor.name}" original-title="${autor.name}"" class="question-author-img tooltip-n"><span></span><img alt="" src="${autor.img}"></a>
+        </div>
+        <div class="question-inner">
+            <div class="clearfix"></div>
+            <p class="question-desc">${obj.description}</p>
+            <div class="question-details">
+                ${again}
+            ${progress}
+
+        <span id="question_vote_${obj.id}" onclick="interaction('iv',getUserID(),${obj.id},'question_vote_${obj.id}' )" class="question-favorite">
+            <i class="${obj.userVote == true ? "icon-star" : "icon-star-empty"}"></i>
+            <span>${obj.votes}</span>
+        </span>
+    </div>
+    <span class="question-category">
+
+            <i class="icon-folder-close"></i>
+            ${studios}
+    </span>
+    <span class="question-date"><i class="icon-time"></i>${obj.date.split("T")[0]}</span>
+    <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>${obj.answers}</a></span>
+    <p>
+        <div class="question-tags">
+            <i class="icon-tags"></i>
+            ${labels}
+    </div>
+    </p>
+    <div class="clearfix"></div>
+    </div>
+    </article>
+    `;
+    return ele;
 }
 
 var answerHTML = function (obj) {
@@ -144,40 +345,45 @@ var answerHTML = function (obj) {
 
     var commentListHTML = "";
     obj.comments.forEach(ob => commentListHTML += commentHTML(ob));
-    
+    var color = obj.userVote==true? "#ff7361" : "#cccccc";
 
     ele.innerHTML = `
     <div class="comment-body comment-body-answered clearfix">
-        <div class="avatar">
-            <a href="#" original-title="admin" class="tooltip-n"><img alt="" src="${autor.img}"></a>
-        </div>
-        <div class="comment-text">
-            <div class="author clearfix">
-                <div class="comment-author"><a href="#">${autor.name}</a></div>
-                    <div class="comment-vote">
-                        <ul class="question-vote">
-                            <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                        </ul>
-                    </div>
-                    <span class="question-vote-result">+${obj.votes}</span>
-                        <div class="comment-meta">
-                            <div class="date"><i class="icon-time"></i>${obj.date.split("T")[0]}</div>
-                        </div>
-                        <a href="/Comments/Create?AnswerId=${obj.questionID}" class="comment-reply"><i class="icon-comment"></i>Comentar</a>
-                    </div>
-                    <div class="text">
-                        <p>${obj.description}</p>
-                    </div>
-                    <div class="question-answered question-answered-done"><i class="icon-ok"></i>Best Answer</div>
-                </div>
+    <div class="avatar">
+        <a href="#" original-title="${autor.name}" class="tooltip-n"><img alt="" src="${autor.img}"></a>
+    </div>
+    <div class="comment-text">
+        <div class="author clearfix">
+            <div class="comment-author"><a href="#">${autor.name}</a></div>
+            <div class="comment-vote">
+                <ul class="question-vote">
+                    <li>
+                        <span id="answer_vote_${obj.id}" onclick="interaction('pv', ${getUserID()} ,${obj.id},'answer_vote_${obj.id}' )" class="answer-favorite">
+                            <i class="icon-plus" style="color:${color}"></i>
+                            +<span style="display:initial">${obj.votes}</span>
+                        </span>
+
+
+                    </li>
+                </ul>
             </div>
-            <div>
-           </div>
-           <div id="commentlist_${obj.id}">
-           <ol class="commentlist clearfix">
-                ${commentListHTML}
-           </ol>
-        </div>`;
+            <div class="comment-meta">
+                <div class="date"><i class="icon-time"></i>${obj.date.split("T")[0]}</div>
+            </div>
+            <a href="/Comments/Create?AnswerId=${obj.id}" class="comment-reply"><i class="icon-comment"></i>Comentar</a>
+        </div>
+        <div class="text">
+            <p>${obj.description}</p>
+        </div>
+        <div id="answer_${obj.id}" class="question-answered pt ${obj.correctAnswer == true ? "question-answered-done" : ""}" onclick="markAsCorrect(1,${obj.id})"><i class="icon-ok"></i>${obj.correctAnswer == true ? "Correct" : "Mark as Correct"}</div>
+</div>
+</div>
+<div id="commentlist_${obj.id}">
+    <ol class="commentlist clearfix">
+        ${commentListHTML}
+    </ol>
+</div>
+    `;
     return ele;
 
 
