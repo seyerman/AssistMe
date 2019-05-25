@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190515031234_tablemig")]
-    partial class tablemig
+    [Migration("20190524194941_questionRepeat")]
+    partial class questionRepeat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,8 @@ namespace AssistMeProject.Migrations
                         .HasMaxLength(30000);
 
                     b.Property<int>("QuestionID");
+
+                    b.Property<string>("UrlOriginalQuestion");
 
                     b.Property<int>("UserId");
 
@@ -140,6 +142,8 @@ namespace AssistMeProject.Migrations
                         .IsRequired()
                         .HasMaxLength(30000);
 
+                    b.Property<string>("Insignia");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150);
@@ -188,6 +192,8 @@ namespace AssistMeProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("Email");
 
                     b.Property<string>("Name")
                         .IsRequired()
