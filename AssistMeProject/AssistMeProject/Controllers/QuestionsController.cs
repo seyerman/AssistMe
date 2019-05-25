@@ -82,7 +82,7 @@ namespace AssistMeProject.Controllers
             {
                 return RedirectToAction("Index", "Users", new { message = "Please Log In" });
             }
-            
+
 
             if (actualUser != null)
             {
@@ -305,7 +305,7 @@ namespace AssistMeProject.Controllers
         }
 
         // POST: Questions/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -463,7 +463,7 @@ namespace AssistMeProject.Controllers
         }
 
         // POST: Questions/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -834,7 +834,7 @@ namespace AssistMeProject.Controllers
 			var stud = new string[3];
 			for (int i = 0; i < s.Count() && i < 3; i++)
 			{
-				if (s.ElementAt(i) != null) { 
+				if (s.ElementAt(i) != null) {
 				stud[i] = s.ElementAt(i).Studio.Key.Name;
 				}else
 				{
