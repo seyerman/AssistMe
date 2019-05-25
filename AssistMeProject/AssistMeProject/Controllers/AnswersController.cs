@@ -285,5 +285,83 @@ namespace AssistMeProject.Controllers
             var json = new JsonResult(answers.ToList());
             return json;
         }
+
+        [HttpGet("api/Questions/{uid}", Name = "GetQuestionsList")]
+        public async Task<JsonResult> GetQuestionsList(int uid)
+        {
+
+            var urlParams = Request.Query;
+            var ans = await _context.Question
+                .Include(a => a.Answers)
+                .Include(a => a.User)
+                .ThenInclude(u => u.Studio)
+                .Include(q=> q.QuestionStudios)
+                .Include(q => q.QuestionLabels)
+                .ToListAsync();
+
+            var questions = ans.Select(qu =>
+            {
+                var studios = qu.QuestionStudios.Select(st=>new {name=st.Studio.Name, id=st.StudioId });
+
+                var data = new
+                {
+                    id = qu.Id,
+                    title=qu.Title,
+                    description = qu.Description,
+                    date = qu.Date,
+                    answers = qu.Answers.Count(),
+                    userVote = qu.UserVote(uid),
+                    votes = qu.InterestingVotes.Count(),
+                    solved = qu.Answers.Any(a => a.correctAnswer),
+                    studios,
+                    askAgain=qu.AskAgain,
+                    labels=qu.QuestionLabels.Select(ql=>ql.Label).Where(l=>l!=null),
+                    autor = new { name = qu.User.USERNAME, img = (qu.User.PHOTO != null) ? qu.User.PHOTO : "http://placehold.it/60x60/FFF/444", studio = qu.User.Studio.Name }
+                };
+                return data;
+            });
+            string opt = urlParams["since"] + "";
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                questions = questions.Where(a => a.date >= dt);
+            }
+            opt = urlParams["until"];
+            if (opt != null && !"".Equals(opt))
+            {
+                var dt = DateTime.Parse(opt);
+                questions  = questions.Where(a => a.date <= dt);
+            }
+            opt = urlParams["studios"];
+            if (opt != null && !"".Equals(opt))
+            {
+                string[] studios = opt.Contains(",") ? opt.Split(",") : new string[1] { opt };
+                questions  = questions.Where(a => a.studios.Any(stu=> studios.Contains(stu.name)));
+            }
+            opt = urlParams["votes"];
+            if (opt != null && !"".Equals(opt))
+            {
+                if ("any".Equals(opt))
+                    questions = questions.Where(a => a.votes > 0);
+                else if ("no".Equals(opt))
+                    questions = questions.Where(a => a.votes == 0);
+                else
+                    questions = questions.Where(a => a.votes >= int.Parse(opt));
+            }
+            opt = urlParams["reply"];
+            if (opt != null && !"".Equals(opt))
+            {
+                if ("any".Equals(opt))
+                    questions = questions.Where(a => a.answers > 0);
+                else if ("no".Equals(opt))
+                    questions = questions.Where(a => a.answers == 0);
+                else
+                    questions = questions.Where(a => a.answers >= int.Parse(opt));
+            }
+
+            var json = new JsonResult(questions.ToList());
+            return json;
+        }
+
     }
 }

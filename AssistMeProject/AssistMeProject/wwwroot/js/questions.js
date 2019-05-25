@@ -57,7 +57,7 @@ function getElementFIlter(ef_id) {
                         <a class="order-tiem" href="javascript:sortList('date')">Date</a>
                         <a class="order-tiem" href="javascript:sortList('votes')">Votes</a>
                         <a class="order-tiem" href="javascript:sortList('description')">Content</a>
-                        <a class="order-tiem" href="javascript:sortList('comments')">Comments</a>
+                        <a class="order-tiem" href="javascript:sortList('replies')">Replies</a>
                     </div>
                 </div>
                 <div class="collapse multi-collapse" id="multiCollapseFilter">
@@ -139,13 +139,13 @@ document.addEventListener("DOMContentLoaded", function () {
     {
         var uid = getUserID();
         var path = document.location.pathname;
-        if (path.includes("/Questions/List/")) {
-            // initializeDefault("answerlist", uid, "Question", undefined);
+        if (path == "/Questions" || path == "/Questions/" || path.startsWith("/Questions/?") || path.startsWith("/Questions?")) {
+            initializeDefault("answerlist", uid, "Questions", undefined);
         } else if (path.includes("/Questions/Details/")) {
-            if (path[0] == "/") path = path.substr(1);
             path.replace("#", "?");
             path = path.split("?")[0];
             var p = path.split("/");
+            if (path[0] == "/") path = path.substr(1);
             initializeDefault("answerlist", uid, "Answers", p[p.length - 1]);
             console.log("Loaded for answers lists");
         }
@@ -226,6 +226,9 @@ function objectToUrlParams(obj = {}) {
 }
 
 function sortList(attr, order = undefined) {
+    if (attr == "replies") {
+        attr = typeList == "Answers" ? "comments" : "answers";
+    }
     if (list == undefined) {
         defaultOrder = { attr: attr, order: order };
         getList(getUserID());
@@ -274,7 +277,65 @@ function sortList(attr, order = undefined) {
 
 
 var questionHTML = function (obj) {
-    
+    var ele = document.createElement("li");
+    ele.classList.add("comment");
+    var autor = obj.autor ? obj.autor : { name: "admin", img: "http://placehold.it/60x60/FFF/444" };
+    var again = obj.askAgain == true ? "<span class='question-answered'><i class='icon-star'></i>UP</span>" : "";
+    var progress = obj.answers > 0? "<span class='question-answered question-answered-done'><i class='icon-ok'></i>Has received Answers</span>": "<span class='question-answered'><i class='icon-ok'></i>in progress</span>";
+
+    var studios = "";
+    var sep="";
+    obj.studios.forEach(st => {
+        studios += sep + "<a href='#'>" + st.name+"</a>";
+        sep = ", ";
+    });
+    sep = "";
+    var labels = "";    
+    obj.studios.forEach(lb => {
+        labels += sep + "<a href='#'>" + lb.name + "</a>";
+        sep = ", ";
+    });
+    ele.innerHTML = `
+        <article class="question question-type-normal">
+        <h2>
+            <a href="/Questions/Details/${obj.id}"> ${obj.title}</a>
+        </h2>
+        <a class="question-report" href="#">Report</a>
+        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+
+        <div class="question-author">
+            <a href="/Users/Profile?viewingToUser=${autor.name}" original-title="${autor.name}"" class="question-author-img tooltip-n"><span></span><img alt="" src="${autor.img}"></a>
+        </div>
+        <div class="question-inner">
+            <div class="clearfix"></div>
+            <p class="question-desc">${obj.description}</p>
+            <div class="question-details">
+                ${again}
+            ${progress}
+
+        <span id="question_vote_${obj.id}" onclick="interaction('iv',getUserID(),${obj.id},'question_vote_${obj.id}' )" class="question-favorite">
+            <i class="${obj.userVote == true ? "icon-star" : "icon-star-empty"}"></i>
+            <span>${obj.votes}</span>
+        </span>
+    </div>
+    <span class="question-category">
+
+            <i class="icon-folder-close"></i>
+            ${studios}
+    </span>
+    <span class="question-date"><i class="icon-time"></i>${obj.date.split("T")[0]}</span>
+    <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>${obj.answers}</a></span>
+    <p>
+        <div class="question-tags">
+            <i class="icon-tags"></i>
+            ${labels}
+    </div>
+    </p>
+    <div class="clearfix"></div>
+    </div>
+    </article>
+    `;
+    return ele;
 }
 
 var answerHTML = function (obj) {
@@ -309,7 +370,7 @@ var answerHTML = function (obj) {
             <div class="comment-meta">
                 <div class="date"><i class="icon-time"></i>${obj.date.split("T")[0]}</div>
             </div>
-            <a asp-controller="Comments" asp-action="Create" asp-route-AnswerId="@Model.Id" class="comment-reply"><i class="icon-comment"></i>Comentar</a>
+            <a href="/Comments/Create?AnswerId=${obj.id}" class="comment-reply"><i class="icon-comment"></i>Comentar</a>
         </div>
         <div class="text">
             <p>${obj.description}</p>
