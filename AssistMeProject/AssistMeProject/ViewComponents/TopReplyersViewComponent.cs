@@ -1,5 +1,6 @@
 ﻿using AssistMeProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace AssistMeProject.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var topUsers = _context.User.OrderByDescending(u => u.Answers.Count).Take(5);//cambiar por la logica para seleccionar topusers
+            var topUsers = _context.User.Include(u => u.Answers).OrderByDescending(u => u.Answers.Count).Take(5);//cambiar por la logica para seleccionar topusers
             return View(topUsers);
         }
 

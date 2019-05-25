@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace AssistMeProject.ViewComponents
 {
@@ -21,7 +23,7 @@ namespace AssistMeProject.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var topUsers = _context.User.OrderByDescending(u=>u.Questions.Count).Take(5);//cambiar por la logica para seleccionar topusers
+            var topUsers = _context.User.Include(u => u.Questions).OrderByDescending(u=>u.Questions.Count).Take(5);//cambiar por la logica para seleccionar topusers
             return View(topUsers);
         }
     }
