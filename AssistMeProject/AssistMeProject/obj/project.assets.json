@@ -14153,23 +14153,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NonSenseGuy\\.nuget\\packages\\": {},
+    "C:\\Users\\javie\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NonSenseGuy\\Desktop\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "projectUniqueName": "D:\\Usuario\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
       "projectName": "AssistMeProject",
-      "projectPath": "C:\\Users\\NonSenseGuy\\Desktop\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
-      "packagesPath": "C:\\Users\\NonSenseGuy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NonSenseGuy\\Desktop\\AssistMe-1\\AssistMeProject\\AssistMeProject\\obj\\",
+      "projectPath": "D:\\Usuario\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
+      "outputPath": "D:\\Usuario\\Documents\\GitHub\\AssistMe-1\\AssistMeProject\\AssistMeProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\NonSenseGuy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
