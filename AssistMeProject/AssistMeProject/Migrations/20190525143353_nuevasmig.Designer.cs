@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190524194941_questionRepeat")]
-    partial class questionRepeat
+    [Migration("20190525143353_nuevasmig")]
+    partial class nuevasmig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,6 +107,29 @@ namespace AssistMeProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Label");
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("QuestionId");
+
+                    b.Property<bool>("Read");
+
+                    b.Property<DateTime>("TimeAnswer");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Notification");
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
@@ -307,6 +330,14 @@ namespace AssistMeProject.Migrations
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>

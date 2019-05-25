@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AssistMeProject.Migrations
 {
-    public partial class dev : Migration
+    public partial class nuevasmig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -103,6 +103,7 @@ namespace AssistMeProject.Migrations
                     Description = table.Column<string>(maxLength: 30000, nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(maxLength: 150, nullable: false),
+                    Insignia = table.Column<string>(nullable: true),
                     AskAgain = table.Column<bool>(nullable: false),
                     isArchived = table.Column<bool>(nullable: false),
                     UserId = table.Column<int>(nullable: true)
@@ -128,7 +129,8 @@ namespace AssistMeProject.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
                     QuestionID = table.Column<int>(nullable: false),
-                    correctAnswer = table.Column<bool>(nullable: false)
+                    correctAnswer = table.Column<bool>(nullable: false),
+                    UrlOriginalQuestion = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

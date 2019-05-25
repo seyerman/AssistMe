@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190524210304_dev")]
-    partial class dev
+    [Migration("20190525160206_Notificationsup")]
+    partial class Notificationsup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,8 @@ namespace AssistMeProject.Migrations
                         .HasMaxLength(30000);
 
                     b.Property<int>("QuestionID");
+
+                    b.Property<string>("UrlOriginalQuestion");
 
                     b.Property<int>("UserId");
 
@@ -121,6 +123,8 @@ namespace AssistMeProject.Migrations
 
                     b.Property<DateTime>("TimeAnswer");
 
+                    b.Property<string>("Title");
+
                     b.Property<int>("UserID");
 
                     b.HasKey("Id");
@@ -162,6 +166,8 @@ namespace AssistMeProject.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(30000);
+
+                    b.Property<string>("Insignia");
 
                     b.Property<string>("Title")
                         .IsRequired()
