@@ -28,18 +28,7 @@ namespace AssistMeProject.Controllers
         // GET: Users
         public IActionResult Index(string message)
         {
-<<<<<<< HEAD
-            setActiveUser();
-            List<SelectListItem> list = new List<SelectListItem>();
-            var studios = _context.Studio.ToList();
-            foreach (Studio s in studios)
-            {
-                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
-            }
-            ViewBag.Studios = new SelectList(list, "Value", "Text");
-=======
             string userS = SetActiveUser();
->>>>>>> dev
             ViewBag.MESSAGE = message;
             return View();
         }

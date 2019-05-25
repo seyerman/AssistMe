@@ -483,10 +483,6 @@ namespace AssistMeProject.Controllers
         }
 
     }
-<<<<<<< HEAD
-}
-=======
 
 
 }
->>>>>>> dev

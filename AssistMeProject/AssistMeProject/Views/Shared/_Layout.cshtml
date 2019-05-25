@@ -154,15 +154,6 @@
                                 <li><a href="single_question_poll.html">Poll Question Single</a></li>
                             </ul>
                         </li>
-<<<<<<< HEAD
-                        <li>
-                            <a href="">Usuario</a>
-                            <ul>
-                                <li class="user-no-active"><a href="/Users/">Iniciar Sesión</a></li>
-                                <li class="user-active"><a href="/Users/Profile">Perfil del Usuario</a></li>
-                                <li class="user-active"><a href="/Users/Edit">Editar Perfil</a></li>
-                                <li class="user-active"><a href="/Users/Logout">Cerrar Sesión</a></li>
-=======
                         
                         <li id="notificacion">
                             @{
@@ -232,7 +223,6 @@
                                         Ver todas las notificaciones
                                     </a>
                                 </li>
->>>>>>> dev
                             </ul>
                         </li>
                         <li id="admin">
@@ -352,7 +342,7 @@
     <div class="panel-pop" id="signup">
         <h2>Registrarse<i class="icon-remove"></i></h2>
         <div class="form-style form-style-3">
-            <form asp-action="Create">
+            <form asp-controller="Users" asp-action="Create">
                 <div class="form-group">
                     <input name="LEVEL" class="form-control" value="2" min="1" max="3" type="hidden" />
                 </div>
