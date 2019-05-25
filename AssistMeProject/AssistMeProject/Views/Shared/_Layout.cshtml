@@ -11,7 +11,7 @@
         ViewData["userID"] = -1;
     }
     //End of example
-    ViewBag.user = string.IsNullOrEmpty(ViewBag.ACTIVE_USER) ? "Cuenta":ViewBag.ACTIVE_USER;
+    ViewBag.user = string.IsNullOrEmpty(ViewBag.ACTIVE_USER) ? "Cuenta" : ViewBag.ACTIVE_USER;
 
     <style type="text/css">
         li {
@@ -191,30 +191,34 @@
                                         }
                                     </ul>
                                 </li>
-                                @{
-                                    var lista2 = ViewBag.Notifications;
+                                    @{
+                                        var lista2 = ViewBag.Notifications;
 
-                                    if (lista2 != null)
-                                    {
-                                        int con = 1;
-                                        foreach (var item in lista2)
+                                        if (lista2 != null)
                                         {
-                                            if (@item.Read == false)
+                                            int con = 1;
+                                            foreach (var item in lista2)
                                             {
+                                                if (@item.Read == false)
+                                                {
                                                 <li>
                                                     <a href="/Users/AllNotifications">
                                                         R. tu pregunta @con
                                                     </a>
-
+                                                </li>
+                                                    }
+                                                }
+                                            }
+                                        }
                                 <li>
                                     <a href="blog_1.html">No leídas</a>
                                     <ul>
                                         @{
-                                            var lista2 = ViewBag.Notifications;
+                                            var lista3 = ViewBag.Notifications;
 
-                                            if (lista2 != null)
+                                            if (lista3 != null)
                                             {
-                                                int con = 1;
+                                                int cont = 1;
                                                 foreach (var item in lista2)
                                                 {
                                                     if (@item.Read == false)
@@ -226,7 +230,7 @@
                                                             
                                                         </li>
                                                         <li></li>
-                                                        con++;
+                                                        cont++;
                                                     }
 
                                                 }
