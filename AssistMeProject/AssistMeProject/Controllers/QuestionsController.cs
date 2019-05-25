@@ -114,9 +114,6 @@ namespace AssistMeProject.Controllers
                 return NotFound();
             }
 
-
-
-
             if (question.Views.All(x => x.UserID != actualUser.ID))
             {
                 var view = new View { UserID = actualUser.ID, QuestionID = question.Id };
@@ -124,6 +121,7 @@ namespace AssistMeProject.Controllers
                 _context.SaveChanges();
             }
 
+            //Empieza busqueda de preguntas relacionadas
             initSearcher();
 
             var relatedQuestions = new List<Question>();
@@ -136,9 +134,10 @@ namespace AssistMeProject.Controllers
                     relatedQuestions.Add(q);
                 if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
             }
-
-
+            
             ViewBag.Related = relatedQuestions;
+            //Termina busqueda de preguntas relacionadas 
+
 
             var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
 
@@ -213,6 +212,9 @@ namespace AssistMeProject.Controllers
 				ViewData["suggestLb"] = TempData["suggestLb"] as String[];
 				ViewData["suggestSt"] = TempData["suggestSt"] as String[];
 				ViewData["question"] = TempData["question"] as String[];
+				string[] q = TempData["question"] as String[];
+				ViewBag.Related = RelatedQuestions(q[0], q[1]);
+				
 				TempData.Remove("suggestLb");
 				TempData.Remove("suggestSt");
 				TempData.Remove("question");
@@ -445,6 +447,33 @@ namespace AssistMeProject.Controllers
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public List<Question> RelatedQuestions(string Title, string Description)
+        {
+            var relatedQuestions = new List<Question>();
+            string query = Title + " " + Description;
+            if (BM25Searcher.IsValidString(query))
+            {
+                initSearcher();
+                List<Question> questions = new List<Question>();
+                List<ISearchable> searchables = _searcher.Search(query);
+                foreach (ISearchable s in searchables)
+                {
+                    questions.Add((Question)s);
+                }
+                
+                foreach (ISearchable s in searchables)
+                {
+                    Question q = (Question)s;
+                    relatedQuestions.Add(q);
+                    if (relatedQuestions.Count == MAX_RELATED_QUESTIONS) break;
+                }
+
+            }
+			return relatedQuestions;
+        }
+
+
 
         // GET: Questions/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -747,6 +776,7 @@ namespace AssistMeProject.Controllers
 		public void Suggestion(String title, String description)
 		{
 			String query = title + " " + description;
+			RelatedQuestions(title, description);
 			string[] lb = SuggestLabels(query);
 			string[] st = SuggestStudios(query);
 			TempData["suggestLb"] = lb;
@@ -786,7 +816,7 @@ namespace AssistMeProject.Controllers
 
 			for (int i = 0; i < suggestions.Count; i++)
 			{
-				Question q = suggestions.ElementAt(1);
+				Question q = suggestions.ElementAt(i);
 				for (int j = 0; j < q.QuestionLabels.Count; j++)
 				{
 					totalLabels.Add(q.QuestionLabels.ElementAt(j).Label);
@@ -840,7 +870,7 @@ namespace AssistMeProject.Controllers
 
 			for (int i = 0; i < sug.Count; i++)
 			{
-				Question q = sug.ElementAt(1);
+				Question q = sug.ElementAt(i);
 				for (int j = 0; j < q.QuestionStudios.Count; j++)
 				{
 					totalStudios.Add(q.QuestionStudios.ElementAt(j).Studio);

@@ -1,21 +1,21 @@
 ﻿@model AssistMeProject.Models.Question
 
 @{
-    ViewData["Title"] = "Create";
+	ViewData["Title"] = "Create";
 }
 
 <div class="row">
     <div class="col-md-9">
 
-        <div class="page-content ask-question">
-            <div class="boxedtitle page-title"><h2>Ask Question : @ViewBag.username</h2></div>
+		<div class="page-content ask-question">
+			<div class="boxedtitle page-title"><h2>Ask Question : @ViewBag.username</h2></div>
 
-            <p>To ask a question you must fill this form.</p>
+			<p>To ask a question you must fill this form.</p>
 
-            <div class="form-style form-style-3" id="question-submit">
-                <form asp-action="Create" method="post" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-inputs clearfix">
+			<div class="form-style form-style-3" id="question-submit">
+				<form asp-action="Create" method="post" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-inputs clearfix">
 						<p>
 							<label asp-for="Title" class="required">Question Title<span>*</span></label>
 							@{
@@ -74,7 +74,7 @@
 												if (lb[1] != null)
 												{
 													string text = lb[i];
-													if (i != lb.Length - 1 && lb[i+1]!=null)
+													if (i != lb.Length - 1 && lb[i + 1] != null)
 													{
 														text += ", ";
 													}
@@ -107,7 +107,7 @@
 															if (st[i] != null)
 															{
 																string text = st[i];
-																if (i != st.Length - 1 && st[i+1]!=null)
+																if (i != st.Length - 1 && st[i + 1] != null)
 																{
 																	text += ", ";
 																}
@@ -116,8 +116,8 @@
 														}
 													}
 												</span>
-											}
-										}
+															}
+														}
 									}
 									<span class="styled-select">
 										<select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
@@ -150,28 +150,65 @@
 							</p>
 						</div>
 
-                        <label for="file">File</label>
-                        <input type="file" name="files" multiple><br><br>
-                        <br><br>
+						<label for="file">File</label>
+						<input type="file" name="files" multiple><br><br>
+						<br><br>
 
-                        @*<label>File</label>
-                        <div class="fileinputs">
-                            <input type="file" class="file">
-                            <div class="fakefile">
-                                <button type="button" class="button small margin_0">Select file</button>
-                                <span><i class="icon-arrow-up"></i>Browse</span>
-                            </div>
-                        </div>*@
-                    </div>
+						@*<label>File</label>
+					<div class="fileinputs">
+						<input type="file" class="file">
+						<div class="fakefile">
+							<button type="button" class="button small margin_0">Select file</button>
+							<span><i class="icon-arrow-up"></i>Browse</span>
+						</div>
+					</div>*@
+					</div>
+					<div id="relatedquestions">
+						@{
+							if (ViewData.ContainsKey("question")) {
+							<h2>Related questions</h2>
+							<ul class="related-posts">
+								@{
+									if (ViewBag.Related.Count == 0)
+									{
+										<li class="related-item"><h3>There are no related questions</h3></li>
+									}
+									else
+									{
+										foreach (var q in ViewBag.Related)
+										{
+											<li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
+										}
+									}
 
-                    <p class="form-submit">
-                        <input type="submit" id="publish-question" name="action" value="Ask now" class="button color small submit">
-                    </p>
-                </form>
-            </div>
-        </div><!-- End page-content -->
+								}
+
+							</ul>
+								}
+							}
+					</div>
+
+
+					<p class="form-submit">
+						<input type="submit" id="publish-question" name="action" value="Ask now" class="button color small submit">
+					</p>
+				</form>
+			</div>
+		</div><!-- End page-content -->
     </div><!-- End main -->
 </div><!-- End row -->
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+		function loadRelatedQuestions(title, description) {
+					$.ajax({
+						url: "@Url.Content("~/Question/RelatedQuestions?")" + "Title=" + title + "&Description=" + description
+					}).done(function (data) {
+					 $('#relatedquestions').html(data);
+					}).fail(function () {
+						alert("error");
+					});}
+
+	 </script>
 }
