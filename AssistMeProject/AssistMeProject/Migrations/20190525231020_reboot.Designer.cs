@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190524221744_Related")]
-    partial class Related
+    [Migration("20190525231020_reboot")]
+    partial class reboot
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,6 +122,8 @@ namespace AssistMeProject.Migrations
                     b.Property<bool>("Read");
 
                     b.Property<DateTime>("TimeAnswer");
+
+                    b.Property<string>("Title");
 
                     b.Property<int>("UserID");
 
