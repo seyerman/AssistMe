@@ -121,6 +121,8 @@ namespace AssistMeProject.Migrations
 
                     b.Property<DateTime>("TimeAnswer");
 
+                    b.Property<string>("Title");
+
                     b.Property<int>("UserID");
 
                     b.HasKey("Id");

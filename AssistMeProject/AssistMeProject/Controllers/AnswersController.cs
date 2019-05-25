@@ -105,7 +105,7 @@ namespace AssistMeProject.Controllers
                 
                 Notification notification = new Notification {  Read = false,UserID= questionOwner,
                 TimeAnswer=answer.Date,QuestionId=QuestionID,
-                    Description = Activeuser +" Respondio tu pregunta "
+                    Title = Activeuser +" Respondio tu pregunta "
                 };
                 _context.Add(notification);
                 await _context.SaveChangesAsync();

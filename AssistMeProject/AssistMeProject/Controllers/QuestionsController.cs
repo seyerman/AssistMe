@@ -518,8 +518,25 @@ namespace AssistMeProject.Controllers
         // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, string message)
         {
+
+            int questionOwner = _context.Question.Find(id).UserId.Value;// averiguo el dueño de la pregunta referencir a quien podra ver la notificacion
+            string questionDescp = _context.Question.Find(id).Title;// averiguo el dueño de la pregunta referencir a quien podra ver la notificacion
+
+
+
+            Notification notification = new Notification
+            {
+                Read = false,
+                UserID = questionOwner,
+                Description = "Razón de eliminar pregunta: "+  message,
+                Title = "Pregunta: '" + questionDescp + "' ha sido eliminada "
+            };
+            _context.Add(notification);
+            await _context.SaveChangesAsync();
+
+
             var question = await _context.Question.FindAsync(id);
             _context.Question.Remove(question);
             await _context.SaveChangesAsync();

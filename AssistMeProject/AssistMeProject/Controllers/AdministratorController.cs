@@ -267,7 +267,6 @@ namespace AssistMeProject.Controllers
             var studio = await _context.Studio.FindAsync(id);
             _context.Studio.Remove(studio);
             await _context.SaveChangesAsync();
-
             return RedirectToAction(nameof(ManageStudios));
         }
 
