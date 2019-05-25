@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190525061135_migreboot")]
+    [Migration("20190525064505_migreboot")]
     partial class migreboot
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
