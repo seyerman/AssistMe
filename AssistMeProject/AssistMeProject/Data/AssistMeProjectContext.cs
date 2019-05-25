@@ -53,6 +53,7 @@ namespace AssistMeProject.Models
         public DbSet<AssistMeProject.Models.Comment> Comment { get; set; }
         public DbSet<AssistMeProject.Models.User> User { get; set; }
         public DbSet<AssistMeProject.Models.Studio> Studio { get; set; }
+        public DbSet<AssistMeProject.Models.Notification> Notification { get; set; }
 
         public DbSet<AssistMeProject.Models.Label> Label { get; set; }
         public DbSet<AssistMeProject.Models.PositiveVote> PositiveVote { get; set; }

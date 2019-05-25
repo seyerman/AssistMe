@@ -53,12 +53,12 @@
         <div id="header-top">
             <section class="container clearfix">
                 <!--nav class="header-top-nav">
-                    <ul>
-                        <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
-                        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
-                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
-                    </ul>
-                </nav -->
+                <ul>
+                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                    <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                </ul>
+            </nav -->
                 <div class="header-search">
                     <form action='@Url.Action("Search", "Questions")' method="post">
 
@@ -93,13 +93,82 @@
                                 <li class="user-no-active"><a href="/Users/">Iniciar Sesión</a></li>
                                 <li class="user-active"><a href="/Users/Profile">Perfil del Usuario</a></li>
                                 <!--
-                                <li><a href="user_questions.html">User Questions</a></li>
-                                <li><a href="user_answers.html">User Answers</a></li>
-                                <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
-                                <li><a href="user_points.html">User Points</a></li>
-                                -->
+            <li><a href="user_questions.html">User Questions</a></li>
+            <li><a href="user_answers.html">User Answers</a></li>
+            <li><a href="user_favorite_questions.html">User Favorite Questions</a></li>
+            <li><a href="user_points.html">User Points</a></li>
+            -->
                                 <li class="user-active"><a href="/Users/Edit">Editar Perfil</a></li>
                                 <li class="user-active"><a href="/Users/Logout">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                        <li id="notificacion">
+                            @{ 
+                                ViewBag.bell = "icon-bell";
+                                if (ViewBag.AllReaded != null && ViewBag.AllReaded) {
+                                    ViewBag.bell = "icon-bell-alt";
+                                }
+
+                            }
+                            <a href="#"><i class="@ViewBag.bell"></i></a>
+                            <ul>
+                                <u>Notificaciones</u>
+                                <li></li>
+                                <li>
+                                    <p style="background-color:coral;">&nbsp;Leídas</p>
+                                </li>
+                                @{
+                                    var lista = ViewBag.Notifications;
+
+                                    if (lista != null)
+                                    {
+                                        int con = 1;
+                                        foreach (var item in lista)
+                                        {
+                                            if (item.Read)
+                                            {
+                                                <li>
+                                                    <a href="/Users/AllNotifications">
+                                                        R. tu pregunta @con
+                                                    </a>
+
+                                                </li>
+                                                con++;
+                                            }
+
+                                        }
+                                    }
+                                }
+                                <li>
+                                    <p style="background-color: coral;">&nbsp;No leídas</p>
+                                </li>
+                                @{
+                                    var lista2 = ViewBag.Notifications;
+
+                                    if (lista2 != null)
+                                    {
+                                        int con = 1;
+                                        foreach (var item in lista2)
+                                        {
+                                            if (@item.Read==false)
+                                            {
+                                                <li>
+                                                    <a href="/Users/AllNotifications">
+                                                        R. tu pregunta @con
+                                                    </a>
+
+                                                </li>
+                                                con++;
+                                            }
+
+                                        }
+                                    }
+                                }
+                                <li>
+                                    <a href="/Users/AllNotifications">
+                                        Ver todas las notificaciones
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li id="admin">
@@ -109,24 +178,11 @@
                                 <li><a href="/Administrator/AddAdmin">Asignar Rol Administrador</a></li>
                                 <li><a href="/Administrator/CreateStudio">Crear Nuevo Studio</a></li>
                                 <li><a href="/Administrator/ArchivedQuestions">Preguntas Archivadas</a></li>
-                                <li><a href="/Administrator/Show">Tablas Resumenes</a></li>
-
 
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="right_sidebar.html">Pages</a> <!--Faltan estos links-->
-                            <ul>
-                                <li><a href="">Login</a></li>
-                                <li><a href="contact_us.html">Contact Us</a></li>
-                                <li><a href="ask_question.html">Ask Question</a></li>
-                                <li><a href="right_sidebar.html">Right Sidebar</a></li>
-                                <li><a href="left_sidebar.html">Left Sidebar</a></li>
-                                <li><a href="full_width.html">Full Width</a></li>
-                                <li><a href="404.html">404</a></li>
-                            </ul>
-                        </li>
+                    
 
                         <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
                     </ul>
@@ -134,9 +190,8 @@
             </section><!-- End container -->
         </header><!-- End header -->
 
-
-        <div class="container main-content">
-            <!--Contenido principal de la pagina--><!--Respetar el nivel de las paginas para que no se superpongan-->
+        
+        <div class="container main-content"><!--Contenido principal de la pagina--><!--Respetar el nivel de las paginas para que no se superpongan-->
             <div class="row">
                 <div class="col-md-9">
                     @RenderBody()
@@ -155,7 +210,7 @@
 
     <partial name="_CookieConsentPartial" />
 
-
+    
 
     <footer id="footer-bottom">
         <section class="container">

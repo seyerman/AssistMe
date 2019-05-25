@@ -14,7 +14,7 @@
             <div class="page-content ask-question">
                 <div class="boxedtitle page-title"><h2> Crear Nuevo Studio</h2></div>
                 <div class="form-style form-style-3" id="question-submit">
-                    <form asp-action="CreateStudio">
+                    <form asp-action="CreateStudio" enctype="multipart/form-data">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">
                             <p>
@@ -42,19 +42,19 @@
                                 </p>
                             </div>
 
-                            
-                                <label >Ícono del Studio</label>
-                                <div class="fileinputs">
-                                    <input  type="file" class="file">
-                                    <div class="fakefile">
-                                        <button type="button" class="button small margin_0">Subir archivo</button>
-                                        <span><i class="icon-arrow-up"></i>Browse</span>
-                                    </div>
-                                </div>
-                       
+                            <div class="form-group">
+                                <p>
+                                    <label asp-for="Email" class="required">Email del Studio<span>*</span></label>
+                                    <input asp-for="Email" type="text" id="question-title">
+                                    <span asp-validation-for="Email" class="form-description">Email necesario para notificar sobre nuevas preguntas.</span>
+                                </p>
+                            </div>
 
                         </div>
-                      
+                        <label for="file">File</label>
+                        <input type="file" name="file" multiple><br><br>
+                        <br><br>
+
                         <p class="form-group">
                             <input type="submit" id="crear-studio" value="Crear Studio" class="button color small submit">
                         </p>
@@ -62,10 +62,14 @@
                 </div>
             </div><!-- End page-content -->
         </div><!-- End main -->
-   
+
     </div><!-- End row -->
 </section><!-- End container -->
 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 
 <script>
      var level = @ViewData["Admin"];
@@ -84,6 +88,5 @@
     function foo() {
     window.location.href = 'NotAdmin';
 }
-
 
 </script>

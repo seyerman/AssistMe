@@ -1,15 +1,15 @@
-﻿using System;
+﻿using AssistMeProject.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
+using System.Collections;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AssistMeProject.Models;
-using System.Security.Claims;
-using System.Threading;
-using System.Web;
 
 namespace AssistMeProject.Controllers
 {
@@ -242,6 +242,33 @@ namespace AssistMeProject.Controllers
             HttpContext.Session.Remove(ACTIVE_USERNAME);
             return RedirectToAction("Index", "Users");
         }
+        public IActionResult AllNotifications()
+        {
+            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            if (string.IsNullOrEmpty(userActive))
+            {
+                return RedirectToAction("Index", "Users", new { message = "Error, inicia sesión" });
+            }
+            else
+            {
+                int id = model.GetUser(userActive).ID;
+                var notifications = _context.Notification.Where(p => p.UserID == id).ToList();
+                getNotificationsOfUser();
+                return View(notifications);
+            }
 
-    }
+
+        }
+
+        private void getNotificationsOfUser()
+        {
+            string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
+            User user = model.GetUser(userActive);
+            ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID).ToList();
+        }
+       
+       
+
+
+   }
 }
