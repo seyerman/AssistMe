@@ -199,7 +199,7 @@ namespace AssistMeProject.Controllers
             string Activeuser = HttpContext.Session.GetString("USERNAME");
             if (string.IsNullOrEmpty(Activeuser))
             {
-                return RedirectToAction("Index", "Users", new { message = "Please Log In" });
+                return RedirectToAction("Index", "Users", new { message = "Inice sesión" });
             }
 
             ViewBag.username = Activeuser;
