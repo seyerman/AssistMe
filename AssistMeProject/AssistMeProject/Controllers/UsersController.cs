@@ -126,10 +126,10 @@ namespace AssistMeProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([Bind("ID,GOOGLE_KEY,LEVEL,USERNAME,PASSWORD,EMAIL,PHOTO,QUESTIONS_ANSWERED,POSITIVE_VOTES_RECEIVED,QUESTIONS_ASKED,INTERESTING_VOTES_RECEIVED,DESCRIPTION,INTERESTS_OR_KNOWLEDGE,COUNTRY,CITY,StudioId")] User user)
         {
-            string userS = SetActiveUser();
-            if (string.IsNullOrEmpty(userS))
-                return RedirectToAction("", "", new { message = "Error, Inicie sesión" });
-            if (ModelState.IsValid && _context.User.Count(p => p.USERNAME.Equals(user.USERNAME)) == 1)
+            
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(ACTIVE_USERNAME)))
+                return RedirectToAction("Index", "Users", new { message = "Error, Inicie sesión" });
+            if (ModelState.IsValid && CheckUsername(user.USERNAME))
             {
                 try
                 {
@@ -151,6 +151,11 @@ namespace AssistMeProject.Controllers
                 return RedirectToAction(nameof(Profile));
             }
             return View(user);
+        }
+
+        private bool CheckUsername(string username)
+        {
+            return _context.User.Count(p => p.USERNAME.Equals(username)) == 1;
         }
 
         // GET: Users/Delete/5
