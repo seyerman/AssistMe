@@ -29,7 +29,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("QuestionID");
 
@@ -60,7 +60,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("UserId");
 
@@ -163,7 +163,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<string>("Insignia");
 
@@ -174,6 +174,10 @@ namespace AssistMeProject.Migrations
                     b.Property<int?>("UserId");
 
                     b.Property<bool>("isArchived");
+
+                    b.Property<string>("question_tags")
+                        .IsRequired()
+                        .HasMaxLength(300);
 
                     b.HasKey("Id");
 

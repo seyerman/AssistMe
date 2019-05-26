@@ -13,160 +13,166 @@
             <p>To ask a question you must fill this form.</p>
 
             <div class="form-style form-style-3" id="question-submit">
-                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <form asp-action="Create" method="post" enctype="multipart/form-data" accept-charset="">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-inputs clearfix">
-						<p>
-							<label asp-for="Title" class="required">Question Title<span>*</span></label>
-							@{
-								if (ViewData.ContainsKey("question"))
-								{
-									string[] q = (string[])ViewData["question"];
-									<input asp-for="Title" type="text" id="question-title">@q[0];
-								}
-								else
-								{
-									<input asp-for="Title" type="text" id="question-title">
-								}
-							}
+                        <p>
+                            <label asp-for="Title" class="required">Question Title<span>*</span></label>
+                            @{
+                                if (ViewData.ContainsKey("question"))
+                                {
+                                    string[] q = (string[])ViewData["question"];
+                                    <input asp-for="Title" type="text" id="question-title">@q[0];
+                                }
+                                else
+                                {
+                                    <input asp-for="Title" type="text" id="question-title">
+                                }
+                            }
 
-							<span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
-							<span asp-validation-for="Title" class="text-danger"></span>
-						</p>
-						<div id="form-textarea">
+                            <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </p>
 
-							<p>
+                        <div id="form-textarea">
 
-								<label asp-for="Description" class="required">Details<span>*</span></label>
-								@{
-									if (ViewData.ContainsKey("question"))
-									{
-										string[] q = (string[])ViewData["question"];
-										<textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
-										@q[1]
-									}
-									else
-									{
-										<textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
-									}
-								}
+                            <p>
+
+                                <label asp-for="Description" class="required">Details<span>*</span></label>
+                                @{
+                                    if (ViewData.ContainsKey("question"))
+                                    {
+                                        string[] q = (string[])ViewData["question"];
+                                        <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+                                        @q[1]
+                                    }
+                                    else
+                                    {
+                                        <textarea asp-for="Description" id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+                                    }
+                                }
 
 
 
-								<span class="form-description">Type the description thoroughly and in detail .</span>
-								<span asp-validation-for="Description" class="text-danger"></span>
-							</p>
-							<p>
-								<input type="submit" id="publish-question" name="action" value="Suggestions" class="button color small submit">
-							</p>
-							<p>
-								@{
+                                <span class="form-description">Type the description thoroughly and in detail .</span>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </p>
+                            <p>
+                                <input type="button" id="get-suggestions" name="action" value="Suggestions" class="button color small submit">
+                            </p>
+                        </div>
+                        <div id="suggestions_area">
+                            <div id="relatedquestions"></div>
+                            <p>
+                                @{
 
-									if (ViewData.ContainsKey("suggestLb"))
-									{
-										string[] lb = (String[])ViewData["suggestLb"];
-										if (lb != null)
-										{
-											<i class="icon-tags"></i>
-											<a href="#"> Suggestions for Labels:  </a>
-											for (int i = 0; i < lb.Length; i++)
-											{
-												if (lb[1] != null)
-												{
-													string text = lb[i];
-													if (i != lb.Length - 1 && lb[i+1]!=null)
-													{
-														text += ", ";
-													}
-													<a href="#">@text</a>
-												}
-											}
-										}
-									}
-								}
-								<label class="required">Tags<span>*</span></label>
-								<input class="input" name="question_tags" id="question_tags" data-seperator=",">
-								<span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
-							</p>
+                                    if (ViewData.ContainsKey("suggestLb"))
+                                    {
+                                        string[] lb = (String[])ViewData["suggestLb"];
+                                        if (lb != null)
+                                        {
+                                            <i class="icon-tags"></i>
+                                            <a href="#"> Suggestions for Labels:  </a>
+                                            for (int i = 0; i < lb.Length; i++)
+                                            {
+                                                if (lb[1] != null)
+                                                {
+                                                    string text = lb[i];
+                                                    if (i != lb.Length - 1 && lb[i + 1] != null)
+                                                    {
+                                                        text += ", ";
+                                                    }
+                                                    <a href="#">@text</a>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
 
-							<p>
-								<div class="form-group">
-									<label class="required">Studio 1<span>*</span></label>
-									@{
-										if (ViewData.ContainsKey("suggestSt"))
-										{
-											string[] st = (string[])ViewData["suggestSt"];
-											if (st != null)
-											{
-												<span class="question-category">
-													<i class="icon-folder-close"></i>
-													<a href="#"> Suggestions For Studios:</a>
-													@{
-														for (int i = 0; i < st.Length; i++)
-														{
-															if (st[i] != null)
-															{
-																string text = st[i];
-																if (i != st.Length - 1 && st[i+1]!=null)
-																{
-																	text += ", ";
-																}
-																<a href="#">@text</a>
-															}
-														}
-													}
-												</span>
-											}
-										}
-									}
-									<span class="styled-select">
-										<select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
-									</span>
-								</div>
-							</p>
-							<p>
-								<div class="form-group">
+                            <div class="form-group">
+                                <label asp-for="question_tags" class="required">Tags<span>*</span></label>
 
-									<label>Studio 2</label>
+                                <i class="icon-tags"></i> Suggestions for Labels: <span id="tags-result"></span>
 
-									<span class="styled-select">
-
-										<select name="studio2" class="form-control" asp-items="ViewBag.Studios"></select>
-									</span>
-									<span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
-								</div>
-							</p>
-							<p>
-								<div class="form-group">
-									<label>Studio 3</label>
-
-									<span class="styled-select">
-
-										<select name="studio3" class="form-control" asp-items="ViewBag.Studios"></select>
-									</span>
-									<span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
-
-								</div>
-							</p>
-						</div>
-
-                        <label for="file">File</label>
-                        <input type="file" name="files" multiple><br><br>
-                        <br><br>
-
-                        @*<label>File</label>
-                        <div class="fileinputs">
-                            <input type="file" class="file">
-                            <div class="fakefile">
-                                <button type="button" class="button small margin_0">Select file</button>
-                                <span><i class="icon-arrow-up"></i>Browse</span>
+                                <input asp-for="question_tags" class="input" name="question_tags" id="question_tags" data-seperator=",">
+                                <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
+                                <span asp-validation-for="question_tags" class="text-danger"></span>
                             </div>
-                        </div>*@
-                    </div>
+                            </p>
+                            <p>
+                                <div class="form-group">
+                                    <label class="required">Studio 1<span>*</span></label>
+                                    @{
+                                        if (ViewData.ContainsKey("suggestSt"))
+                                        {
+                                            string[] st = (string[])ViewData["suggestSt"];
+                                            if (st != null)
+                                            {
+                                                <span class="question-category">
+                                                    <i class="icon-folder-close"></i>
+                                                    <a href="#"> Suggestions For Studios:</a>
+                                                    @{
+                                                        for (int i = 0; i < st.Length; i++)
+                                                        {
+                                                            if (st[i] != null)
+                                                            {
+                                                                string text = st[i];
+                                                                if (i != st.Length - 1 && st[i + 1] != null)
+                                                                {
+                                                                    text += ", ";
+                                                                }
+                                                                <a href="#">@text</a>
+                                                            }
+                                                        }
+                                                    }
+                                                </span>
+                                            }
+                                        }
+                                    }
+                                    <span class="question-category">
+                                        <i class="icon-folder-close"></i> Suggestions For Studios: <span id="studios-result"></span>
+                                    </span>
+                                    <span class="styled-select">
+                                        <select name="studio" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="form-group">
 
-                    <p class="form-submit">
-                        <input type="submit" id="publish-question" name="action" value="Ask now" class="button color small submit">
-                    </p>
+                                    <label>Studio 2</label>
+
+                                    <span class="styled-select">
+
+                                        <select name="studio2" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="form-group">
+                                    <label>Studio 3</label>
+
+                                    <span class="styled-select">
+
+                                        <select name="studio3" class="form-control" asp-items="ViewBag.Studios"></select>
+                                    </span>
+                                    <span class="form-description">If you don't need a new Studio, choose a previously selected one.</span>
+
+                                </div>
+                            </p>
+
+                            <label for="file">File</label>
+                            <input type="file" name="files" multiple><br><br>
+                            <br><br>
+
+
+
+                            <p class="form-submit">
+                                <input type="submit" id="publish-question" name="action" value="Ask now" class="button color small submit">
+                            </p>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div><!-- End page-content -->
@@ -174,4 +180,70 @@
 </div><!-- End row -->
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        $.validator.setDefaults({ 
+    ignore: [],
+    // any other default options and/or rules
+});
+
+        function isEmptyOrSpaces(str){
+            return str === null || str.match(/^\s*$/) !== null;
+        }
+
+		function loadRelatedQuestions(title, description) {
+					$.ajax({
+						url: "@Url.Content("~/Question/RelatedQuestions?")" + "Title=" + title + "&Description=" + description
+					}).done(function (data) {
+					 $('#relatedquestions').html(data);
+					}).fail(function () {
+						alert("error");
+                    });
+        }
+
+        $(function () {
+
+            $("#suggestions_area").hide();
+            $("#get-suggestions").click(function () {
+                var title = document.getElementById("question-title").value;
+                var details = document.getElementById("question-details").value;
+
+                if (!isEmptyOrSpaces(title) && !isEmptyOrSpaces(details)) {
+                    
+                    $.ajax({
+                        url: "/Questions/SuggestTagsString?title=" + title + "&details=" + details
+                    }).done(function (data) {
+                        document.getElementById("tags-result").innerHTML = data;
+                    }).fail(function () {
+                        alert("error");
+                    });
+
+                    $.ajax({
+                        url: "/Questions/SuggestStudiosString?title=" + title + "&details=" + details
+                    }).done(function (data) {
+                        document.getElementById("studios-result").innerHTML = data;
+                    }).fail(function () {
+                        alert("error");
+                    });
+
+                    $.ajax({
+                        url: "/Questions/RelatedQuestionsView?title=" + title + "&details=" + details
+                     }).done(function (data) {
+                           $('#relatedquestions').html(data);
+                      }).fail(function () {
+                          alert("error");
+                     });
+
+                    
+
+                    $("#get-suggestions").hide();
+                    $("#suggestions_area").show();
+                    
+                }
+            });
+
+        });
+
+    </script>
 }
