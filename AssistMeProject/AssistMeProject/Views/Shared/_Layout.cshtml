@@ -164,81 +164,24 @@
                             <a href=""><i class="@ViewBag.bell"></i></a>
                             <ul>
                                 <li>
-                                    <a href="blog_1.html">Leídas</a>
-                                    <ul>
-                                        @{
-                                            var lista = ViewBag.Notifications;
-
-                                            if (lista != null)
-                                            {
-                                                int con = 1;
-                                                foreach (var item in lista)
-                                                {
-                                                    if (item.Read)
-                                                    {
-                                                        <li>
-
-                                                            <a href="/Users/AllNotifications">
-                                                               <span class="icon-comment-alt"></span>  @item.Title
-                                                            </a>
-
-                                                        </li>
-                                                        con++;
-                                                    }
-
-                                                }
-                                            }
-                                        }
-                                    </ul>
+                                    <span style="padding-left:10px;" >Recientes</span>
                                 </li>
-                                    @{
-                                        var lista2 = ViewBag.Notifications;
-
-                                        if (lista2 != null)
+                                @{
+                                    var lista = ViewBag.Notifications;
+                                    if (lista != null)
+                                    {
+                                        foreach (var item in lista)
                                         {
-                                            int con = 1;
-                                            foreach (var item in lista2)
-                                            {
-                                                if (@item.Read == false)
-                                                {
-                                                <li>
-                                                    <a href="/Users/AllNotifications">
-                                                        R. tu pregunta @con
-                                                    </a>
-                                                </li>
-                                                    }
-                                                }
-                                            }
-                                        }
-                                <li>
-                                    <a href="blog_1.html">No leídas</a>
-                                    <ul>
-                                        @{
-                                            var lista3 = ViewBag.Notifications;
+                                            <li>
 
-                                            if (lista3 != null)
-                                            {
-                                                int cont = 1;
-                                                foreach (var item in lista2)
-                                                {
-                                                    if (@item.Read == false)
-                                                    {
-                                                        <li>
-                                                            <a href="/Users/AllNotifications">
-                                                              <span class="icon-comment-alt"></span>  @item.Title
-                                                            </a>
-                                                            
-                                                        </li>
-                                                        <li></li>
-                                                        cont++;
-                                                    }
-
-                                                }
-                                            }
+                                                <a href="/Users/AllNotifications">
+                                                    <span class="icon-double-angle-right"></span>&nbsp;@item.Title
+                                                </a>
+                                            
+                                            </li>
                                         }
-                                    </ul>
-                                </li>
-                    
+                                    }
+                                }
                                 <li>
                                     <a href="/Users/AllNotifications">
                                         Ver todas las notificaciones
@@ -339,26 +282,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- End js -->
-    @*<environment include="Development">
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-            </script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>*@
 
     <div class="panel-pop" id="signup">
         <h2>Registrarse<i class="icon-remove"></i></h2>
@@ -420,50 +343,24 @@
         </div>
     </div><!-- End signup -->
 
-    <script>
-        /* Signup */
-        window.addEventListener("load", function (event) {
-            jQuery(".signup,.login-links-r a").click(function () {
-                jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
-                jQuery("#signup").show().animate({ "top": "50%" }, 500);
-                jQuery("body").prepend("<div class='wrap-pop'></div>");
-                wrap_pop();
-                return false;
-            });
-
-            /* Lost password */
-
-            jQuery(".login-password a").click(function () {
-                jQuery(".panel-pop").animate({ "top": "-100%" }, 10).hide();
-                jQuery("#lost-password").show().animate({ "top": "50%" }, 500);
-                jQuery("body").prepend("<div class='wrap-pop'></div>");
-                wrap_pop();
-                return false;
-            });
-
-            /* Panel pop */
-
-            jQuery(".panel-pop").each(function () {
-                var panel_pop = jQuery(this);
-                var panel_height = panel_pop.height();
-                panel_pop.css("margin-top", "-" + panel_height / 2 + "px");
-            });
-
-            jQuery(".panel-pop h2 i").click(function () {
-                jQuery(this).parent().parent().animate({ "top": "-100%" }, 500);
-                jQuery(".wrap-pop").remove();
-            });
-
-            function wrap_pop() {
-                jQuery(".wrap-pop").click(function () {
-                    jQuery(".panel-pop").animate({ "top": "-100%" }, 500).hide(function () {
-                        jQuery(this).animate({ "top": "-100%" }, 500);
-                    });
-                    jQuery(this).remove();
-                });
-            }
-        });
-    </script>
+    <div class="panel-pop" id="lost-password">
+        <h2>Recuperar contraseña<i class="icon-remove"></i></h2>
+        <div class="form-style form-style-3">
+            <p>¿Perdió su contraseña? Por favor ingrese su correo electronico registrado. Usted recibirá su nombre de usuario y contraseña en su bandeja de entrada o spam.</p>
+            <form asp-controller="Users" asp-action="LostPassword">
+                <div class="form-inputs clearfix">
+                    <p>
+                        <label for="correo" class="required">Correo electronico<span>*</span></label>
+                        <input type="email" name="email" id="correo" autocomplete="off">
+                    </p>
+                </div>
+                <p class="form-submit">
+                    <input type="submit" value="Enviar datos de acceso" class="button color small submit">
+                </p>
+            </form>
+            <div class="clearfix"></div>
+        </div>
+    </div><!-- End lost-password -->
 
     @RenderSection("Scripts", required: false)
 

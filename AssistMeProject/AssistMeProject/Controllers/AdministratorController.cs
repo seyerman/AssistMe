@@ -31,10 +31,9 @@ namespace AssistMeProject.Controllers
 
         public IActionResult Index()
         {
-            User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("USERNAME")))
-                actualUser = model.GetUser(HttpContext.Session.GetString("USERNAME"));
-            else
+            string user = SetActiveUser();
+            User actualUser = _context.User.FirstOrDefault(a => a.USERNAME.Equals(user));
+            if (actualUser==null)
                 return RedirectToAction("Index","Users", new { message = "Inicie sesión"});
             if (actualUser != null)
             {
@@ -188,10 +187,8 @@ namespace AssistMeProject.Controllers
         public async Task<IActionResult> AddAdmin()
         {
 
-            User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
-                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
-            else
+            User actualUser = _context.User.FirstOrDefault(a => a.USERNAME.Equals(SetActiveUser()));
+            if (actualUser==null)
                 return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
 
             if (actualUser != null)
@@ -213,10 +210,8 @@ namespace AssistMeProject.Controllers
         // GET: Questions
         public async Task<IActionResult> ArchivedQuestions()
         {
-            User actualUser = null;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME)))
-                actualUser = model.GetUser(HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME));
-            else
+            User actualUser = _context.User.FirstOrDefault(a => a.USERNAME.Equals(SetActiveUser()));
+            if (actualUser == null)
                 return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
 
             if (actualUser != null)
@@ -467,6 +462,20 @@ namespace AssistMeProject.Controllers
             return View(studio);
         }
 
+        private void GetNotificationsOfUser()
+        {
+            string userActive = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
+            User user = model.GetUser(userActive);
+            try
+            {
+                ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID && !p.Read).ToList();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
         /**
          * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
          **/
@@ -476,6 +485,8 @@ namespace AssistMeProject.Controllers
             string USER = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
             if (string.IsNullOrEmpty(USER))
                 ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            else
+                GetNotificationsOfUser();
             ViewBag.ACTIVE_USER = USER;
             return USER;
             //End To pass the username active

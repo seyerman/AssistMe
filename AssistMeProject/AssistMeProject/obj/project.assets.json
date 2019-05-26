@@ -14143,11 +14143,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Users\\Usuario\\Desktop\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "projectUniqueName": "D:\\projects\\visualStudio\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
       "projectName": "AssistMeProject",
-      "projectPath": "d:\\Users\\Usuario\\Desktop\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
+      "projectPath": "D:\\projects\\visualStudio\\AssistMe\\AssistMeProject\\AssistMeProject\\AssistMeProject.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "d:\\Users\\Usuario\\Desktop\\AssistMe\\AssistMeProject\\AssistMeProject\\obj\\",
+      "outputPath": "D:\\projects\\visualStudio\\AssistMe\\AssistMeProject\\AssistMeProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -165,7 +165,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Views\Shared\Components\Stats\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>

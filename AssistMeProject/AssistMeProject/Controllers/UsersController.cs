@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Net.Mail;
+using System.Text;
 
 namespace AssistMeProject.Controllers
 {
@@ -209,7 +211,10 @@ namespace AssistMeProject.Controllers
                 if (string.IsNullOrEmpty(viewingToUser))
                     return View(model.GetUser(currentlyActiveUsername));
                 ViewData["ACTIVE_USER"] = currentlyActiveUsername;
-                return View(model.GetUser(viewingToUser));
+                User found = model.GetUser(viewingToUser);
+                found.QUESTIONS_ASKED = _context.Question.Count(a => a.UserId == found.ID);//We profile added this because it wasn't implemented action of increase or decrease when a user makes or answer a question
+                found.QUESTIONS_ANSWERED = _context.Answer.Count(a => a.UserId == found.ID);
+                return View(found);
             }
             else
             {
@@ -220,8 +225,9 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         public IActionResult Profile(string username, string password, string method)
         {
-            string userS = SetActiveUser();
             User found = model.FindUser(username, password, method);
+            found.QUESTIONS_ASKED = _context.Question.Count(a => a.UserId==found.ID); //We profile added this because it wasn't implemented action of increase or decrease when a user makes or answer a question
+            found.QUESTIONS_ANSWERED = _context.Answer.Count(a => a.UserId == found.ID);
             if (found == null)
             {
                 return RedirectToAction("Index", "Users", new { message = "Error, prueba de nuevo" });
@@ -231,6 +237,7 @@ namespace AssistMeProject.Controllers
                 //Only username it's saved for have a better security but this might be slower because have to search user every time it's needed
                 HttpContext.Session.SetString(ACTIVE_USERNAME, found.USERNAME);
                 ViewData["ACTIVE_USER"] = username;
+                SetActiveUser();
                 return View(found);
             }
         }
@@ -252,20 +259,44 @@ namespace AssistMeProject.Controllers
             {
                 int id = model.GetUser(userActive).ID;
                 var notifications = _context.Notification.Where(p => p.UserID == id).ToList();
-                getNotificationsOfUser();
+                GetNotificationsOfUser();
                 return View(notifications);
             }
 
 
         }
 
-        private void getNotificationsOfUser()
+        private void GetNotificationsOfUser()
         {
             string userActive = HttpContext.Session.GetString(ACTIVE_USERNAME);
             User user = model.GetUser(userActive);
-            ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID).ToList();
+            try
+            {
+                ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID && !p.Read).ToList();
+            } catch (Exception e)
+            {
+
+            }
         }
-        
+
+        public IActionResult LostPassword(string email)
+        {
+            User found = _context.User.FirstOrDefault(a => a.EMAIL.Equals(email));
+            if (found==null)
+                return RedirectToAction("Index", "Users", new { message = "Errror, no se encontro ningún usuario registrado con el correo: " + email });
+            string message = "<br><h2>Tu nombre de usuario es: <span style=\"color:#f40000\"><bold>" + found.USERNAME+ "</bold></span><br>Y tu contraseña es: <span style=\"color:#f40000\"><bold>" + found.PASSWORD+ "</bold></span></h2>" +
+                "<br><br>Gracias por formar parte de la familia Globant";
+            try
+            {
+                Email manager = new Email();
+                manager.EnviarCorreo(email, "Recuperar contraseña", message,true);
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return RedirectToAction("Index","Users",new { message = "Se envió su nombre de usuario y contraseña"});
+        }
+
         /**
          * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
          **/
@@ -275,6 +306,8 @@ namespace AssistMeProject.Controllers
             string USER = HttpContext.Session.GetString(ACTIVE_USERNAME);
             if (string.IsNullOrEmpty(USER))
                 ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            else
+                GetNotificationsOfUser();
             ViewBag.ACTIVE_USER = USER;
             return USER;
             //End To pass the username active

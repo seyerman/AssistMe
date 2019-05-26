@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<AssistMeProject.Models.Notification>
-
+@{ 
+    ViewData["Title"] = "Todas las notificaciones";
+}
 <div class="col-md-9">
 
     <section class="container main-content">
@@ -8,24 +10,22 @@
 
                 <div class="tabs-warp question-tab">
                     <ul class="tabs">
-                        <li class="tab"><a href="#" class="current">Recent Questions</a></li>
-                        <li class="tab"><a href="#">No answers</a></li>
+                        <li class="tab"><a href="#" class="current">@ViewData["Title"]</a></li>
                     </ul>
                     <div class="tab-inner-warp">
                         <div class="tab-inner">
                             @{
-                                int counter = 1;
                                 foreach (var item in Model)
                                 {
 
                                     <article class="question question-type-normal">
-                                        <p style="color: red;">Notificación No. @counter</p>
-                                        <h2>
-                                            <a asp-controller="Questions" asp-action="Details" asp-route-id="@item.QuestionId"> @Html.DisplayFor(modelItem => item.Description)</a>
-                                        </h2>
+                                        <p style="color: red; background-color:#e8e8e8; border-radius:10px; padding:5px; shape-margin:20px;">@item.Title</p>
+                                        <h3 style="padding-left:7%;">
+                                            <a href="/Questions/Details?id=@item.QuestionId&NotificationID=@item.Id">
+                                            Descripción:<br /> @Html.DisplayFor(modelItem => item.Description)</a>
+                                        </h3>
                                         
                                     </article>
-                                    counter++;
                                 }
                             }
                         </div>
