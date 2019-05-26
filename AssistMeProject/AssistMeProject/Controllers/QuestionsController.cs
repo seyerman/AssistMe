@@ -11,6 +11,7 @@ using AssistMeProject.Models;
 using System.Net.Mail;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using System.Text;
 
 namespace AssistMeProject.Controllers
 {
@@ -30,6 +31,7 @@ namespace AssistMeProject.Controllers
             _hostingEnvironment = environment;
             _context = context;
             model = new AssistMe(context);
+            initSearcher();
         }
 
         // GET: Questions
@@ -161,7 +163,11 @@ namespace AssistMeProject.Controllers
 
         private void initSearcher()
         {
-            _searcher = new BM25Searcher();
+            if(_searcher == null)
+            {
+                _searcher = new BM25Searcher();
+            }
+            
             LoadSearcher();
         }
 
@@ -459,6 +465,7 @@ namespace AssistMeProject.Controllers
             if (BM25Searcher.IsValidString(query))
             {
                 initSearcher();
+                LoadSearcher();
                 List<Question> questions = new List<Question>();
                 List<ISearchable> searchables = _searcher.Search(query);
                 foreach (ISearchable s in searchables)
@@ -917,5 +924,36 @@ namespace AssistMeProject.Controllers
             //End To pass the username active
         }
 
+        public string SuggestStudiosString(string title, string details)
+        {
+            var studios = SuggestStudios(title + " " + details);
+            StringBuilder joined = new StringBuilder();
+            foreach (string s in studios)
+            {
+                if(!String.IsNullOrWhiteSpace(s))
+                    joined = joined.Length > 0 ? joined.Append(", ").Append(s) : joined.Append(s);
+            }
+            return joined.ToString();
+        }
+
+        public string SuggestTagsString(string title, string details)
+        {
+            var studios = SuggestLabels(title + " " + details);
+            StringBuilder joined = new StringBuilder();
+            foreach (string s in studios)
+            {
+                if (!String.IsNullOrWhiteSpace(s))
+                    joined = joined.Length > 0 ? joined.Append(", ").Append(s) : joined.Append(s);
+            }
+            return joined.ToString();
+        }
+
+        public async Task<IActionResult> RelatedQuestionsView(string title, string details)
+        {
+            SetActiveUser();
+            var relatedQuestions = RelatedQuestions(title, details);
+            return PartialView(relatedQuestions);
+
+        }
     }
 }
