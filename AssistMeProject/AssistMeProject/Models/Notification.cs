@@ -9,6 +9,7 @@ namespace AssistMeProject.Models
     {
 
         public int Id { get; set; }
+        public String Title { get; set; }
         public String Description { get; set; }
         public bool Read { get; set; }
         public int  UserID { get; set; }//dueño de la notificación, quien la ve

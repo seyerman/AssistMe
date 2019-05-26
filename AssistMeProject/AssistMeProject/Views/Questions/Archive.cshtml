@@ -1,7 +1,7 @@
 ﻿@model AssistMeProject.Models.Question
 
 @{
-    ViewData["Title"] = "Archive";
+    ViewData["Title"] = "Delete";
 }
 
 <h2></h2>
@@ -9,51 +9,45 @@
 <h3></h3>
 
 
-<section class="container main-content">
-    <div class="row" align="center">
-        <div class="col-md-9" align="center">
-            <div class="alert-message warning" >
-                <i class="icon-exclamation-sign"></i>
-                <p>
-                    <span>Estas a punto de archivar la pregunta de titulo: @Html.DisplayFor(model => model.Title)</span><br>
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="alert-message warning">
+                    <i class="icon-exclamation-sign"></i>
+                    <p>
+                        <span>Estas a punto de archivar la pregunta de titulo: @Html.DisplayFor(model => model.Title)</span><br>
 
-                <p>La pregunta será archivada y no podrá ser vista por usuarios que no sean administradores. </p>
-                <p>            Si desea poder recuperar esta pregunta en algún momento, vaya a las preguntas archivadas.</p>
-                </p>
-            </div>
+                    <p>La pregunta será archivada y no podrá ser vista por usuarios que no sean administradores. </p>
+                    <p>            Si desea poder recuperar esta pregunta en algún momento, vaya a las preguntas archivadas.</p>
+                    </p>
+                </div>
 
 
 
-            <div class="question-inner">
-                <div class="clearfix"></div>
-                <div class="question-desc">
-
+                <div class="question-inner">
                     <div class="clearfix"></div>
-                    <div class="poll_2">
+                    <div class="question-desc">
 
-                        <div>
-                          
-                        <p>  <a id="but2" asp-action="ArchiveQuestion" asp-route-id="@Model.Id" type="button"><span class="icons-folder-smart"></span> Archivar pregunta </a>
+                        <div class="clearfix"></div>
+                        <div class="poll_2">
+
+                            <div>
+                                <form asp-action="ArchiveQuestion">
+                                    <input type="hidden" asp-for="Id" />
+                                    <input class="button large red-button custom-button" type="submit" value="Archive" />
+                                    <a asp-action="Index">Back to List</a>
+                                </form>
+                            </div>
                         </div>
-                            <p>
-
-                            </p>
-                        </p>
-                        <div>
-                            <a asp-action="Index"><span class="icons-back"> </span> Back to List</a>
-
-                        </div>
-                            
-
-                       
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
-        </div>
 
+         
+            
+      
+            </div><!-- End main -->
+    </section><!-- End container -->
 
-
-
-    </div><!-- End main -->
-</section><!-- End container -->
+  
