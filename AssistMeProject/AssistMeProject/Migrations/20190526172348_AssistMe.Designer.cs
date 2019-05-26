@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190526031243_tagslimit2")]
-    partial class tagslimit2
+    [Migration("20190526172348_AssistMe")]
+    partial class AssistMe
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
