@@ -180,6 +180,7 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.User)
                 .Include(q => q.QuestionStudios)
                     .ThenInclude(qs => qs.Studio)
+                        .ThenInclude(s => s.QuestionStudios)
                 .ToList();
             foreach (var question in questions)
             {
@@ -831,7 +832,7 @@ namespace AssistMeProject.Controllers
 
 		private string[] SuggestedLabels(List<Question> suggestions)
 		{
-			var totalLabels = new List<Label>();
+			var totalLabels = new SortedSet<Label>();
 
 			for (int i = 0; i < suggestions.Count; i++)
 			{
@@ -842,13 +843,14 @@ namespace AssistMeProject.Controllers
 				}
 
 			}
-			var l = totalLabels.GroupBy(x => x).Select(x => new { label = x, Count = x.Count() }).OrderByDescending(x => x.Count);
+            var l = totalLabels;
+            
 			var labels = new string[5];
 			for (int i = 0; i < l.Count() && i < 5; i++)
 			{
 				if (l.ElementAt(i) != null)
 				{
-					labels[i] = l.ElementAt(i).label.Key.Tag;
+					labels[i] = l.ElementAt(i).Tag;
 					//labels.Add(l.ElementAt(i).label.Key.Tag);
 				}
 				else
@@ -885,7 +887,7 @@ namespace AssistMeProject.Controllers
 
 		public string[] SuggestedStudios(List<Question> sug)
 		{
-			var totalStudios = new List<Studio>();
+			var totalStudios = new SortedSet<Studio>();
 
 			for (int i = 0; i < sug.Count; i++)
 			{
@@ -896,12 +898,12 @@ namespace AssistMeProject.Controllers
 				}
 
 			}
-			var s = totalStudios.GroupBy(x => x).Select(x => new { Studio = x, Count = x.Count() }).OrderByDescending(x => x.Count);
+			var s = totalStudios;
 			var stud = new string[3];
 			for (int i = 0; i < s.Count() && i < 3; i++)
 			{
 				if (s.ElementAt(i) != null) {
-				stud[i] = s.ElementAt(i).Studio.Key.Name;
+				stud[i] = s.ElementAt(i).Name;
 				}else
 				{
 					stud[i] = null;
