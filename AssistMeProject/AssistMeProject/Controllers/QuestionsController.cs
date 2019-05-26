@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -67,9 +66,16 @@ namespace AssistMeProject.Controllers
         }
 
         // GET: Questions/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int NotificationID = -1)
         {
             SetActiveUser();
+            if (NotificationID!=-1)
+            {
+                Notification notif = _context.Notification.FirstOrDefault(a => a.Id == NotificationID);
+                notif.Read = true;
+                _context.Update(notif);
+                _context.SaveChanges();
+            }
             if (id == null)
             {
                 return NotFound();
@@ -218,7 +224,7 @@ namespace AssistMeProject.Controllers
             string Activeuser = SetActiveUser();
             if (string.IsNullOrEmpty(Activeuser))
             {
-                return RedirectToAction("Index", "Users", new { message = "Inice sesión" });
+                return RedirectToAction("Index", "Users", new { message = "Inicie sesión" });
             }
 			if (TempData.ContainsKey("suggestLb") && TempData.ContainsKey("suggestSt") && TempData.ContainsKey("question"))
 			{
@@ -340,13 +346,14 @@ namespace AssistMeProject.Controllers
 				if (!string.IsNullOrEmpty(user))
 				{
 					actualUser = model.GetUser(user);
-					question.UserId = actualUser.ID;
+                    actualUser.QUESTIONS_ASKED++;
+                    question.UserId = actualUser.ID;
 				} else
                 {
                     return RedirectToAction("Index","Users", new { message = "Inicie sesión"});
                 }
 
-				if (ModelState.IsValid)
+                if (ModelState.IsValid)
 				{
 					_context.Add(question);
 					if (!string.IsNullOrEmpty(studio))
@@ -408,7 +415,6 @@ namespace AssistMeProject.Controllers
 							_context.Add(questionStudio3);
 						}
 
-
 						await _context.SaveChangesAsync();
 						var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads", question.Id + "");
 
@@ -430,7 +436,7 @@ namespace AssistMeProject.Controllers
 								}
 							}
 						}
-						SendEmailStudio(question, studios);
+                        SendEmailStudio(question, studios);
 					}
 
 					return RedirectToAction(nameof(Index));
@@ -918,6 +924,20 @@ namespace AssistMeProject.Controllers
 			return stud;
 		}
 
+        private void GetNotificationsOfUser()
+        {
+            string userActive = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
+            User user = model.GetUser(userActive);
+            try
+            {
+                ViewBag.Notifications = _context.Notification.Where(p => p.UserID == user.ID && !p.Read).ToList();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
         /**
          * This method allow to set the name of the active user. If there is no user, then pass the Studios that exist for create an account
          **/
@@ -927,6 +947,8 @@ namespace AssistMeProject.Controllers
             string USER = HttpContext.Session.GetString(UsersController.ACTIVE_USERNAME);
             if (string.IsNullOrEmpty(USER))
                 ViewBag.Studios = AssistMe.GetSelectListStudios(_context);
+            else
+                GetNotificationsOfUser();
             ViewBag.ACTIVE_USER = USER;
             return USER;
             //End To pass the username active
