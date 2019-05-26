@@ -2,7 +2,7 @@
 
 namespace AssistMeProject.Migrations
 {
-    public partial class hello : Migration
+    public partial class dew : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

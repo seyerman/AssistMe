@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AssistMeProject.Models
 {
-    public class Studio
+    public class Studio : IComparable<Studio>
     {
 
         public int Id { get; set; }
@@ -45,6 +45,11 @@ namespace AssistMeProject.Models
 
        public virtual ICollection<QuestionStudio> QuestionStudios { get; set; }
 
-
+        public int CompareTo(Studio other)
+        {
+            int comp1 = -(QuestionStudios.Count - other.QuestionStudios.Count);
+            if (comp1 != 0) return comp1;
+            return Name.CompareTo(other.Name);
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace AssistMeProject.Models
 
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Agregue un texto como descripción"),Display(Name ="Descripción"), MaxLength(30000)]
+        [Required(ErrorMessage ="Agregue un texto como descripción"),Display(Name ="Descripción"), MaxLength(500)]
         public string Description { get; set; }
 
         [DataType(DataType.DateTime),Display(Name ="Fecha")]

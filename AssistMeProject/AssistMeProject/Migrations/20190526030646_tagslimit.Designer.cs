@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190525150152_tryingASD")]
-    partial class tryingASD
+    [Migration("20190526030646_tagslimit")]
+    partial class tagslimit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("QuestionID");
 
@@ -62,7 +62,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("UserId");
 
@@ -123,6 +123,8 @@ namespace AssistMeProject.Migrations
 
                     b.Property<DateTime>("TimeAnswer");
 
+                    b.Property<string>("Title");
+
                     b.Property<int>("UserID");
 
                     b.HasKey("Id");
@@ -163,7 +165,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<string>("Insignia");
 
@@ -174,6 +176,10 @@ namespace AssistMeProject.Migrations
                     b.Property<int?>("UserId");
 
                     b.Property<bool>("isArchived");
+
+                    b.Property<string>("question_tags")
+                        .IsRequired()
+                        .HasMaxLength(300);
 
                     b.HasKey("Id");
 

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190514133805_hello")]
-    partial class hello
+    [Migration("20190526031243_tagslimit2")]
+    partial class tagslimit2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,9 +31,11 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("QuestionID");
+
+                    b.Property<string>("UrlOriginalQuestion");
 
                     b.Property<int>("UserId");
 
@@ -60,7 +62,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("UserId");
 
@@ -107,6 +109,31 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Label");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("QuestionId");
+
+                    b.Property<bool>("Read");
+
+                    b.Property<DateTime>("TimeAnswer");
+
+                    b.Property<string>("Title");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Notification");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
                 {
                     b.Property<int>("ID")
@@ -138,7 +165,9 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
+
+                    b.Property<string>("Insignia");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -147,6 +176,10 @@ namespace AssistMeProject.Migrations
                     b.Property<int?>("UserId");
 
                     b.Property<bool>("isArchived");
+
+                    b.Property<string>("question_tags")
+                        .IsRequired()
+                        .HasMaxLength(300);
 
                     b.HasKey("Id");
 
@@ -188,6 +221,8 @@ namespace AssistMeProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("Email");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -301,6 +336,14 @@ namespace AssistMeProject.Migrations
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
