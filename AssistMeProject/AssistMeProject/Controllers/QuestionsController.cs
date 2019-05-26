@@ -318,7 +318,7 @@ namespace AssistMeProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string action,List<IFormFile> files, string studio, string studio2, string studio3,
-            string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date")] Question question)
+            string question_tags, [Bind("IsArchived,Id,Title,Description,IdUser,Date,question_tags")] Question question)
         {
             string user = SetActiveUser();
             if (action == "Suggestions")

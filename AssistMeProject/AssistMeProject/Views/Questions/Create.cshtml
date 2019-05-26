@@ -13,7 +13,7 @@
             <p>To ask a question you must fill this form.</p>
 
             <div class="form-style form-style-3" id="question-submit">
-                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <form asp-action="Create" method="post" enctype="multipart/form-data" accept-charset="">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-inputs clearfix">
                         <p>
@@ -33,6 +33,7 @@
                             <span class="form-description">Please choose an appropriate title for the question to answer it even easier .</span>
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </p>
+
                         <div id="form-textarea">
 
                             <p>
@@ -88,14 +89,15 @@
                                     }
                                 }
 
-                                <div class="form-group">
-                                    <label class="required">Tags<span>*</span></label>
+                            <div class="form-group">
+                                <label asp-for="question_tags" class="required">Tags<span>*</span></label>
 
-                                    <i class="icon-tags"></i> Suggestions for Labels: <span id="tags-result"></span>
+                                <i class="icon-tags"></i> Suggestions for Labels: <span id="tags-result"></span>
 
-                                    <input class="input" name="question_tags" id="question_tags" data-seperator=",">
-                                    <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
-                                </div>
+                                <input asp-for="question_tags" class="input" name="question_tags" id="question_tags" data-seperator=",">
+                                <span class="form-description">Please choose  suitable Keywords Ex : <span class="color">question , poll</span> .</span>
+                                <span asp-validation-for="question_tags" class="text-danger"></span>
+                            </div>
                             </p>
                             <p>
                                 <div class="form-group">
@@ -181,6 +183,11 @@
 
     <script>
 
+        $.validator.setDefaults({ 
+    ignore: [],
+    // any other default options and/or rules
+});
+
         function isEmptyOrSpaces(str){
             return str === null || str.match(/^\s*$/) !== null;
         }
@@ -195,7 +202,8 @@
                     });
         }
 
-        $(function(){
+        $(function () {
+
             $("#suggestions_area").hide();
             $("#get-suggestions").click(function () {
                 var title = document.getElementById("question-title").value;
@@ -227,12 +235,14 @@
                           alert("error");
                      });
 
+                    
 
                     $("#get-suggestions").hide();
                     $("#suggestions_area").show();
-
+                    
                 }
             });
+
         });
 
     </script>

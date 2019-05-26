@@ -12,6 +12,12 @@ namespace AssistMeProject.Models
         [Required(ErrorMessage = "Agregue un Titulo a su pregunta"), MaxLength(150), Display(Name = "Titulo")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "Agregue etiquetas a la pregunta")]
+        [MaxLength(300)]
+        [Display(Name = "Etiquetas")]
+        [RegularExpression("^[^,]+(,[^,]+){0,4}$", ErrorMessage = "Puedes introducir hasta cinco etiquetas")]
+        public string question_tags { get; set; }
+
         public virtual ICollection<Answer> Answers { get; set; }
 
 
