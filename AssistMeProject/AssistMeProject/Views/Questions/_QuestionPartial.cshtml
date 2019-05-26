@@ -87,7 +87,6 @@
     <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => Model.Date)</span>
     <span class="question-view"><i class="icon-user"></i>@Model.Views.Count views</span>
     <span class="question-comment"><a asp-action="Details" asp-route-id="@Model.Id"><i class="icon-comment"></i>@Html.DisplayFor(model => model.Answers.Count) Answer</a></span>
-    <span class="question-vote"><a href="#"><i class="@Html.DisplayName(true?"icon-thumbs-up":"icon-thumbs-up")"></i> +22</a></span>
 
 
 

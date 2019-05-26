@@ -2,7 +2,7 @@
 
 namespace AssistMeProject.Migrations
 {
-    public partial class tryingASD : Migration
+    public partial class tagslimit2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -28,7 +28,6 @@
                 <div class="tabs-warp question-tab">
                     <ul class="tabs">
                         <li class="tab"><a href="#" class="current">Recent Questions</a></li>
-                        <li class="tab"><a href="#">No answers</a></li>
                     </ul>
                     <div id="filteranswerlist" class="filter-container">
                     </div>
@@ -93,7 +92,7 @@
                                                         <span class="question-comment"> <a asp-action="UpdateDate" asp-route-id="@item.Id"> <i class="@Html.DisplayName(true ? "icon-spinner" : "icon-spinner")"></i> Ask Again</a></span>
                                                     }
                                                 }
-                                                
+
 
                                                 <span id="question_vote_@item.Id" onclick="interaction('iv',getUserID(),@item.Id,'question_vote_@item.Id' )" class="question-favorite">
                                                     <i class="@Html.DisplayName((int)ViewData["userID"]>=0 && item.UserVote((int)ViewData["userID"])?"icon-star":"icon-star-empty")"></i>
@@ -120,6 +119,7 @@
                                                 </a>
                                             </span>
                                             <span class="question-date"><i class="icon-time"></i>@Html.DisplayFor(modelItem => item.Date)</span>
+                                            <span class="question-view"><i class="icon-user"></i>@item.Views.Count views</span>
                                             <span class="question-comment"><a asp-action="Details" asp-route-id="@item.Id"><i class="icon-comment"></i>@item.Answers.Count</a></span>
                                             <p>
                                                 <div class="question-tags">
