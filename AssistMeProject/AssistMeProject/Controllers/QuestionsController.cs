@@ -50,6 +50,7 @@ namespace AssistMeProject.Controllers
 
                     .Include(q => q.Answers)
                     .Include(q => q.InterestingVotes)
+                    .Include(q => q.Views)
                     .Include(q => q.QuestionLabels)
                         .ThenInclude(ql => ql.Label)
                     .Include(q => q.QuestionStudios)
@@ -178,6 +179,7 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.User)
+                .Include(q => q.Views)
                 .Include(q => q.QuestionStudios)
                     .ThenInclude(qs => qs.Studio)
                         .ThenInclude(s => s.QuestionStudios)
@@ -291,6 +293,7 @@ namespace AssistMeProject.Controllers
                 questions = await _context.Question.Where(q => q.isArchived == false)
                     .Include(q => q.Answers)
                     .Include(q => q.InterestingVotes)
+                    .Include(q => q.Views)
                     .Include(q => q.QuestionLabels)
                         .ThenInclude(ql => ql.Label)
                     .Include(q => q.QuestionStudios)
@@ -672,6 +675,7 @@ namespace AssistMeProject.Controllers
                 .Include(q => q.QuestionLabels)
                     .ThenInclude(ql => ql.Label)
                 .Include(q => q.User)
+                .Include(q => q.Views)
                 .Include(q => q.QuestionStudios)
                     .ThenInclude(qs => qs.Studio)
                 .FirstOrDefaultAsync(m => m.Id == id);
