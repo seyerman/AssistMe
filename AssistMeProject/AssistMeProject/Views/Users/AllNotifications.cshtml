@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AssistMeProject.Models.Notification>
+@{ 
+    ViewData["Title"] = "Todas las notificaciones";
+}
+<div class="col-md-9">
+
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="tabs-warp question-tab">
+                    <ul class="tabs">
+                        <li class="tab"><a href="#" class="current">@ViewData["Title"]</a></li>
+                    </ul>
+                    <div class="tab-inner-warp">
+                        <div class="tab-inner">
+                            @{
+                                foreach (var item in Model)
+                                {
+
+                                    <article class="question question-type-normal">
+                                        <p style="color: red; background-color:#e8e8e8; border-radius:10px; padding:5px; shape-margin:20px;">@item.Title</p>
+                                        <h3 style="padding-left:7%;">
+                                            <a href="/Questions/Details?id=@item.QuestionId&NotificationID=@item.Id">
+                                            Descripción:<br /> @Html.DisplayFor(modelItem => item.Description)</a>
+                                        </h3>
+                                        
+                                    </article>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- End page-content -->
+
+
+
+        </div><!-- End row -->
+    </section><!-- End container -->
+
+</div><!-- End main -->

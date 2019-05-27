@@ -8,11 +8,6 @@
 
 
 
-
-
-
-
-
 <!-- omitido breadcrumbs del template agregar luego...-->
 <section class="container main-content">
     <div class="row">
@@ -31,14 +26,15 @@
                     @{
                         foreach (var f in ViewBag.FileNames)
                         {
-                            <a href='~/uploads/@(Model.Id+"/"+f)' download="@f"><i class="icon-paper-clip"></i>@(" " + f)</a><br />
+                        <a href='~/uploads/@(Model.Id+"/"+f)' download="@f"><i class="icon-paper-clip"></i>@(" " + f)</a><br />
                         }
                     }
 
                 </div>
             </p>
             <div class="page-content clearfix">
-                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="false"><i class="icon-comment"></i>Add Answer</a> |
+                <a asp-Controller="Answers" asp-action="Create" asp-route-QuestionID="@Model.Id" asp-route-repeat="true"><i class="icon-copy"></i>Answer as Repeat</a> |
                 <a asp-action="Index"><i class="icon-reply"></i>Back to List</a>
             </div>
 
@@ -53,7 +49,7 @@
                             {
                                 text += ", ";
                             }
-                            <a href="#">@text</a>
+                        <a href="#">@text</a>
                         }
                     }
                 </div>
@@ -64,11 +60,10 @@
 
             <div class="about-author clearfix">
                 <div class="author-image">
-                    <a href="#" original-title="@Model.User.USERNAME" class="tooltip-n"><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+                    <a href="#" original-title="@Model.User.USERNAME" class="tooltip-n"><img alt="" src="@Model.User.PHOTO"></a>
                 </div>
                 <div class="author-bio">
                     <h4>About the Author - Username: "@Model.User.USERNAME"</h4>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra auctor neque. Nullam lobortis, sapien vitae lobortis tristique.
                 </div>
             </div><!-- End about-author -->
 
@@ -78,23 +73,25 @@
                     @{
                         if (ViewBag.Related.Count == 0)
                         {
-                            <li class="related-item"><h3>There are no related questions</h3></li>
+                        <li class="related-item"><h3>There are no related questions</h3></li>
                         }
                         else
                         {
                             foreach (var q in ViewBag.Related)
                             {
-                                <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
+                        <li class="related-item"><h3><a asp-action="Details" asp-route-id="@q.Id"><i class="icon-double-angle-right"></i>@q.Title</a></h3></li>
                             }
                         }
+
 
                     }
 
                 </ul>
             </div><!-- End related-posts -->
+            <div id="filteranswerlist" class="filter-container">
 
+            </div>
             <div id="answerlist">
-
 
             </div>
 
@@ -105,22 +102,25 @@
 
             </p>
 
-            <p>
 
-            </p>
+            
+        
+        
+        <div id="filteranswerlist" class="filter-container">
+        </div>
 
-            <div id="related-posts">
+            <div id="answerlist"></div>
+
+            <div id="opciones-avanzadas">
                 <h2>Opciones avanzadas</h2>
 
 
-                <div>
-                    <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none">
-                        <span class="icons-trash-full"></span>  Eliminar pregunta
-                    </a>
-                </div>
+
+                <a id="but1" asp-action="Delete" asp-route-id="@Model.Id" style="display:none" class="load-questions">Eliminar pregunta  </a>
+
                 <p></p>
                 <p></p>
-                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button"><span class="icons-folder-smart"></span> Archivar pregunta </a>
+                <a id="but2" asp-action="Archive" asp-route-id="@Model.Id" style="display:none" type="button" class="load-questions">Archivar pregunta </a>
                 <h1 id="lab" style="display:none"> Opciones no disponibles para este usuario </h1>
             </div><!-- End related-posts -->
 
@@ -165,7 +165,7 @@
 
         $(function () {
             $.ajax({
-                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)"
+                url: "@Url.Content("~/Answers/AnswerList?QuestionId="+Model.Id)" + "&userId=" + getUserID()
             }).done(function (data) {
                 $('#answerlist').html(data);
             }).fail(function () {

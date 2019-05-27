@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace AssistMeProject.Models
             {
                 string username = "Test" + i;
                 string email = i % 2 == 0 ? username + ".gaming@globant.com" : username + ".consulting@globant.com";
-                User user = new User(i, "",User.LEVEL_NORMAL, username, username, email, "../data/photos/" + username, i % 6, i % 10, i % 30, i % 20, "I like to help people", "Play guitar, play piano, food lover", "Colombia", "Medellin");
+                User user = new User(i, "",User.LEVEL_NORMAL, username, username, email, "../data/photos/" + username, i % 6, i % 10, i % 30, i % 20, "I like to help people", "Play guitar, play piano, food lover", "Colombia", "Medellin",1);
                 _context.User.Add(user);
             }
             _context.SaveChanges();
@@ -67,6 +68,17 @@ namespace AssistMeProject.Models
         {
             User found = (User)_context.User.FirstOrDefault(a => a.USERNAME.Equals(username)).Clone();
             return found;
+        }
+
+        public static SelectList GetSelectListStudios(AssistMeProjectContext _context)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            var studios = _context.Studio.ToList();
+            foreach (Studio s in studios)
+            {
+                list.Add(new SelectListItem() { Text = s.Name, Value = s.Name });
+            }
+            return new SelectList(list, "Value", "Text");
         }
 
     }

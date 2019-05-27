@@ -13,8 +13,9 @@ namespace AssistMeProject.Models
         public const int LEVEL_ROOT = 1;
         public const int LEVEL_ADMIN = 2;
         public const int LEVEL_NORMAL = 3;
+       
 
-        public User(int iD, string gOOGLE_KEY, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY)
+        public User(int iD, string gOOGLE_KEY, int lEVEL, string uSERNAME, string pASSWORD, string eMAIL, string pHOTO, int qUESTIONS_ANSWERED, int pOSITIVE_VOTES_RECEIVED, int qUESTIONS_ASKED, int iNTERESTING_VOTES_RECEIVED, string dESCRIPTION, string iNTERESTS_OR_KNOWLEDGE, string cOUNTRY, string cITY, int studioID)
         {
             ID = iD;
             GOOGLE_KEY = gOOGLE_KEY ?? throw new ArgumentNullException(nameof(gOOGLE_KEY));
@@ -31,6 +32,7 @@ namespace AssistMeProject.Models
             INTERESTS_OR_KNOWLEDGE = iNTERESTS_OR_KNOWLEDGE ?? throw new ArgumentNullException(nameof(iNTERESTS_OR_KNOWLEDGE));
             COUNTRY = cOUNTRY ?? throw new ArgumentNullException(nameof(cOUNTRY));
             CITY = cITY ?? throw new ArgumentNullException(nameof(cITY));
+            StudioId = studioID;
 
             this.Comments = new HashSet<Comment>();
             this.Answers = new HashSet<Answer>();
@@ -61,6 +63,7 @@ namespace AssistMeProject.Models
             this.Comments = new HashSet<Comment>();
             this.Answers = new HashSet<Answer>();
             this.Questions = new HashSet<Question>();
+            this.Notifications = new HashSet<Notification>();
         }
 
         public int ID { get; set; }
@@ -85,6 +88,8 @@ namespace AssistMeProject.Models
         public virtual ICollection<Question> Questions { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
         public virtual ICollection<Comment> Comments { get; set;}
+        public virtual ICollection<Notification> Notifications { get; set; }
+
         public int StudioId { get; set; }
         public Studio Studio { get; set; }
 

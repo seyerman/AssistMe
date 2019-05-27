@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssistMeProject.Migrations
 {
     [DbContext(typeof(AssistMeProjectContext))]
-    [Migration("20190513142517_migracionsota")]
-    partial class migracionsota
+    [Migration("20190526172348_AssistMe")]
+    partial class AssistMe
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,9 +31,11 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("QuestionID");
+
+                    b.Property<string>("UrlOriginalQuestion");
 
                     b.Property<int>("UserId");
 
@@ -60,7 +62,7 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
                     b.Property<int>("UserId");
 
@@ -107,6 +109,31 @@ namespace AssistMeProject.Migrations
                     b.ToTable("Label");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("QuestionId");
+
+                    b.Property<bool>("Read");
+
+                    b.Property<DateTime>("TimeAnswer");
+
+                    b.Property<string>("Title");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Notification");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
                 {
                     b.Property<int>("ID")
@@ -138,9 +165,9 @@ namespace AssistMeProject.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(30000);
+                        .HasMaxLength(500);
 
-                    b.Property<int?>("StudioId");
+                    b.Property<string>("Insignia");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -150,9 +177,11 @@ namespace AssistMeProject.Migrations
 
                     b.Property<bool>("isArchived");
 
-                    b.HasKey("Id");
+                    b.Property<string>("question_tags")
+                        .IsRequired()
+                        .HasMaxLength(300);
 
-                    b.HasIndex("StudioId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -172,6 +201,19 @@ namespace AssistMeProject.Migrations
                     b.ToTable("QuestionLabels");
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.QuestionStudio", b =>
+                {
+                    b.Property<int>("QuestionId");
+
+                    b.Property<int>("StudioId");
+
+                    b.HasKey("QuestionId", "StudioId");
+
+                    b.HasIndex("StudioId");
+
+                    b.ToTable("QuestionStudio");
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.Studio", b =>
                 {
                     b.Property<int>("Id")
@@ -179,6 +221,8 @@ namespace AssistMeProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("Email");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -294,6 +338,14 @@ namespace AssistMeProject.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("AssistMeProject.Models.Notification", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("AssistMeProject.Models.PositiveVote", b =>
                 {
                     b.HasOne("AssistMeProject.Models.Answer", "Answer")
@@ -309,10 +361,6 @@ namespace AssistMeProject.Migrations
 
             modelBuilder.Entity("AssistMeProject.Models.Question", b =>
                 {
-                    b.HasOne("AssistMeProject.Models.Studio", "Studio")
-                        .WithMany("Questions")
-                        .HasForeignKey("StudioId");
-
                     b.HasOne("AssistMeProject.Models.User", "User")
                         .WithMany("Questions")
                         .HasForeignKey("UserId");
@@ -328,6 +376,19 @@ namespace AssistMeProject.Migrations
                     b.HasOne("AssistMeProject.Models.Question", "Question")
                         .WithMany("QuestionLabels")
                         .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssistMeProject.Models.QuestionStudio", b =>
+                {
+                    b.HasOne("AssistMeProject.Models.Question", "Question")
+                        .WithMany("QuestionStudios")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AssistMeProject.Models.Studio", "Studio")
+                        .WithMany("QuestionStudios")
+                        .HasForeignKey("StudioId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
